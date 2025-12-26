@@ -957,3 +957,19 @@ img {
     padding: 16px !important;
   }
 }
+/* Hide/show helpers */
+.hideOnMobile {
+  display: block;
+}
+.showOnMobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+  .showOnMobile {
+    display: block !important;
+  }
+}

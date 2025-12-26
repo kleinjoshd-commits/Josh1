@@ -49,8 +49,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* HOME UI (UI 1 ONLY) */}
-            <div className="card">
+            {/* HOME UI (HIDE ON MOBILE) */}
+            <div className="card hideOnMobile">
               <div className="cardInner">
                 <Image
                   src="/mpe-ui.png"
@@ -66,28 +66,11 @@ export default function Home() {
 
           {/* BALANCE — ONLY PRODUCT BOX */}
           <div style={{ marginTop: 34 }}>
-            <div
-              className="panel"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 20,
-                alignItems: "center",
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    fontSize: 12,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    opacity: 0.75,
-                  }}
-                >
-                  Balance
-                </div>
+            <div className="panel balancePanel">
+              <div className="balanceText">
+                <div className="balanceKicker">Balance</div>
 
-                <h3 style={{ marginTop: 10 }}>A modern wallet for workers</h3>
+                <h3 className="balanceH3">A modern wallet for workers</h3>
 
                 <p className="p" style={{ marginTop: 10 }}>
                   Balance gives workers faster access to earnings and a clear
@@ -95,7 +78,7 @@ export default function Home() {
                   employers retain governance through Modern PayEngine.
                 </p>
 
-                <div style={{ marginTop: 16, display: "flex", gap: 12 }}>
+                <div className="balanceCtas">
                   <a className="btnSecondary" href="/balance">
                     Explore Balance
                   </a>
@@ -105,14 +88,21 @@ export default function Home() {
                 </div>
               </div>
 
-              <div style={{ borderRadius: 16, overflow: "hidden" }}>
+              {/* BALANCE MOCKUP (HIDE ON MOBILE) */}
+              <div className="balanceMock hideOnMobile">
                 <Image
                   src="/balance-ui.png"
                   alt="Balance wallet interface"
-                  width={1400}
-                  height={900}
+                  width={1600}
+                  height={1000}
+                  priority
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
+              </div>
+
+              {/* Optional: a tiny “View screenshots on desktop” hint only on mobile */}
+              <div className="showOnMobile" style={{ marginTop: 10, opacity: 0.7, fontSize: 13 }}>
+                Screenshots are available on desktop for a larger preview.
               </div>
             </div>
           </div>
