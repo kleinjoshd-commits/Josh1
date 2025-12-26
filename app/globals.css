@@ -914,3 +914,46 @@ img {
     text-align: center;
   }
 }
+/* -----------------------------
+   KYC / "Learn more" mobile fixes
+   (desktop unchanged)
+   ----------------------------- */
+
+@media (max-width: 900px) {
+  /* If your KycForm uses a 2-col grid, force it to 1-col on mobile */
+  form {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Any inputs/textarea that were spanning 2 columns should just span 1 */
+  input,
+  textarea,
+  select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* If you used inline styles like gridColumn: "span 2", this helps */
+  form > * {
+    grid-column: auto !important;
+  }
+
+  /* Give the Learn More card breathing room on mobile */
+  #kyc .container > div,
+  #kyc .darkInner > div {
+    padding: 18px !important;
+    border-radius: 16px !important;
+  }
+
+  /* Make the submit button full width */
+  #kyc button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  #kyc .container > div,
+  #kyc .darkInner > div {
+    padding: 16px !important;
+  }
+}
