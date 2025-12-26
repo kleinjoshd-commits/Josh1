@@ -1,7 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Nav() {
+  const [open, setOpen] = useState(false);
+
+  // Close the mobile menu if user resizes back to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 900) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <header
       style={{
@@ -13,28 +27,9 @@ export default function Nav() {
         borderBottom: "1px solid rgba(255,255,255,0.10)",
       }}
     >
-      <div
-        className="container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 18,
-          paddingTop: 14,
-          paddingBottom: 14,
-        }}
-      >
+      <div className="container navBar">
         {/* Logo */}
-        <Link
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            minWidth: 180,
-          }}
-          aria-label="Home"
-        >
+        <Link href="/" className="navLogo" aria-label="Home">
           <Image
             src="/White-mpe-logo.png"
             alt="Modern PayEngine"
@@ -45,44 +40,61 @@ export default function Nav() {
           />
         </Link>
 
-        {/* Links */}
-        <nav
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 18,
-            flexWrap: "wrap",
-            justifyContent: "flex-end",
-          }}
-        >
-          <Link
-            href="/modern-payengine"
-            style={{
-              color: "rgba(255,255,255,0.86)",
-              fontSize: 14,
-              opacity: 0.92,
-            }}
-          >
+        {/* Desktop nav (unchanged on desktop) */}
+        <nav className="navLinks">
+          <Link href="/modern-payengine" className="navLink">
             Modern PayEngine
           </Link>
-
-          <Link
-            href="/balance"
-            style={{
-              color: "rgba(255,255,255,0.86)",
-              fontSize: 14,
-              opacity: 0.92,
-            }}
-          >
+          <Link href="/balance" className="navLink">
             Balance
           </Link>
-
-          {/* Single CTA to #kyc */}
           <Link className="btnPrimary" href="/#kyc">
             Learn more
           </Link>
         </nav>
+
+        {/* Mobile hamburger (only visible via CSS on mobile) */}
+        <button
+          type="button"
+          className="navBurger"
+          aria-label="Open menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
+
+      {/* Mobile dropdown (only shows when open + on mobile) */}
+      {open && (
+        <div className="navMobileWrap">
+          <div className="container navMobileMenu">
+            <Link
+              href="/modern-payengine"
+              className="navMobileItem"
+              onClick={() => setOpen(false)}
+            >
+              Modern PayEngine
+            </Link>
+            <Link
+              href="/balance"
+              className="navMobileItem"
+              onClick={() => setOpen(false)}
+            >
+              Balance
+            </Link>
+            <Link
+              href="/#kyc"
+              className="btnPrimary navMobileCta"
+              onClick={() => setOpen(false)}
+            >
+              Learn more
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

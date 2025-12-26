@@ -784,3 +784,133 @@ img {
     gap: 12px !important;
   }
 }
+/* -----------------------------
+   NAV (desktop baseline)
+   ----------------------------- */
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  min-width: 180px;
+}
+
+.navLinks {
+  display: flex; /* desktop default */
+  align-items: center;
+  gap: 18px;
+  justify-content: flex-end;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 14px;
+  text-decoration: none;
+  opacity: 0.92;
+}
+
+/* Hamburger hidden by default (desktop unchanged) */
+.navBurger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.navBurger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 999px;
+}
+
+.navMobileWrap {
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(8, 12, 12, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.navMobileMenu {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.navMobileItem {
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navMobileCta {
+  width: 100%;
+  text-align: center;
+}
+
+/* -----------------------------
+   BALANCE panel (desktop baseline)
+   - desktop remains 2 columns
+   ----------------------------- */
+.balancePanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* desktop default */
+  gap: 20px;
+  align-items: center;
+}
+
+.balanceMock {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.balanceCtas {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* -----------------------------
+   MOBILE OVERRIDES ONLY
+   ----------------------------- */
+@media (max-width: 900px) {
+  /* Nav: swap desktop links for hamburger */
+  .navLinks {
+    display: none;
+  }
+  .navBurger {
+    display: inline-flex;
+  }
+
+  /* Balance: stack + make mock full width */
+  .balancePanel {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .balanceMock {
+    width: 100%;
+  }
+  .balanceCtas .btnPrimary,
+  .balanceCtas .btnSecondary {
+    width: 100%;
+    text-align: center;
+  }
+}
