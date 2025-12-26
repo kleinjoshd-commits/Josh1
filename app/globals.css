@@ -1,42 +1,685 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root{
+  /* Brand source color (never used directly in UI) */
+  --balance-green:#1BC47D;
+
+  /* UI green — intentionally muted to avoid neon */
+  --balance-green-ui:#16A86C;
+
+  --night:#05060A;
+  --paper:#F4F3F1;
+  --ink:#0B1B14;
+
+  --muted: rgba(11,27,20,0.66);
+  --muted2: rgba(255,255,255,0.70);
+
+  --shadow: 0 26px 80px rgba(0,0,0,0.18);
+  --shadowDark: 0 26px 80px rgba(0,0,0,0.35);
+
+  --radius: 22px;
+  --radius2: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+body{
+  background: var(--night);
+  color:#fff;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+a{color:inherit;text-decoration:none}
+
+.container{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* ================= NAV ================= */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background: rgba(5,6,10,0.80);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.navRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 0;
+}
+
+.navLinks{
+  display:flex;
+  gap:22px;
+  font-size:14px;
+  color:rgba(255,255,255,0.72);
+}
+
+.navLinks a:hover{color:#fff}
+
+.wordmark{
+  display:inline-flex;
+  align-items:baseline;
+  gap:6px;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:-0.01em;
+  white-space:nowrap;
+}
+
+.sup{
+  position:relative;
+  top:-0.55em;
+  font-size:10px;
+  font-weight:800;
+  color: var(--balance-green-ui);
+}
+
+.cta{
+  background: var(--balance-green-ui);
+  color:#000;
+  font-weight:800;
+  font-size:14px;
+  padding:10px 14px;
+  border-radius:12px;
+}
+
+.cta:hover{opacity:0.92}
+
+/* ================= LIGHT DECK (MPE) ================= */
+.deckLight{
+  background: var(--paper);
+  color: var(--ink);
+  position:relative;
+  overflow:hidden;
+}
+
+.wavesLight{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(1100px 600px at 70% 55%, rgba(22,168,108,0.10), transparent 60%),
+    radial-gradient(900px 520px at 15% 25%, rgba(0,0,0,0.06), transparent 60%);
+}
+
+.deckInner{
+  position:relative;
+  padding:56px 0 80px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:36px;
+}
+
+@media(min-width:920px){
+  .grid{
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items:center;
+    gap:64px;
   }
 }
 
-html,
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.66);
+  font-size:12px;
+  font-weight:650;
+  color:rgba(11,27,20,0.72);
+}
+
+.dot{
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:var(--balance-green-ui);
+}
+
+.h1{
+  font-size:44px;
+  line-height:1.06;
+  font-weight:620;
+  margin-top:22px;
+  letter-spacing:-0.02em;
+}
+
+.p{
+  font-size:16px;
+  line-height:1.72;
+  color: var(--muted);
+  margin-top:18px;
+  max-width:540px;
+}
+
+.btnRow{
+  display:flex;
+  gap:12px;
+  margin-top:26px;
+  flex-wrap:wrap;
+}
+
+.btnPrimary{
+  background: var(--balance-green-ui);
+  color:#000;
+  font-weight:850;
+  font-size:14px;
+  padding:12px 16px;
+  border-radius:14px;
+}
+
+.btnSecondary{
+  background: rgba(255,255,255,0.68);
+  border:1px solid rgba(0,0,0,0.10);
+  color: var(--ink);
+  font-weight:850;
+  font-size:14px;
+  padding:12px 16px;
+  border-radius:14px;
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover{opacity:0.92}
+
+/* ===== Mockup cards ===== */
+.card{
+  max-width:560px;
+  margin-left:auto;
+  background: rgba(255,255,255,0.74);
+  border:1px solid rgba(0,0,0,0.10);
+  border-radius: var(--radius);
+  padding:12px;
+  box-shadow: var(--shadow);
+}
+
+.cardInner{
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.10);
+  border-radius: var(--radius2);
+  overflow:hidden;
+  max-height:520px;
+}
+
+.cardInner img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+/* ================= DARK DECK (BALANCE) ================= */
+.deckDark{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(900px 520px at 18% 22%, rgba(255,255,255,0.05), transparent 58%),
+    radial-gradient(900px 520px at 76% 68%, rgba(22,168,108,0.07), transparent 60%),
+    #05060A;
+  border-top:1px solid rgba(255,255,255,0.08);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.rings{
+  position:absolute;
+  inset:-120px -120px auto auto;
+  width:520px;
+  height:520px;
+  border-radius:999px;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.10) 0 1px, transparent 1px 100%);
+  opacity:0.22;
+}
+
+.darkInner{
+  position:relative;
+  padding:84px 0;
+}
+
+.kicker{
+  font-size:12px;
+  color: rgba(255,255,255,0.70);
+  font-weight:650;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.balanceTitle{
+  margin-top:14px;
+  font-size:60px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-0.03em;
+}
+
+.byline{
+  margin-top:12px;
+  font-size:16px;
+  color: rgba(255,255,255,0.70);
+}
+
+.divider{
+  height:1px;
+  width:120px;
+  background: rgba(255,255,255,0.28);
+  margin:22px 0 18px;
+}
+
+.darkP{
+  max-width:520px;
+  font-size:16px;
+  line-height:1.75;
+  color: rgba(255,255,255,0.70);
+}
+
+.darkCard{
+  max-width:560px;
+  margin-left:auto;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius);
+  padding:12px;
+  box-shadow: var(--shadowDark);
+}
+
+.darkCardInner{
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius2);
+  overflow:hidden;
+  max-height:520px;
+}
+
+.darkCardInner img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+/* ================= KYC ================= */
+.kycWrap{padding:80px 0}
+
+.kycGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:28px;
+}
+
+@media(min-width:920px){
+  .kycGrid{grid-template-columns:1fr 1fr}
+}
+
+.panel,
+.form{
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius);
+  padding:26px;
+}
+
+.panel h3{margin:0;font-size:18px}
+.panel p{margin:12px 0 0;color:rgba(255,255,255,0.70);line-height:1.7}
+
+.label{
+  display:block;
+  font-size:12px;
+  color:rgba(255,255,255,0.70);
+  font-weight:650;
+  margin-bottom:8px;
+}
+
+.input{
+  width:100%;
+  height:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.42);
+  color:#fff;
+  padding:0 14px;
+}
+
+.submit{
+  width:100%;
+  margin-top:12px;
+  height:46px;
+  border-radius:14px;
+  border:0;
+  background: var(--balance-green-ui);
+  color:#000;
+  font-weight:900;
+}
+
+.small{
+  font-size:12px;
+  color:rgba(255,255,255,0.45);
+  line-height:1.6;
+  margin-top:12px;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+  border-top:1px solid rgba(255,255,255,0.10);
+  padding:22px 0;
+  color:rgba(255,255,255,0.60);
+  font-size:13px;
+}
+
+.footerRow{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+/* =========================
+   Contrast + Box Normalization
+   Paste at bottom of app/globals.css
+   ========================= */
+
+:root {
+  /* Light mode base */
+  --ink: #111827;          /* primary text */
+  --muted: rgba(17, 24, 39, 0.72);
+  --hairline: rgba(17, 24, 39, 0.10);
+
+  /* Brand green (muted, not neon) */
+  --brand: #16a86c;
+  --brand-soft: rgba(22, 168, 108, 0.12);
+
+  /* Light surfaces */
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-2: rgba(255, 255, 255, 0.62);
+
+  /* Dark section surfaces */
+  --dark-ink: rgba(255, 255, 255, 0.92);
+  --dark-muted: rgba(255, 255, 255, 0.72);
+  --dark-hairline: rgba(255, 255, 255, 0.12);
+  --dark-surface: rgba(255, 255, 255, 0.06);
+  --dark-surface-2: rgba(0, 0, 0, 0.18);
+}
+
+/* Ensure default text is readable */
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  color: var(--ink);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+p, li {
+  color: var(--muted);
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* ---------- LIGHT SECTIONS ---------- */
+.deckLight {
+  color: var(--ink);
 }
 
+.deckLight .p,
+.deckLight p,
+.deckLight li {
+  color: var(--muted);
+}
+
+.deckLight .panel {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+}
+
+.deckLight .panel p,
+.deckLight .panel li {
+  color: var(--muted);
+}
+
+.deckLight .card {
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+}
+
+/* ---------- DARK SECTIONS ---------- */
+.deckDark {
+  color: var(--dark-ink);
+}
+
+.deckDark .darkP,
+.deckDark p,
+.deckDark li {
+  color: var(--dark-muted);
+}
+
+.deckDark .panel {
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-hairline);
+  color: var(--dark-ink);
+}
+
+.deckDark .panel p,
+.deckDark .panel li {
+  color: var(--dark-muted);
+}
+
+.deckDark .darkCard {
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-hairline);
+}
+
+/* ---------- BUTTONS ---------- */
+.btnPrimary {
+  background: var(--brand) !important;
+  border: 1px solid rgba(0, 0, 0, 0.10) !important;
+  color: #ffffff !important;
+}
+
+.btnPrimary:hover {
+  filter: brightness(0.97);
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid var(--hairline) !important;
+  color: var(--ink) !important;
+}
+
+.deckDark .btnSecondary {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid var(--dark-hairline) !important;
+  color: var(--dark-ink) !important;
+}
+
+/* ---------- FORMS (avoid white-on-white) ---------- */
+input, textarea, select {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--hairline);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(17, 24, 39, 0.45);
+}
+
+/* ---------- LINKS ---------- */
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+/* =========================
+   Premium surfaces (match UI mockups)
+   Paste at bottom of app/globals.css
+   ========================= */
+
+:root {
+  /* Ink */
+  --ink: #111827;
+  --muted: rgba(17, 24, 39, 0.72);
+
+  /* Hairlines */
+  --hairline: rgba(17, 24, 39, 0.10);
+  --hairline-soft: rgba(17, 24, 39, 0.08);
+
+  /* Brand */
+  --brand: #16a86c;
+
+  /* LIGHT: premium, off-white "glass" */
+  --surface: rgba(255, 255, 255, 0.66);     /* less harsh than white */
+  --surface-2: rgba(255, 255, 255, 0.52);   /* secondary */
+  --surface-tint: rgba(22, 168, 108, 0.04); /* tiny green tint */
+
+  /* DARK: keep your current feel */
+  --dark-ink: rgba(255, 255, 255, 0.92);
+  --dark-muted: rgba(255, 255, 255, 0.72);
+  --dark-hairline: rgba(255, 255, 255, 0.12);
+  --dark-surface: rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Premium panel/card look (LIGHT pages) ---------- */
+.deckLight .panel {
+  background: linear-gradient(
+      180deg,
+      var(--surface),
+      var(--surface-2)
+    ),
+    var(--surface-tint);
+  border: 1px solid var(--hairline-soft);
+  border-radius: 18px;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.deckLight .panel h3 {
+  color: var(--ink);
+}
+
+.deckLight .panel p,
+.deckLight .panel li {
+  color: var(--muted);
+}
+
+/* Cards to match (LIGHT) */
+.deckLight .card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.42));
+  border: 1px solid var(--hairline-soft);
+  border-radius: 18px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+/* ---------- Inputs (no harsh white) ---------- */
+input, textarea, select {
+  background: rgba(255, 255, 255, 0.60);
+  border: 1px solid rgba(17, 24, 39, 0.10);
+  color: var(--ink);
+  border-radius: 14px;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: rgba(22, 168, 108, 0.35);
+  box-shadow:
+    0 0 0 4px rgba(22, 168, 108, 0.10),
+    0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(17, 24, 39, 0.45);
+}
+
+/* ---------- Buttons: keep premium, not neon ---------- */
+.btnPrimary {
+  background: var(--brand) !important;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+  box-shadow:
+    0 10px 24px rgba(22, 168, 108, 0.18),
+    0 2px 6px rgba(0,0,0,0.06);
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.35) !important;
+  border: 1px solid rgba(17, 24, 39, 0.10) !important;
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.06),
+    0 2px 6px rgba(0,0,0,0.04);
+}
+/* --- Fix default link blue / invisible text in dark sections --- */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  color: inherit;
+}
+
+/* Ensure all text inside the onboarding/kyc area inherits section color */
+#kyc, #kyc * {
+  color: inherit;
+}
+
+/* If your onboarding section has a class, this helps too */
+.kyc, .kyc * {
+  color: inherit;
+}
+
+/* Make sure paragraphs in dark areas aren't overridden */
+.deckDark p,
+.deckDark h1,
+.deckDark h2,
+.deckDark h3,
+.deckDark li,
+.deckDark span,
+.deckDark div {
+  color: inherit;
+}
+
+/* =========================
+   Onboarding / KYC section color fix
+   ========================= */
+
+/* Force the onboarding section to have correct readable text colors */
+#kyc {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+#kyc p,
+#kyc li,
+#kyc span,
+#kyc label,
+#kyc small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Headings in onboarding */
+#kyc h1,
+#kyc h2,
+#kyc h3 {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Prevent default blue links inside onboarding */
+#kyc a:not(.btnPrimary):not(.btnSecondary) {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+
+#kyc a:not(.btnPrimary):not(.btnSecondary):hover {
+  text-decoration-color: rgba(255, 255, 255, 0.55);
 }
