@@ -60,7 +60,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CFO QUOTE (ANIMATED) */}
+         {/* CFO QUOTE */}
 <div
   className="quoteWrap"
   data-animate
@@ -69,13 +69,16 @@ export default function Home() {
   <div
     className="panel quotePanel"
     style={{
-      padding: "22px 26px",
+      padding: "16px 26px 22px", // less space on top, normal bottom
       maxWidth: 800,
       margin: "0 auto",
       textAlign: "center",
     }}
   >
-    <p className="quoteText">
+    <p
+      className="quoteText"
+      style={{ marginBottom: 22 }} // more space before author
+    >
       “Predictable and locked foreign exchange rates allow us to plan payroll
       and price services consistently across regions.”
     </p>
@@ -85,6 +88,7 @@ export default function Home() {
     </div>
   </div>
 </div>
+
 
 
           {/* BALANCE — HOME FEATURE */}
