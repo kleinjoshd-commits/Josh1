@@ -128,6 +128,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 {/* INFRASTRUCTURE PARTNER */}
 <div style={{ marginTop: 64, marginBottom: 32 }}>
   <div
@@ -138,11 +139,11 @@ export default function Home() {
   >
     <div
       style={{
-        fontSize: 15, // was 12 → ~25% larger
+        fontSize: 15,
         letterSpacing: "0.14em",
         textTransform: "uppercase",
         color: "rgba(255, 255, 255, 0.75)",
-        marginBottom: 14,
+        marginBottom: 16,
       }}
     >
       Infrastructure partner
@@ -159,14 +160,15 @@ export default function Home() {
         src="/papaya-global-logo.png"
         alt="Papaya Global"
         style={{
-          height: 32, // was 26 → ~25% larger
+          height: 40, // increased from 32 → visibly stronger
           width: "auto",
-          opacity: 0.8,
+          opacity: 0.85,
         }}
       />
     </div>
   </div>
 </div>
+
 
 
 
