@@ -60,6 +60,35 @@ export default function Home() {
             </div>
           </div>
 
+          {/* CFO QUOTE (ANIMATED) */}
+          <div
+            className="quoteWrap"
+            data-animate
+            style={{ marginTop: 40, marginBottom: 20 }}
+          >
+            <div
+              className="panel quotePanel"
+              style={{
+                padding: "22px 26px",
+                maxWidth: 900,
+                margin: "0 auto",
+                textAlign: "center",
+              }}
+            >
+              <p className="quoteText">
+                “For the first time, we can forecast our foreign exchange costs
+                month-to-month instead of reacting to volatility after the fact.
+                That predictability doesn’t just change how we plan payroll —
+                it directly impacts how we price our services and protect
+                margins across markets.”
+              </p>
+
+              <div className="quoteAuthor">
+                — Chief Financial Officer, Global Travel Company
+              </div>
+            </div>
+          </div>
+
           {/* BALANCE — HOME FEATURE */}
           <div style={{ marginTop: 34 }}>
             <div className="panel balancePanel">
