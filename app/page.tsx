@@ -141,7 +141,7 @@ export default function Home() {
         fontSize: 12,
         letterSpacing: "0.14em",
         textTransform: "uppercase",
-        opacity: 0.55,
+        color: "rgba(255, 255, 255, 0.75)", // force white
         marginBottom: 12,
       }}
     >
@@ -153,7 +153,6 @@ export default function Home() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: 14,
       }}
     >
       <img
@@ -166,21 +165,9 @@ export default function Home() {
         }}
       />
     </div>
-
-    <div
-      style={{
-        maxWidth: 620,
-        margin: "0 auto",
-        fontSize: 14,
-        lineHeight: 1.6,
-        opacity: 0.65,
-      }}
-    >
-      Modern PayEngine integrates with established payroll and compliance
-      infrastructure to support global employer operations.
-    </div>
   </div>
 </div>
+
 
       {/* LEARN MORE */}
       <KycForm />
