@@ -64,18 +64,18 @@ export default function Home() {
             </div>
           </div>
 
-          {/* BALANCE — ONLY PRODUCT BOX */}
+          {/* BALANCE — HOME FEATURE */}
           <div style={{ marginTop: 34 }}>
             <div className="panel balancePanel">
               <div className="balanceText">
-                <div className="balanceKicker">Balance</div>
+                <h3 className="balanceH3">
+                  A modern wallet for workers
+                </h3>
 
-                <h3 className="balanceH3">A modern wallet for workers</h3>
-
-                <p className="p" style={{ marginTop: 10 }}>
-                  Balance gives workers faster access to earnings and a clear
-                  experience to spend, remit, and support family — while
-                  employers retain governance through Modern PayEngine.
+                <p className="p" style={{ marginTop: 12 }}>
+                  Faster access to earnings, simple international remittance,
+                  and the ability to support family — all governed through
+                  Modern PayEngine.
                 </p>
 
                 <div className="balanceCtas">
@@ -88,7 +88,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* BALANCE MOCKUP (HIDE ON MOBILE) */}
+              {/* MOCKUP (DESKTOP ONLY) */}
               <div className="balanceMock hideOnMobile">
                 <Image
                   src="/balance-ui.png"
@@ -98,11 +98,6 @@ export default function Home() {
                   priority
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
-              </div>
-
-              {/* Optional: a tiny “View screenshots on desktop” hint only on mobile */}
-              <div className="showOnMobile" style={{ marginTop: 10, opacity: 0.7, fontSize: 13 }}>
-                Screenshots are available on desktop for a larger preview.
               </div>
             </div>
           </div>
