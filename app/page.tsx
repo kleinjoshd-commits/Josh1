@@ -138,11 +138,11 @@ export default function Home() {
   >
     <div
       style={{
-        fontSize: 12,
+        fontSize: 15, // was 12 → ~25% larger
         letterSpacing: "0.14em",
         textTransform: "uppercase",
-        color: "rgba(255, 255, 255, 0.75)", // force white
-        marginBottom: 12,
+        color: "rgba(255, 255, 255, 0.75)",
+        marginBottom: 14,
       }}
     >
       Infrastructure partner
@@ -159,7 +159,7 @@ export default function Home() {
         src="/papaya-global-logo.png"
         alt="Papaya Global"
         style={{
-          height: 26,
+          height: 32, // was 26 → ~25% larger
           width: "auto",
           opacity: 0.8,
         }}
@@ -167,6 +167,7 @@ export default function Home() {
     </div>
   </div>
 </div>
+
 
 
       {/* LEARN MORE */}
