@@ -1043,3 +1043,36 @@ img {
     font-size: 16px;
   }
 }
+/* --------------------------------
+   Quote animation (enterprise-grade)
+   -------------------------------- */
+
+.quoteWrap {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.quoteWrap.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quoteText {
+  font-size: 18px;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.quoteAuthor {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .quoteText {
+    font-size: 16px;
+  }
+}

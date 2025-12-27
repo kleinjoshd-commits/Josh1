@@ -1,4 +1,5 @@
 import "./globals.css";
+import AnimateOnScroll from "../components/AnimateOnScroll";
 
 export const metadata = {
   title: "Modern PayEngine | Global Payments Infrastructure",
@@ -15,34 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-
-        {/* Scroll animation observer */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.addEventListener("DOMContentLoaded", () => {
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                      } else {
-                        entry.target.classList.remove("is-visible");
-                      }
-                    });
-                  },
-                  { threshold: 0.25 }
-                );
-
-                document
-                  .querySelectorAll("[data-animate]")
-                  .forEach((el) => observer.observe(el));
-              });
-            `,
-          }}
-        />
+        <AnimateOnScroll />
       </body>
     </html>
   );
 }
-
