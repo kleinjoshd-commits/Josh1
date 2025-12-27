@@ -128,6 +128,59 @@ export default function Home() {
           </div>
         </div>
       </section>
+{/* INFRASTRUCTURE PARTNER */}
+<div style={{ marginTop: 64, marginBottom: 32 }}>
+  <div
+    className="container"
+    style={{
+      textAlign: "center",
+    }}
+  >
+    <div
+      style={{
+        fontSize: 12,
+        letterSpacing: "0.14em",
+        textTransform: "uppercase",
+        opacity: 0.55,
+        marginBottom: 12,
+      }}
+    >
+      Infrastructure partner
+    </div>
+
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 14,
+      }}
+    >
+      <img
+        src="/papaya-global-logo.png"
+        alt="Papaya Global"
+        style={{
+          height: 26,
+          width: "auto",
+          opacity: 0.8,
+        }}
+      />
+    </div>
+
+    <div
+      style={{
+        maxWidth: 620,
+        margin: "0 auto",
+        fontSize: 14,
+        lineHeight: 1.6,
+        opacity: 0.65,
+      }}
+    >
+      Modern PayEngine integrates with established payroll and compliance
+      infrastructure to support global employer operations.
+    </div>
+  </div>
+</div>
 
       {/* LEARN MORE */}
       <KycForm />
