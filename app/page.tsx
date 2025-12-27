@@ -131,45 +131,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* INFRASTRUCTURE PARTNER */}
-<div style={{ marginTop: 64, marginBottom: 32 }}>
-  <div
-    className="container"
-    style={{
-      textAlign: "center",
-    }}
-  >
-    <div
-      style={{
-        fontSize: 15,
-        letterSpacing: "0.14em",
-        textTransform: "uppercase",
-        color: "rgba(255, 255, 255, 0.75)",
-        marginBottom: 16,
-      }}
-    >
-      Infrastructure partner
-    </div>
 
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <img
-        src="/papaya-global-logo.png"
-        alt="Papaya Global"
-        style={{
-          height: 40, // increased from 32 → visibly stronger
-          width: "auto",
-          opacity: 0.85,
-        }}
-      />
-    </div>
-  </div>
-</div>
 
 
 
