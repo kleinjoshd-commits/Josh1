@@ -43,13 +43,9 @@ export default function Home() {
                   Explore Modern PayEngine
                 </a>
               </div>
-
-              <div style={{ marginTop: 12, fontSize: 13, opacity: 0.7 }}>
-                No obligation — keep your current systems.
-              </div>
             </div>
 
-            {/* HOME UI (HIDE ON MOBILE) */}
+            {/* HOME UI (DESKTOP ONLY) */}
             <div className="card hideOnMobile">
               <div className="cardInner">
                 <Image
