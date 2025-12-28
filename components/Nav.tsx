@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const onResize = () => {
@@ -18,6 +19,17 @@ export default function Nav() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  const openSolutions = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    setSolutionsOpen(true);
+  };
+
+  const closeSolutions = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    // small delay prevents “can’t click” behavior
+    closeTimer.current = window.setTimeout(() => setSolutionsOpen(false), 120);
+  };
 
   return (
     <header
@@ -31,6 +43,7 @@ export default function Nav() {
       }}
     >
       <div className="container navBar">
+        {/* Logo */}
         <Link href="/" className="navLogo" aria-label="Home">
           <Image
             src="/White-mpe-logo.png"
@@ -42,18 +55,36 @@ export default function Nav() {
           />
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="navLinks">
-          {/* SOLUTIONS */}
+          {/* SOLUTIONS DROPDOWN */}
           <div
-            className="navLink"
             style={{ position: "relative" }}
-            onMouseEnter={() => setSolutionsOpen(true)}
-            onMouseLeave={() => setSolutionsOpen(false)}
+            onMouseEnter={openSolutions}
+            onMouseLeave={closeSolutions}
           >
-            Solutions
+            <button
+              type="button"
+              className="navLink"
+              aria-haspopup="menu"
+              aria-expanded={solutionsOpen}
+              onClick={() => setSolutionsOpen((v) => !v)}
+              style={{
+                background: "transparent",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+              }}
+            >
+              Solutions
+            </button>
 
             {solutionsOpen && (
               <div
+                role="menu"
+                aria-label="Solutions"
+                onMouseEnter={openSolutions}
+                onMouseLeave={closeSolutions}
                 style={{
                   position: "absolute",
                   top: "calc(100% + 14px)",
@@ -68,11 +99,13 @@ export default function Nav() {
               >
                 <Link
                   href="/modern-payengine"
+                  onClick={() => setSolutionsOpen(false)}
                   style={{
                     display: "block",
                     padding: "10px 0",
                     color: "rgba(255,255,255,0.9)",
                     textDecoration: "none",
+                    cursor: "pointer",
                   }}
                 >
                   <strong>Modern PayEngine</strong>
@@ -85,11 +118,13 @@ export default function Nav() {
 
                 <Link
                   href="/balance"
+                  onClick={() => setSolutionsOpen(false)}
                   style={{
                     display: "block",
                     padding: "10px 0",
                     color: "rgba(255,255,255,0.9)",
                     textDecoration: "none",
+                    cursor: "pointer",
                   }}
                 >
                   <strong>Balance</strong>
@@ -97,41 +132,21 @@ export default function Nav() {
                     Worker wallet for faster access, remittance, and family support
                   </div>
                 </Link>
-
-                <div style={{ height: 12 }} />
-
-                <Link
-                  href="/satellite"
-                  style={{
-                    display: "block",
-                    padding: "10px 0",
-                    color: "rgba(255,255,255,0.9)",
-                    textDecoration: "none",
-                  }}
-                >
-                  <strong>Satellite resilience</strong>
-                  <div style={{ fontSize: 13, opacity: 0.7 }}>
-                    Continuity patterns for payout operations in degraded networks
-                  </div>
-                </Link>
               </div>
             )}
           </div>
 
-          <Link href="/modern-payengine" className="navLink">
-            Platform
+          {/* ORDERED TOP-LEVEL LINKS */}
+          <Link href="/satellite" className="navLink">
+            Satellite
           </Link>
 
-          <Link href="/balance" className="navLink">
-            Wallet
+          <Link href="/unified-approach" className="navLink">
+            Unified Approach
           </Link>
 
           <Link href="/resources" className="navLink">
             Resources
-          </Link>
-
-          <Link href="/satellite" className="navLink">
-            Satellite
           </Link>
 
           <Link className="btnPrimary" href="/#kyc">
@@ -139,12 +154,16 @@ export default function Nav() {
           </Link>
         </nav>
 
+        {/* Mobile Hamburger */}
         <button
           type="button"
           className="navBurger"
           aria-label="Open menu"
           aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => {
+            setOpen((v) => !v);
+            setSolutionsOpen(false);
+          }}
         >
           <span />
           <span />
@@ -152,6 +171,7 @@ export default function Nav() {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {open && (
         <div className="navMobileWrap">
           <div className="container navMobileMenu">
@@ -178,30 +198,23 @@ export default function Nav() {
                 >
                   Balance
                 </Link>
-                <Link
-                  href="/satellite"
-                  className="navMobileItem"
-                  onClick={() => setOpen(false)}
-                >
-                  Satellite resilience
-                </Link>
               </div>
             )}
 
             <Link
-              href="/modern-payengine"
+              href="/satellite"
               className="navMobileItem"
               onClick={() => setOpen(false)}
             >
-              Platform
+              Satellite
             </Link>
 
             <Link
-              href="/balance"
+              href="/unified-approach"
               className="navMobileItem"
               onClick={() => setOpen(false)}
             >
-              Wallet
+              Unified Approach
             </Link>
 
             <Link
@@ -210,14 +223,6 @@ export default function Nav() {
               onClick={() => setOpen(false)}
             >
               Resources
-            </Link>
-
-            <Link
-              href="/satellite"
-              className="navMobileItem"
-              onClick={() => setOpen(false)}
-            >
-              Satellite
             </Link>
 
             <Link
@@ -233,4 +238,3 @@ export default function Nav() {
     </header>
   );
 }
-
