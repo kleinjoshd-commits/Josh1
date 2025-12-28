@@ -1078,3 +1078,10 @@ img {
     margin-bottom: 16px;
   }
 }
+.uaDiagramMobile { display: none; }
+.uaDiagramDesktop { display: block; }
+
+@media (max-width: 900px) {
+  .uaDiagramDesktop { display: none; }
+  .uaDiagramMobile { display: block; }
+}

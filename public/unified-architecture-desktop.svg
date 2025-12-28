@@ -1,0 +1,85 @@
+<svg width="1400" height="360" viewBox="0 0 1400 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer soft panel -->
+  <rect x="24" y="24" width="1352" height="312" rx="20" fill="rgba(15,21,22,0.55)" stroke="rgba(255,255,255,0.08)"></rect>
+
+  <!-- Title -->
+  <text x="64" y="78" fill="rgba(255,255,255,0.92)" font-size="16" font-weight="700" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Unified approach
+  </text>
+  <text x="64" y="102" fill="rgba(255,255,255,0.62)" font-size="13" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    From enterprise systems → governed payroll payments → worker wallets, with trust layers as needed
+  </text>
+
+  <!-- Flow line -->
+  <line x1="140" y1="196" x2="1260" y2="196" stroke="rgba(255,255,255,0.10)" stroke-width="2"></line>
+
+  <!-- Card 1: Systems -->
+  <rect x="64" y="140" width="360" height="120" rx="18" fill="rgba(17,23,24,0.78)" stroke="rgba(255,255,255,0.10)"></rect>
+  <rect x="88" y="164" width="12" height="12" rx="3" fill="rgba(22,168,108,0.90)"></rect>
+  <text x="112" y="175" fill="rgba(255,255,255,0.92)" font-size="14" font-weight="700" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Enterprise systems
+  </text>
+  <text x="88" y="202" fill="rgba(255,255,255,0.62)" font-size="12.8" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    SAP • HRIS • payroll inputs • finance
+  </text>
+  <text x="88" y="226" fill="rgba(255,255,255,0.62)" font-size="12.8" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Keep your current stack — add the payments layer
+  </text>
+
+  <!-- Arrow 1 -->
+  <path d="M440 196H520" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"></path>
+  <path d="M520 196L510 190" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"></path>
+  <path d="M520 196L510 202" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"></path>
+
+  <!-- Card 2: MPE -->
+  <rect x="540" y="128" width="420" height="144" rx="18" fill="rgba(20,27,28,0.82)" stroke="rgba(255,255,255,0.12)"></rect>
+  <text x="564" y="164" fill="rgba(255,255,255,0.92)" font-size="15" font-weight="800" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Modern PayEngine
+  </text>
+
+  <!-- Pill -->
+  <rect x="564" y="176" width="212" height="24" rx="12" fill="rgba(22,168,108,0.12)" stroke="rgba(22,168,108,0.30)"></rect>
+  <text x="670" y="193" fill="rgba(22,168,108,0.95)" font-size="12" font-weight="700" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    payroll payments infrastructure
+  </text>
+
+  <text x="564" y="224" fill="rgba(255,255,255,0.62)" font-size="12.8" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Funding • foreign exchange (FX) control • payout execution
+  </text>
+  <text x="564" y="248" fill="rgba(255,255,255,0.62)" font-size="12.8" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Governance • visibility • audit trail
+  </text>
+
+  <!-- Arrow 2 -->
+  <path d="M980 196H1060" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"></path>
+  <path d="M1060 196L1050 190" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"></path>
+  <path d="M1060 196L1050 202" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"></path>
+
+  <!-- Card 3: Balance -->
+  <rect x="1080" y="140" width="296" height="120" rx="18" fill="rgba(17,23,24,0.78)" stroke="rgba(255,255,255,0.10)"></rect>
+  <rect x="1104" y="164" width="12" height="12" rx="3" fill="rgba(22,168,108,0.90)"></rect>
+  <text x="1128" y="175" fill="rgba(255,255,255,0.92)" font-size="14" font-weight="700" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Balance
+  </text>
+  <text x="1104" y="202" fill="rgba(255,255,255,0.62)" font-size="12.8" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Worker wallets • instant access
+  </text>
+  <text x="1104" y="226" fill="rgba(255,255,255,0.62)" font-size="12.8" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Remittance • family support
+  </text>
+
+  <!-- Trust layers row -->
+  <text x="64" y="308" fill="rgba(255,255,255,0.58)" font-size="12.8" font-weight="600" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Trust &amp; reach layers:
+  </text>
+
+  <rect x="205" y="290" width="252" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)"></rect>
+  <text x="331" y="309" fill="rgba(255,255,255,0.74)" font-size="12.2" font-weight="700" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Satellite security &amp; resilience
+  </text>
+
+  <rect x="468" y="290" width="140" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)"></rect>
+  <text x="538" y="309" fill="rgba(255,255,255,0.74)" font-size="12.2" font-weight="700" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    Web3 rails
+  </text>
+</svg>
