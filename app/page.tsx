@@ -79,8 +79,7 @@ export default function Home() {
       className="quoteText"
       style={{ marginBottom: 22 }} // more space before author
     >
-      “Predictable and locked foreign exchange rates allow us to plan payroll
-      and price services consistently across regions.”
+      “Modern PayEngine helped us compress receivables and payables, forecast FX exposure with confidence, and consolidate payments into a single, more efficient operating layer. It's exactly the infrastructure we need as we expand into new markets and scale globally..”
     </p>
 
     <div className="quoteAuthor">
