@@ -15,20 +15,18 @@ export default function Home() {
             <div>
               <div className="eyebrow">
                 Modern PayEngine + Balance <span className="dot" />
-                Global payouts for modern workforces
+                Governed global payments for modern enterprises
               </div>
 
               <h1 className="h1">
-                Govern global payouts.
+                Governed global payments
                 <br />
-                Deliver a modern worker wallet.
+                for modern enterprises.
               </h1>
 
               <p className="p">
-                Modern PayEngine is the employer payments layer — funding,
-                payout execution, and foreign exchange (FX) control. Balance is
-                the worker wallet experience for faster access, remittance, and
-                family support.
+                Control payouts, FX, and liquidity across markets—reducing
+                complexity and improving cost efficiency.
               </p>
 
               <p className="p" style={{ marginTop: 14 }}>
@@ -60,43 +58,40 @@ export default function Home() {
             </div>
           </div>
 
-         {/* CFO QUOTE */}
-<div
-  className="quoteWrap"
-  data-animate
-  style={{ marginTop: 40, marginBottom: 20 }}
->
-  <div
-    className="panel quotePanel"
-    style={{
-      padding: "16px 26px 22px", // less space on top, normal bottom
-      maxWidth: 800,
-      margin: "0 auto",
-      textAlign: "center",
-    }}
-  >
-    <p
-      className="quoteText"
-      style={{ marginBottom: 22 }} // more space before author
-    >
-      “Modern PayEngine helped us compress receivables and payables, forecast FX exposure with confidence, and consolidate payments into a single, more efficient operating layer. It's exactly the infrastructure we need as we expand into new markets and scale globally..”
-    </p>
+          {/* CFO QUOTE */}
+          <div
+            className="quoteWrap"
+            data-animate
+            style={{ marginTop: 40, marginBottom: 20 }}
+          >
+            <div
+              className="panel quotePanel"
+              style={{
+                padding: "16px 26px 22px",
+                maxWidth: 800,
+                margin: "0 auto",
+                textAlign: "center",
+              }}
+            >
+              <p className="quoteText" style={{ marginBottom: 22 }}>
+                “Modern PayEngine helped us compress receivables and payables,
+                forecast FX exposure with confidence, and consolidate payments
+                into a single, more efficient operating layer. It’s exactly the
+                infrastructure we need as we expand into new markets and scale
+                globally.”
+              </p>
 
-    <div className="quoteAuthor">
-      — Chief Financial Officer, Global Employer
-    </div>
-  </div>
-</div>
-
-
+              <div className="quoteAuthor">
+                — Chief Financial Officer, Global Employer
+              </div>
+            </div>
+          </div>
 
           {/* BALANCE — HOME FEATURE */}
           <div style={{ marginTop: 34 }}>
             <div className="panel balancePanel">
               <div className="balanceText">
-                <h3 className="balanceH3">
-                  A modern wallet for workers
-                </h3>
+                <h3 className="balanceH3">A modern wallet for workers</h3>
 
                 <p className="p" style={{ marginTop: 12 }}>
                   Faster access to earnings, simple international remittance,
@@ -129,11 +124,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-
-
-
 
       {/* LEARN MORE */}
       <KycForm />
