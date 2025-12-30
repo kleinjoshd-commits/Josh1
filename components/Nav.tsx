@@ -110,7 +110,8 @@ export default function Nav() {
                 >
                   <strong>Modern PayEngine</strong>
                   <div style={{ fontSize: 13, opacity: 0.7 }}>
-                    Employer payments infrastructure, FX control, and payout execution
+                    Employer payments infrastructure, FX control, and payout
+                    execution
                   </div>
                 </Link>
 
@@ -129,7 +130,8 @@ export default function Nav() {
                 >
                   <strong>Balance</strong>
                   <div style={{ fontSize: 13, opacity: 0.7 }}>
-                    Worker wallet for faster access, remittance, and family support
+                    Worker wallet for faster access, remittance, and family
+                    support
                   </div>
                 </Link>
               </div>
@@ -143,6 +145,11 @@ export default function Nav() {
 
           <Link href="/unified-approach" className="navLink">
             Unified Approach
+          </Link>
+
+          {/* NEW: TRUST & CONTROLS */}
+          <Link href="/trust-controls" className="navLink">
+            Trust &amp; Controls
           </Link>
 
           <Link href="/resources" className="navLink">
@@ -215,6 +222,15 @@ export default function Nav() {
               onClick={() => setOpen(false)}
             >
               Unified Approach
+            </Link>
+
+            {/* NEW: TRUST & CONTROLS */}
+            <Link
+              href="/trust-controls"
+              className="navMobileItem"
+              onClick={() => setOpen(false)}
+            >
+              Trust &amp; Controls
             </Link>
 
             <Link

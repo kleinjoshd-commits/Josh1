@@ -1085,3 +1085,22 @@ img {
   .uaDiagramDesktop { display: none; }
   .uaDiagramMobile { display: block; }
 }
+/* Trust & Controls: prevent panels from stretching/taking forced height */
+.tcWrap .panel {
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: flex-start !important;
+  display: block !important;
+}
+
+/* If any parent grid/flex is stretching children, force natural sizing */
+.tcWrap .kycGrid,
+.tcWrap .grid {
+  align-items: start !important;
+}
+
+/* If you have any global rule like .kycGrid .panel {height:100%} this overrides it */
+.tcWrap .kycGrid .panel {
+  height: auto !important;
+  min-height: 0 !important;
+}
