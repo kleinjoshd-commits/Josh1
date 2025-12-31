@@ -15,30 +15,32 @@ export default function Home() {
             <div>
               <div className="eyebrow">
                 Modern PayEngine + Balance <span className="dot" />
-                Governed global payments for modern enterprises
+                Enterprise payments infrastructure
               </div>
 
               <h1 className="h1">
-                Governed global payments
+                Enterprise-grade global payments,
                 <br />
-                for modern enterprises.
+                governed end-to-end.
               </h1>
 
               <p className="p">
-                Control payouts, FX, and liquidity across markets—reducing
-                complexity and improving cost efficiency.
+                Control funding, FX, approvals, and payout execution across
+                markets — without replacing your existing payroll, HR, or
+                finance systems.
               </p>
 
               <p className="p" style={{ marginTop: 14 }}>
-                Works alongside your existing payroll, HR, and finance systems.
+                Built for finance, payroll, and SAP-led organizations operating
+                across regulated markets.
               </p>
 
               <div className="btnRow">
                 <a className="btnPrimary" href="/#kyc">
-                  Learn more
+                  Request a walkthrough
                 </a>
                 <a className="btnSecondary" href="/modern-payengine">
-                  Explore Modern PayEngine
+                  Explore the platform
                 </a>
               </div>
             </div>
@@ -54,6 +56,48 @@ export default function Home() {
                   priority
                   style={{ width: "100%", height: "auto" }}
                 />
+              </div>
+            </div>
+          </div>
+
+          {/* PLATFORM PILLARS (Papaya-style, simple + uniform) */}
+          <div data-animate style={{ marginTop: 22 }}>
+            <div
+              style={{
+                display: "grid",
+                gap: 14,
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                alignItems: "stretch",
+              }}
+            >
+              <div className="panel">
+                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
+                  Funding & Wallets
+                </h3>
+                <p className="p" style={{ margin: 0 }}>
+                  Centralized multi-currency wallet pools with real-time
+                  visibility and control across entities and regions.
+                </p>
+              </div>
+
+              <div className="panel">
+                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
+                  FX & Treasury Controls
+                </h3>
+                <p className="p" style={{ margin: 0 }}>
+                  Lock FX ahead of execution, manage exposure, and improve
+                  predictability for payroll and vendor runs.
+                </p>
+              </div>
+
+              <div className="panel">
+                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
+                  Approvals & Governance
+                </h3>
+                <p className="p" style={{ margin: 0 }}>
+                  Policy-driven approvals, audit trails, and controlled release
+                  — built for regulated operations.
+                </p>
               </div>
             </div>
           </div>
@@ -76,9 +120,7 @@ export default function Home() {
               <p className="quoteText" style={{ marginBottom: 22 }}>
                 “Modern PayEngine helped us compress receivables and payables,
                 forecast FX exposure with confidence, and consolidate payments
-                into a single, more efficient operating layer. It’s exactly the
-                infrastructure we need as we expand into new markets and scale
-                globally.”
+                into a single, more efficient operating layer.”
               </p>
 
               <div className="quoteAuthor">
@@ -91,12 +133,13 @@ export default function Home() {
           <div style={{ marginTop: 34 }}>
             <div className="panel balancePanel">
               <div className="balanceText">
-                <h3 className="balanceH3">A modern wallet for workers</h3>
+                <h3 className="balanceH3">
+                  An employee pay & remittance rail
+                </h3>
 
                 <p className="p" style={{ marginTop: 12 }}>
-                  Faster access to earnings, simple international remittance,
-                  and the ability to support family — all governed through
-                  Modern PayEngine.
+                  Faster access to earnings, international remittance, and
+                  family support — governed through Modern PayEngine.
                 </p>
 
                 <div className="balanceCtas">
@@ -113,7 +156,7 @@ export default function Home() {
               <div className="balanceMock hideOnMobile">
                 <Image
                   src="/balance-ui.png"
-                  alt="Balance wallet interface"
+                  alt="Balance employee pay interface"
                   width={1600}
                   height={1000}
                   priority
