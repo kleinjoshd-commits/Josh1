@@ -19,9 +19,11 @@ export default function Home() {
               </div>
 
               <h1 className="h1">
-                Enterprise-grade global payments,
+                Enterprise-grade
                 <br />
-                governed end-to-end.
+                global payments
+                <br />
+                governed end-to-end
               </h1>
 
               <p className="p">
@@ -60,7 +62,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* PLATFORM PILLARS (Papaya-style, simple + uniform) */}
+          {/* PLATFORM PILLARS */}
           <div data-animate style={{ marginTop: 22 }}>
             <div
               style={{
