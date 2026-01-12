@@ -1104,3 +1104,144 @@ img {
   height: auto !important;
   min-height: 0 !important;
 }
+/* ===== Homepage layout helpers (minimal + safe) ===== */
+.homeSection {
+  margin-top: 26px;
+}
+
+.homeSectionHeader {
+  max-width: 980px;
+  margin: 0 auto 14px;
+}
+
+.homeKicker {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.homeTitle {
+  margin: 0 0 8px;
+}
+
+.homeSub {
+  margin: 0;
+  opacity: 0.92;
+}
+
+/* uniform card grid */
+.homeCards {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .homeCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* diagram-like step strip */
+.stepStrip {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .stepStrip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stepCard {
+  position: relative;
+  padding: 16px 16px;
+}
+
+.stepNum {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stepArrow {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.35;
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .stepArrow {
+    display: none;
+  }
+}
+
+/* mockup caption consistent */
+.mockCaption {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+.homeCards > .panel {
+  height: 100%;
+}
+.stepStrip {
+  position: relative;
+}
+
+.stepStrip::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 50%;
+  height: 2px;
+  opacity: 0.15;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 900px) {
+  .stepStrip::before { display: none; }
+}
+/* --- Homepage uniformity fixes --- */
+.homeSection { margin-top: 28px; }
+.homeSectionHeader { max-width: 980px; margin: 0 auto 14px; }
+
+.homeCards {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.homeCards > .panel { height: 100%; }
+
+@media (max-width: 900px) {
+  .homeCards { grid-template-columns: 1fr; }
+}
+
+/* Make the “How it works” read like a single diagram line */
+.stepStrip { position: relative; }
+.stepStrip::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 50%;
+  height: 2px;
+  opacity: 0.14;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+@media (max-width: 900px) { .stepStrip::before { display: none; } }

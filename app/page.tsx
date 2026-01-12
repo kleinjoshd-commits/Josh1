@@ -15,26 +15,28 @@ export default function Home() {
             <div>
               <div className="eyebrow">
                 Modern PayEngine + Balance <span className="dot" />
-                Enterprise payments infrastructure
+                Payments control + resilience layer
               </div>
 
               <h1 className="h1">
-                Enterprise-grade
+                Enterprise payments
                 <br />
-                global payments
+                control & resilience
                 <br />
-                governed end-to-end
+                across global markets
               </h1>
 
               <p className="p">
-                Control funding, FX, approvals, and payout execution across
-                markets — without replacing your existing payroll, HR, or
-                finance systems.
+                Govern funding, FX decisions, approvals, and payout release across
+                markets — while execution runs through trusted local banks and
+                licensed partners — without replacing your existing payroll, HR,
+                or finance systems.
               </p>
 
               <p className="p" style={{ marginTop: 14 }}>
-                Built for finance, payroll, and SAP-led organizations operating
-                across regulated markets.
+                Satellite-informed security, resilience, and accessibility
+                strengthen critical control moments when infrastructure is
+                degraded — without changing how money moves on familiar rails.
               </p>
 
               <div className="btnRow">
@@ -62,8 +64,53 @@ export default function Home() {
             </div>
           </div>
 
-          {/* PLATFORM PILLARS */}
+          {/* HOW IT WORKS: CONTROL → EXECUTE → OUTLAST */}
           <div data-animate style={{ marginTop: 22 }}>
+            <div
+              style={{
+                display: "grid",
+                gap: 14,
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                alignItems: "stretch",
+              }}
+            >
+              <div className="panel">
+                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
+                  Control layer
+                </h3>
+                <p className="p" style={{ margin: 0 }}>
+                  Define policy, permissions, approvals, FX decision points, and
+                  payment lifecycle states — with audit trails built for regulated
+                  operations.
+                </p>
+              </div>
+
+              <div className="panel">
+                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
+                  Execute via partners
+                </h3>
+                <p className="p" style={{ margin: 0 }}>
+                  Route execution through trusted local banks for domestic
+                  settlement and licensed partners for cross-border payouts — all
+                  under one governed operating layer.
+                </p>
+              </div>
+
+              <div className="panel">
+                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
+                  Outlast networks
+                </h3>
+                <p className="p" style={{ margin: 0 }}>
+                  Satellite-informed resilience supports continuity and
+                  out-of-band assurance when connectivity is unreliable — helping
+                  critical control events remain authoritative under stress.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* PLATFORM PILLARS */}
+          <div data-animate style={{ marginTop: 18 }}>
             <div
               style={{
                 display: "grid",
@@ -78,7 +125,8 @@ export default function Home() {
                 </h3>
                 <p className="p" style={{ margin: 0 }}>
                   Centralized multi-currency wallet pools with real-time
-                  visibility and control across entities and regions.
+                  visibility and control across entities and regions — designed
+                  for predictable release and settlement.
                 </p>
               </div>
 
@@ -87,8 +135,9 @@ export default function Home() {
                   FX & Treasury Controls
                 </h3>
                 <p className="p" style={{ margin: 0 }}>
-                  Lock FX ahead of execution, manage exposure, and improve
-                  predictability for payroll and vendor runs.
+                  Treat FX as a governed decision point: lock ahead of execution,
+                  manage exposure, and improve predictability for payroll and
+                  vendor runs.
                 </p>
               </div>
 
@@ -97,8 +146,9 @@ export default function Home() {
                   Approvals & Governance
                 </h3>
                 <p className="p" style={{ margin: 0 }}>
-                  Policy-driven approvals, audit trails, and controlled release
-                  — built for regulated operations.
+                  Policy-driven approvals, audit trails, controlled release, and
+                  stronger integrity guarantees — with satellite-informed options
+                  for high-value or degraded environments.
                 </p>
               </div>
             </div>
@@ -126,7 +176,7 @@ export default function Home() {
               </p>
 
               <div className="quoteAuthor">
-                — Chief Financial Officer, Global Employer
+                — Chief Financial Officer, Global Travel Agency
               </div>
             </div>
           </div>
@@ -136,12 +186,13 @@ export default function Home() {
             <div className="panel balancePanel">
               <div className="balanceText">
                 <h3 className="balanceH3">
-                  An employee pay & remittance rail
+                  Employee pay & remittance — governed through Modern PayEngine
                 </h3>
 
                 <p className="p" style={{ marginTop: 12 }}>
-                  Faster access to earnings, international remittance, and
-                  family support — governed through Modern PayEngine.
+                  Faster access to earnings, international remittance, and family
+                  support — with employer-grade controls, auditability, and
+                  corridor-by-corridor rollout through Modern PayEngine.
                 </p>
 
                 <div className="balanceCtas">
