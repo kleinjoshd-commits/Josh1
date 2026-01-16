@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Resources | Modern PayEngine",
   description:
-    "Practical infrastructure guidance on FX predictability, payout execution, worker wallets, and satellite-enabled payment security.",
+    "Infrastructure notes on payment control, execution abstraction, FX governance, settlement models, and resilience.",
 };
 
 export default function ResourcesPage() {
@@ -17,78 +17,164 @@ export default function ResourcesPage() {
         <div className="container deckInner">
           <div className="eyebrow">
             Resources <span className="dot" />
-            Infrastructure notes & practical guidance
+            Reference notes for finance & operations
           </div>
 
           <h1 className="h1" style={{ marginBottom: 12 }}>
-            How modern payment infrastructure
+            How modern payment control
             <br />
             actually works
           </h1>
 
-          <p className="p" style={{ maxWidth: 860 }}>
-            Clear, operator-focused explanations of the systems behind global
-            payouts. Written for finance, payroll, and payments teams who need
-            predictability, governance, and speed across regions—without
-            re-platforming their entire stack.
+          <p className="p" style={{ maxWidth: 900 }}>
+            Operator-focused explanations of how enterprise payments are
+            governed—lifecycle control, approvals, FX decisioning, execution
+            abstraction, and resilience. Written for finance, payroll, and
+            payments teams who need predictability across markets without
+            re-platforming their stack.
           </p>
 
-          <div className="kycGrid" style={{ marginTop: 28 }}>
+          {/* PRIMARY RESOURCE — FULL WIDTH */}
+          <div style={{ marginTop: 22 }}>
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>FX Predictability & Pricing</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Foreign exchange volatility impacts more than payroll—it affects
-                margins, pricing models, and forecasting accuracy. Modern
-                infrastructure enables governed FX conversion and locking so
-                organizations can forecast payroll costs and price services
-                consistently across regions.
-              </p>
-            </div>
+              <h3 style={{ marginTop: 0 }}>
+                Understanding the enterprise payment lifecycle
+              </h3>
 
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Payout Execution: Fees & Timing</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Cross-border payouts vary widely by corridor, rail, and method.
-                Understanding fee structures, settlement timing, and failure
-                modes is critical to maintaining transparency and operational
-                control at scale.
+              <p className="p" style={{ marginTop: 10, maxWidth: 980 }}>
+                Most payment failures are not caused by rails or banks — they are
+                caused by unclear authority, implicit state, and fragmented
+                decision-making across systems. This document explains how
+                explicit, enforceable lifecycle states enable predictable,
+                auditable global payouts, even as execution routes vary by market
+                and provider.
               </p>
-            </div>
 
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Worker Wallets & Remittance</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                A modern worker wallet supports faster access to earnings,
-                international remittance, and family support—while preserving
-                employer governance and compliance across jurisdictions.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Satellite Security & Resilience</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Satellite-enabled infrastructure introduces an independent trust
-                and connectivity layer for payments. Space-based private key
-                generation and validation strengthen security, resiliency, and
-                accessibility in distributed or high-risk environments.
-              </p>
-              <div style={{ marginTop: 14 }}>
-                <Link className="btnSecondary" href="/satellite">
-                  View Satellite infrastructure
+              <div
+                style={{
+                  marginTop: 16,
+                  display: "flex",
+                  gap: 12,
+                  flexWrap: "wrap",
+                }}
+              >
+                <Link
+                  className="btnPrimary"
+                  href="/resources/payment-lifecycle"
+                >
+                  Read the full resource
+                </Link>
+                <Link className="btnSecondary" href="/trust-controls">
+                  Trust & Controls
                 </Link>
               </div>
             </div>
           </div>
 
-          <div style={{ marginTop: 26, display: "flex", gap: 12, flexWrap: "wrap" }}>
+          {/* TOPICS */}
+          <div
+            className="kycGrid"
+            style={{ marginTop: 24, alignItems: "stretch" }}
+          >
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Execution abstraction & routing</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                How separating decision authority from execution mechanics
+                enables partner-level routing—reducing friction, cost, and
+                latency without compromising governance.
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <span
+                  className="btnSecondary"
+                  style={{ opacity: 0.75, cursor: "default" }}
+                >
+                  Coming soon
+                </span>
+              </div>
+            </div>
+
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>FX as a governed decision point</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                Why FX timing matters more than “best rate,” and how locking and
+                approval checkpoints improve predictability for payroll and
+                vendor runs.
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <span
+                  className="btnSecondary"
+                  style={{ opacity: 0.75, cursor: "default" }}
+                >
+                  Coming soon
+                </span>
+              </div>
+            </div>
+
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Local & global settlement models</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                A control-layer view of domestic vs cross-border settlement—
+                routing through regulated local banks or licensed partners while
+                keeping lifecycle controls consistent.
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <span
+                  className="btnSecondary"
+                  style={{ opacity: 0.75, cursor: "default" }}
+                >
+                  Coming soon
+                </span>
+              </div>
+            </div>
+
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>
+                Resilience & trust (satellite-informed)
+              </h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                How resilience applies to payment control systems, and when
+                satellite-informed capabilities can be selectively applied to
+                critical control events—without changing rails or workflows.
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <Link className="btnSecondary" href="/satellite">
+                  Satellite infrastructure
+                </Link>
+              </div>
+            </div>
+
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Worker experience (Balance)</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                How governed payout experiences extend to workers—faster access
+                to earnings and remittance options—while employers retain
+                oversight and compliance controls.
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <Link className="btnSecondary" href="/balance">
+                  Explore Balance
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div
+            style={{
+              marginTop: 28,
+              display: "flex",
+              gap: 12,
+              flexWrap: "wrap",
+            }}
+          >
             <Link className="btnPrimary" href="/#kyc">
               Request a walkthrough
             </Link>
             <Link className="btnSecondary" href="/modern-payengine">
               Explore Modern PayEngine
             </Link>
-            <Link className="btnSecondary" href="/balance">
-              Explore Balance
+            <Link className="btnSecondary" href="/unified-approach">
+              Platform architecture
             </Link>
           </div>
         </div>
@@ -96,4 +182,3 @@ export default function ResourcesPage() {
     </main>
   );
 }
-
