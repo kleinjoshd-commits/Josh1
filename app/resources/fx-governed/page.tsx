@@ -15,15 +15,8 @@ export default function FxGovernedResource() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER */}
-          <div
-            style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.85fr)",
-              alignItems: "start",
-            }}
-          >
+          {/* HEADER — RESPONSIVE GRID */}
+          <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
               <div className="eyebrow">
@@ -51,14 +44,7 @@ export default function FxGovernedResource() {
                 before funds are released.
               </p>
 
-              <div
-                style={{
-                  marginTop: 18,
-                  display: "flex",
-                  gap: 10,
-                  flexWrap: "wrap",
-                }}
-              >
+              <div className="btnRow" style={{ marginTop: 18 }}>
                 <Link className="btnSecondary" href="/resources">
                   Back to Resources
                 </Link>
@@ -79,7 +65,8 @@ export default function FxGovernedResource() {
                 <strong>Approach:</strong> FX as an explicit, approved state
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Outcome:</strong> predictable payouts and fewer exceptions
+                <strong>Outcome:</strong> predictable payouts and fewer
+                exceptions
               </p>
 
               <div
@@ -100,7 +87,6 @@ export default function FxGovernedResource() {
 
           {/* ARTICLE */}
           <div style={{ marginTop: 28, maxWidth: 980 }}>
-            {/* SECTION */}
             <h2 className="h2" style={{ marginBottom: 10 }}>
               Why “best rate” is the wrong optimization
             </h2>
@@ -116,7 +102,6 @@ export default function FxGovernedResource() {
               which currency, and when exceptions should be escalated.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Treating FX as a lifecycle checkpoint
             </h2>
@@ -138,12 +123,14 @@ export default function FxGovernedResource() {
               </p>
             </div>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               What FX governance enables
             </h2>
 
-            <div className="kycGrid" style={{ marginTop: 14, alignItems: "stretch" }}>
+            <div
+              className="kycGrid"
+              style={{ marginTop: 14, alignItems: "stretch" }}
+            >
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Predictable payroll runs</h3>
                 <p className="p" style={{ marginTop: 10 }}>
@@ -169,7 +156,6 @@ export default function FxGovernedResource() {
               </div>
             </div>
 
-            {/* COMING SOON */}
             <div className="panel" style={{ marginTop: 28 }}>
               <h3 style={{ marginTop: 0 }}>Detailed implementation notes</h3>
               <p className="p" style={{ marginTop: 10 }}>
@@ -188,7 +174,6 @@ export default function FxGovernedResource() {
               </div>
             </div>
 
-            {/* FOOTER CTA */}
             <div
               style={{
                 marginTop: 26,

@@ -15,15 +15,8 @@ export default function ExecutionAbstractionResource() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER */}
-          <div
-            style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.85fr)",
-              alignItems: "start",
-            }}
-          >
+          {/* HEADER — RESPONSIVE GRID */}
+          <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
               <div className="eyebrow">
@@ -40,26 +33,20 @@ export default function ExecutionAbstractionResource() {
               <p className="p" style={{ maxWidth: 980 }}>
                 Most enterprise payment stacks tightly couple{" "}
                 <strong>decision authority</strong> with{" "}
-                <strong>execution mechanics</strong>. As a result, changing banks,
-                adding corridors, or introducing new payout partners often
-                requires reworking approvals, controls, and operating workflows.
+                <strong>execution mechanics</strong>. As a result, changing
+                banks, adding corridors, or introducing new payout partners
+                often requires reworking approvals, controls, and operating
+                workflows.
               </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 Modern PayEngine separates these concerns. Decision authority
-                lives in a governed control plane. Execution is routed dynamically
-                across trusted banks and licensed partners — without breaking
-                policy, auditability, or lifecycle state.
+                lives in a governed control plane. Execution is routed
+                dynamically across trusted banks and licensed partners — without
+                breaking policy, auditability, or lifecycle state.
               </p>
 
-              <div
-                style={{
-                  marginTop: 18,
-                  display: "flex",
-                  gap: 10,
-                  flexWrap: "wrap",
-                }}
-              >
+              <div className="btnRow" style={{ marginTop: 18 }}>
                 <Link className="btnSecondary" href="/resources">
                   Back to Resources
                 </Link>
@@ -77,10 +64,12 @@ export default function ExecutionAbstractionResource() {
                 <strong>Problem:</strong> controls tied to specific providers
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Approach:</strong> abstract execution behind a control plane
+                <strong>Approach:</strong> abstract execution behind a control
+                plane
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Outcome:</strong> flexible routing without governance drift
+                <strong>Outcome:</strong> flexible routing without governance
+                drift
               </p>
 
               <div
@@ -102,7 +91,6 @@ export default function ExecutionAbstractionResource() {
 
           {/* ARTICLE */}
           <div style={{ marginTop: 28, maxWidth: 980 }}>
-            {/* SECTION */}
             <h2 className="h2" style={{ marginBottom: 10 }}>
               Why tightly coupled execution breaks at scale
             </h2>
@@ -118,7 +106,6 @@ export default function ExecutionAbstractionResource() {
               and reconciliation logic — increasing risk and operational drag.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Separating authority from execution
             </h2>
@@ -146,12 +133,14 @@ export default function ExecutionAbstractionResource() {
               </p>
             </div>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               What execution abstraction enables
             </h2>
 
-            <div className="kycGrid" style={{ marginTop: 14, alignItems: "stretch" }}>
+            <div
+              className="kycGrid"
+              style={{ marginTop: 14, alignItems: "stretch" }}
+            >
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Partner-level routing</h3>
                 <p className="p" style={{ marginTop: 10 }}>
@@ -177,7 +166,6 @@ export default function ExecutionAbstractionResource() {
               </div>
             </div>
 
-            {/* COMING SOON */}
             <div className="panel" style={{ marginTop: 28 }}>
               <h3 style={{ marginTop: 0 }}>Detailed implementation notes</h3>
               <p className="p" style={{ marginTop: 10 }}>
@@ -196,7 +184,6 @@ export default function ExecutionAbstractionResource() {
               </div>
             </div>
 
-            {/* FOOTER CTA */}
             <div
               style={{
                 marginTop: 26,

@@ -15,15 +15,8 @@ export default function SettlementModelsResource() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER */}
-          <div
-            style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.85fr)",
-              alignItems: "start",
-            }}
-          >
+          {/* HEADER — RESPONSIVE GRID */}
+          <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
               <div className="eyebrow">
@@ -54,14 +47,7 @@ export default function SettlementModelsResource() {
                 and licensed partners for cross-border payouts.
               </p>
 
-              <div
-                style={{
-                  marginTop: 18,
-                  display: "flex",
-                  gap: 10,
-                  flexWrap: "wrap",
-                }}
-              >
+              <div className="btnRow" style={{ marginTop: 18 }}>
                 <Link className="btnSecondary" href="/resources">
                   Back to Resources
                 </Link>
@@ -79,10 +65,12 @@ export default function SettlementModelsResource() {
                 <strong>Domestic:</strong> local bank + local clearing
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Cross-border:</strong> licensed partner + corridor routing
+                <strong>Cross-border:</strong> licensed partner + corridor
+                routing
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Control plane:</strong> consistent state, policy, and audit
+                <strong>Control plane:</strong> consistent state, policy, and
+                audit
               </p>
 
               <div
@@ -103,7 +91,6 @@ export default function SettlementModelsResource() {
 
           {/* ARTICLE */}
           <div style={{ marginTop: 28, maxWidth: 980 }}>
-            {/* SECTION */}
             <h2 className="h2" style={{ marginBottom: 10 }}>
               Why settlement models fragment enterprise operations
             </h2>
@@ -121,7 +108,6 @@ export default function SettlementModelsResource() {
               consulting a single source of truth.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Domestic settlement (local rails)
             </h2>
@@ -132,7 +118,10 @@ export default function SettlementModelsResource() {
               holds or receives funds and settles on local rails.
             </p>
 
-            <div className="kycGrid" style={{ marginTop: 14, alignItems: "stretch" }}>
+            <div
+              className="kycGrid"
+              style={{ marginTop: 14, alignItems: "stretch" }}
+            >
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Common characteristics</h3>
                 <p className="p" style={{ marginTop: 10 }}>
@@ -162,7 +151,6 @@ export default function SettlementModelsResource() {
               controls.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Cross-border settlement (corridor routing)
             </h2>
@@ -174,7 +162,10 @@ export default function SettlementModelsResource() {
               payout partners depending on the market and corridor.
             </p>
 
-            <div className="kycGrid" style={{ marginTop: 14, alignItems: "stretch" }}>
+            <div
+              className="kycGrid"
+              style={{ marginTop: 14, alignItems: "stretch" }}
+            >
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Common characteristics</h3>
                 <p className="p" style={{ marginTop: 10 }}>
@@ -193,7 +184,6 @@ export default function SettlementModelsResource() {
               </div>
             </div>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               A control-plane approach to settlement
             </h2>
@@ -212,16 +202,19 @@ export default function SettlementModelsResource() {
                 <br />
                 <strong>State:</strong> explicit lifecycle transitions
                 <br />
-                <strong>Audit:</strong> deterministic lineage from intent to settlement
+                <strong>Audit:</strong> deterministic lineage from intent to
+                settlement
               </p>
             </div>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Why this matters operationally
             </h2>
 
-            <div className="kycGrid" style={{ marginTop: 14, alignItems: "stretch" }}>
+            <div
+              className="kycGrid"
+              style={{ marginTop: 14, alignItems: "stretch" }}
+            >
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Provider flexibility</h3>
                 <p className="p" style={{ marginTop: 10 }}>
@@ -247,7 +240,6 @@ export default function SettlementModelsResource() {
               </div>
             </div>
 
-            {/* COMING SOON */}
             <div className="panel" style={{ marginTop: 28 }}>
               <h3 style={{ marginTop: 0 }}>Detailed corridor notes</h3>
               <p className="p" style={{ marginTop: 10 }}>
@@ -266,7 +258,6 @@ export default function SettlementModelsResource() {
               </div>
             </div>
 
-            {/* FOOTER CTA */}
             <div
               style={{
                 marginTop: 26,

@@ -9,15 +9,8 @@ export default function UnifiedApproachPage() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER — TWO COLUMN (fills the top-right space) */}
-          <div
-            style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.85fr)",
-              alignItems: "start",
-            }}
-          >
+          {/* HEADER — RESPONSIVE GRID */}
+          <div className="pageHeaderGrid">
             {/* LEFT: NARRATIVE */}
             <div>
               <div className="eyebrow">
@@ -135,7 +128,9 @@ export default function UnifiedApproachPage() {
             </div>
 
             <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>5) Strengthen integrity where assurance matters</h3>
+              <h3 style={{ marginTop: 0 }}>
+                5) Strengthen integrity where assurance matters
+              </h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Apply additional trust controls for higher-risk flows: stronger integrity
                 guarantees, clearer authorization, and tighter auditability for sensitive
@@ -179,4 +174,3 @@ export default function UnifiedApproachPage() {
     </main>
   );
 }
-

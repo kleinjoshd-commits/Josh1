@@ -9,15 +9,8 @@ export default function TrustControlsPage() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER — TWO COLUMN */}
-          <div
-            style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.85fr)",
-              alignItems: "start",
-            }}
-          >
+          {/* HEADER — RESPONSIVE GRID */}
+          <div className="pageHeaderGrid">
             {/* LEFT: NARRATIVE */}
             <div>
               <div className="eyebrow">
@@ -33,12 +26,15 @@ export default function TrustControlsPage() {
 
               <p className="p">
                 Modern PayEngine is designed around a simple principle:
-                <strong> execution moves money, but controls preserve authority.</strong>
+                <strong>
+                  {" "}
+                  execution moves money, but controls preserve authority.
+                </strong>
               </p>
 
               <p className="p" style={{ marginTop: 14 }}>
-                Trust & Controls define how funding, FX decisions, approvals, and
-                payout release are governed — ensuring decision integrity,
+                Trust & Controls define how funding, FX decisions, approvals,
+                and payout release are governed — ensuring decision integrity,
                 auditability, and accountability across global operations, even
                 when networks degrade or execution is delayed.
               </p>
@@ -61,7 +57,8 @@ export default function TrustControlsPage() {
                 <strong>Authority:</strong> policy-driven, role-based, auditable
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Approvals:</strong> maker-checker, multi-entity, multi-currency
+                <strong>Approvals:</strong> maker-checker, multi-entity,
+                multi-currency
               </p>
               <p className="p" style={{ marginTop: 10 }}>
                 <strong>Release:</strong> controlled, conditional, time-aware
@@ -70,7 +67,8 @@ export default function TrustControlsPage() {
                 <strong>Auditability:</strong> deterministic, end-to-end
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Resilience:</strong> authoritative under degraded conditions
+                <strong>Resilience:</strong> authoritative under degraded
+                conditions
               </p>
 
               <div
@@ -83,8 +81,8 @@ export default function TrustControlsPage() {
               />
 
               <p className="p" style={{ margin: 0 }}>
-                Designed for regulated, mission-critical, and sensitive operating
-                environments where continuity of authority matters.
+                Designed for regulated, mission-critical, and sensitive
+                operating environments where continuity of authority matters.
               </p>
             </div>
           </div>
@@ -122,8 +120,8 @@ export default function TrustControlsPage() {
               <h3 style={{ marginTop: 0 }}>Separation of control and execution</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Modern PayEngine governs authority. Banks and partners execute
-                payments. This separation preserves clarity, accountability,
-                and operational resilience.
+                payments. This separation preserves clarity, accountability, and
+                operational resilience.
               </p>
             </div>
           </div>

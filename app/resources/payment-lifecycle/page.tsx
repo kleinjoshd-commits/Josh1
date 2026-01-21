@@ -15,15 +15,8 @@ export default function PaymentLifecycleResource() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER */}
-          <div
-            style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.85fr)",
-              alignItems: "start",
-            }}
-          >
+          {/* HEADER — RESPONSIVE GRID */}
+          <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
               <div className="eyebrow">
@@ -46,19 +39,13 @@ export default function PaymentLifecycleResource() {
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 Modern PayEngine is built on a simple principle: payments should
-                move through <strong>explicit, enforceable lifecycle states</strong>,
-                governed independently of how or where execution occurs. This is
-                what makes predictability possible at scale.
+                move through{" "}
+                <strong>explicit, enforceable lifecycle states</strong>, governed
+                independently of how or where execution occurs. This is what
+                makes predictability possible at scale.
               </p>
 
-              <div
-                style={{
-                  marginTop: 18,
-                  display: "flex",
-                  gap: 10,
-                  flexWrap: "wrap",
-                }}
-              >
+              <div className="btnRow" style={{ marginTop: 18 }}>
                 <Link className="btnSecondary" href="/resources">
                   Back to Resources
                 </Link>
@@ -106,7 +93,6 @@ export default function PaymentLifecycleResource() {
 
           {/* ARTICLE */}
           <div style={{ marginTop: 28, maxWidth: 980 }}>
-            {/* SECTION */}
             <h2 className="h2" style={{ marginBottom: 10 }}>
               Why lifecycle state is the real bottleneck
             </h2>
@@ -124,17 +110,16 @@ export default function PaymentLifecycleResource() {
               way to answer “where is this payment?” is by chasing providers.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               The enterprise payment lifecycle (enforced)
             </h2>
             <p className="p">
               Below is a simplified lifecycle used to illustrate how authority is
               enforced before execution occurs. An enterprise payment lifecycle
-              is the authoritative sequence of <strong>enforceable states</strong>{" "}
-              a payment must pass through before the organization considers it
-              complete. These are not UI labels. Each state carries policy,
-              audit, and release consequences.
+              is the authoritative sequence of{" "}
+              <strong>enforceable states</strong> a payment must pass through
+              before the organization considers it complete. These are not UI
+              labels. Each state carries policy, audit, and release consequences.
             </p>
 
             <div className="panel" style={{ marginTop: 14 }}>
@@ -152,15 +137,15 @@ export default function PaymentLifecycleResource() {
               predictable execution possible across markets.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               What each state protects
             </h2>
-            <p className="p">
-              You can think of the lifecycle as a set of guardrails:
-            </p>
+            <p className="p">You can think of the lifecycle as a set of guardrails:</p>
 
-            <div className="kycGrid" style={{ marginTop: 14, alignItems: "stretch" }}>
+            <div
+              className="kycGrid"
+              style={{ marginTop: 14, alignItems: "stretch" }}
+            >
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Created</h3>
                 <p className="p" style={{ marginTop: 10 }}>
@@ -202,7 +187,6 @@ export default function PaymentLifecycleResource() {
               </div>
             </div>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Separating control from execution
             </h2>
@@ -218,13 +202,10 @@ export default function PaymentLifecycleResource() {
               flexibility without breaking controls or retraining teams.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Funding and FX as control checkpoints
             </h2>
-            <p className="p">
-              Two transitions deserve special attention at scale:
-            </p>
+            <p className="p">Two transitions deserve special attention at scale:</p>
             <p className="p" style={{ marginTop: 10 }}>
               <strong>Funding</strong> is not an assumption — it’s a state
               transition. Funds should be confirmed before release, and wallet
@@ -239,7 +220,6 @@ export default function PaymentLifecycleResource() {
               theoretical “best rates.”
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Auditability is a byproduct of explicit state
             </h2>
@@ -250,7 +230,6 @@ export default function PaymentLifecycleResource() {
               external audits, and consistent reporting across markets.
             </p>
 
-            {/* SECTION */}
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               Closing
             </h2>
@@ -286,3 +265,4 @@ export default function PaymentLifecycleResource() {
     </main>
   );
 }
+
