@@ -73,6 +73,14 @@ export default function KycForm() {
     }
   }
 
+  const inputStyle = {
+    padding: 14,
+    borderRadius: 14,
+    border: "1px solid rgba(255,255,255,0.18)",
+    background: "rgba(255,255,255,0.85)",
+    color: "#000",
+  };
+
   return (
     <section id="kyc" className="deckDark">
       <div className="container darkInner">
@@ -112,25 +120,14 @@ export default function KycForm() {
               name="companyName"
               required
               placeholder="Company name"
-              style={{
-                gridColumn: "span 2",
-                padding: 14,
-                borderRadius: 14,
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: "rgba(255,255,255,0.85)",
-              }}
+              style={{ ...inputStyle, gridColumn: "span 2" }}
             />
 
             <input
               name="fullName"
               required
               placeholder="Your name"
-              style={{
-                padding: 14,
-                borderRadius: 14,
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: "rgba(255,255,255,0.85)",
-              }}
+              style={inputStyle}
             />
 
             <input
@@ -138,47 +135,26 @@ export default function KycForm() {
               required
               type="email"
               placeholder="Work email"
-              style={{
-                padding: 14,
-                borderRadius: 14,
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: "rgba(255,255,255,0.85)",
-              }}
+              style={inputStyle}
             />
 
             <input
               name="countryOrRegion"
               placeholder="Country / region"
-              style={{
-                padding: 14,
-                borderRadius: 14,
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: "rgba(255,255,255,0.85)",
-              }}
+              style={inputStyle}
             />
 
             <input
               name="monthlyPayoutVolume"
               placeholder="Estimated monthly payout volume (optional)"
-              style={{
-                padding: 14,
-                borderRadius: 14,
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: "rgba(255,255,255,0.85)",
-              }}
+              style={inputStyle}
             />
 
             <textarea
               name="useCase"
               placeholder="Tell us a bit about your use case (optional)"
               rows={4}
-              style={{
-                gridColumn: "span 2",
-                padding: 14,
-                borderRadius: 14,
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: "rgba(255,255,255,0.85)",
-              }}
+              style={{ ...inputStyle, gridColumn: "span 2" }}
             />
 
             {error ? (

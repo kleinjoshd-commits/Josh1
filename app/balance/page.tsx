@@ -26,14 +26,12 @@ export default function BalancePage() {
               <div className="divider" />
 
               <p className="darkP">
-                Balance is the worker wallet experience that gives individuals
-                faster access to earnings — with the ability to spend, remit,
-                and support family members with a modern, transparent flow.
+                Balance gives workers faster, clearer access to their pay—with a simple
+                way to spend, remit, and support family.
               </p>
 
               <p className="darkP" style={{ marginTop: 12 }}>
-                Employers maintain governance through Modern PayEngine, while
-                workers benefit from speed, visibility, and control.
+                Employers keep governance, approvals, and compliance in Modern PayEngine.
               </p>
 
               <div className="btnRow" style={{ marginTop: 22 }}>
@@ -61,7 +59,7 @@ export default function BalancePage() {
             </div>
           </div>
 
-          {/* FLOW IMAGE ONLY */}
+          {/* FLOW IMAGE */}
           <div style={{ marginTop: 40 }}>
             <div className="panel">
               <Image
@@ -83,49 +81,42 @@ export default function BalancePage() {
           {/* BENEFITS */}
           <div className="kycGrid" style={{ marginTop: 36 }}>
             <div className="panel">
-              <h3>Faster access to earnings</h3>
+              <h3>Faster access</h3>
               <p>
-                Reduce waiting time between payroll approval and worker access,
-                with a modern wallet experience.
+                Reduce the gap between payroll approval and worker access with a modern,
+                transparent payout flow.
               </p>
             </div>
 
             <div className="panel">
-              <h3>Remit money home</h3>
+              <h3>Remit with confidence</h3>
               <p>
-                Send money to family quickly and predictably, with a clear
-                experience end-to-end.
+                Send money home quickly and predictably, with clear status from start
+                to finish.
               </p>
             </div>
 
             <div className="panel">
-              <h3>Family wallets</h3>
+              <h3>Family support</h3>
               <p>
-                Create wallets for family members so support reaches them
-                directly, without unnecessary intermediaries.
+                Create wallets for family members so support reaches them directly,
+                without unnecessary intermediaries.
               </p>
             </div>
 
             <div className="panel">
-              <h3>Employer-grade governance</h3>
+              <h3>Enterprise-grade governance</h3>
               <p>
-                Balance is powered by Modern PayEngine, keeping compliance,
-                reporting, and oversight with the employer.
+                Balance runs on Modern PayEngine—so employers retain policy enforcement,
+                reporting, and compliance across all payouts.
               </p>
             </div>
-          </div>
-
-          <div style={{ marginTop: 32 }}>
-            <a className="btnSecondary" href="/modern-payengine">
-              Learn how Modern PayEngine powers Balance
-            </a>
           </div>
         </div>
       </section>
     </main>
   );
 }
-
 
 
 
