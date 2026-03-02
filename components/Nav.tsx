@@ -254,12 +254,12 @@ export default function Nav() {
             </div>
 
             {activeMenu === "platform" && (
-              <div style={{ paddingLeft: 12 }}>
+              <div className="navMobileSubmenu">
                 {siteConfig.nav.platform.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="navMobileItem"
+                    className="navMobileSubitem"
                     onClick={closeAll}
                   >
                     {item.label}
@@ -278,12 +278,12 @@ export default function Nav() {
             </div>
 
             {activeMenu === "solutions" && (
-              <div style={{ paddingLeft: 12 }}>
+              <div className="navMobileSubmenu">
                 {siteConfig.nav.solutions.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="navMobileItem"
+                    className="navMobileSubitem"
                     onClick={closeAll}
                   >
                     {item.label}

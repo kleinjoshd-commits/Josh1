@@ -867,14 +867,14 @@ img {
 }
 
 .navMobileMenu {
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .navMobileItem {
-  padding: 12px 12px;
+  padding: 13px 14px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
@@ -883,9 +883,27 @@ img {
   font-size: 14px;
 }
 
+.navMobileSubmenu {
+  display: grid;
+  gap: 8px;
+  padding-left: 10px;
+  margin-top: -2px;
+}
+
+.navMobileSubitem {
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 13px;
+}
+
 .navMobileCta {
   width: 100%;
   text-align: center;
+  margin-top: 4px;
 }
 
 /* -----------------------------
@@ -947,7 +965,7 @@ img {
   }
 
   .navLogo img {
-    width: 150px !important;
+    width: 135px !important;
     max-width: 100%;
     height: auto !important;
   }
