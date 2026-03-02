@@ -1,327 +1,233 @@
 import Image from "next/image";
+import Link from "next/link";
 import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function Home() {
   return (
     <main>
       <Nav />
 
-      {/* HERO */}
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          <div className="grid">
-            <div>
+          <section className="homeHero" data-animate>
+            <div className="homeHeroFrame">
+              <div className="homeHeroCopy">
               <div className="eyebrow">
-                Modern PayEngine + Balance <span className="dot" />
-                Payments infrastructure beyond terrestrial assumptions
+                MPE <span className="dot" />
+                  The operating system for a new era of payments
               </div>
 
-              <h1 className="h1">
-                Payments infrastructure
-                <br />
-                beyond terrestrial
-                <br />
-                assumptions
-              </h1>
+                <h1 className="h1">Unified Control for Global Payments</h1>
 
-              <p className="p">
-                A network-agnostic payments control plane built for hybrid,
-                intermittent, and satellite-enabled connectivity — ensuring
-                money moves when traditional systems fail.
-              </p>
+                <p className="p homeHeroLead">
+                  Global payments are no longer handled through one bank, one
+                  provider, or one operating flow. As workforces, counterparties,
+                  and execution paths become more distributed, the financial
+                  operating model has to become more coordinated.
+                </p>
 
-              <p className="p" style={{ marginTop: 14 }}>
-                Govern funding, FX decision points, approvals, and payout release
-                across markets — while execution runs through trusted local
-                banks and licensed partners — without replacing your existing
-                payroll, HR, or finance systems.
-              </p>
+                <p className="p homeHeroSecondary">
+                  MPE gives finance teams that layer: control, visibility,
+                  governed execution, FX oversight, multi-network coordination,
+                  and satellite-resilient operating continuity in one system.
+                </p>
 
-              <p className="p" style={{ marginTop: 14 }}>
-                Satellite-informed security, resilience, and accessibility
-                strengthen critical control moments when infrastructure is
-                degraded — without changing how money moves on familiar rails.
-              </p>
+                <p className="p homeHeroSecondary" style={{ marginTop: 12 }}>
+                  Deploy MPE as a layered control platform where it adds the
+                  most value, or use it as a unified operating stack across
+                  the full payment environment.
+                </p>
 
-              <div className="btnRow">
-                <a className="btnPrimary" href="/#kyc">
-                  Explore hybrid-network pilots
-                </a>
-                <a className="btnSecondary" href="/resources">
-                  Download overview
-                </a>
+                <div className="btnRow homeHeroActions">
+                  <Link className="btnPrimary" href="/#kyc">
+                    Request Access
+                  </Link>
+                  <Link className="btnSecondary" href="/solutions/os">
+                    View Platform
+                  </Link>
+                </div>
+              </div>
+
+              <div className="homeHeroRail" aria-label="Operating priorities">
+                <div className="homeHeroRailLabel">Operating priorities</div>
+                <div className="homeHeroRailList">
+                  {[
+                    {
+                      title: "Control",
+                      body: "Approvals, funding governance, FX oversight, and release authority in one system.",
+                    },
+                    {
+                      title: "Execution",
+                      body: "AI-informed routing across rails and partner-connected infrastructure as complexity scales.",
+                    },
+                    {
+                      title: "Resilience",
+                      body: "Built for distributed, hybrid, and satellite-reliant environments where continuity matters.",
+                    },
+                  ].map((item) => (
+                    <div key={item.title} className="homeHeroRailItem">
+                      <h3>{item.title}</h3>
+                      <p>{item.body}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
+          </section>
 
-            {/* HOME UI (DESKTOP ONLY) */}
-            <div className="card hideOnMobile">
-              <div className="cardInner">
-                <Image
-                  src="/mpe-ui.png"
-                  alt="Modern PayEngine platform interface"
-                  width={1600}
-                  height={1000}
-                  priority
-                  style={{ width: "100%", height: "auto" }}
-                />
+          <section className="homeBand homePlatformBand" data-animate>
+            <div className="homePlatformGrid">
+              <div className="homePlatformCopy">
+                <h2 className="homeSectionTitle">
+                  One operational layer across your entire payment ecosystem
+                </h2>
+                <p className="p homePlatformIntro">
+                  The next era of payments will be defined by orchestration,
+                  not isolated provider workflows. MPE gives finance teams a
+                  single operational layer across execution, control, and
+                  visibility.
+                </p>
+
+                <div className="homeModuleRow">
+                  {siteConfig.nav.solutions.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="homeModuleChip"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* THE PROBLEM — STATEMENT ONLY */}
-          <div data-animate style={{ marginTop: 30 }}>
-            <div
-              className="panel"
-              style={{
-                maxWidth: 1040,
-                margin: "0 auto",
-                padding: "26px 32px",
-              }}
-            >
-              <p
-                className="p"
-                style={{
-                  margin: 0,
-                  lineHeight: 1.65,
-                  maxWidth: "none",
-                  width: "100%",
-                }}
-              >
-                <strong>
-                  Most payment stacks assume always-on terrestrial connectivity.
-                </strong>{" "}
-                When networks degrade or disappear, payroll stalls, vendor
-                payouts fail, approvals lose authority, and audit trails
-                fragment. Payments are too critical to fail because a network
-                did.
+              <div className="homeVisualShell">
+                <div className="card homeVisualCard">
+                  <div className="cardInner">
+                    <Image
+                      src="/mpe-ui.png"
+                      alt="MPE platform interface"
+                      width={1600}
+                      height={1000}
+                      priority
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+                </div>
+
+              <p className="p homeVisualCaption">
+                  MPE sits above providers, giving finance a single system of
+                  control as workflows scale across entities, regions, partners,
+                  and execution paths.
               </p>
             </div>
-          </div>
+            </div>
 
-          {/* HOW IT WORKS: CONTROL → EXECUTE → OUTLAST */}
-          <div data-animate style={{ marginTop: 22 }}>
-            <div
-              style={{
-                display: "grid",
-                gap: 14,
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                alignItems: "stretch",
-              }}
-            >
-              <div className="panel">
-                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
-                  Control plane
-                </h3>
-                <p className="p" style={{ margin: 0 }}>
-                  Define policy, permissions, approvals, FX decision points, and
-                  payment lifecycle states — with audit trails built for
-                  regulated, mission-critical operations.
-                </p>
+            <div className="homePillarGrid">
+              <div className="panel homePillarCard">
+                <h3>Orchestrate</h3>
+                <p>Coordinate banks, providers, and AI-informed multi-network execution in one governed layer</p>
               </div>
 
-              <div className="panel">
-                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
-                  Execute via partners
-                </h3>
-                <p className="p" style={{ margin: 0 }}>
-                  Route settlement through trusted local banks for domestic flows
-                  and licensed partners for cross-border payouts — all under one
-                  governed operating layer.
-                </p>
+              <div className="panel homePillarCard">
+                <h3>Control</h3>
+                <p>Govern policy, approvals, funding, and FX exposure centrally</p>
               </div>
 
-              <div className="panel">
-                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
-                  Outlast networks
-                </h3>
-                <p className="p" style={{ margin: 0 }}>
-                  Satellite-informed resilience supports continuity and
-                  out-of-band assurance when connectivity is unreliable — helping
-                  critical control events remain authoritative under stress.
-                </p>
+              <div className="panel homePillarCard">
+                <h3>Maintain Visibility</h3>
+                <p>Bring status, audit, and reporting into one system of record</p>
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* PLATFORM PILLARS */}
-          <div data-animate style={{ marginTop: 18 }}>
-            <div
-              style={{
-                display: "grid",
-                gap: 14,
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                alignItems: "stretch",
-              }}
-            >
-              <div className="panel">
-                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
-                  Funding & Wallets
-                </h3>
-                <p className="p" style={{ margin: 0 }}>
-                  Centralized multi-currency wallet pools with real-time
-                  visibility and control across entities and regions — designed
-                  for predictable release and settlement even when execution is
-                  delayed.
-                </p>
-              </div>
-
-              <div className="panel">
-                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
-                  FX & Treasury Controls
-                </h3>
-                <p className="p" style={{ margin: 0 }}>
-                  Treat FX as a governed decision point: lock ahead of execution,
-                  manage exposure, and improve predictability for payroll and
-                  vendor runs across markets.
-                </p>
-              </div>
-
-              <div className="panel">
-                <h3 className="balanceH3" style={{ marginBottom: 10 }}>
-                  Approvals & Governance
-                </h3>
-                <p className="p" style={{ margin: 0 }}>
-                  Policy-driven approvals, controlled release, and audit-grade
-                  integrity guarantees — designed to remain authoritative under
-                  degraded or constrained network conditions.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* WHERE WE START */}
-          <div data-animate style={{ marginTop: 18 }}>
-            <div className="panel">
-              <h3 className="balanceH3" style={{ marginBottom: 10 }}>
-                Designed for environments where failure isn’t acceptable
-              </h3>
-              <p className="p" style={{ margin: 0 }}>
-                We’re starting where network assumptions already break — and the
-                cost of failure is real.
+          <section className="homeBand homeContextBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">
+                Built for complex payment environments
+              </h2>
+              <p className="p homeContextIntro">
+                MPE is built for finance teams managing distributed operations,
+                multiple execution paths, and rising exposure across providers,
+                currencies, counterparties, and environments.
               </p>
+            </div>
 
+            <div className="homeTagGrid">
+              {[
+                "Global Workforces",
+                "Vendor & Contractor Payments",
+                "Distributed Operations",
+                "Cross-Border Treasury & FX",
+              ].map((tag) => (
+                <div key={tag} className="homeTag">
+                  {tag}
+                </div>
+              ))}
+            </div>
+
+            <div className="homeInfoGrid">
+              <div className="panel homeInfoCard">
+                <h3>Enterprise-grade global execution</h3>
+                <p>
+                  Payments are executed through licensed global banking and
+                  payment infrastructure, while MPE keeps multi-network
+                  operational control in one place.
+                </p>
+              </div>
+
+              <div className="panel homeInfoCard">
+                <h3>Operational credibility</h3>
+                <p>
+                  Audit-grade controls, role-based approvals, funding
+                  governance, and execution oversight built for finance teams
+                  operating at enterprise scale.
+                </p>
+              </div>
+
+              <div className="panel homeInfoCard">
+                <h3>Designed for resilient financial operations</h3>
+                <p>
+                  Built for finance teams operating across distributed, hybrid,
+                  and connectivity-constrained environments where satellite
+                  resilience and continuity matter.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="homeBand" data-animate>
+            <div className="panel homeFinalCta">
               <div
-                style={{
-                  display: "grid",
-                  gap: 12,
-                  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                  alignItems: "stretch",
-                  marginTop: 14,
-                }}
+                className="homeFinalCtaInner"
+                style={{ display: "grid", justifyItems: "center" }}
               >
-                <div className="panel" style={{ margin: 0 }}>
-                  <h3 className="balanceH3" style={{ marginBottom: 8 }}>
-                    Maritime & Offshore Operations
-                  </h3>
-                  <p className="p" style={{ margin: 0 }}>
-                    Payroll and vendor payments in environments with intermittent
-                    connectivity by design.
-                  </p>
-                </div>
-
-                <div className="panel" style={{ margin: 0 }}>
-                  <h3 className="balanceH3" style={{ marginBottom: 8 }}>
-                    Remote & Industrial Infrastructure
-                  </h3>
-                  <p className="p" style={{ margin: 0 }}>
-                    Payments for energy, logistics, and remote worksites operating
-                    beyond reliable terrestrial networks.
-                  </p>
-                </div>
-
-                <div className="panel" style={{ margin: 0 }}>
-                  <h3 className="balanceH3" style={{ marginBottom: 8 }}>
-                    Disaster Recovery & Emergency Operations
-                  </h3>
-                  <p className="p" style={{ margin: 0 }}>
-                    Critical disbursements when infrastructure is compromised or
-                    unavailable.
-                  </p>
-                </div>
-
-                <div className="panel" style={{ margin: 0 }}>
-                  <h3 className="balanceH3" style={{ marginBottom: 8 }}>
-                    Sensitive & Restricted Environments
-                  </h3>
-                  <p className="p" style={{ margin: 0 }}>
-                    Operations that require continuity, auditability, and strict
-                    controls under constrained or non-public network conditions.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CFO QUOTE */}
-          <div
-            className="quoteWrap"
-            data-animate
-            style={{ marginTop: 40, marginBottom: 20 }}
-          >
-            <div
-              className="panel quotePanel"
-              style={{
-                padding: "16px 26px 22px",
-                maxWidth: 820,
-                margin: "0 auto",
-                textAlign: "center",
-              }}
-            >
-              <p className="quoteText" style={{ marginBottom: 22 }}>
-                “Modern PayEngine helped us govern payment release across
-                markets, forecast FX exposure with confidence, and consolidate
-                execution into a single operating layer.”
-              </p>
-
-              <div className="quoteAuthor">
-                — Chief Financial Officer, Global Travel Agency
-              </div>
-            </div>
-          </div>
-
-          {/* BALANCE — HOME FEATURE */}
-          <div style={{ marginTop: 34 }}>
-            <div className="panel balancePanel">
-              <div className="balanceText">
-                <h3 className="balanceH3">
-                  Employee pay & remittance — governed through Modern PayEngine
-                </h3>
-
-                <p className="p" style={{ marginTop: 12 }}>
-                  Faster access to earnings, international remittance, and family
-                  support — delivered with employer-grade controls, auditability,
-                  and corridor-by-corridor rollout through Modern PayEngine.
+                <h2 className="homeSectionTitle homeFinalCtaTitle">
+                  Finance is evolving into a multi-provider operating system
+                </h2>
+                <p
+                  className="p homeFinalCtaCopy"
+                  style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto" }}
+                >
+                  MPE is built for that shift: one layer for orchestration,
+                  control, FX visibility, and resilient execution across the
+                  payment ecosystem enterprises run today and the more
+                  distributed one they are growing into next.
                 </p>
-
-                <div className="balanceCtas">
-                  <a className="btnSecondary" href="/balance">
-                    Explore Balance
-                  </a>
-                  <a className="btnPrimary" href="/#kyc">
-                    Join the pilot
-                  </a>
+                <div className="btnRow homeFinalCtaActions">
+                  <Link className="btnPrimary" href="/#kyc">
+                    Request Access
+                  </Link>
                 </div>
               </div>
-
-              {/* MOCKUP (DESKTOP ONLY) */}
-              <div className="balanceMock hideOnMobile">
-                <Image
-                  src="/balance-ui.png"
-                  alt="Balance employee pay interface"
-                  width={1600}
-                  height={1000}
-                  priority
-                  style={{ width: "100%", height: "auto", display: "block" }}
-                />
-              </div>
             </div>
-          </div>
+          </section>
         </div>
       </section>
 
-      {/* LEARN MORE */}
       <KycForm />
     </main>
   );

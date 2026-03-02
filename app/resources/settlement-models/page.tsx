@@ -2,7 +2,7 @@ import Nav from "../../../components/Nav";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Local & Global Settlement Models | Modern PayEngine",
+  title: "Local & Global Settlement Models | MPE",
   description:
     "A control-plane view of domestic vs cross-border settlement—how routing through trusted local banks and licensed partners stays consistent under one governed operating layer.",
 };
@@ -39,7 +39,7 @@ export default function SettlementModelsResource() {
               </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
-                Modern PayEngine keeps the operating layer consistent across
+                MPE keeps the operating layer consistent across
                 markets by separating <strong>authority</strong> from{" "}
                 <strong>execution</strong>. Lifecycle state, approvals, funding,
                 FX decisioning, and release are governed centrally — while
@@ -144,8 +144,8 @@ export default function SettlementModelsResource() {
               In jurisdictions with mandated wage protection frameworks — such
               as Wage Protection Systems (WPS) in parts of the Gulf — domestic
               settlement must also satisfy regulatory timing, formatting, and
-              confirmation requirements. In these environments, Modern
-              PayEngine governs approval, funding, and release centrally while
+              confirmation requirements. In these environments, MPE governs
+              approval, funding, and release centrally while
               routing execution through compliant local banks and payroll
               partners to meet statutory wage obligations without fragmenting
               controls.
@@ -188,7 +188,7 @@ export default function SettlementModelsResource() {
               A control-plane approach to settlement
             </h2>
             <p className="p">
-              Modern PayEngine treats settlement as execution — and keeps the
+              MPE treats settlement as execution — and keeps the
               organization’s authority above it. Lifecycle state, approvals,
               funding checkpoints, FX decisioning, and release conditions are
               governed centrally. Settlement is routed to the best available

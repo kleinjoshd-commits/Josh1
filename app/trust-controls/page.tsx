@@ -25,7 +25,7 @@ export default function TrustControlsPage() {
               </h1>
 
               <p className="p">
-                Modern PayEngine is designed around a simple principle:
+                MPE is designed around a simple principle:
                 <strong>
                   {" "}
                   execution moves money, but controls preserve authority.
@@ -43,8 +43,8 @@ export default function TrustControlsPage() {
                 <Link className="btnPrimary" href="/#kyc">
                   Explore a governed pilot
                 </Link>
-                <Link className="btnSecondary" href="/modern-payengine">
-                  Platform overview
+                <Link className="btnSecondary" href="/solutions/os">
+                  MPE OS overview
                 </Link>
               </div>
             </div>
@@ -119,7 +119,7 @@ export default function TrustControlsPage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Separation of control and execution</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Modern PayEngine governs authority. Banks and partners execute
+                MPE governs authority. Banks and partners execute
                 payments. This separation preserves clarity, accountability, and
                 operational resilience.
               </p>
@@ -149,7 +149,7 @@ export default function TrustControlsPage() {
                   control failures.
                 </strong>{" "}
                 When systems fragment, networks degrade, or providers change,
-                decision authority erodes. Modern PayEngine is built to preserve
+                decision authority erodes. MPE is built to preserve
                 that authority under stress.
               </p>
             </div>
@@ -208,8 +208,8 @@ export default function TrustControlsPage() {
             <Link className="btnSecondary" href="/satellite">
               Satellite resilience
             </Link>
-            <Link className="btnSecondary" href="/modern-payengine">
-              Platform overview
+            <Link className="btnSecondary" href="/solutions/os">
+              MPE OS overview
             </Link>
           </div>
 

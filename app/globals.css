@@ -792,14 +792,14 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .navLogo {
   display: flex;
   align-items: center;
-  min-width: 180px;
+  min-width: 188px;
 }
 
 .navLinks {
@@ -1216,7 +1216,7 @@ img {
 }
 /* --- Homepage uniformity fixes --- */
 .homeSection { margin-top: 28px; }
-.homeSectionHeader { max-width: 980px; margin: 0 auto 14px; }
+.homeSectionHeader { max-width: 980px; margin: 0 auto 18px; text-align: center; }
 
 .homeCards {
   display: grid;
@@ -1229,6 +1229,371 @@ img {
 
 @media (max-width: 900px) {
   .homeCards { grid-template-columns: 1fr; }
+}
+
+.homeHero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-top: 12px;
+}
+
+.homeHeroFrame {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px 0 34px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: minmax(0, 1.32fr) minmax(260px, 0.68fr);
+  align-items: start;
+}
+
+.homeHeroCopy {
+  max-width: 720px;
+  text-align: left;
+}
+
+.homeHeroLead {
+  font-size: 19px;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.homeHeroSecondary {
+  max-width: 640px;
+}
+
+.homeHeroActions {
+  justify-content: flex-start;
+}
+
+.homeHeroRail {
+  max-width: 300px;
+  padding: 58px 0 0 22px;
+  border-left: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.homeHeroRailLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.54);
+}
+
+.homeHeroRailList {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.homeHeroRailItem h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.homeHeroRailItem p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.homeSectionTitle {
+  font-size: 30px;
+  line-height: 1.12;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--ink);
+}
+
+.homeBulletList {
+  margin: 18px 0 0;
+  padding-left: 20px;
+}
+
+.homeBulletList li {
+  margin-top: 10px;
+}
+
+.homeBand {
+  margin-top: 56px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homePlatformGrid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: start;
+}
+
+.homePillarGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+.homePillarCard {
+  min-height: 164px;
+}
+
+.homePillarCard p {
+  max-width: none;
+}
+
+.homePlatformBand {
+  max-width: 1100px;
+}
+
+.homePlatformCopy {
+  max-width: 460px;
+  padding-top: 6px;
+}
+
+.homePlatformIntro {
+  max-width: 460px;
+  margin-top: 16px;
+}
+
+.homeVisualShell {
+  text-align: center;
+}
+
+.homeModuleRow {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.homeModuleChip {
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  background: rgba(255, 255, 255, 0.62);
+  color: rgba(17, 24, 39, 0.88);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.homeVisualCard {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.homeVisualCaption {
+  max-width: 640px;
+  margin: 18px auto 0;
+  text-align: center;
+}
+
+.solutionCapabilities {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.solutionCapabilitiesTitle {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.solutionCapabilitiesList {
+  margin: 20px 0 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.solutionCapabilitiesList li {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.homeTagGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.homeTag {
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(17, 24, 39, 0.88);
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+}
+
+.homeInfoGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.homeInfoCard h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.homeInfoCard p {
+  max-width: none;
+}
+
+.homeFinalCta {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px 34px;
+}
+
+.homeFinalCtaInner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.homeFinalCtaTitle {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28px;
+}
+
+.homeFinalCtaCopy {
+  max-width: 620px;
+  margin: 16px auto 0;
+  text-align: center;
+}
+
+.homeFinalCtaActions {
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.homeContextBand {
+  max-width: 1100px;
+}
+
+.homeContextHeader {
+  max-width: 840px;
+}
+
+.homeContextIntro {
+  max-width: 760px;
+  margin: 14px auto 0;
+  text-align: center;
+}
+
+.networkOutcomeGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 16px;
+}
+
+.networkOutcomeCard {
+  min-height: 100%;
+  padding: 18px 18px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.networkOutcomeCopy {
+  margin-top: 0;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .homeBand {
+    margin-top: 34px;
+  }
+
+  .homeSectionTitle {
+    font-size: 28px;
+  }
+
+  .homeHero {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .homeHeroFrame {
+    padding: 26px 0 22px;
+    border-radius: 22px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .homePillarGrid,
+  .homePlatformGrid,
+  .homeInfoGrid,
+  .homeModuleRow,
+  .homeTagGrid,
+  .networkOutcomeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homeVisualShell,
+  .homeSectionHeader,
+  .homeFinalCta {
+    text-align: left;
+  }
+
+  .homeVisualCaption {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .homeHeroCopy,
+  .homeHeroLead,
+  .homeHeroSecondary,
+  .homePlatformCopy,
+  .homePlatformIntro,
+  .homeContextIntro,
+  .homeFinalCtaInner,
+  .homeFinalCtaTitle,
+  .homeFinalCtaCopy {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .homeHeroRail {
+    padding: 18px 0 0;
+    border-left: none;
+    border-top: 1px solid rgba(17, 24, 39, 0.08);
+  }
+
+  .homeFinalCta {
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .homeFinalCtaCopy {
+    text-align: center;
+  }
+
+  .homeFinalCtaActions {
+    justify-content: center;
+  }
+
+  .homeHeroActions {
+    justify-content: flex-start;
+  }
 }
 
 /* Make the “How it works” read like a single diagram line */

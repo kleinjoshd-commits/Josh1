@@ -3,32 +3,39 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<"platform" | "solutions" | null>(
+    null
+  );
   const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth > 900) {
         setOpen(false);
-        setSolutionsOpen(false);
+        setActiveMenu(null);
       }
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const openSolutions = () => {
+  const openMenu = (menu: "platform" | "solutions") => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    setSolutionsOpen(true);
+    setActiveMenu(menu);
   };
 
-  const closeSolutions = () => {
+  const closeMenu = () => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    // small delay prevents “can’t click” behavior
-    closeTimer.current = window.setTimeout(() => setSolutionsOpen(false), 120);
+    closeTimer.current = window.setTimeout(() => setActiveMenu(null), 120);
+  };
+
+  const closeAll = () => {
+    setOpen(false);
+    setActiveMenu(null);
   };
 
   return (
@@ -46,29 +53,34 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="navLogo" aria-label="Home">
           <Image
-            src="/White-mpe-logo.png"
-            alt="Modern PayEngine"
-            width={190}
-            height={44}
+            src="/worth-a-shot.png"
+            alt="MPE"
+            width={176}
+            height={48}
             priority
-            style={{ width: 190, height: "auto" }}
+            style={{ width: 176, height: "auto" }}
           />
         </Link>
 
         {/* Desktop Nav */}
         <nav className="navLinks">
-          {/* SOLUTIONS DROPDOWN */}
+          <Link href="/" className="navLink">
+            Home
+          </Link>
+
           <div
             style={{ position: "relative" }}
-            onMouseEnter={openSolutions}
-            onMouseLeave={closeSolutions}
+            onMouseEnter={() => openMenu("platform")}
+            onMouseLeave={closeMenu}
           >
             <button
               type="button"
               className="navLink"
               aria-haspopup="menu"
-              aria-expanded={solutionsOpen}
-              onClick={() => setSolutionsOpen((v) => !v)}
+              aria-expanded={activeMenu === "platform"}
+              onClick={() =>
+                setActiveMenu((v) => (v === "platform" ? null : "platform"))
+              }
               style={{
                 background: "transparent",
                 border: "none",
@@ -76,15 +88,15 @@ export default function Nav() {
                 cursor: "pointer",
               }}
             >
-              Solutions
+              Platform
             </button>
 
-            {solutionsOpen && (
+            {activeMenu === "platform" && (
               <div
                 role="menu"
-                aria-label="Solutions"
-                onMouseEnter={openSolutions}
-                onMouseLeave={closeSolutions}
+                aria-label="Platform"
+                onMouseEnter={() => openMenu("platform")}
+                onMouseLeave={closeMenu}
                 style={{
                   position: "absolute",
                   top: "calc(100% + 14px)",
@@ -97,67 +109,113 @@ export default function Nav() {
                   boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
                 }}
               >
-                <Link
-                  href="/modern-payengine"
-                  onClick={() => setSolutionsOpen(false)}
-                  style={{
-                    display: "block",
-                    padding: "10px 0",
-                    color: "rgba(255,255,255,0.9)",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  <strong>Modern PayEngine</strong>
-                  <div style={{ fontSize: 13, opacity: 0.7 }}>
-                    Employer payments infrastructure, FX control, and payout
-                    execution
+                {siteConfig.nav.platform.map((item, index) => (
+                  <div key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={closeAll}
+                      style={{
+                        display: "block",
+                        padding: "10px 0",
+                        color: "rgba(255,255,255,0.9)",
+                        textDecoration: "none",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <strong>{item.label}</strong>
+                      {item.description ? (
+                        <div style={{ fontSize: 13, opacity: 0.7 }}>
+                          {item.description}
+                        </div>
+                      ) : null}
+                    </Link>
+                    {index < siteConfig.nav.platform.length - 1 ? (
+                      <div style={{ height: 12 }} />
+                    ) : null}
                   </div>
-                </Link>
-
-                <div style={{ height: 12 }} />
-
-                <Link
-                  href="/balance"
-                  onClick={() => setSolutionsOpen(false)}
-                  style={{
-                    display: "block",
-                    padding: "10px 0",
-                    color: "rgba(255,255,255,0.9)",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  <strong>Balance</strong>
-                  <div style={{ fontSize: 13, opacity: 0.7 }}>
-                    Worker wallet for faster access, remittance, and family
-                    support
-                  </div>
-                </Link>
+                ))}
               </div>
             )}
           </div>
 
-          {/* ORDERED TOP-LEVEL LINKS */}
-          <Link href="/satellite" className="navLink">
-            Satellite
-          </Link>
+          <div
+            style={{ position: "relative" }}
+            onMouseEnter={() => openMenu("solutions")}
+            onMouseLeave={closeMenu}
+          >
+            <button
+              type="button"
+              className="navLink"
+              aria-haspopup="menu"
+              aria-expanded={activeMenu === "solutions"}
+              onClick={() =>
+                setActiveMenu((v) => (v === "solutions" ? null : "solutions"))
+              }
+              style={{
+                background: "transparent",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+              }}
+            >
+              Solutions
+            </button>
 
-          <Link href="/unified-approach" className="navLink">
-            Unified Approach
-          </Link>
+            {activeMenu === "solutions" && (
+              <div
+                role="menu"
+                aria-label="Solutions"
+                onMouseEnter={() => openMenu("solutions")}
+                onMouseLeave={closeMenu}
+                style={{
+                  position: "absolute",
+                  top: "calc(100% + 14px)",
+                  left: 0,
+                  background: "rgba(14, 18, 18, 0.98)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: 16,
+                  padding: 20,
+                  width: 380,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+                }}
+              >
+                {siteConfig.nav.solutions.map((item, index) => (
+                  <div key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={closeAll}
+                      style={{
+                        display: "block",
+                        padding: "10px 0",
+                        color: "rgba(255,255,255,0.9)",
+                        textDecoration: "none",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <strong>{item.label}</strong>
+                      {item.description ? (
+                        <div style={{ fontSize: 13, opacity: 0.7 }}>
+                          {item.description}
+                        </div>
+                      ) : null}
+                    </Link>
+                    {index < siteConfig.nav.solutions.length - 1 ? (
+                      <div style={{ height: 12 }} />
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
-          {/* NEW: TRUST & CONTROLS */}
-          <Link href="/trust-controls" className="navLink">
-            Trust &amp; Controls
-          </Link>
-
-          <Link href="/resources" className="navLink">
-            Resources
-          </Link>
+          {siteConfig.nav.topLevel.map((item) => (
+            <Link key={item.href} href={item.href} className="navLink">
+              {item.label}
+            </Link>
+          ))}
 
           <Link className="btnPrimary" href="/#kyc">
-            Learn more
+            Request Access
           </Link>
         </nav>
 
@@ -169,7 +227,7 @@ export default function Nav() {
           aria-expanded={open}
           onClick={() => {
             setOpen((v) => !v);
-            setSolutionsOpen(false);
+            setActiveMenu(null);
           }}
         >
           <span />
@@ -182,71 +240,75 @@ export default function Nav() {
       {open && (
         <div className="navMobileWrap">
           <div className="container navMobileMenu">
+            <Link href="/" className="navMobileItem" onClick={closeAll}>
+              Home
+            </Link>
+
             <div
               className="navMobileItem"
-              onClick={() => setSolutionsOpen((v) => !v)}
+              onClick={() =>
+                setActiveMenu((v) => (v === "platform" ? null : "platform"))
+              }
+            >
+              Platform
+            </div>
+
+            {activeMenu === "platform" && (
+              <div style={{ paddingLeft: 12 }}>
+                {siteConfig.nav.platform.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="navMobileItem"
+                    onClick={closeAll}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <div
+              className="navMobileItem"
+              onClick={() =>
+                setActiveMenu((v) => (v === "solutions" ? null : "solutions"))
+              }
             >
               Solutions
             </div>
 
-            {solutionsOpen && (
+            {activeMenu === "solutions" && (
               <div style={{ paddingLeft: 12 }}>
-                <Link
-                  href="/modern-payengine"
-                  className="navMobileItem"
-                  onClick={() => setOpen(false)}
-                >
-                  Modern PayEngine
-                </Link>
-                <Link
-                  href="/balance"
-                  className="navMobileItem"
-                  onClick={() => setOpen(false)}
-                >
-                  Balance
-                </Link>
+                {siteConfig.nav.solutions.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="navMobileItem"
+                    onClick={closeAll}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             )}
 
-            <Link
-              href="/satellite"
-              className="navMobileItem"
-              onClick={() => setOpen(false)}
-            >
-              Satellite
-            </Link>
-
-            <Link
-              href="/unified-approach"
-              className="navMobileItem"
-              onClick={() => setOpen(false)}
-            >
-              Unified Approach
-            </Link>
-
-            {/* NEW: TRUST & CONTROLS */}
-            <Link
-              href="/trust-controls"
-              className="navMobileItem"
-              onClick={() => setOpen(false)}
-            >
-              Trust &amp; Controls
-            </Link>
-
-            <Link
-              href="/resources"
-              className="navMobileItem"
-              onClick={() => setOpen(false)}
-            >
-              Resources
-            </Link>
+            {siteConfig.nav.topLevel.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="navMobileItem"
+                onClick={closeAll}
+              >
+                {item.label}
+              </Link>
+            ))}
 
             <Link
               href="/#kyc"
               className="btnPrimary navMobileCta"
-              onClick={() => setOpen(false)}
+              onClick={closeAll}
             >
-              Learn more
+              Request Access
             </Link>
           </div>
         </div>

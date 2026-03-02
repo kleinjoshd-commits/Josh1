@@ -2,7 +2,7 @@ import Nav from "../../../components/Nav";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Execution Abstraction & Routing | Modern PayEngine",
+  title: "Execution Abstraction & Routing | MPE",
   description:
     "How separating decision authority from execution enables partner-level routing without breaking governance, auditability, or control.",
 };
@@ -40,10 +40,11 @@ export default function ExecutionAbstractionResource() {
               </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
-                Modern PayEngine separates these concerns. Decision authority
+                MPE separates these concerns. Decision authority
                 lives in a governed control plane. Execution is routed
-                dynamically across trusted banks and licensed partners — without
-                breaking policy, auditability, or lifecycle state.
+                dynamically across trusted banks and licensed partners — with
+                AI-informed routing guidance where useful — without breaking
+                policy, auditability, or lifecycle state.
               </p>
 
               <div className="btnRow" style={{ marginTop: 18 }}>
@@ -115,7 +116,7 @@ export default function ExecutionAbstractionResource() {
               <strong>how it happens</strong>.
             </p>
             <p className="p" style={{ marginTop: 10 }}>
-              Modern PayEngine governs lifecycle state, approvals, funding, FX
+              MPE governs lifecycle state, approvals, funding, FX
               decision points, and release conditions in a centralized control
               plane. Execution instructions are then dispatched to the most
               appropriate bank or licensed partner based on policy, geography,

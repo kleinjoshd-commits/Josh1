@@ -2,7 +2,7 @@ import Nav from "../../../components/Nav";
 import Link from "next/link";
 
 export const metadata = {
-  title: "The Enterprise Payment Lifecycle | Modern PayEngine",
+  title: "The Enterprise Payment Lifecycle | MPE",
   description:
     "Why explicit, enforceable payment states reduce delays, exceptions, and reconciliation work across global payouts.",
 };
@@ -38,7 +38,7 @@ export default function PaymentLifecycleResource() {
               </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
-                Modern PayEngine is built on a simple principle: payments should
+                MPE is built on a simple principle: payments should
                 move through{" "}
                 <strong>explicit, enforceable lifecycle states</strong>, governed
                 independently of how or where execution occurs. This is what
@@ -191,7 +191,7 @@ export default function PaymentLifecycleResource() {
               Separating control from execution
             </h2>
             <p className="p">
-              Modern PayEngine enforces lifecycle governance independent of the
+              MPE enforces lifecycle governance independent of the
               execution provider. The control layer defines states, enforces
               approvals, governs FX decisions, and authorizes release. Execution
               is performed by trusted local banks and licensed partners who move
@@ -234,7 +234,7 @@ export default function PaymentLifecycleResource() {
               Closing
             </h2>
             <p className="p">
-              Modern PayEngine is not a processor. It is the system that decides{" "}
+              MPE is not a processor. It is the system that decides{" "}
               <strong>how payments are allowed to happen</strong>. By enforcing
               explicit lifecycle states and separating authority from execution,
               organizations gain predictability, accountability, flexibility, and
@@ -252,8 +252,8 @@ export default function PaymentLifecycleResource() {
               <Link className="btnSecondary" href="/trust-controls">
                 Trust & Controls
               </Link>
-              <Link className="btnSecondary" href="/modern-payengine">
-                Modern PayEngine
+              <Link className="btnSecondary" href="/solutions/os">
+                MPE OS
               </Link>
               <Link className="btnPrimary" href="/#kyc">
                 Request a walkthrough
@@ -265,4 +265,3 @@ export default function PaymentLifecycleResource() {
     </main>
   );
 }
-

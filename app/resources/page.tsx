@@ -2,7 +2,7 @@ import Nav from "../../components/Nav";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Resources | Modern PayEngine",
+  title: "Resources | MPE",
   description:
     "Infrastructure notes on payment control, execution abstraction, FX governance, settlement models, and resilience.",
 };
@@ -42,8 +42,8 @@ export default function ResourcesPage() {
                 <Link className="btnPrimary" href="/#kyc">
                   Request a walkthrough
                 </Link>
-                <Link className="btnSecondary" href="/modern-payengine">
-                  Explore Modern PayEngine
+                <Link className="btnSecondary" href="/solutions/os">
+                  Explore MPE OS
                 </Link>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function ResourcesPage() {
               />
 
               <p className="p" style={{ margin: 0 }}>
-                Each resource maps to a Modern PayEngine control capability and
+                Each resource maps to an MPE control capability and
                 includes practical implications for finance and operations.
               </p>
             </div>
@@ -101,6 +101,9 @@ export default function ResourcesPage() {
                 <Link className="btnPrimary" href="/resources/payment-lifecycle">
                   Read the resource
                 </Link>
+                <Link className="btnSecondary" href="/resources/execution-infrastructure">
+                  Execution infrastructure
+                </Link>
                 <Link className="btnSecondary" href="/trust-controls">
                   Trust & Controls
                 </Link>
@@ -110,6 +113,24 @@ export default function ResourcesPage() {
 
           {/* TOPICS */}
           <div className="kycGrid" style={{ marginTop: 24, alignItems: "stretch" }}>
+            <Link
+              className="panel"
+              href="/resources/execution-infrastructure"
+              style={{ textDecoration: "none", display: "block" }}
+            >
+              <h3 style={{ marginTop: 0 }}>Execution infrastructure</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                How MPE works with partner-connected execution infrastructure
+                while keeping approvals, routing, FX, release authority, and
+                visibility in one operating layer.
+              </p>
+              <div style={{ marginTop: 14 }}>
+                <span className="btnSecondary" style={{ opacity: 0.95 }}>
+                  Read
+                </span>
+              </div>
+            </Link>
+
             <Link
               className="panel"
               href="/resources/execution-routing"
@@ -181,15 +202,15 @@ export default function ResourcesPage() {
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Worker experience (Balance)</h3>
+              <h3 style={{ marginTop: 0 }}>Worker experience (MPE Balance)</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 How governed payout experiences extend to workers—faster access
                 to earnings and remittance options—while employers retain
                 oversight and compliance controls.
               </p>
               <div style={{ marginTop: 14 }}>
-                <Link className="btnSecondary" href="/balance">
-                  Explore Balance
+                <Link className="btnSecondary" href="/solutions/balance">
+                  Explore MPE Balance
                 </Link>
               </div>
             </div>
@@ -207,8 +228,8 @@ export default function ResourcesPage() {
             <Link className="btnPrimary" href="/#kyc">
               Request a walkthrough
             </Link>
-            <Link className="btnSecondary" href="/modern-payengine">
-              Explore Modern PayEngine
+            <Link className="btnSecondary" href="/solutions/os">
+              Explore MPE OS
             </Link>
             <Link className="btnSecondary" href="/unified-approach">
               Platform architecture

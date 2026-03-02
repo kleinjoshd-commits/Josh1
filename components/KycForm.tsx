@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 
+type KycResponse = {
+  ok?: boolean;
+  error?: string;
+};
+
 export default function KycForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -29,8 +34,8 @@ export default function KycForm() {
             </p>
 
             <p style={{ opacity: 0.62, marginTop: 12, fontSize: 14 }}>
-              No obligation — this works alongside your existing payroll, HR,
-              and finance systems.
+              No obligation — deploy MPE as a layered platform where it adds
+              the most control, or use it as a unified operating stack.
             </p>
           </div>
         </div>
@@ -46,7 +51,9 @@ export default function KycForm() {
     try {
       const form = e.currentTarget;
       const fd = new FormData(form);
-      const payload: Record<string, any> = Object.fromEntries(fd.entries());
+      const payload: Record<string, string> = Object.fromEntries(
+        Array.from(fd.entries()).map(([key, value]) => [key, String(value)])
+      );
 
       payload.pageUrl = window.location.href;
       payload.submittedAtIso = new Date().toISOString();
@@ -58,7 +65,7 @@ export default function KycForm() {
         body: JSON.stringify(payload),
       });
 
-      const json = await res.json().catch(() => ({} as any));
+      const json: KycResponse = await res.json().catch(() => ({}));
 
       if (!res.ok || !json?.ok) {
         throw new Error(json?.error || "Submission failed. Please try again.");
@@ -66,8 +73,12 @@ export default function KycForm() {
 
       setSubmitted(true);
       form.reset();
-    } catch (err: any) {
-      setError(err?.message || "Something went wrong. Please try again.");
+    } catch (err: unknown) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
     } finally {
       setSending(false);
     }
@@ -98,13 +109,13 @@ export default function KycForm() {
 
           <p style={{ opacity: 0.82, marginTop: 8 }}>
             Share a few details about your organization. We’ll follow up to
-            understand your use case and walk through Modern PayEngine and
-            Balance.
+            understand your use case and walk through MPE and the modules that
+            fit your operating model.
           </p>
 
           <p style={{ opacity: 0.7, marginTop: 6 }}>
-            Designed to work alongside your existing payroll, HR, and finance
-            systems.
+            Deploy MPE as a layered platform where it adds the most control, or
+            use it as a unified operating stack.
           </p>
 
           <form
@@ -191,8 +202,9 @@ export default function KycForm() {
                   textAlign: "center",
                 }}
               >
-                No obligation — we’ll reach out to discuss fit. This works
-                alongside your current systems.
+                No obligation — we’ll reach out to discuss fit. MPE can be
+                embedded where it adds control and visibility, or used as your
+                end-to-end operating platform.
               </p>
             </div>
           </form>

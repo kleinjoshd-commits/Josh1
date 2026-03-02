@@ -2,7 +2,7 @@ import Nav from "../../components/Nav";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Satellite Infrastructure | Modern PayEngine",
+  title: "Satellite Infrastructure | MPE",
   description:
     "Payments infrastructure beyond terrestrial assumptions—strengthened by satellite-informed security, resilience, and independent assurance.",
 };
@@ -27,9 +27,10 @@ export default function SatellitePage() {
           </h1>
 
           <p className="p" style={{ maxWidth: 920 }}>
-            Modern PayEngine is a payments control plane designed to govern
-            funding, FX decision points, approvals, and payout authorization
-            across global operations. Satellite-informed infrastructure strengthens
+            MPE is a payments control plane designed to govern funding, FX
+            decision points, approvals, and payout authorization across global
+            operations. Satellite-informed
+            infrastructure strengthens
             the trust and continuity layer behind those flows—supporting
             independent validation and out-of-band assurance when terrestrial
             networks degrade—without changing customer workflows or payment rails.
@@ -54,7 +55,7 @@ export default function SatellitePage() {
                 <strong>Most payment stacks assume always-on terrestrial connectivity.</strong>{" "}
                 In remote, maritime, infrastructure-challenged, or disrupted
                 environments, that assumption breaks—creating risk for payroll,
-                vendor payouts, and controlled release workflows. Modern PayEngine
+                vendor payouts, and controlled release workflows. MPE
                 is designed so decision authority and auditability persist under
                 degraded conditions.
               </p>
@@ -90,19 +91,19 @@ export default function SatellitePage() {
               <h3 style={{ marginTop: 0 }}>Where we apply it</h3>
 
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Modern PayEngine:</strong> strengthens key control moments
+                <strong>MPE:</strong> strengthens key control moments
                 in the lifecycle—funding, FX, approvals, and payout authorization—by
                 adding independent assurance where reliability matters most.
               </p>
 
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Balance:</strong> improves wallet availability and
+                <strong>MPE Balance:</strong> improves wallet availability and
                 transaction assurance in distributed or higher-risk environments
                 while keeping the experience simple.
               </p>
 
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Roadmap:</strong> through partner deployments, Modern PayEngine
+                <strong>Roadmap:</strong> through partner deployments, MPE
                 will incorporate additional satellite-informed primitives for
                 critical control events—designed to strengthen independence without
                 changing custody models or how money moves.
@@ -116,11 +117,11 @@ export default function SatellitePage() {
                   flexWrap: "wrap",
                 }}
               >
-                <Link className="btnSecondary" href="/modern-payengine">
-                  Explore Modern PayEngine
+                <Link className="btnSecondary" href="/solutions/os">
+                  Explore MPE OS
                 </Link>
-                <Link className="btnSecondary" href="/balance">
-                  Explore Balance
+                <Link className="btnSecondary" href="/solutions/balance">
+                  Explore MPE Balance
                 </Link>
               </div>
             </div>
@@ -139,9 +140,9 @@ export default function SatellitePage() {
               </p>
 
               <p className="p" style={{ marginTop: 10 }}>
-                This approach keeps Modern PayEngine provider-agnostic, compliant,
-                and deployable alongside existing enterprise finance, payroll, and
-                payment stacks.
+                This approach keeps MPE provider-agnostic, compliant, and
+                deployable as a layered control platform or as a central
+                operating stack across payment workflows.
               </p>
             </div>
           </div>
@@ -158,8 +159,8 @@ export default function SatellitePage() {
             <Link className="btnPrimary" href="/#kyc">
               Explore hybrid-network pilots
             </Link>
-            <Link className="btnSecondary" href="/modern-payengine">
-              Platform overview
+            <Link className="btnSecondary" href="/solutions/os">
+              MPE OS overview
             </Link>
           </div>
         </div>

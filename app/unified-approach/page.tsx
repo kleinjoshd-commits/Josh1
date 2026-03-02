@@ -25,11 +25,11 @@ export default function UnifiedApproachPage() {
               </h1>
 
               <p className="p" style={{ maxWidth: 860 }}>
-                Modern PayEngine governs the decisions that matter — funding, FX
-                decision points, approvals, and payout authorization — while
-                execution routes through trusted local banks and licensed
-                partners. You keep your ERP, HRIS, and payroll inputs exactly as
-                they are.
+                MPE governs the decisions that matter — funding, FX decision
+                points, approvals, and payout authorization — while execution
+                routes through trusted local banks and licensed partners. Embed
+                MPE where it adds the most control, or run it as the central
+                operating layer across the stack.
               </p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
@@ -43,11 +43,11 @@ export default function UnifiedApproachPage() {
                 <Link className="btnPrimary" href="/#kyc">
                   Explore hybrid-network pilots
                 </Link>
-                <Link className="btnSecondary" href="/modern-payengine">
-                  Explore Modern PayEngine
+                <Link className="btnSecondary" href="/solutions/os">
+                  Explore MPE OS
                 </Link>
-                <Link className="btnSecondary" href="/balance">
-                  Explore Balance
+                <Link className="btnSecondary" href="/solutions/balance">
+                  Explore MPE Balance
                 </Link>
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function UnifiedApproachPage() {
                 <strong>Execution:</strong> local banks + licensed partners
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Wallet layer:</strong> Balance (worker access + remittance)
+                <strong>Wallet layer:</strong> MPE Balance (worker access + remittance)
               </p>
               <p className="p" style={{ marginTop: 10 }}>
                 <strong>Resilience layer:</strong> satellite-informed assurance
@@ -92,11 +92,15 @@ export default function UnifiedApproachPage() {
           {/* LAYERED ARCHITECTURE GRID */}
           <div className="kycGrid" style={{ marginTop: 22 }}>
             <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>1) Keep enterprise systems in place</h3>
+              <h3 style={{ marginTop: 0 }}>1) Deploy where it adds the most value</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Maintain existing ERP, HRIS, and payroll workflows. Modern PayEngine
-                integrates alongside your stack to add governance and control over
-                payment execution — without forcing a rip-and-replace.
+                MPE can be layered into the workflows, providers, and rails
+                where you need more control and visibility.
+              </p>
+              <p className="p" style={{ marginTop: 10 }}>
+                Or use MPE as a unified operating stack for orchestration,
+                governance, and execution oversight across the full payment
+                environment.
               </p>
             </div>
 
@@ -121,7 +125,7 @@ export default function UnifiedApproachPage() {
             <div className="panel" style={{ textDecoration: "none" }}>
               <h3 style={{ marginTop: 0 }}>4) Extend to workers when it drives outcomes</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Add Balance for worker access and remittance: faster access to earnings,
+                Add MPE Balance for worker access and remittance: faster access to earnings,
                 corridor-by-corridor rollout, and employer-grade controls — without
                 changing the enterprise operating model.
               </p>

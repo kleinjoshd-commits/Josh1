@@ -2,7 +2,7 @@ import Nav from "../../../components/Nav";
 import Link from "next/link";
 
 export const metadata = {
-  title: "FX as a Governed Decision Point | Modern PayEngine",
+  title: "FX as a Governed Decision Point | MPE",
   description:
     "Why FX timing matters more than best rate, and how locking and approval checkpoints improve predictability for global payroll and vendor payments.",
 };
@@ -38,7 +38,7 @@ export default function FxGovernedResource() {
               </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
-                Modern PayEngine treats FX as a{" "}
+                MPE treats FX as a{" "}
                 <strong>governed decision point</strong>: explicitly timed,
                 approved, and auditable — so delivered amounts are predictable
                 before funds are released.
@@ -110,7 +110,7 @@ export default function FxGovernedResource() {
               state transition.
             </p>
             <p className="p" style={{ marginTop: 10 }}>
-              Modern PayEngine allows FX decisions to be made, approved, and
+              MPE allows FX decisions to be made, approved, and
               locked before release. This aligns treasury intent with execution
               reality and ensures delivered amounts are known ahead of time.
             </p>

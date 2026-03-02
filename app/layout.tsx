@@ -1,13 +1,15 @@
 import "./globals.css";
 import AnimateOnScroll from "../components/AnimateOnScroll";
+import SiteFooter from "../components/SiteFooter";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
-  title: "Modern PayEngine | Global Payments Infrastructure",
+  metadataBase: new URL(`https://${siteConfig.domain}`),
+  title: "MPE | Global Payment Orchestration Infrastructure",
   description:
-    "Modern PayEngine provides global payments infrastructure for employers, including governed payouts, foreign exchange (FX) control, and a modern worker wallet through Balance.",
+    "MPE provides orchestration and control infrastructure for global payment operations, including lifecycle governance, partner routing, and worker account experiences.",
   icons: {
     icon: "/favicon.png",
-    // Optional (only if you add this file): apple: "/apple-touch-icon.png",
   },
 };
 
@@ -20,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <SiteFooter />
         <AnimateOnScroll />
       </body>
     </html>
