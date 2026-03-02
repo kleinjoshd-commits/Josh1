@@ -936,6 +936,28 @@ img {
     width: 100%;
     text-align: center;
   }
+
+  .navBar {
+    gap: 12px;
+  }
+
+  .navLogo {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .navLogo img {
+    width: 150px !important;
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  .pageHeaderGrid .card,
+  .pageHeaderGrid .panel {
+    width: 100%;
+    max-width: none !important;
+    margin-left: 0 !important;
+  }
 }
 /* -----------------------------
    KYC / "Learn more" mobile fixes
@@ -944,7 +966,7 @@ img {
 
 @media (max-width: 900px) {
   /* If your KycForm uses a 2-col grid, force it to 1-col on mobile */
-  form {
+  #kyc form {
     grid-template-columns: 1fr !important;
   }
 
@@ -957,7 +979,7 @@ img {
   }
 
   /* If you used inline styles like gridColumn: "span 2", this helps */
-  form > * {
+  #kyc form > * {
     grid-column: auto !important;
   }
 
@@ -1532,10 +1554,10 @@ img {
   }
 
   .homeHeroFrame {
-    padding: 26px 0 22px;
+    padding: 20px 0 18px;
     border-radius: 22px;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 18px;
   }
 
   .homePillarGrid,
@@ -1573,7 +1595,7 @@ img {
   }
 
   .homeHeroRail {
-    padding: 18px 0 0;
+    padding: 14px 0 0;
     border-left: none;
     border-top: 1px solid rgba(17, 24, 39, 0.08);
   }
