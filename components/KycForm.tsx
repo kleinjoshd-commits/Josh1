@@ -76,7 +76,7 @@ export default function KycForm() {
     } catch (err: unknown) {
       setError(
         err instanceof Error
-          ? err.message
+          ? "Submission failed. Please try again."
           : "Something went wrong. Please try again."
       );
     } finally {
@@ -127,6 +127,24 @@ export default function KycForm() {
             }}
             onSubmit={onSubmit}
           >
+            <input
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                width: 1,
+                height: 1,
+                padding: 0,
+                margin: -1,
+                overflow: "hidden",
+                clip: "rect(0 0 0 0)",
+                whiteSpace: "nowrap",
+                border: 0,
+              }}
+            />
+
             <input
               name="companyName"
               required

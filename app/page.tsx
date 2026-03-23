@@ -15,30 +15,33 @@ export default function Home() {
           <section className="homeHero" data-animate>
             <div className="homeHeroFrame">
               <div className="homeHeroCopy">
-              <div className="eyebrow">
-                MPE <span className="dot" />
-                  The operating system for a new era of payments
-              </div>
+                <div className="eyebrow">
+                  MPE <span className="dot" />
+                  Worker wallet + global payments control layer
+                </div>
 
-                <h1 className="h1">Unified Control for Global Payments</h1>
+                <h1 className="h1">
+                  Help Employees Keep More.
+                  <br />
+                  Every Payday.
+                </h1>
 
                 <p className="p homeHeroLead">
-                  Global payments are no longer handled through one bank, one
-                  provider, or one operating flow. As workforces, counterparties,
-                  and execution paths become more distributed, the financial
-                  operating model has to become more coordinated.
+                  MPE helps employers reduce post-payday cost for distributed
+                  teams through worker wallets and cross-border payment
+                  orchestration after payroll.
                 </p>
 
                 <p className="p homeHeroSecondary">
-                  MPE gives finance teams that layer: control, visibility,
-                  governed execution, FX oversight, multi-network coordination,
-                  and satellite-resilient operating continuity in one system.
+                  Workers often lose value to transfer fees and FX spread after
+                  payroll. MPE is built so more of every paycheck reaches the
+                  people it is meant for.
                 </p>
 
                 <p className="p homeHeroSecondary" style={{ marginTop: 12 }}>
-                  Deploy MPE as a layered control platform where it adds the
-                  most value, or use it as a unified operating stack across
-                  the full payment environment.
+                  Enterprise control stays centralized across partners, rails,
+                  and regions while execution is handled through licensed
+                  infrastructure.
                 </p>
 
                 <div className="btnRow homeHeroActions">
@@ -46,26 +49,31 @@ export default function Home() {
                     Request Access
                   </Link>
                   <Link className="btnSecondary" href="/solutions/os">
-                    View Platform
+                    See How MPE Works
                   </Link>
                 </div>
+
+                <p className="p homeHeroSecondary" style={{ marginTop: 10, opacity: 0.72 }}>
+                  Partner-enabled execution through licensed infrastructure,
+                  including Papaya Global.
+                </p>
               </div>
 
               <div className="homeHeroRail" aria-label="Operating priorities">
-                <div className="homeHeroRailLabel">Operating priorities</div>
+                <div className="homeHeroRailLabel">What becomes possible</div>
                 <div className="homeHeroRailList">
                   {[
                     {
-                      title: "Control",
-                      body: "Approvals, funding governance, FX oversight, and release authority in one system.",
+                      title: "Worker outcomes",
+                      body: "Lower post-payday friction and improved take-home value in supported cross-border corridors.",
                     },
                     {
-                      title: "Execution",
-                      body: "AI-informed routing across rails and partner-connected infrastructure as complexity scales.",
+                      title: "Employer advantage",
+                      body: "A stronger retention and attraction signal for distributed and international teams.",
                     },
                     {
-                      title: "Resilience",
-                      body: "Built for distributed, hybrid, and satellite-reliant environments where continuity matters.",
+                      title: "Enterprise control",
+                      body: "Visibility, approvals, FX oversight, and multi-rail orchestration in one governed layer.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="homeHeroRailItem">
@@ -78,17 +86,118 @@ export default function Home() {
             </div>
           </section>
 
+          <section className="homeBand" data-animate>
+            <div className="panel">
+              <h2 className="homeSectionTitle">The worker problem is clear</h2>
+              <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
+                Every payday, many workers lose <strong>3–10%</strong> to fees
+                and FX spread just to send money home. That hurts workers
+                directly and leaves employers with a missed opportunity to turn
+                workforce financial support into a meaningful retention lever.
+              </p>
+            </div>
+          </section>
+
+          <section className="homeBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">
+                Why employers deploy MPE
+              </h2>
+            </div>
+            <div className="kycGrid">
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Help workers keep more</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Reduce post-payday leakage in supported corridors and
+                  structures.
+                </p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Reduce friction after payroll</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Give teams a cleaner wallet and payout experience after payroll
+                  for send-home transfers, employer-directed disbursements, and
+                  international travel spend.
+                </p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Strengthen retention and attraction</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Support workers where it matters most: real take-home
+                  outcomes.
+                </p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Support distributed teams globally</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Consistent financial support across regions, worker types, and
+                  payout corridors.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="homeBand homeContextBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">
+                How MPE works
+              </h2>
+              <p className="p homeContextIntro">
+                From employer-funded payout workflows to worker outcomes, MPE
+                orchestrates the flow while licensed execution partners handle
+                regulated money movement where appropriate.
+              </p>
+            </div>
+
+            <div className="homeTagGrid">
+              {[
+                "Employer funds payout workflows (from existing payroll systems)",
+                "Workers receive into wallet / payout experience for send-home and employee spend use cases",
+                "Cross-border send-home flows in supported corridors",
+                "MPE orchestrates approvals, routing, FX, release",
+              ].map((tag) => (
+                <div key={tag} className="homeTag">
+                  {tag}
+                </div>
+              ))}
+            </div>
+
+            <div className="homeInfoGrid">
+              <div className="panel homeInfoCard">
+                <h3>Visibility</h3>
+                <p>
+                  Clear status across entities, corridors, and payout outcomes.
+                </p>
+              </div>
+
+              <div className="panel homeInfoCard">
+                <h3>Control</h3>
+                <p>
+                  Governance, approvals, funding logic, and FX oversight in one
+                  system of record.
+                </p>
+              </div>
+
+              <div className="panel homeInfoCard">
+                <h3>Flexibility</h3>
+                <p>
+                  Multi-rail orchestration and partner coordination across
+                  regions without rewriting the operating model.
+                </p>
+              </div>
+            </div>
+          </section>
+
           <section className="homeBand homePlatformBand" data-animate>
             <div className="homePlatformGrid">
               <div className="homePlatformCopy">
                 <h2 className="homeSectionTitle">
-                  One operational layer across your entire payment ecosystem
+                  Why MPE is the control layer
                 </h2>
                 <p className="p homePlatformIntro">
-                  The next era of payments will be defined by orchestration,
-                  not isolated provider workflows. MPE gives finance teams a
-                  single operational layer across execution, control, and
-                  visibility.
+                  MPE sits above execution partners and rails, giving employers
+                  and finance teams one operational layer across worker wallets,
+                  cross-border payments, approvals, and release governance.
                 </p>
 
                 <div className="homeModuleRow">
@@ -118,84 +227,40 @@ export default function Home() {
                   </div>
                 </div>
 
-              <p className="p homeVisualCaption">
-                  MPE sits above providers, giving finance a single system of
-                  control as workflows scale across entities, regions, partners,
-                  and execution paths.
-              </p>
-            </div>
-            </div>
-
-            <div className="homePillarGrid">
-              <div className="panel homePillarCard">
-                <h3>Orchestrate</h3>
-                <p>Coordinate banks, providers, and AI-informed multi-network execution in one governed layer</p>
-              </div>
-
-              <div className="panel homePillarCard">
-                <h3>Control</h3>
-                <p>Govern policy, approvals, funding, and FX exposure centrally</p>
-              </div>
-
-              <div className="panel homePillarCard">
-                <h3>Maintain Visibility</h3>
-                <p>Bring status, audit, and reporting into one system of record</p>
+                <p className="p homeVisualCaption">
+                  Enterprise-grade control across partners, rails, and regions,
+                  with partner-enabled regulated execution.
+                </p>
               </div>
             </div>
           </section>
 
-          <section className="homeBand homeContextBand" data-animate>
-            <div className="homeSectionHeader homeContextHeader">
+          <section className="homeBand" data-animate>
+            <div className="panel">
               <h2 className="homeSectionTitle">
-                Built for complex payment environments
+                Resilience across terrestrial and satellite-connected operations
               </h2>
-              <p className="p homeContextIntro">
-                MPE is built for finance teams managing distributed operations,
-                multiple execution paths, and rising exposure across providers,
-                currencies, counterparties, and environments.
+              <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
+                Distributed operations do not always run in stable, always-on
+                terrestrial environments. MPE is designed for continuity across
+                terrestrial and satellite-connected contexts, with redundancy and
+                resilient control paths when reliability matters most.
               </p>
             </div>
+          </section>
 
-            <div className="homeTagGrid">
-              {[
-                "Global Workforces",
-                "Vendor & Contractor Payments",
-                "Distributed Operations",
-                "Cross-Border Treasury & FX",
-              ].map((tag) => (
-                <div key={tag} className="homeTag">
-                  {tag}
-                </div>
-              ))}
-            </div>
-
-            <div className="homeInfoGrid">
-              <div className="panel homeInfoCard">
-                <h3>Enterprise-grade global execution</h3>
-                <p>
-                  Payments are executed through licensed global banking and
-                  payment infrastructure, while MPE keeps multi-network
-                  operational control in one place.
-                </p>
-              </div>
-
-              <div className="panel homeInfoCard">
-                <h3>Operational credibility</h3>
-                <p>
-                  Audit-grade controls, role-based approvals, funding
-                  governance, and execution oversight built for finance teams
-                  operating at enterprise scale.
-                </p>
-              </div>
-
-              <div className="panel homeInfoCard">
-                <h3>Designed for resilient financial operations</h3>
-                <p>
-                  Built for finance teams operating across distributed, hybrid,
-                  and connectivity-constrained environments where satellite
-                  resilience and continuity matter.
-                </p>
-              </div>
+          <section className="homeBand" data-animate>
+            <div className="panel">
+              <h2 className="homeSectionTitle">
+                Building from workforce wallets today to space-linked financial rails tomorrow
+              </h2>
+              <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
+                The same control logic needed for globally distributed
+                workforces today will matter even more in hybrid
+                terrestrial/satellite systems tomorrow. MPE is building toward
+                that future: resilient, governed financial orchestration for
+                increasingly distributed commerce.
+              </p>
             </div>
           </section>
 
@@ -206,20 +271,21 @@ export default function Home() {
                 style={{ display: "grid", justifyItems: "center" }}
               >
                 <h2 className="homeSectionTitle homeFinalCtaTitle">
-                  Finance is evolving into a multi-provider operating system
+                  See how MPE fits your workforce and payments model
                 </h2>
                 <p
                   className="p homeFinalCtaCopy"
                   style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto" }}
                 >
-                  MPE is built for that shift: one layer for orchestration,
-                  control, FX visibility, and resilient execution across the
-                  payment ecosystem enterprises run today and the more
-                  distributed one they are growing into next.
+                  Talk to us about your worker wallet, cross-border payment,
+                  and enterprise control model.
                 </p>
                 <div className="btnRow homeFinalCtaActions">
                   <Link className="btnPrimary" href="/#kyc">
                     Request Access
+                  </Link>
+                  <Link className="btnSecondary" href="/about">
+                    Talk to the Team
                   </Link>
                 </div>
               </div>
