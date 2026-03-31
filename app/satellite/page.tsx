@@ -15,62 +15,74 @@ export default function SatellitePage() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          <div className="eyebrow">
-            Payments infrastructure <span className="dot" />
-            Beyond terrestrial assumptions
+          <div className="pageHeaderGrid">
+            <div>
+              <div className="eyebrow">
+                Payments infrastructure <span className="dot" />
+                Satellite resilience
+              </div>
+
+              <h1 className="h1" style={{ marginBottom: 12 }}>
+                Satellite is part of the resilience layer
+              </h1>
+
+              <p className="p" style={{ maxWidth: 920 }}>
+                This page is about operating continuity, not brand theater.
+                Satellite-informed infrastructure acts as a resilience layer
+                behind critical control events when terrestrial assumptions
+                break down.
+              </p>
+
+              <p className="p" style={{ marginTop: 14, maxWidth: 920 }}>
+                That matters in remote, disrupted, and connectivity-constrained
+                environments where decision authority, validation, and audit
+                continuity still need to hold.
+              </p>
+            </div>
+
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>What satellite does here</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                It does not replace banks, rails, or execution partners. It
+                strengthens the trust, validation, and continuity layer around
+                the payment workflow when reliability matters most.
+              </p>
+            </div>
           </div>
 
-          <h1 className="h1" style={{ marginBottom: 12 }}>
-            Satellite as a resilience layer
-            <br />
-            for mission-critical payments
-          </h1>
-
-          <p className="p" style={{ maxWidth: 920 }}>
-            MPE is a payments control plane designed to govern funding, FX
-            decision points, approvals, and payout authorization across global
-            operations. Satellite-informed
-            infrastructure strengthens
-            the trust and continuity layer behind those flows—supporting
-            independent validation and out-of-band assurance when terrestrial
-            networks degrade—without changing customer workflows or payment rails.
-          </p>
-
-          {/* TOP GRID (2 PANELS) */}
           <div className="kycGrid" style={{ marginTop: 26 }}>
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>What stays the same</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Execution remains on familiar rails: standard integrations,
                 standard compliance, trusted local banks for domestic settlement,
-                and licensed partners for cross-border payouts. The satellite layer
-                operates quietly in the background to strengthen reliability and
-                assurance without adding operational complexity.
+                and licensed partners for cross-border payouts. The satellite
+                layer operates quietly in the background to strengthen
+                reliability and assurance without changing customer workflows.
               </p>
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Why this matters</h3>
+              <h3 style={{ marginTop: 0 }}>Where it matters most</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Most payment stacks assume always-on terrestrial connectivity.</strong>{" "}
+                Most payment stacks assume always-on terrestrial connectivity.
                 In remote, maritime, infrastructure-challenged, or disrupted
-                environments, that assumption breaks—creating risk for payroll,
-                vendor payouts, and controlled release workflows. MPE
-                is designed so decision authority and auditability persist under
-                degraded conditions.
+                environments, that assumption breaks. MPE is designed so
+                decision authority and auditability can persist under degraded
+                conditions.
               </p>
             </div>
           </div>
 
-          {/* CORE BENEFITS (2 PANELS) */}
           <div className="kycGrid" style={{ marginTop: 22 }}>
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Independent assurance</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Satellite-informed cryptographic controls can add a physically
-                separated trust layer outside purely terrestrial infrastructure—supporting
-                higher assurance that critical payment instructions, approvals,
-                and releases have not been altered, even under adverse conditions.
+                separated trust layer outside purely terrestrial infrastructure,
+                supporting higher assurance that critical instructions,
+                approvals, and releases have not been altered under adverse
+                conditions.
               </p>
             </div>
 
@@ -78,14 +90,13 @@ export default function SatellitePage() {
               <h3 style={{ marginTop: 0 }}>Continuity under degraded networks</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Alternative validation and connectivity paths support continuity
-                when ground networks are congested, degraded, or unavailable—extending
-                governed operations to remote and distributed environments without
-                changing the user experience.
+                when ground networks are congested, degraded, or unavailable,
+                extending governed operations to remote and distributed
+                environments without changing the user experience.
               </p>
             </div>
           </div>
 
-          {/* APPLICATION (2 PANELS TOTAL) */}
           <div className="kycGrid" style={{ marginTop: 22 }}>
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Where we apply it</h3>
@@ -129,9 +140,9 @@ export default function SatellitePage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Control plane, not the rail</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Satellite doesn’t replace banks, payment rails, or execution
+                Satellite does not replace banks, payment rails, or execution
                 providers. It strengthens the authorization and validation layer
-                above them—so decision authority can persist even when
+                above them so decision authority can persist even when
                 infrastructure is degraded.
               </p>
               <p className="p" style={{ marginTop: 10 }}>

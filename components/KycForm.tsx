@@ -30,12 +30,12 @@ export default function KycForm() {
 
             <p style={{ opacity: 0.78, marginTop: 10 }}>
               Someone from our team will review your information and contact you
-              shortly to discuss fit, requirements, and next steps.
+              shortly to discuss your workforce, corridor needs, and next steps.
             </p>
 
             <p style={{ opacity: 0.62, marginTop: 12, fontSize: 14 }}>
-              No obligation — deploy MPE as a layered platform where it adds
-              the most control, or use it as a unified operating stack.
+              No obligation. We will review whether MPE fits your workforce
+              benefit, wallet, or partner model.
             </p>
           </div>
         </div>
@@ -105,17 +105,16 @@ export default function KycForm() {
             border: "1px solid rgba(255,255,255,0.12)",
           }}
         >
-          <h3 style={{ marginTop: 0 }}>Learn more</h3>
+          <h3 style={{ marginTop: 0 }}>Request Access</h3>
 
           <p style={{ opacity: 0.82, marginTop: 8 }}>
-            Share a few details about your organization. We’ll follow up to
-            understand your use case and walk through MPE and the modules that
-            fit your operating model.
+            Share a few details about your organization. We will follow up to
+            understand your workforce, payment corridors, and where MPE may fit.
           </p>
 
           <p style={{ opacity: 0.7, marginTop: 6 }}>
-            Deploy MPE as a layered platform where it adds the most control, or
-            use it as a unified operating stack.
+            MPE helps employers offer a stronger workforce benefit through
+            zero-fee remittances, USD-held wallets, and broader financial access.
           </p>
 
           <form
@@ -209,7 +208,7 @@ export default function KycForm() {
                 style={{ width: "100%", opacity: sending ? 0.85 : 1 }}
                 disabled={sending}
               >
-                {sending ? "Sending..." : "Learn more"}
+                {sending ? "Sending..." : "Request Access"}
               </button>
 
               <p
@@ -220,9 +219,8 @@ export default function KycForm() {
                   textAlign: "center",
                 }}
               >
-                No obligation — we’ll reach out to discuss fit. MPE can be
-                embedded where it adds control and visibility, or used as your
-                end-to-end operating platform.
+                No obligation. We will reach out to discuss fit, supported
+                corridors, and workforce needs.
               </p>
             </div>
           </form>

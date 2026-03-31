@@ -2,9 +2,9 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 
 export const metadata = {
-  title: "Future of Commerce | MPE",
+  title: "Beyond Earth | MPE",
   description:
-    "How space-enabled commerce, tokenized assets, and autonomous operations change financial control.",
+    "Why building resilient financial access for hard places on Earth is the foundation for financial rails in space.",
 };
 
 export default function FutureOfCommercePage() {
@@ -15,31 +15,28 @@ export default function FutureOfCommercePage() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          <div style={{ maxWidth: 820 }}>
+          <div className="pageHeaderGrid">
             <div>
               <div className="eyebrow">
                 Platform vision <span className="dot" />
-                Future of commerce
+                Beyond Earth
               </div>
 
               <h1 className="h1">
-                The future of commerce needs a new operating system for payments
+                Frontier finance starts with real payment problems on Earth
               </h1>
 
-              <p className="p" style={{ maxWidth: 820 }}>
-                Financial infrastructure was built for slower markets, fewer
-                execution paths, and tightly bounded operating environments.
-                That model breaks down as commerce expands into distributed
-                workforces, autonomous systems, tokenized assets, software-defined
-                treasury, and more remote operating environments.
+              <p className="p" style={{ maxWidth: 860 }}>
+                This is not space used as a marketing layer on top of a normal
+                fintech story. The systems required to serve hard payment
+                environments on Earth are the systems frontier economies will
+                require next.
               </p>
 
-              <p className="p" style={{ marginTop: 12, maxWidth: 820 }}>
-                MPE is being built for that frontier: a programmable control
-                layer for payments, funding, FX, release decisions, and
-                multi-network execution that can operate across banks, licensed
-                partners, local rails, and future space-enabled financial
-                infrastructure.
+              <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
+                The proving ground is migrant workers, underbanked families,
+                weak connectivity, and difficult remittance corridors. This is
+                where the infrastructure has to prove itself first.
               </p>
 
               <div className="btnRow">
@@ -51,63 +48,55 @@ export default function FutureOfCommercePage() {
                 </Link>
               </div>
             </div>
+
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>The thesis</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                If a system can move value across borders, weak networks,
+                underbanked recipients, and difficult operating conditions, it
+                is already being trained for frontier environments.
+              </p>
+              <p className="p" style={{ marginTop: 10 }}>
+                That is what makes the path from remittance corridors to
+                orbital economies intellectually sound rather than ornamental.
+              </p>
+            </div>
           </div>
 
-          <div className="kycGrid" style={{ marginTop: 18, gap: 18 }}>
+          <div className="kycGrid" style={{ marginTop: 24, gap: 18 }}>
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Autonomous operations</h3>
+              <h3 style={{ marginTop: 0 }}>Start with a real human problem</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                As workflows become more software-directed, financial control
-                cannot depend on manual handoffs. Payments need explicit
-                policy, release logic, and auditability that software can
-                govern at scale.
+                Millions of workers still lose wages to fees, bad FX, delays,
+                and limited access when they try to support family across
+                borders.
               </p>
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Space-enabled payments</h3>
+              <h3 style={{ marginTop: 0 }}>Build for difficult environments</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                As financial infrastructure extends into more remote and
-                connectivity-constrained environments, continuity will depend on
-                payment systems designed to operate beyond traditional
-                terrestrial assumptions.
+                Rural coverage gaps, underbanked recipients, unstable local
+                conditions, and weak connectivity force a higher standard for
+                how value moves and how access is delivered.
               </p>
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Tokenized assets and value flows</h3>
+              <h3 style={{ marginTop: 0 }}>Carry that discipline forward</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                As assets, entitlements, and financial rights become more
-                programmable, finance teams will need stronger orchestration,
-                approval logic, and control across new forms of value movement.
+                Future distributed economies will depend on the same qualities:
+                resilient access, hybrid network awareness, value protection,
+                and delivery beyond legacy assumptions.
               </p>
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Multi-network execution</h3>
+              <h3 style={{ marginTop: 0 }}>Then go further</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                The future operating model is not one rail or one provider. It
-                is coordinated execution across banking partners, payment
-                networks, local rails, and fallback paths under one system of
-                control.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Programmable control</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                MPE turns payments from a collection of disconnected workflows
-                into a programmable system for orchestration, visibility, and
-                governed control.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Software-defined treasury</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Treasury operations will increasingly require dynamic funding,
-                FX management, release timing, and liquidity visibility across
-                multiple networks, counterparties, and jurisdictions.
+                Orbital economies are not the first chapter. They are the next
+                one. The work begins with the harder payment access problem in
+                front of us now.
               </p>
             </div>
           </div>

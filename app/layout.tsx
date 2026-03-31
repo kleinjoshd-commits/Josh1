@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),
-  title: "MPE | Global Payment Orchestration Infrastructure",
+  title: "MPE | Financial Access for Hard Places",
   description:
-    "MPE provides orchestration and control infrastructure for global payment operations, including lifecycle governance, partner routing, and worker account experiences.",
+    "MPE helps workers send more money home through zero-fee remittances, USD-held wallets, and resilient financial access built for hard environments on Earth and beyond.",
   icons: {
     icon: "/favicon.png",
   },

@@ -17,63 +17,65 @@ export default function Home() {
               <div className="homeHeroCopy">
                 <div className="eyebrow">
                   MPE <span className="dot" />
-                  Worker wallet + global payments control layer
+                  Financial infrastructure for frontier environments
                 </div>
 
                 <h1 className="h1">
-                  Help Employees Keep More.
-                  <br />
-                  Every Payday.
+                  Financial rails where they&apos;re needed most.
                 </h1>
 
                 <p className="p homeHeroLead">
-                  MPE helps employers reduce post-payday cost for distributed
-                  teams through worker wallets and cross-border payment
-                  orchestration after payroll.
+                  Every payday, millions of workers send money home{"\u2014"}and lose
+                  part of it along the way.
                 </p>
 
                 <p className="p homeHeroSecondary">
-                  Workers often lose value to transfer fees and FX spread after
-                  payroll. MPE is built so more of every paycheck reaches the
-                  people it is meant for.
+                  Fees. Currency swings. Systems that stop short of where their
+                  families live.
                 </p>
 
-                <p className="p homeHeroSecondary" style={{ marginTop: 12 }}>
-                  Enterprise control stays centralized across partners, rails,
-                  and regions while execution is handled through licensed
-                  infrastructure.
+                <p className="p homeHeroSecondary">
+                  MPE fixes that.
+                </p>
+
+                <p className="p homeHeroSecondary">
+                  Zero-fee remittances. USD-held wallets. Access beyond
+                  traditional banking{"\u2014"}with infrastructure that extends into
+                  hard-to-reach places, including satellite connectivity when
+                  networks fall short.
+                </p>
+
+                <p className="p homeHeroSecondary">
+                  Built for the hardest places on Earth.
+                  <br />
+                  So it works anywhere.
                 </p>
 
                 <div className="btnRow homeHeroActions">
                   <Link className="btnPrimary" href="/#kyc">
                     Request Access
                   </Link>
-                  <Link className="btnSecondary" href="/solutions/os">
-                    See How MPE Works
+                  <Link className="btnSecondary" href="/solutions/balance">
+                    See How It Works
                   </Link>
                 </div>
-
-                <p className="p homeHeroSecondary" style={{ marginTop: 10, opacity: 0.72 }}>
-                  Partner-enabled execution through licensed infrastructure,
-                  including Papaya Global.
-                </p>
               </div>
 
               <div className="homeHeroRail" aria-label="Operating priorities">
-                <div className="homeHeroRailLabel">What becomes possible</div>
+                <div className="homeHeroRailLabel">Why it matters</div>
                 <div className="homeHeroRailList">
                   {[
                     {
-                      title: "Worker outcomes",
-                      body: "Lower post-payday friction and improved take-home value in supported cross-border corridors.",
+                      title: "More wages reach home",
+                      body: "Built so more of each paycheck reaches the people it was earned for.",
                     },
                     {
-                      title: "Employer advantage",
-                      body: "A stronger retention and attraction signal for distributed and international teams.",
+                      title: "A real employer benefit",
+                      body: "Employers can offer something workers feel immediately: a better outcome after payday.",
                     },
                     {
-                      title: "Enterprise control",
-                      body: "Visibility, approvals, FX oversight, and multi-rail orchestration in one governed layer.",
+                      title: "Built for frontier conditions",
+                      body: "Hard remittance corridors train the infrastructure future distributed economies will require.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="homeHeroRailItem">
@@ -84,54 +86,67 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <div className="homeHeroThesis">
+              <h2 className="homeSectionTitle">
+                If you can serve an unbanked family in rural Oaxaca, you can serve frontier economies anywhere.
+              </h2>
+              <p className="p homeOrbitLead">
+                That includes orbital economies.
+              </p>
+              <p className="p homeHeroSecondary homeHeroThesisBody">
+                If financial infrastructure can work across borders, weak
+                connectivity, underbanked recipients, and hard operating
+                conditions on Earth, it is already being trained for frontier
+                environments.
+              </p>
+            </div>
           </section>
 
           <section className="homeBand" data-animate>
-            <div className="panel">
-              <h2 className="homeSectionTitle">The worker problem is clear</h2>
+            <div className="panel" style={{ textAlign: "center" }}>
+              <h2 className="homeSectionTitle">We start where the system fails people</h2>
               <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
-                Every payday, many workers lose <strong>3–10%</strong> to fees
-                and FX spread just to send money home. That hurts workers
-                directly and leaves employers with a missed opportunity to turn
-                workforce financial support into a meaningful retention lever.
+                Every payday, many workers lose <strong>3-10%</strong> of their
+                wages just to send money home. Fees take a cut. Bad FX erodes
+                value. Delays create stress. Families in rural and underbanked
+                regions are often left with fewer options when they need money
+                most.
               </p>
             </div>
           </section>
 
           <section className="homeBand" data-animate>
             <div className="homeSectionHeader homeContextHeader">
-              <h2 className="homeSectionTitle">
-                Why employers deploy MPE
-              </h2>
+              <h2 className="homeSectionTitle">Why employers offer MPE</h2>
             </div>
             <div className="kycGrid">
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Help workers keep more</h3>
+                <h3 style={{ marginTop: 0 }}>Help employees keep more</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Reduce post-payday leakage in supported corridors and
-                  structures.
+                  If workers send money abroad every month, improving that
+                  outcome matters immediately.
                 </p>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Reduce friction after payroll</h3>
+                <h3 style={{ marginTop: 0 }}>Turn support into retention</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Give teams a cleaner wallet and payout experience after payroll
-                  for send-home transfers, employer-directed disbursements, and
-                  international travel spend.
+                  A real financial benefit creates loyalty in a way generic
+                  perks do not.
                 </p>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Strengthen retention and attraction</h3>
+                <h3 style={{ marginTop: 0 }}>Stand out in hiring</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Support workers where it matters most: real take-home
-                  outcomes.
+                  MPE is easy to understand: help workers send more money home
+                  and protect more of what they earn.
                 </p>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Support distributed teams globally</h3>
+                <h3 style={{ marginTop: 0 }}>Support distributed teams</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Consistent financial support across regions, worker types, and
-                  payout corridors.
+                  Built for workforces whose financial lives span borders,
+                  currencies, travel, and inconsistent access.
                 </p>
               </div>
             </div>
@@ -139,22 +154,21 @@ export default function Home() {
 
           <section className="homeBand homeContextBand" data-animate>
             <div className="homeSectionHeader homeContextHeader">
-              <h2 className="homeSectionTitle">
-                How MPE works
-              </h2>
+              <h2 className="homeSectionTitle">How MPE works</h2>
               <p className="p homeContextIntro">
-                From employer-funded payout workflows to worker outcomes, MPE
-                orchestrates the flow while licensed execution partners handle
-                regulated money movement where appropriate.
+                The model is simple. Employers offer MPE as a workforce
+                benefit. Workers get a wallet built for sending money home,
+                holding value in USD, and accessing funds across borders.
+                Licensed partners handle regulated execution where appropriate.
               </p>
             </div>
 
             <div className="homeTagGrid">
               {[
-                "Employer funds payout workflows (from existing payroll systems)",
-                "Workers receive into wallet / payout experience for send-home and employee spend use cases",
-                "Cross-border send-home flows in supported corridors",
-                "MPE orchestrates approvals, routing, FX, release",
+                "Employers offer MPE as a workforce benefit after payroll",
+                "Workers receive a wallet for send-home transfers, employee payments, and international travel use",
+                "Families access funds without relying on a traditional bank account in supported regions",
+                "USD-held balances and satellite-accessible cards extend reach where terrestrial systems are weak",
               ].map((tag) => (
                 <div key={tag} className="homeTag">
                   {tag}
@@ -164,25 +178,26 @@ export default function Home() {
 
             <div className="homeInfoGrid">
               <div className="panel homeInfoCard">
-                <h3>Visibility</h3>
+                <h3>Free remittance</h3>
                 <p>
-                  Clear status across entities, corridors, and payout outcomes.
+                  Workers move money home without losing a share of each transfer
+                  to avoidable fees.
                 </p>
               </div>
 
               <div className="panel homeInfoCard">
-                <h3>Control</h3>
+                <h3>Protected value</h3>
                 <p>
-                  Governance, approvals, funding logic, and FX oversight in one
-                  system of record.
+                  USD-held balances help workers and families reduce exposure to
+                  local currency devaluation and volatility.
                 </p>
               </div>
 
               <div className="panel homeInfoCard">
-                <h3>Flexibility</h3>
+                <h3>Partner-enabled execution</h3>
                 <p>
-                  Multi-rail orchestration and partner coordination across
-                  regions without rewriting the operating model.
+                  MPE orchestrates the experience while licensed partners support
+                  regulated money movement and delivery.
                 </p>
               </div>
             </div>
@@ -192,12 +207,12 @@ export default function Home() {
             <div className="homePlatformGrid">
               <div className="homePlatformCopy">
                 <h2 className="homeSectionTitle">
-                  Why MPE is the control layer
+                  Why MPE matters beyond the wallet
                 </h2>
                 <p className="p homePlatformIntro">
-                  MPE sits above execution partners and rails, giving employers
-                  and finance teams one operational layer across worker wallets,
-                  cross-border payments, approvals, and release governance.
+                  Behind the worker experience is one governed layer for
+                  approvals, routing, FX oversight, release logic, and
+                  visibility across partners, rails, and regions.
                 </p>
 
                 <div className="homeModuleRow">
@@ -226,40 +241,36 @@ export default function Home() {
                     />
                   </div>
                 </div>
-
-                <p className="p homeVisualCaption">
-                  Enterprise-grade control across partners, rails, and regions,
-                  with partner-enabled regulated execution.
-                </p>
               </div>
             </div>
           </section>
 
           <section className="homeBand" data-animate>
-            <div className="panel">
+            <div className="panel" style={{ textAlign: "center" }}>
               <h2 className="homeSectionTitle">
-                Resilience across terrestrial and satellite-connected operations
+                Why this matters
               </h2>
               <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
-                Distributed operations do not always run in stable, always-on
-                terrestrial environments. MPE is designed for continuity across
-                terrestrial and satellite-connected contexts, with redundancy and
-                resilient control paths when reliability matters most.
+                For workers, it means more of each paycheck reaches home. For
+                families, it means better access, stronger value protection,
+                and less dependence on fragile local infrastructure. For
+                employers, it means offering a benefit people understand
+                immediately and remember for the right reasons.
               </p>
             </div>
           </section>
 
           <section className="homeBand" data-animate>
-            <div className="panel">
+            <div className="panel" style={{ textAlign: "center" }}>
               <h2 className="homeSectionTitle">
-                Building from workforce wallets today to space-linked financial rails tomorrow
+                Where resilience becomes necessary
               </h2>
               <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
-                The same control logic needed for globally distributed
-                workforces today will matter even more in hybrid
-                terrestrial/satellite systems tomorrow. MPE is building toward
-                that future: resilient, governed financial orchestration for
-                increasingly distributed commerce.
+                Some workers and families live at the edge of conventional
+                financial access. Weak connectivity, rural distance, and
+                limited banking coverage are not edge cases for them. They are
+                normal operating conditions. The platform is designed with that
+                reality in mind.
               </p>
             </div>
           </section>
@@ -271,21 +282,22 @@ export default function Home() {
                 style={{ display: "grid", justifyItems: "center" }}
               >
                 <h2 className="homeSectionTitle homeFinalCtaTitle">
-                  See how MPE fits your workforce and payments model
+                  Build what comes next by solving what matters now
                 </h2>
                 <p
                   className="p homeFinalCtaCopy"
                   style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto" }}
                 >
-                  Talk to us about your worker wallet, cross-border payment,
-                  and enterprise control model.
+                  MPE is for employers, partners, and operators who want to
+                  help workers keep more of what they earn and extend financial
+                  access into harder environments.
                 </p>
                 <div className="btnRow homeFinalCtaActions">
                   <Link className="btnPrimary" href="/#kyc">
                     Request Access
                   </Link>
                   <Link className="btnSecondary" href="/about">
-                    Talk to the Team
+                    Talk to Us
                   </Link>
                 </div>
               </div>

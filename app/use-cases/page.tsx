@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 
 export const metadata = {
   title: "Use Cases | MPE",
-  description: "Operational payment workflows powered by MPE.",
+  description: "How employers and partners use MPE to improve worker outcomes and extend financial access across borders.",
 };
 
 export default function UseCasesPage() {
@@ -18,24 +18,29 @@ export default function UseCasesPage() {
             <div>
               <div className="eyebrow">
                 Use Cases <span className="dot" />
-                Enterprise payment workflows
+                Employers and partners
               </div>
 
-              <h1 className="h1">Use Cases</h1>
+              <h1 className="h1">Where MPE fits</h1>
 
-              <p className="p">Operational payment workflows powered by MPE.</p>
+              <p className="p">
+                MPE helps employers support workers who regularly move money
+                across borders and partners who want to extend financial access
+                into harder environments.
+              </p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                Use MPE as a layered platform where you need more control, or
-                as a unified operating stack across payment workflows.
+                The immediate use case is simple: help employees keep more of
+                what they earn and help families receive more of what was sent.
               </p>
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Deployment model</h3>
+              <h3 style={{ marginTop: 0 }}>What this means in practice</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Embed MPE where it makes the most sense today, or use it as the
-                central platform for orchestration, visibility, and control.
+                Employers offer the benefit. Workers use the wallet. Families
+                gain better access. MPE coordinates the experience across the
+                underlying network.
               </p>
             </div>
           </div>
@@ -44,32 +49,32 @@ export default function UseCasesPage() {
             <Link className="panel" href="/solutions/os">
               <h3 style={{ marginTop: 0 }}>MPE OS</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Vendor &amp; subcontractor payments with governed approvals,
-                release conditions, and routing.
+                The control layer for approvals, routing, FX oversight, and
+                release logic behind the worker-facing experience.
               </p>
             </Link>
 
             <Link className="panel" href="/solutions/workforce">
               <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Global workforce payments across employee, contractor, EOR, and
-                statutory workflows.
+                Employer-sponsored workforce payment programs for distributed
+                teams that need a better outcome after payroll.
               </p>
             </Link>
 
             <Link className="panel" href="/solutions/balance">
               <h3 style={{ marginTop: 0 }}>MPE Balance</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Worker financial experience with wallets, multi-currency
-                balances, and remittance support.
+                Worker wallets for zero-fee remittances, USD-held balances,
+                employee payments, and international travel use.
               </p>
             </Link>
 
             <Link className="panel" href="/solutions/network">
               <h3 style={{ marginTop: 0 }}>MPE Network</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Mass payouts and disbursements across partners, rails, and
-                corridors with centralized visibility.
+                The partner-connected delivery layer that helps extend access
+                across borders, harder corridors, and constrained environments.
               </p>
             </Link>
           </div>

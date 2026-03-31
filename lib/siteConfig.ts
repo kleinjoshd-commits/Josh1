@@ -37,10 +37,10 @@ export const siteConfig = {
         description: "Policy, approvals, lifecycle control, and audit authority.",
       },
       {
-        label: "Future of Commerce",
+        label: "Beyond Earth",
         href: "/future-commerce",
         description:
-          "How distributed, autonomous, and space-enabled commerce changes payments.",
+          "Why hard payment environments on Earth are the proving ground for frontier finance.",
       },
       {
         label: "Resources",
