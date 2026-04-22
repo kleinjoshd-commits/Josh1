@@ -1298,6 +1298,20 @@ img {
   max-width: 640px;
 }
 
+.homeHeroAltitude {
+  font-size: 21px;
+  line-height: 1.55;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 680px;
+}
+
+@media (max-width: 900px) {
+  .homeHeroAltitude {
+    font-size: 19px;
+  }
+}
+
 .homeHeroSecondary {
   max-width: 640px;
 }

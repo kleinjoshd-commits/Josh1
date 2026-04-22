@@ -17,38 +17,28 @@ export default function Home() {
               <div className="homeHeroCopy">
                 <div className="eyebrow">
                   MPE <span className="dot" />
-                  Financial infrastructure for frontier environments
+                  Global financial infrastructure
                 </div>
 
                 <h1 className="h1">
                   Financial rails where they&apos;re needed most.
                 </h1>
 
-                <p className="p homeHeroLead">
-                  Every payday, millions of workers send money home{"\u2014"}and lose
-                  part of it along the way.
+                <p className="p homeHeroLead homeHeroAltitude">
+                  Global financial infrastructure across 160+ countries.
+                  Multi-currency settlement, programmable and agentic payments,
+                  terrestrial and orbital.
                 </p>
 
                 <p className="p homeHeroSecondary">
-                  Fees. Currency swings. Systems that stop short of where their
-                  families live.
-                </p>
-
-                <p className="p homeHeroSecondary">
-                  MPE fixes that.
-                </p>
-
-                <p className="p homeHeroSecondary">
-                  Zero-fee remittances. USD-held wallets. Access beyond
-                  traditional banking{"\u2014"}with infrastructure that extends into
-                  hard-to-reach places, including satellite connectivity when
-                  networks fall short.
-                </p>
-
-                <p className="p homeHeroSecondary">
-                  Built for the hardest places on Earth.
-                  <br />
-                  So it works anywhere.
+                  MPE operates global financial infrastructure across 160+
+                  countries today, spanning the cross-border payment corridors
+                  that define modern labor and capital flows{"\u2014"}including
+                  the United States, Europe, Singapore, the GCC, South Asia,
+                  Southeast Asia, Africa, and Latin America. As SpaceBelt
+                  KSA&apos;s sovereign orbital constellation comes online, MPE
+                  will progressively migrate its commercial stack onto
+                  sovereign orbital rails.
                 </p>
 
                 <div className="btnRow homeHeroActions">
@@ -99,26 +89,6 @@ export default function Home() {
                 connectivity, underbanked recipients, and hard operating
                 conditions on Earth, it is already being trained for frontier
                 environments.
-              </p>
-            </div>
-          </section>
-
-          <section className="homeBand homeGlobalBand" data-animate>
-            <div className="panel homeGlobalPanel">
-              <p className="homeGlobalLead">
-                Global financial infrastructure across 160+ countries.
-                Multi-currency settlement, programmable and agentic payments,
-                terrestrial and orbital.
-              </p>
-              <p className="p homeGlobalBody">
-                MPE operates global financial infrastructure across 160+
-                countries today, spanning the cross-border payment corridors
-                that define modern labor and capital flows{"\u2014"}including
-                the United States, Europe, Singapore, the GCC, South Asia,
-                Southeast Asia, Africa, and Latin America. As SpaceBelt KSA&apos;s
-                sovereign orbital constellation comes online, MPE will
-                progressively migrate its commercial stack onto sovereign
-                orbital rails.
               </p>
             </div>
           </section>
