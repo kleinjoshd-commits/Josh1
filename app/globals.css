@@ -1727,9 +1727,22 @@ img {
   }
 
   .homeHeroRail {
-    padding: 14px 0 0;
+    padding: 18px 18px 4px;
     border-left: none;
     border-top: 1px solid rgba(17, 24, 39, 0.08);
+    margin-top: 18px;
+    background: rgba(255, 255, 255, 0.42);
+    border-radius: 16px;
+    border: 1px solid rgba(17, 24, 39, 0.06);
+  }
+
+  .homeHeroRailLabel {
+    font-size: 11px;
+  }
+
+  .homeHeroRailList {
+    gap: 14px;
+    margin-top: 14px;
   }
 
   .homeProofItem {
@@ -1767,6 +1780,56 @@ img {
   .homeHeroThesis {
     margin-top: 22px;
     padding: 20px 18px;
+  }
+
+  .homeHeroThesis .homeSectionTitle {
+    font-size: 22px;
+    line-height: 1.18;
+  }
+
+  .homeHeroThesis .homeOrbitLead {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+
+  .homeHeroFrame {
+    padding-top: 12px;
+  }
+
+  .homeHeroCopy {
+    max-width: 100%;
+  }
+
+  .homeHeroAltitude {
+    margin-top: 14px;
+  }
+
+  .homeBand {
+    margin-top: 28px;
+  }
+
+  .homeBand .panel {
+    padding: 18px 18px !important;
+  }
+
+  .homeHeroRail {
+    margin-top: 20px;
+  }
+
+  .homeHeroRailItem h3 {
+    font-size: 16px;
+  }
+
+  .homeHeroRailItem p {
+    font-size: 13.5px;
+  }
+
+  .homeFinalCta {
+    padding: 22px 18px;
+  }
+
+  .homeFinalCtaTitle {
+    font-size: 24px;
   }
 }
 
@@ -1934,19 +1997,27 @@ img {
 
 @media (max-width: 640px) {
   .announceBanner {
-    font-size: 13px;
+    font-size: 12.5px;
+    line-height: 1.4;
   }
   .announceInner {
-    padding: 10px 16px;
-    gap: 10px;
-    align-items: flex-start;
+    padding: 7px 14px;
+    gap: 8px;
+    align-items: center;
   }
   .announceCopy {
-    flex-wrap: wrap;
-    gap: 6px 8px;
+    gap: 6px;
+  }
+  .announceIcon {
+    font-size: 13px;
   }
   .announceLink {
     white-space: normal;
+  }
+  .announceClose {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
   }
 }
 

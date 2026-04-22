@@ -35,10 +35,7 @@ export default function Home() {
                   countries today, spanning the cross-border payment corridors
                   that define modern labor and capital flows{"\u2014"}including
                   the United States, Europe, Singapore, the GCC, South Asia,
-                  Southeast Asia, Africa, and Latin America. As SpaceBelt
-                  KSA&apos;s sovereign orbital constellation comes online, MPE
-                  will progressively migrate its commercial stack onto
-                  sovereign orbital rails.
+                  Southeast Asia, Africa, and Latin America.
                 </p>
 
                 <div className="btnRow homeHeroActions">
