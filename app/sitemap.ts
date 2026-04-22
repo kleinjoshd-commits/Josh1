@@ -44,6 +44,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `https://${siteConfig.domain}/press`,
+      lastModified: new Date(),
+    },
+    {
       url: `https://${siteConfig.domain}/resources/execution-infrastructure`,
       lastModified: new Date(),
     },

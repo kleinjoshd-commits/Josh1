@@ -103,6 +103,26 @@ export default function Home() {
             </div>
           </section>
 
+          <section className="homeBand homeGlobalBand" data-animate>
+            <div className="panel homeGlobalPanel">
+              <p className="homeGlobalLead">
+                Global financial infrastructure across 160+ countries.
+                Multi-currency settlement, programmable and agentic payments,
+                terrestrial and orbital.
+              </p>
+              <p className="p homeGlobalBody">
+                MPE operates global financial infrastructure across 160+
+                countries today, spanning the cross-border payment corridors
+                that define modern labor and capital flows{"\u2014"}including
+                the United States, Europe, Singapore, the GCC, South Asia,
+                Southeast Asia, Africa, and Latin America. As SpaceBelt KSA&apos;s
+                sovereign orbital constellation comes online, MPE will
+                progressively migrate its commercial stack onto sovereign
+                orbital rails.
+              </p>
+            </div>
+          </section>
+
           <section className="homeBand" data-animate>
             <div className="panel" style={{ textAlign: "center" }}>
               <h2 className="homeSectionTitle">We start where the system fails people</h2>

@@ -1,5 +1,6 @@
 import "./globals.css";
 import AnimateOnScroll from "../components/AnimateOnScroll";
+import AnnouncementBanner from "../components/AnnouncementBanner";
 import SiteFooter from "../components/SiteFooter";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <AnnouncementBanner />
         {children}
         <SiteFooter />
         <AnimateOnScroll />
