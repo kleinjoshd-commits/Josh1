@@ -90,7 +90,7 @@ export const siteConfig = {
     },
     workforce: {
       title: "MPE Workforce",
-      subtext: "Global workforce execution — fully controlled through MPE.",
+      subtext: "Global workforce execution, fully controlled through MPE.",
       capabilities: [
         "Global payroll execution",
         "Employer of Record (EOR)",

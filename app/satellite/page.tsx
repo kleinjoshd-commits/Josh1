@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Satellite Infrastructure | MPE",
   description:
-    "Payments infrastructure beyond terrestrial assumptions—strengthened by satellite-informed security, resilience, and independent assurance.",
+    "Payments infrastructure beyond terrestrial assumptions, strengthened by satellite-informed security, resilience, and independent assurance.",
 };
 
 export default function SatellitePage() {
@@ -27,7 +27,6 @@ export default function SatellitePage() {
               </h1>
 
               <p className="p" style={{ maxWidth: 920 }}>
-                This page is about operating continuity, not brand theater.
                 Satellite-informed infrastructure acts as a resilience layer
                 behind critical control events when terrestrial assumptions
                 break down.
@@ -103,8 +102,9 @@ export default function SatellitePage() {
 
               <p className="p" style={{ marginTop: 10 }}>
                 <strong>MPE:</strong> strengthens key control moments
-                in the lifecycle—funding, FX, approvals, and payout authorization—by
-                adding independent assurance where reliability matters most.
+                in the lifecycle, including funding, FX, approvals, and payout
+                authorization, by adding independent assurance where reliability
+                matters most.
               </p>
 
               <p className="p" style={{ marginTop: 10 }}>
@@ -116,8 +116,8 @@ export default function SatellitePage() {
               <p className="p" style={{ marginTop: 10 }}>
                 <strong>Roadmap:</strong> through partner deployments, MPE
                 will incorporate additional satellite-informed primitives for
-                critical control events—designed to strengthen independence without
-                changing custody models or how money moves.
+                critical control events, designed to strengthen independence
+                without changing custody models or how money moves.
               </p>
 
               <div

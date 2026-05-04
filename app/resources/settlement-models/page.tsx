@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Local & Global Settlement Models | MPE",
   description:
-    "A control-plane view of domestic vs cross-border settlement—how routing through trusted local banks and licensed partners stays consistent under one governed operating layer.",
+    "A control-plane view of domestic vs cross-border settlement: how routing through trusted local banks and licensed partners stays consistent under one governed operating layer.",
 };
 
 export default function SettlementModelsResource() {
@@ -34,7 +34,7 @@ export default function SettlementModelsResource() {
                 “Settlement” describes how value actually completes: which
                 institution moves funds, through which local clearing systems,
                 under which regulatory permissions, and with what confirmation.
-                The complexity isn’t that money can’t move — it’s that the
+                The complexity isn’t that money can’t move. It’s that the
                 execution path varies by market.
               </p>
 
@@ -42,7 +42,7 @@ export default function SettlementModelsResource() {
                 MPE keeps the operating layer consistent across
                 markets by separating <strong>authority</strong> from{" "}
                 <strong>execution</strong>. Lifecycle state, approvals, funding,
-                FX decisioning, and release are governed centrally — while
+                FX decisioning, and release are governed centrally, while
                 settlement routes through trusted local banks for domestic flows
                 and licensed partners for cross-border payouts.
               </p>
@@ -83,7 +83,7 @@ export default function SettlementModelsResource() {
               />
 
               <p className="p" style={{ margin: 0 }}>
-                One governed operating layer — many settlement paths — without
+                One governed operating layer, many settlement paths, without
                 governance drift across providers.
               </p>
             </div>
@@ -141,8 +141,8 @@ export default function SettlementModelsResource() {
 
             {/* WPS NOD */}
             <p className="p" style={{ marginTop: 14 }}>
-              In jurisdictions with mandated wage protection frameworks — such
-              as Wage Protection Systems (WPS) in parts of the Gulf — domestic
+              In jurisdictions with mandated wage protection frameworks (such
+              as Wage Protection Systems, or WPS, in parts of the Gulf) domestic
               settlement must also satisfy regulatory timing, formatting, and
               confirmation requirements. In these environments, MPE governs
               approval, funding, and release centrally while
@@ -188,7 +188,7 @@ export default function SettlementModelsResource() {
               A control-plane approach to settlement
             </h2>
             <p className="p">
-              MPE treats settlement as execution — and keeps the
+              MPE treats settlement as execution and keeps the
               organization’s authority above it. Lifecycle state, approvals,
               funding checkpoints, FX decisioning, and release conditions are
               governed centrally. Settlement is routed to the best available
@@ -234,7 +234,7 @@ export default function SettlementModelsResource() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Cleaner audit and reporting</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  One authoritative trail across providers — supporting
+                  One authoritative trail across providers, supporting
                   reconciliations, audits, and operational reporting.
                 </p>
               </div>
@@ -243,9 +243,9 @@ export default function SettlementModelsResource() {
             <div className="panel" style={{ marginTop: 28 }}>
               <h3 style={{ marginTop: 0 }}>Detailed corridor notes</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                A deeper breakdown of settlement models — including corridor
+                A deeper breakdown of settlement models, covering corridor
                 routing patterns, confirmation behaviors, cutoff strategies, and
-                partner selection criteria — is currently in development.
+                partner selection criteria.
               </p>
 
               <div style={{ marginTop: 14 }}>

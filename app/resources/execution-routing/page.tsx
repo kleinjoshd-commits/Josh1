@@ -42,8 +42,8 @@ export default function ExecutionAbstractionResource() {
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 MPE separates these concerns. Decision authority
                 lives in a governed control plane. Execution is routed
-                dynamically across trusted banks and licensed partners — with
-                AI-informed routing guidance where useful — without breaking
+                dynamically across trusted banks and licensed partners (with
+                AI-informed routing guidance where useful) without breaking
                 policy, auditability, or lifecycle state.
               </p>
 
@@ -84,7 +84,7 @@ export default function ExecutionAbstractionResource() {
 
               <p className="p" style={{ margin: 0 }}>
                 Execution abstraction enables partner diversity, corridor
-                optimization, and resilience — without retraining teams or
+                optimization, and resilience without retraining teams or
                 weakening controls.
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function ExecutionAbstractionResource() {
             <p className="p" style={{ marginTop: 10 }}>
               When a provider changes, a corridor underperforms, or a new local
               bank is required, teams are forced to rewire approvals, controls,
-              and reconciliation logic — increasing risk and operational drag.
+              and reconciliation logic, increasing risk and operational drag.
             </p>
 
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
@@ -153,7 +153,7 @@ export default function ExecutionAbstractionResource() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Operational resilience</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Shift execution when providers degrade or fail — while
+                  Shift execution when providers degrade or fail, while
                   preserving lifecycle state and authority.
                 </p>
               </div>
@@ -170,9 +170,9 @@ export default function ExecutionAbstractionResource() {
             <div className="panel" style={{ marginTop: 28 }}>
               <h3 style={{ marginTop: 0 }}>Detailed implementation notes</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                A deeper technical breakdown of execution abstraction — including
+                A deeper technical breakdown of execution abstraction, covering
                 routing logic, fallback strategies, provider interoperability,
-                and audit implications — is currently in development.
+                and audit implications.
               </p>
 
               <div style={{ marginTop: 14 }}>

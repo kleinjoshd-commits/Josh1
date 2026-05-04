@@ -32,7 +32,7 @@ export default function ResourcesPage() {
 
               <p className="p" style={{ maxWidth: 900 }}>
                 Operator-focused explanations of how enterprise payments are
-                governed—lifecycle control, approvals, FX decisioning, execution
+                governed: lifecycle control, approvals, FX decisioning, execution
                 abstraction, and resilience. Written for finance, payroll, and
                 payments teams who need predictability across markets without
                 re-platforming their stack.
@@ -54,7 +54,7 @@ export default function ResourcesPage() {
 
               <p className="p" style={{ marginTop: 10 }}>
                 Short, operator-grade references you can share internally:
-                governance, routing, FX timing, and settlement—written from a
+                governance, routing, FX timing, and settlement, written from a
                 control-plane perspective.
               </p>
 
@@ -82,7 +82,7 @@ export default function ResourcesPage() {
               </h3>
 
               <p className="p" style={{ marginTop: 10, maxWidth: "none" }}>
-                Most payment failures are not caused by rails or banks — they are
+                Most payment failures are not caused by rails or banks. They are
                 caused by unclear authority, implicit state, and fragmented
                 decision-making across systems. This resource explains how
                 explicit, enforceable lifecycle states enable predictable,
@@ -139,7 +139,7 @@ export default function ResourcesPage() {
               <h3 style={{ marginTop: 0 }}>Execution abstraction & routing</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 How separating decision authority from execution mechanics enables
-                partner-level routing — reducing friction, cost, and latency
+                partner-level routing, reducing friction, cost, and latency
                 while maintaining a single governed operating layer.
               </p>
               <div style={{ marginTop: 14 }}>
@@ -174,7 +174,7 @@ export default function ResourcesPage() {
             >
               <h3 style={{ marginTop: 0 }}>Local & global settlement models</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                A control-layer view of domestic vs cross-border settlement — routing
+                A control-layer view of domestic vs cross-border settlement: routing
                 through compliant local banks (including WPS contexts) and licensed
                 partners while keeping governance consistent.
               </p>
@@ -192,7 +192,7 @@ export default function ResourcesPage() {
               <p className="p" style={{ marginTop: 10 }}>
                 How resilience applies to payment control systems, and when
                 satellite-informed capabilities strengthen critical control
-                events—without changing rails or workflows.
+                events without changing rails or workflows.
               </p>
               <div style={{ marginTop: 14 }}>
                 <Link className="btnSecondary" href="/satellite">
@@ -204,8 +204,8 @@ export default function ResourcesPage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Worker experience (MPE Balance)</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                How governed payout experiences extend to workers—faster access
-                to earnings and remittance options—while employers retain
+                How governed payout experiences extend to workers: faster access
+                to earnings and remittance options, while employers retain
                 oversight and compliance controls.
               </p>
               <div style={{ marginTop: 14 }}>

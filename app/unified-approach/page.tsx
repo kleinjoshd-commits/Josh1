@@ -25,8 +25,8 @@ export default function UnifiedApproachPage() {
               </h1>
 
               <p className="p" style={{ maxWidth: 860 }}>
-                MPE governs the decisions that matter — funding, FX decision
-                points, approvals, and payout authorization — while execution
+                MPE governs the decisions that matter: funding, FX decision
+                points, approvals, and payout authorization. Execution
                 routes through trusted local banks and licensed partners. Embed
                 MPE where it adds the most control, or run it as the central
                 operating layer across the stack.
@@ -82,7 +82,7 @@ export default function UnifiedApproachPage() {
               />
 
               <p className="p" style={{ margin: 0 }}>
-                Designed for regulated, mission-critical operations — including
+                Designed for regulated, mission-critical operations, including
                 environments where terrestrial connectivity is intermittent,
                 constrained, or degraded.
               </p>
@@ -126,7 +126,7 @@ export default function UnifiedApproachPage() {
               <h3 style={{ marginTop: 0 }}>4) Extend to workers when it drives outcomes</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Add MPE Balance for worker access and remittance: faster access to earnings,
-                corridor-by-corridor rollout, and employer-grade controls — without
+                corridor-by-corridor rollout, and employer-grade controls, without
                 changing the enterprise operating model.
               </p>
             </div>
@@ -145,8 +145,8 @@ export default function UnifiedApproachPage() {
             <div className="panel" style={{ textDecoration: "none" }}>
               <h3 style={{ marginTop: 0 }}>6) Outlast networks without changing rails</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Satellite-informed resilience strengthens critical control moments —
-                approvals, authorization, and release — so decision authority can persist
+                Satellite-informed resilience strengthens critical control moments
+                (approvals, authorization, and release) so decision authority can persist
                 when terrestrial infrastructure is degraded, congested, or unavailable.
               </p>
             </div>

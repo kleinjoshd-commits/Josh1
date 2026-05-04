@@ -26,7 +26,7 @@ export default function KycForm() {
               border: "1px solid rgba(255,255,255,0.12)",
             }}
           >
-            <h3 style={{ marginTop: 0 }}>Thanks — we’ll reach out</h3>
+            <h3 style={{ marginTop: 0 }}>Thanks, we’ll reach out</h3>
 
             <p style={{ opacity: 0.78, marginTop: 10 }}>
               Someone from our team will review your information and contact you

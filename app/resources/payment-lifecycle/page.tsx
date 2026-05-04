@@ -132,7 +132,7 @@ export default function PaymentLifecycleResource() {
             </div>
 
             <p className="p" style={{ marginTop: 14 }}>
-              The key is not the names — it’s that transitions are explicit,
+              The key is not the names. It’s that transitions are explicit,
               observable, and attributable. That’s what makes auditability and
               predictable execution possible across markets.
             </p>
@@ -149,8 +149,8 @@ export default function PaymentLifecycleResource() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Created</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Captures intent — amount, currency, counterparty, purpose, and
-                  timing — before anything is released.
+                  Captures intent (amount, currency, counterparty, purpose, and
+                  timing) before anything is released.
                 </p>
               </div>
 
@@ -165,7 +165,7 @@ export default function PaymentLifecycleResource() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Funded</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Confirms funds availability and reservation before release —
+                  Confirms funds availability and reservation before release,
                   reducing failures caused by late funding and cutoff windows.
                 </p>
               </div>
@@ -207,7 +207,7 @@ export default function PaymentLifecycleResource() {
             </h2>
             <p className="p">Two transitions deserve special attention at scale:</p>
             <p className="p" style={{ marginTop: 10 }}>
-              <strong>Funding</strong> is not an assumption — it’s a state
+              <strong>Funding</strong> is not an assumption. It’s a state
               transition. Funds should be confirmed before release, and wallet
               pools can be used to reserve liquidity across entities and
               currencies when prefunding is operationally required.
@@ -215,7 +215,7 @@ export default function PaymentLifecycleResource() {
             <p className="p" style={{ marginTop: 10 }}>
               <strong>FX</strong> should be treated as a governed decision point.
               When FX is locked prior to release, delivered amounts are known
-              ahead of execution — reducing volatility exposure, exceptions, and
+              ahead of execution, reducing volatility exposure, exceptions, and
               post-settlement disputes. Predictability matters more than
               theoretical “best rates.”
             </p>
@@ -224,7 +224,7 @@ export default function PaymentLifecycleResource() {
               Auditability is a byproduct of explicit state
             </h2>
             <p className="p">
-              When state transitions are explicit, audit trails emerge naturally —
+              When state transitions are explicit, audit trails emerge naturally:
               who approved what, when funds were confirmed, when release occurred,
               and when settlement was verified. This supports internal controls,
               external audits, and consistent reporting across markets.

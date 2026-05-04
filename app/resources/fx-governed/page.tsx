@@ -32,7 +32,7 @@ export default function FxGovernedResource() {
 
               <p className="p" style={{ maxWidth: 980 }}>
                 In many payment stacks, foreign exchange is treated as an
-                implementation detail — applied late in the payment flow and
+                implementation detail, applied late in the payment flow and
                 optimized for headline rate. At scale, this creates volatility,
                 exceptions, and reconciliation risk.
               </p>
@@ -40,7 +40,7 @@ export default function FxGovernedResource() {
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 MPE treats FX as a{" "}
                 <strong>governed decision point</strong>: explicitly timed,
-                approved, and auditable — so delivered amounts are predictable
+                approved, and auditable, so delivered amounts are predictable
                 before funds are released.
               </p>
 
@@ -93,7 +93,7 @@ export default function FxGovernedResource() {
             <p className="p">
               FX is often optimized for spot rate at the moment of execution.
               While this may look efficient on paper, it introduces uncertainty
-              into delivered amounts, timing, and reconciliation — especially
+              into delivered amounts, timing, and reconciliation, especially
               across large payroll and vendor batches.
             </p>
             <p className="p" style={{ marginTop: 10 }}>
@@ -106,7 +106,7 @@ export default function FxGovernedResource() {
               Treating FX as a lifecycle checkpoint
             </h2>
             <p className="p">
-              In a governed payment lifecycle, FX is not a side effect — it is a
+              In a governed payment lifecycle, FX is not a side effect. It is a
               state transition.
             </p>
             <p className="p" style={{ marginTop: 10 }}>
@@ -159,9 +159,9 @@ export default function FxGovernedResource() {
             <div className="panel" style={{ marginTop: 28 }}>
               <h3 style={{ marginTop: 0 }}>Detailed implementation notes</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                A deeper breakdown of FX governance — including locking
-                strategies, approval flows, exposure management, and corridor-
-                specific considerations — is currently in development.
+                A deeper breakdown of FX governance, covering locking
+                strategies, approval flows, exposure management, and
+                corridor-specific considerations.
               </p>
 
               <div style={{ marginTop: 14 }}>

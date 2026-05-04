@@ -34,7 +34,7 @@ export default function TrustControlsPage() {
 
               <p className="p" style={{ marginTop: 14 }}>
                 Trust & Controls define how funding, FX decisions, approvals,
-                and payout release are governed — ensuring decision integrity,
+                and payout release are governed, ensuring decision integrity,
                 auditability, and accountability across global operations, even
                 when networks degrade or execution is delayed.
               </p>
@@ -93,7 +93,7 @@ export default function TrustControlsPage() {
               <h3 style={{ marginTop: 0 }}>Policy before execution</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Every payment begins as a governed intent. Policies define who
-                can initiate, approve, modify, or release funds — before any
+                can initiate, approve, modify, or release funds, before any
                 execution rail is engaged.
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function TrustControlsPage() {
               <h3 style={{ marginTop: 0 }}>Approvals with authority</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Maker-checker workflows, role-based permissions, and controlled
-                release ensure approvals remain authoritative — not advisory —
+                release ensure approvals remain authoritative (not advisory)
                 across regions, entities, and currencies.
               </p>
             </div>
@@ -145,7 +145,7 @@ export default function TrustControlsPage() {
                 }}
               >
                 <strong>
-                  Most payment failures are not execution failures — they are
+                  Most payment failures are not execution failures. They are
                   control failures.
                 </strong>{" "}
                 When systems fragment, networks degrade, or providers change,
@@ -161,7 +161,7 @@ export default function TrustControlsPage() {
               <h3 style={{ marginTop: 0 }}>Funding controls</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Govern how and when capital is staged, allocated, and released
-                across entities and regions — improving predictability and
+                across entities and regions, improving predictability and
                 reducing operational risk.
               </p>
             </div>
@@ -179,7 +179,7 @@ export default function TrustControlsPage() {
               <h3 style={{ marginTop: 0 }}>Release & authorization</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Separate approval from release. Enforce timing, conditions, and
-                policy before value moves — even when execution occurs later.
+                policy before value moves, even when execution occurs later.
               </p>
             </div>
 
@@ -187,7 +187,7 @@ export default function TrustControlsPage() {
               <h3 style={{ marginTop: 0 }}>Integrity under constraint</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Designed for environments where immediacy and visibility cannot
-                be assumed — ensuring control states remain authoritative under
+                be assumed, ensuring control states remain authoritative under
                 constrained or non-public conditions.
               </p>
             </div>

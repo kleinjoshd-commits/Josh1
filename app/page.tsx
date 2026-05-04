@@ -33,7 +33,7 @@ export default function Home() {
                 <p className="p homeHeroSecondary">
                   MPE operates global financial infrastructure across 160+
                   countries today, spanning the cross-border payment corridors
-                  that define modern labor and capital flows{"\u2014"}including
+                  that define modern labor and capital flows, including
                   the United States, Europe, Singapore, the GCC, South Asia,
                   Southeast Asia, Africa, and Latin America.
                 </p>
@@ -74,6 +74,19 @@ export default function Home() {
               </div>
             </div>
 
+            <section className="homeBand homeStartBand" data-animate>
+              <div className="panel" style={{ textAlign: "center" }}>
+                <h2 className="homeSectionTitle">We start where the system fails people</h2>
+                <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
+                  Every payday, many workers lose <strong>3-10%</strong> of their
+                  wages just to send money home. Fees take a cut. Bad FX erodes
+                  value. Delays create stress. Families in rural and underbanked
+                  regions are often left with fewer options when they need money
+                  most.
+                </p>
+              </div>
+            </section>
+
             <div className="homeHeroThesis">
               <h2 className="homeSectionTitle">
                 If you can serve an unbanked family in rural Oaxaca, you can serve frontier economies anywhere.
@@ -86,19 +99,6 @@ export default function Home() {
                 connectivity, underbanked recipients, and hard operating
                 conditions on Earth, it is already being trained for frontier
                 environments.
-              </p>
-            </div>
-          </section>
-
-          <section className="homeBand" data-animate>
-            <div className="panel" style={{ textAlign: "center" }}>
-              <h2 className="homeSectionTitle">We start where the system fails people</h2>
-              <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
-                Every payday, many workers lose <strong>3-10%</strong> of their
-                wages just to send money home. Fees take a cut. Bad FX erodes
-                value. Delays create stress. Families in rural and underbanked
-                regions are often left with fewer options when they need money
-                most.
               </p>
             </div>
           </section>

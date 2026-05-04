@@ -35,13 +35,13 @@ const releases: Release[] = [
       {
         kind: "p",
         text:
-          "MPE is a global fintech entity operating across 160+ countries, with multi-currency wallet and cross-border settlement capabilities. The platform is available today and architected for programmable and agentic payments \u2014 terrestrial, or orbital. Under the agreement, MPE will progressively migrate its commercial stack onto SpaceBelt KSA's sovereign orbital rails as the constellation comes online, bringing with it the global financial network the company has already built.",
+          "MPE is a global fintech entity operating across 160+ countries, with multi-currency wallet and cross-border settlement capabilities. The platform is available today and architected for programmable and agentic payments, terrestrial or orbital. Under the agreement, MPE will progressively migrate its commercial stack onto SpaceBelt KSA's sovereign orbital rails as the constellation comes online, bringing with it the global financial network the company has already built.",
       },
       { kind: "h3", text: "What the agreement delivers" },
       {
         kind: "p",
         text:
-          "The partnership pairs sovereign orbital rails with a global financial network from day one of commercial operations. For SpaceBelt KSA, it means orbital infrastructure that carries real economic activity the moment it enters service \u2014 not a pilot, not a concept, but a commercial partner already operating at global scale. For MPE, it means the financial infrastructure the company has built extends from licensed terrestrial rails into the most significant sovereign orbital infrastructure in the world.",
+          "The partnership pairs sovereign orbital rails with a global financial network from day one of commercial operations. For SpaceBelt KSA, it means orbital infrastructure that carries real economic activity the moment it enters service: not a pilot, not a concept, but a commercial partner already operating at global scale. For MPE, it means the financial infrastructure the company has built extends from licensed terrestrial rails into the most significant sovereign orbital infrastructure in the world.",
       },
       {
         kind: "p",
@@ -62,7 +62,7 @@ const releases: Release[] = [
       },
       {
         text:
-          "MPE was built on a single thesis: that the next era of financial infrastructure will not be defined by which banks or borders it sits inside, but by where it can reach. The next generation of financial infrastructure runs across 160+ countries, settles without requiring a bank on either end \u2014 and now, extends into orbit.",
+          "MPE was built on a single thesis: that the next era of financial infrastructure will not be defined by which banks or borders it sits inside, but by where it can reach. The next generation of financial infrastructure runs across 160+ countries, settles without requiring a bank on either end, and now extends into orbit.",
         attribution: "Josh Klein, Co-Founder and COO of MPE",
       },
       {

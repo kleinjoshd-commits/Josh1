@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 
 export const metadata = {
   title: "MPE Workforce | MPE",
-  description: "Global workforce execution — fully controlled through MPE.",
+  description: "Global workforce execution, fully controlled through MPE.",
 };
 
 export default function MpeWorkforcePage() {
@@ -24,7 +24,7 @@ export default function MpeWorkforcePage() {
               <h1 className="h1">MPE Workforce</h1>
 
               <p className="p">
-                Global workforce execution — fully controlled through MPE.
+                Global workforce execution, fully controlled through MPE.
               </p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
