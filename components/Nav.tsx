@@ -7,9 +7,9 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<"platform" | "solutions" | null>(
-    null
-  );
+  const [activeMenu, setActiveMenu] = useState<
+    "about" | "platform" | "solutions" | null
+  >(null);
   const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Nav() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const openMenu = (menu: "platform" | "solutions") => {
+  const openMenu = (menu: "about" | "platform" | "solutions") => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
     setActiveMenu(menu);
   };
@@ -68,9 +68,75 @@ export default function Nav() {
             Home
           </Link>
 
-          <Link href="/about" className="navLink">
-            About
-          </Link>
+          <div
+            style={{ position: "relative" }}
+            onMouseEnter={() => openMenu("about")}
+            onMouseLeave={closeMenu}
+          >
+            <Link
+              href="/about"
+              className="navLink"
+              aria-haspopup="menu"
+              aria-expanded={activeMenu === "about"}
+              onClick={closeAll}
+            >
+              About
+            </Link>
+
+            {activeMenu === "about" && (
+              <div
+                role="menu"
+                aria-label="About"
+                onMouseEnter={() => openMenu("about")}
+                onMouseLeave={closeMenu}
+                style={{
+                  position: "absolute",
+                  top: "calc(100% + 14px)",
+                  left: 0,
+                  background: "rgba(14, 18, 18, 0.98)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: 16,
+                  padding: 20,
+                  width: 320,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+                }}
+              >
+                <Link
+                  href="/about"
+                  onClick={closeAll}
+                  style={{
+                    display: "block",
+                    padding: "10px 0",
+                    color: "rgba(255,255,255,0.9)",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  <strong>About MPE</strong>
+                  <div style={{ fontSize: 13, opacity: 0.7 }}>
+                    Why MPE exists and what it offers today.
+                  </div>
+                </Link>
+                <div style={{ height: 12 }} />
+                <Link
+                  href="/about/team"
+                  onClick={closeAll}
+                  style={{
+                    display: "block",
+                    padding: "10px 0",
+                    color: "rgba(255,255,255,0.9)",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  <strong>Meet the team</strong>
+                  <div style={{ fontSize: 13, opacity: 0.7 }}>
+                    The people building MPE.
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
 
           <div
             style={{ position: "relative" }}
@@ -251,6 +317,16 @@ export default function Nav() {
             <Link href="/about" className="navMobileItem" onClick={closeAll}>
               About
             </Link>
+
+            <div className="navMobileSubmenu">
+              <Link
+                href="/about/team"
+                className="navMobileSubitem"
+                onClick={closeAll}
+              >
+                Meet the team
+              </Link>
+            </div>
 
             <div
               className="navMobileItem"
