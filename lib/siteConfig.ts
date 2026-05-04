@@ -18,7 +18,6 @@ export const siteConfig = {
     topLevel: [
       { label: "Use Cases", href: "/use-cases" },
       { label: "Industries", href: "/industries" },
-      { label: "About", href: "/about" },
     ] satisfies NavItem[],
     platform: [
       {

@@ -68,6 +68,10 @@ export default function Nav() {
             Home
           </Link>
 
+          <Link href="/about" className="navLink">
+            About
+          </Link>
+
           <div
             style={{ position: "relative" }}
             onMouseEnter={() => openMenu("platform")}
@@ -242,6 +246,10 @@ export default function Nav() {
           <div className="container navMobileMenu">
             <Link href="/" className="navMobileItem" onClick={closeAll}>
               Home
+            </Link>
+
+            <Link href="/about" className="navMobileItem" onClick={closeAll}>
+              About
             </Link>
 
             <div

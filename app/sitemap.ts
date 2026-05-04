@@ -40,6 +40,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: `https://${siteConfig.domain}/about/team`,
+      lastModified: new Date(),
+    },
+    {
       url: `https://${siteConfig.domain}/future-commerce`,
       lastModified: new Date(),
     },
