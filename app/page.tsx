@@ -25,17 +25,18 @@ export default function Home() {
                 </h1>
 
                 <p className="p homeHeroLead homeHeroAltitude">
-                  Global financial infrastructure across 160+ countries.
-                  Multi-currency settlement, programmable and agentic payments,
-                  terrestrial and orbital.
+                  Zero-fee remittances. USD-held wallets. Family debit cards.
+                  Cross-border access across 160+ countries.
                 </p>
 
                 <p className="p homeHeroSecondary">
-                  MPE operates global financial infrastructure across 160+
-                  countries today, spanning the cross-border payment corridors
-                  that define modern labor and capital flows, including
-                  the United States, Europe, Singapore, the GCC, South Asia,
-                  Southeast Asia, Africa, and Latin America.
+                  MPE helps workers send more of each paycheck home, hold value
+                  in USD instead of volatile local currency, and access funds
+                  through a wallet and debit card built for cross-border
+                  workforces. The platform operates across the corridors that
+                  define modern labor flows, including the United States,
+                  Europe, Singapore, the GCC, South Asia, Southeast Asia,
+                  Africa, and Latin America.
                 </p>
 
                 <div className="btnRow homeHeroActions">
