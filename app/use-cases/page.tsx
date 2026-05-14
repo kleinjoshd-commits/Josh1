@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 export const metadata = {
   title: "Use Cases | MPE",
   description:
-    "Three customer stories: a commercial poultry processor running worker wallets, a consumer goods importer using early-invoice financing, and a multinational construction firm running ContractorOS.",
+    "Three customer stories: a commercial poultry processor running worker wallets, a consumer goods importer using early-invoice financing, and a multinational construction firm running MPE Workforce.",
 };
 
 type Metric = { value: string; label: string };
@@ -90,7 +90,7 @@ const useCases: UseCase[] = [
     region: "GCC, MENA, Southeast Asia",
     product: { label: "MPE Workforce", href: "/solutions/workforce" },
     title:
-      "ContractorOS for a multinational construction firm running projects across 17 countries",
+      "MPE Workforce for a multinational construction firm running projects across 17 countries",
     profile: {
       name: "Customer profile",
       lines: [
@@ -105,7 +105,7 @@ const useCases: UseCase[] = [
       "Contractors were regularly paid late, paid in the wrong currency, or paid through the wrong entity. Project managers had no real-time view of who had been paid for what milestone. Treasury had no consolidated view of monthly contractor liability across the portfolio.",
     ],
     solution: [
-      "ContractorOS was deployed as the single operating layer for contingent workforce payments across the firm's footprint. Contractor onboarding, KYC, contract storage, and tax documentation flow through one workflow. Approval policies are policy-driven and entity-aware, with maker-checker thresholds and full audit trail per contractor.",
+      "MPE Workforce was deployed as the single operating layer for contingent workforce payments across the firm's footprint. Contractor onboarding, KYC, contract storage, and tax documentation flow through one workflow. Approval policies are policy-driven and entity-aware, with maker-checker thresholds and full audit trail per contractor.",
       "FX is locked at the moment of approval, not at payout. Disbursement routes through licensed local partners by country and currency, with the same lifecycle states across markets. Project managers get a real-time view of contractor status by project and milestone. Treasury gets one consolidated liability view across the portfolio.",
     ],
     outcome: [
