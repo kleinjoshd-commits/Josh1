@@ -2081,6 +2081,247 @@ img {
 }
 
 /* =========================
+   Use Cases page
+   ========================= */
+.useCasesHeader {
+  max-width: 980px;
+  margin: 0 auto 32px;
+}
+
+.useCasesIntro {
+  max-width: 720px;
+  margin-top: 14px;
+}
+
+.useCasesList {
+  display: grid;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.useCasePanel {
+  padding: 30px 32px;
+}
+
+.useCaseHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.useCaseNumber {
+  flex: 0 0 auto;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--brand);
+  line-height: 1;
+  padding-top: 6px;
+  min-width: 48px;
+}
+
+.useCaseMeta {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.useCaseTag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.6);
+  margin-bottom: 10px;
+}
+
+.useCaseTitle {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.useCaseGrid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.55fr);
+  align-items: start;
+}
+
+.useCaseProfile {
+  padding: 20px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.useCaseProfileTitle {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.62);
+}
+
+.useCaseProfileList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.useCaseProfileList li {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(17, 24, 39, 0.82);
+  padding-left: 14px;
+  position: relative;
+}
+
+.useCaseProfileList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand);
+  opacity: 0.85;
+}
+
+.useCaseProductTag {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+  font-size: 13px;
+  color: rgba(17, 24, 39, 0.7);
+}
+
+.useCaseProductLink {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.useCaseProductLink:hover {
+  text-decoration: underline;
+}
+
+.useCaseBody {
+  min-width: 0;
+}
+
+.useCaseSubhead {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.6);
+}
+
+.useCaseSubhead:not(:first-child) {
+  margin-top: 22px;
+}
+
+.useCaseBodyText {
+  max-width: none;
+  margin-top: 8px;
+}
+
+.useCaseBodyText:first-of-type {
+  margin-top: 0;
+}
+
+.useCaseOutcomeGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 4px;
+}
+
+.useCaseOutcomeCard {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.useCaseOutcomeValue {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.15;
+}
+
+.useCaseOutcomeLabel {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(17, 24, 39, 0.7);
+}
+
+.useCasesCta {
+  margin-top: 36px;
+  padding: 30px 28px;
+  text-align: center;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.useCasesCtaCopy {
+  margin: 14px auto 0;
+  max-width: 720px;
+  text-align: center;
+}
+
+.useCasesCtaActions {
+  justify-content: center;
+  margin-top: 22px;
+}
+
+@media (max-width: 900px) {
+  .useCasePanel {
+    padding: 22px 20px;
+  }
+  .useCaseHead {
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+  }
+  .useCaseNumber {
+    font-size: 22px;
+    min-width: 36px;
+    padding-top: 4px;
+  }
+  .useCaseTitle {
+    font-size: 20px;
+  }
+  .useCaseGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .useCaseOutcomeGrid {
+    grid-template-columns: 1fr;
+  }
+  .useCasesCta {
+    padding: 24px 20px;
+  }
+}
+
+/* =========================
    About: Our Team
    ========================= */
 .aboutTeamSection {
