@@ -55,7 +55,7 @@ export default function MpeBalancePage() {
             <div className="card" style={{ maxWidth: 560, marginLeft: "auto" }}>
               <div className="cardInner" style={{ maxHeight: "none" }}>
                 <Image
-                  src="/new%20balance.png"
+                  src="/balance-ui.png"
                   alt="MPE Balance worker wallet interface"
                   width={1600}
                   height={1000}
@@ -118,7 +118,7 @@ export default function MpeBalancePage() {
             <div className="panel">
               <div style={{ overflow: "hidden", borderRadius: 16 }}>
                 <Image
-                  src="/Balance-flow.png"
+                  src="/balance-flow.png"
                   alt="MPE Balance flow"
                   width={1800}
                   height={900}

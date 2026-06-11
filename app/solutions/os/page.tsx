@@ -54,7 +54,7 @@ export default function MpeOsPage() {
             <div className="card" style={{ maxWidth: 560, marginLeft: "auto" }}>
               <div className="cardInner" style={{ maxHeight: "none" }}>
                 <Image
-                  src="/mpe-ui-2.png"
+                  src="/mpe-os-ui.png"
                   alt="MPE OS orchestration interface"
                   width={1600}
                   height={1000}

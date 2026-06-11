@@ -53,7 +53,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="navLogo" aria-label="Home">
           <Image
-            src="/worth-a-shot.png"
+            src="/mpe-logo.png"
             alt="MPE"
             width={176}
             height={48}
