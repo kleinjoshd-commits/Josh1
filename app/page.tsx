@@ -156,7 +156,7 @@ export default function Home() {
                 "Employers offer MPE as a workforce benefit after payroll",
                 "Workers receive a wallet for send-home transfers, employee payments, and international travel use",
                 "Families access funds without relying on a traditional bank account in supported regions",
-                "USD-held balances and satellite-accessible cards extend reach where terrestrial systems are weak",
+                "USD-held balances and wallet and card access built to hold up where connectivity fails",
               ].map((tag) => (
                 <div key={tag} className="homeTag">
                   {tag}

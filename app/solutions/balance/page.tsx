@@ -157,8 +157,9 @@ export default function MpeBalancePage() {
               <h3 style={{ marginTop: 0 }}>Value protection and reach</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 USD-held balances help protect value against devaluation, and
-                satellite-accessible delivery expands reach into harder
-                environments where terrestrial systems are less dependable.
+                wallet and card access built to hold up where connectivity fails
+                extend reach into environments where terrestrial systems are
+                less dependable.
               </p>
             </div>
 
