@@ -3,6 +3,7 @@ import Link from "next/link";
 import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
 import { siteConfig } from "@/lib/siteConfig";
+import { claims } from "@/content/claims";
 
 export default function Home() {
   return (
@@ -79,11 +80,11 @@ export default function Home() {
               <div className="panel" style={{ textAlign: "center" }}>
                 <h2 className="homeSectionTitle">We start where the system fails people</h2>
                 <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
-                  Every payday, many workers lose <strong>3-10%</strong> of their
-                  wages just to send money home. Fees take a cut. Bad FX erodes
-                  value. Delays create stress. Families in rural and underbanked
-                  regions are often left with fewer options when they need money
-                  most.
+                  Every payday, many workers lose <strong>{claims.wageLossRange}</strong> of
+                  their wages just to send money home. Fees take a cut. Bad FX
+                  erodes value. Delays create stress. Families in rural and
+                  underbanked regions are often left with fewer options when
+                  they need money most.
                 </p>
               </div>
             </section>
