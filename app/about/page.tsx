@@ -108,7 +108,7 @@ export default function AboutPage() {
             <div className="panel" style={{ textAlign: "center" }}>
               <h3 style={{ marginTop: 0 }}>Our team</h3>
               <p className="p" style={{ marginTop: 10, marginLeft: "auto", marginRight: "auto" }}>
-                The people building MPE — leadership, partnerships, finance,
+                The people building MPE: leadership, partnerships, finance,
                 and regional operations.
               </p>
               <div

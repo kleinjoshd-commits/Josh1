@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 export const metadata = {
   title: "Our Team | MPE",
   description:
-    "The people building MPE — leadership, partnerships, finance, and regional operations.",
+    "The people building MPE: leadership, partnerships, finance, and regional operations.",
 };
 
 type TeamMember = {
