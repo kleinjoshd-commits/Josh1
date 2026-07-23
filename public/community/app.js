@@ -3,6 +3,40 @@ const CFG = window.MPE_CONFIG, I18N = window.MPE_I18N;
 let lang = localStorage.getItem('mpe_lang') || 'en';
 const $ = id => document.getElementById(id);
 
+// ---------- community programme state ----------
+// A visitor picks a community on the selector screen, or arrives deep-linked
+// (#kumar from a QR poster / shared referral). All programme branding (banner,
+// referral prefix, rate, share text) is scoped to the selected community.
+let community = localStorage.getItem('mpe_community');
+if (!(community && CFG.PROGRAMMES[community])) community = null;
+const PROG = () => (community ? CFG.PROGRAMMES[community] : null);
+
+function selectCommunity(slug){
+  if(!CFG.PROGRAMMES[slug]) return;
+  community = slug;
+  localStorage.setItem('mpe_community', slug);
+  applyCommunity();
+  go('s-home');
+}
+
+function changeCommunity(){
+  community = null;
+  localStorage.removeItem('mpe_community');
+  applyCommunity();
+  go('s-communities');
+}
+
+function applyCommunity(){
+  const p = PROG();
+  document.querySelector('nav').classList.toggle('hidden', !p);
+  $('commBanner').classList.toggle('hidden', !p);
+  if(p){
+    renderRate();
+    const pair = document.querySelector('.rate-pair');
+    if(pair) pair.textContent = p.RATE_PAIR;
+  }
+}
+
 // ---------- i18n ----------
 function applyLang(){
   const t = I18N[lang];
@@ -16,6 +50,8 @@ function toggleLang(){ lang = lang === 'en' ? 'ta' : 'en'; localStorage.setItem(
 
 // ---------- navigation ----------
 function go(id){
+  // Everything except the selector requires a chosen community.
+  if(!community && id !== 's-communities') id = 's-communities';
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   $(id).classList.add('active');
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
@@ -35,20 +71,24 @@ function renderFAQ(){
 }
 
 // ---------- rate ----------
-function renderRate(){ $('rateValue').textContent = '₹ ' + Number(CFG.INDICATIVE_RATE_SGD_INR).toFixed(2); }
+function renderRate(){
+  const p = PROG(); if(!p) return;
+  $('rateValue').textContent = '₹ ' + Number(p.INDICATIVE_RATE).toFixed(2);
+}
 
 // ---------- referral codes ----------
 function makeCode(){
   const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; let s = '';
   const rnd = new Uint8Array(4); crypto.getRandomValues(rnd);
   for(let i=0;i<4;i++) s += chars[rnd[i] % chars.length];
-  return CFG.REFERRAL_PREFIX + '-' + s;
+  return PROG().REFERRAL_PREFIX + '-' + s;
 }
 
 // ---------- enrollment (Supabase when configured; on-device fallback otherwise) ----------
 async function submitEnrollment(e){
   e.preventDefault();
   const rec = {
+    community: community,
     name: $('f_name').value.trim(),
     phone: $('f_phone').value.trim(),
     employer: $('f_employer').value.trim(),
@@ -82,26 +122,34 @@ async function submitEnrollment(e){
 // ---------- WhatsApp share ----------
 function shareWhatsApp(){
   const code = $('myCode').textContent;
-  const tmpl = lang === 'ta' ? CFG.WHATSAPP_SHARE_TEXT_TA : CFG.WHATSAPP_SHARE_TEXT_EN;
-  const msg = tmpl.replace('{CODE}', code).replace('{URL}', location.origin + location.pathname);
+  const p = PROG();
+  const tmpl = lang === 'ta' ? p.WHATSAPP_SHARE_TEXT_TA : p.WHATSAPP_SHARE_TEXT_EN;
+  // Deep-link the share URL to this community so referred friends land scoped.
+  const url = location.origin + location.pathname + '#' + community;
+  const msg = tmpl.replace('{CODE}', code).replace('{URL}', url);
   window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
 }
 
-// ---------- desk mode (/#desk) ----------
+// ---------- hash routing: #<slug> selects a community; #desk = Kumar desk tablet ----------
 let deskMode = false;
-function checkDesk(){
-  deskMode = location.hash === '#desk';
+function applyHash(){
+  const h = (location.hash || '').replace('#','');
+  deskMode = h === 'desk';
+  if(deskMode && !community) { community = 'kumar'; localStorage.setItem('mpe_community', community); }
+  if(CFG.PROGRAMMES[h]) { community = h; localStorage.setItem('mpe_community', community); }
   $('deskBadge').classList.toggle('hidden', !deskMode);
   $('deskOfficerWrap').classList.toggle('hidden', !deskMode);
+  applyCommunity();
   if(deskMode) go('s-register');
+  else if(CFG.PROGRAMMES[h]) go('s-home');
 }
-window.addEventListener('hashchange', checkDesk);
+window.addEventListener('hashchange', applyHash);
 
 // ---------- desk CSV export (type exportCSV() in console, or long-press header logo 3s in desk mode) ----------
 function exportCSV(){
   const rows = JSON.parse(localStorage.getItem('mpe_enrollments') || '[]');
   if(!rows.length) return alert('No enrollments on this device.');
-  const cols = ['name','phone','employer','lang','referral_code_used','referral_code_issued','desk_officer','desk_mode','synced','created_at'];
+  const cols = ['community','name','phone','employer','lang','referral_code_used','referral_code_issued','desk_officer','desk_mode','synced','created_at'];
   const csv = [cols.join(',')].concat(rows.map(r => cols.map(c => JSON.stringify(r[c] ?? '')).join(','))).join('\n');
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
@@ -113,4 +161,5 @@ document.querySelector('.brand-logo').addEventListener('touchstart', () => { pre
 document.querySelector('.brand-logo').addEventListener('touchend', () => clearTimeout(pressTimer));
 
 // ---------- init ----------
-applyLang(); renderRate(); checkDesk();
+applyLang(); applyHash();
+go(community ? 's-home' : 's-communities');

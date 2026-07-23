@@ -3,106 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#F4F3F1">
+<meta name="theme-color" content="#05060A">
 <title>MPE Community Programme</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <script src="config.js"></script>
 <style>
-  /* ============ THEME TOKENS — aligned to MPE site brand (globals.css light deck) ============ */
+  /* ============ THEME TOKENS — MPE site brand (globals.css light deck) ============ */
   :root{
-    --bg:#F4F3F1;            /* MPE site --paper base */
-    --bg-card:rgba(255,255,255,0.72);   /* white glass card, site panel style */
-    --bg-raise:rgba(255,255,255,0.92);  /* raised surface (inputs, sub-chips) */
+    --paper:#F4F3F1;         /* MPE site --paper base */
+    --night:#05060A;         /* MPE site --night (top bar) */
     --gold:#E8B44C;          /* community warmth accent (Kumar layer) — keep */
     --gold-soft:#F3D08A;
     --ink:#111827;           /* MPE site --ink */
-    --ink-dim:rgba(17,24,39,0.66);      /* MPE site --muted */
+    --ink-dim:rgba(17,24,39,0.66);   /* MPE site --muted */
     --green:#16A86C;         /* MPE site brand green */
-    --line:rgba(17,24,39,0.10);         /* MPE site hairline */
-    --radius:16px;
+    --line:rgba(17,24,39,0.10);      /* MPE site hairline */
+    --line-soft:rgba(17,24,39,0.08);
+    --radius:18px;           /* site panel radius */
     --max:480px;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{font-size:17px}
-  body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans Tamil',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
-  #app{width:100%;max-width:var(--max);min-height:100vh;display:flex;flex-direction:column;padding:0 20px calc(84px + env(safe-area-inset-bottom))}
-  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0 8px}
-  .brand{display:flex;align-items:center;gap:10px}
-  .brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--gold),#c98f2f);display:flex;align-items:center;justify-content:center;font-weight:800;color:#141414;font-size:.9rem;letter-spacing:-.5px}
-  .brand-name{font-weight:700;font-size:1.02rem;letter-spacing:.2px}
-  .brand-sub{font-size:.66rem;color:var(--ink-dim);letter-spacing:.4px;text-transform:uppercase}
-  .lang-toggle{background:var(--bg-raise);border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--green);font-weight:700;font-size:.85rem;cursor:pointer}
-  .community-banner{margin:10px 0 4px;background:linear-gradient(100deg,rgba(232,180,76,.14),rgba(232,180,76,.04));border:1px solid rgba(232,180,76,.35);border-radius:var(--radius);padding:12px 16px;display:flex;align-items:center;gap:12px}
-  .community-avatar{width:40px;height:40px;border-radius:50%;background:var(--gold);color:#141414;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .community-banner b{display:block;font-size:.9rem}
-  .community-banner span{font-size:.75rem;color:var(--ink-dim)}
-  h1{font-size:1.7rem;line-height:1.2;margin:18px 0 10px;letter-spacing:-.3px}
+  html{font-size:16px}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,'Noto Sans Tamil',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  }
+  /* site wavesLight wash */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(1100px 600px at 70% 45%, rgba(22,168,108,0.10), transparent 60%),
+      radial-gradient(900px 520px at 15% 20%, rgba(0,0,0,0.06), transparent 60%);
+  }
+  /* ===== top bar: site nav treatment ===== */
+  .topbar{
+    position:sticky;top:0;z-index:50;width:100%;
+    background:rgba(8,12,12,0.85);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.10);
+  }
+  .topbarInner{
+    max-width:var(--max);margin:0 auto;padding:12px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .brand-logo{display:flex;align-items:center;min-width:0}
+  .brand-logo img{width:104px;height:auto;display:block}
+  .brand-tag{
+    font-size:.62rem;color:rgba(255,255,255,0.60);letter-spacing:.10em;
+    text-transform:uppercase;font-weight:650;margin-top:2px;
+  }
+  .lang-toggle{
+    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);
+    border-radius:999px;padding:8px 14px;color:rgba(255,255,255,0.90);
+    font-weight:700;font-size:.82rem;cursor:pointer;flex-shrink:0;
+  }
+  /* ===== app column ===== */
+  #app{
+    position:relative;z-index:1;width:100%;max-width:var(--max);flex:1;
+    display:flex;flex-direction:column;
+    padding:0 20px calc(88px + env(safe-area-inset-bottom));
+  }
+  /* site eyebrow chip */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
+    margin:22px 0 0;padding:6px 12px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(255,255,255,0.66);
+    font-size:.72rem;font-weight:650;color:rgba(17,24,39,0.72);
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:999px;background:var(--green)}
+  /* community attribution: slim glass strip, gold accent — community layer */
+  .community-banner{
+    margin:14px 0 4px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.66),rgba(255,255,255,0.52));
+    border:1px solid var(--line-soft);border-left:3px solid var(--gold);
+    border-radius:14px;padding:12px 16px;
+    box-shadow:0 10px 28px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.04);
+  }
+  .community-banner b{display:block;font-size:.85rem;letter-spacing:-0.01em}
+  .community-banner span{font-size:.74rem;color:var(--ink-dim)}
+  .commChange{
+    flex-shrink:0;background:none;border:0;cursor:pointer;
+    font-size:.72rem;font-weight:700;color:var(--green);padding:4px 0;
+  }
+  /* community selector cards */
+  .commCard{
+    width:100%;text-align:left;cursor:pointer;font:inherit;color:inherit;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .commCard b{display:block;font-size:.95rem;letter-spacing:-0.01em}
+  .commCard span{font-size:.76rem;color:var(--ink-dim)}
+  .commCard .commGo{
+    flex-shrink:0;width:34px;height:34px;border-radius:999px;
+    border:1px solid rgba(232,180,76,.55);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-weight:700;
+    background:linear-gradient(100deg,rgba(232,180,76,.16),rgba(232,180,76,.05));
+  }
+  .commSoon{opacity:.75}
+  .commSoon span{font-size:.78rem;color:var(--ink-dim)}
+  /* type scale: site h1/h2 */
+  h1{font-size:2.05rem;line-height:1.08;font-weight:620;letter-spacing:-0.02em;margin:20px 0 12px}
   h1 .accent{color:var(--green)}
-  h2{font-size:1.15rem;margin:22px 0 10px}
-  p.lead{color:var(--ink-dim);font-size:.95rem;line-height:1.55}
-  .card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:10px 0;box-shadow:0 10px 28px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.04)}
+  h2{font-size:1.35rem;line-height:1.15;font-weight:620;letter-spacing:-0.02em;margin:24px 0 10px}
+  p.lead{color:var(--ink-dim);font-size:.95rem;line-height:1.65}
+  /* site panel recipe */
+  .card{
+    background:linear-gradient(180deg,rgba(255,255,255,0.66),rgba(255,255,255,0.52)),rgba(22,168,108,0.04);
+    border:1px solid var(--line-soft);border-radius:var(--radius);
+    padding:18px;margin:10px 0;
+    box-shadow:0 10px 28px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.04);
+    backdrop-filter:blur(10px);
+  }
   .step{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
   .step:last-child{border-bottom:0}
-  .step-num{width:30px;height:30px;border-radius:50%;background:var(--bg-raise);border:1px solid var(--green);color:var(--green);font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .step b{display:block;font-size:.93rem;margin-bottom:3px}
-  .step span{font-size:.8rem;color:var(--ink-dim);line-height:1.5}
-  .trust-strip{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-  .chip{background:var(--bg-raise);border:1px solid var(--line);color:var(--ink-dim);border-radius:999px;padding:6px 12px;font-size:.72rem}
-  .chip.green{color:var(--green);border-color:rgba(22,168,108,.45)}
-  .btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:800;font-size:1.02rem;border:1px solid rgba(0,0,0,0.12);border-radius:14px;padding:16px;margin:14px 0 6px;cursor:pointer;box-shadow:0 10px 24px rgba(22,168,108,0.18),0 2px 6px rgba(0,0,0,0.06)}
-  .btn.secondary{background:var(--bg-raise);color:var(--ink);border:1px solid var(--line);font-weight:600;box-shadow:0 10px 24px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.04)}
-  .btn.whatsapp{background:#25D366;color:#0b0b0b}
-  .rate-box{text-align:center;padding:26px 18px}
-  .rate-pair{font-size:.8rem;color:var(--ink-dim);letter-spacing:1px;text-transform:uppercase}
-  .rate-value{font-size:2.6rem;font-weight:800;color:var(--green);margin:8px 0 2px;letter-spacing:-1px}
-  .rate-note{font-size:.75rem;color:var(--ink-dim);line-height:1.5;margin-top:10px}
-  label{display:block;font-size:.8rem;color:var(--ink-dim);margin:14px 0 6px}
-  input,select{width:100%;background:var(--bg-raise);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--ink);font-size:1rem}
+  .step-num{
+    width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.92);
+    border:1px solid var(--green);color:var(--green);font-weight:800;font-size:.85rem;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .step b{display:block;font-size:.93rem;margin-bottom:3px;letter-spacing:-0.01em}
+  .step span{font-size:.8rem;color:var(--ink-dim);line-height:1.55}
+  .trust-strip{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 2px}
+  .chip{
+    background:rgba(255,255,255,0.66);border:1px solid var(--line);
+    color:var(--ink-dim);border-radius:999px;padding:7px 13px;font-size:.74rem;font-weight:650;
+  }
+  .chip.green{color:var(--green);border-color:rgba(22,168,108,.35)}
+  /* site button treatment */
+  .btn{
+    display:block;width:100%;text-align:center;background:var(--green);color:#fff;
+    font-weight:850;font-size:.95rem;border:1px solid rgba(0,0,0,0.12);border-radius:14px;
+    padding:15px 16px;margin:14px 0 4px;cursor:pointer;
+    box-shadow:0 10px 24px rgba(22,168,108,0.18),0 2px 6px rgba(0,0,0,0.06);
+  }
+  .btn:active{filter:brightness(0.96)}
+  .btn.secondary{
+    background:rgba(255,255,255,0.68);color:var(--ink);border:1px solid var(--line);
+    font-weight:850;box-shadow:0 10px 24px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.04);
+  }
+  .btn.whatsapp{background:#25D366;border-color:rgba(0,0,0,0.10);color:#062b12;box-shadow:0 10px 24px rgba(37,211,102,0.22),0 2px 6px rgba(0,0,0,0.06)}
+  .rate-box{text-align:center;padding:28px 18px}
+  .rate-pair{font-size:.72rem;color:var(--ink-dim);letter-spacing:.10em;text-transform:uppercase;font-weight:650}
+  .rate-value{font-size:2.7rem;font-weight:700;color:var(--ink);margin:8px 0 2px;letter-spacing:-0.02em}
+  .rate-note{font-size:.76rem;color:var(--ink-dim);line-height:1.55;margin-top:10px}
+  label{display:block;font-size:.76rem;color:var(--ink-dim);font-weight:650;margin:14px 0 6px}
+  input,select{
+    width:100%;background:rgba(255,255,255,0.70);border:1px solid var(--line);
+    border-radius:14px;padding:14px;color:var(--ink);font-size:1rem;
+    box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  }
+  input::placeholder{color:rgba(17,24,39,0.40)}
   input:focus,select:focus{outline:none;border-color:rgba(22,168,108,0.45);box-shadow:0 0 0 4px rgba(22,168,108,0.10)}
   .consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0 4px;font-size:.74rem;color:var(--ink-dim);line-height:1.5}
-  .consent input{width:auto;margin-top:2px}
-  .success-code{background:linear-gradient(100deg,rgba(232,180,76,.14),rgba(232,180,76,.04));border:1px dashed var(--gold);border-radius:14px;text-align:center;padding:18px;margin:14px 0}
-  .success-code .code{font-size:1.8rem;font-weight:800;color:var(--ink);letter-spacing:3px}
-  .success-code span{font-size:.75rem;color:var(--ink-dim)}
+  .consent input{width:auto;margin-top:2px;box-shadow:none}
+  .success-code{
+    background:linear-gradient(100deg,rgba(232,180,76,.16),rgba(232,180,76,.05));
+    border:1px dashed var(--gold);border-radius:14px;text-align:center;padding:20px;margin:14px 0;
+  }
+  .success-code .code{font-size:1.8rem;font-weight:800;color:var(--ink);letter-spacing:3px;margin:4px 0}
+  .success-code span{font-size:.74rem;color:var(--ink-dim)}
   details{border-bottom:1px solid var(--line);padding:14px 0}
-  summary{font-size:.93rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
-  summary::after{content:'+';color:var(--green);font-size:1.2rem}
+  summary{font-size:.92rem;font-weight:650;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;letter-spacing:-0.01em}
+  summary::after{content:'+';color:var(--green);font-size:1.2rem;font-weight:600}
   details[open] summary::after{content:'–'}
   details p{font-size:.83rem;color:var(--ink-dim);line-height:1.6;margin-top:10px}
-  nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--max);background:rgba(244,243,241,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;padding:6px 0 calc(8px + env(safe-area-inset-bottom))}
-  nav button{flex:1;background:none;border:0;color:var(--ink-dim);font-size:.68rem;padding:8px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+  /* bottom nav: light glass, stroke icons */
+  nav{
+    position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+    width:100%;max-width:var(--max);z-index:50;
+    background:rgba(244,243,241,0.92);backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);display:flex;
+    padding:6px 0 calc(8px + env(safe-area-inset-bottom));
+  }
+  nav button{
+    flex:1;background:none;border:0;color:var(--ink-dim);font-size:.66rem;font-weight:650;
+    padding:8px 0 2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;
+  }
+  nav button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   nav button.active{color:var(--green)}
-  nav .ico{font-size:1.15rem}
-  footer.disclosure{margin-top:auto;padding:20px 0 8px;font-size:.68rem;color:var(--ink-dim);line-height:1.5;text-align:center;border-top:1px solid var(--line)}
+  footer.disclosure{
+    margin-top:auto;padding:22px 0 10px;font-size:.68rem;color:var(--ink-dim);
+    line-height:1.55;text-align:center;border-top:1px solid var(--line);
+  }
   .screen{display:none;flex-direction:column;flex:1}
   .screen.active{display:flex}
-  .desk-badge{background:var(--green);color:#fff;font-weight:800;font-size:.7rem;border-radius:6px;padding:3px 8px;display:inline-block;margin-bottom:8px}
+  .desk-badge{background:var(--green);color:#fff;font-weight:800;font-size:.7rem;border-radius:6px;padding:3px 8px;display:inline-block;margin:14px 0 0;align-self:flex-start}
   .hidden{display:none!important}
-  .needs-review{outline:1px dotted rgba(232,180,76,.0)} /* TA strings flagged in i18n, visual flag off by default */
 </style>
 </head>
 <body>
-<div id="app">
-  <header>
-    <div class="brand">
-      <div class="brand-logo">M</div>
-      <div>
-        <div class="brand-name">MPE <span style="color:var(--gold)">Community</span></div>
-        <div class="brand-sub" data-i18n="tagline">Send home. Safely. Legally.</div>
-      </div>
+<header class="topbar">
+  <div class="topbarInner">
+    <div class="brand-logo">
+      <img src="assets/mpe-logo.png" alt="MPE" width="512" height="143">
     </div>
     <button class="lang-toggle" id="langBtn" onclick="toggleLang()">தமிழ்</button>
-  </header>
+  </div>
+</header>
 
-  <div class="community-banner">
-    <div class="community-avatar">K</div>
-    <div><b data-i18n="community_title">Brought to you by Kumar &amp; the Eyota community</b>
-    <span data-i18n="community_sub">Your trusted programme partner in Singapore</span></div>
+<div id="app">
+  <div class="eyebrow">
+    MPE Community <span class="dot"></span>
+    <span data-i18n="tagline">Send home. Safely. Legally.</span>
   </div>
 
+  <div class="community-banner hidden" id="commBanner">
+    <div><b data-i18n="community_title">Brought to you by Kumar &amp; the Eyota community</b>
+    <span data-i18n="community_sub">Your trusted programme partner in Singapore</span></div>
+    <button type="button" class="commChange" onclick="changeCommunity()" data-i18n="sel_change">Change</button>
+  </div>
+
+  <!-- COMMUNITY SELECTOR -->
+  <section class="screen active" id="s-communities">
+    <h1 data-i18n-html="sel_hero">Your community, <span class="accent">your programme.</span></h1>
+    <p class="lead" data-i18n="sel_sub">MPE Community runs with trusted local community partners. Choose your programme to see rates, register, and share with friends.</p>
+    <button type="button" class="card commCard" onclick="selectCommunity('kumar')">
+      <div><b>Kumar &amp; the Eyota community</b>
+      <span>Singapore · Tamil &amp; English · SGD → INR</span></div>
+      <div class="commGo" aria-hidden="true">→</div>
+    </button>
+    <div class="card commSoon">
+      <span data-i18n="sel_more">More community programmes are on the way. Ask at your community desk.</span>
+    </div>
+  </section>
+
   <!-- WELCOME -->
-  <section class="screen active" id="s-home">
+  <section class="screen" id="s-home">
     <h1 data-i18n-html="hero">Send money home — <span class="accent">the proper way.</span></h1>
     <p class="lead" data-i18n="hero_sub">A fully legal, fully digital way to send money to your family in India. From your own bank account. Tracked every step. Receipts for every transfer.</p>
     <div class="trust-strip">
@@ -169,7 +295,7 @@
 
   <!-- SUCCESS -->
   <section class="screen" id="s-success">
-    <h2 data-i18n="ok_title">🎉 You're in!</h2>
+    <h2 data-i18n="ok_title">You're in.</h2>
     <p class="lead" data-i18n="ok_sub">Welcome to the programme. Our team will contact you before your first transfer. Show this screen at the community desk.</p>
     <div class="success-code">
       <span data-i18n="ok_code_label">Your personal referral code</span>
@@ -189,12 +315,27 @@
   <footer class="disclosure" data-i18n="disclosure">Money transfer services are provided by our MAS-licensed partner institution. MPE Solutions provides programme enrollment, community support and technology only, and never holds your money.</footer>
 </div>
 
-<nav>
-  <button onclick="go('s-home')" id="n-s-home" class="active"><span class="ico">🏠</span><span data-i18n="nav_home">Home</span></button>
-  <button onclick="go('s-how')" id="n-s-how"><span class="ico">🧭</span><span data-i18n="nav_how">How</span></button>
-  <button onclick="go('s-rate')" id="n-s-rate"><span class="ico">💱</span><span data-i18n="nav_rate">Rate</span></button>
-  <button onclick="go('s-register')" id="n-s-register"><span class="ico">📝</span><span data-i18n="nav_join">Join</span></button>
-  <button onclick="go('s-faq')" id="n-s-faq"><span class="ico">💬</span><span data-i18n="nav_faq">FAQ</span></button>
+<nav class="hidden">
+  <button onclick="go('s-home')" id="n-s-home" class="active">
+    <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg>
+    <span data-i18n="nav_home">Home</span>
+  </button>
+  <button onclick="go('s-how')" id="n-s-how">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+    <span data-i18n="nav_how">How</span>
+  </button>
+  <button onclick="go('s-rate')" id="n-s-rate">
+    <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+    <span data-i18n="nav_rate">Rate</span>
+  </button>
+  <button onclick="go('s-register')" id="n-s-register">
+    <svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M2 21c0-4 3.6-6 8-6 1 0 2 .1 2.9.35"/><path d="M19 14v6M16 17h6"/></svg>
+    <span data-i18n="nav_join">Join</span>
+  </button>
+  <button onclick="go('s-faq')" id="n-s-faq">
+    <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8H4l2.5-2.5A8 8 0 1121 12z"/><path d="M9.5 10a2.5 2.5 0 115 0c0 1.5-2.5 1.8-2.5 3.2"/><circle cx="12" cy="16.6" r=".5"/></svg>
+    <span data-i18n="nav_faq">FAQ</span>
+  </button>
 </nav>
 
 <script src="i18n/strings.js"></script>
