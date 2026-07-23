@@ -90,7 +90,8 @@ export default function MpeBalancePage() {
                   Access for rural and underbanked recipients in supported regions
                 </li>
                 <li style={{ margin: 0 }}>
-                  Satellite-accessible card and paycard-style access where available
+                  Wallet and card access built to hold up where connectivity
+                  fails (where available)
                 </li>
               </ul>
             </div>
