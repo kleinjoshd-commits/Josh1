@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F4F3F1">
+<title>MPE Community Programme</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<script src="config.js"></script>
+<style>
+  /* ============ THEME TOKENS — aligned to MPE site brand (globals.css light deck) ============ */
+  :root{
+    --bg:#F4F3F1;            /* MPE site --paper base */
+    --bg-card:rgba(255,255,255,0.72);   /* white glass card, site panel style */
+    --bg-raise:rgba(255,255,255,0.92);  /* raised surface (inputs, sub-chips) */
+    --gold:#E8B44C;          /* community warmth accent (Kumar layer) — keep */
+    --gold-soft:#F3D08A;
+    --ink:#111827;           /* MPE site --ink */
+    --ink-dim:rgba(17,24,39,0.66);      /* MPE site --muted */
+    --green:#16A86C;         /* MPE site brand green */
+    --line:rgba(17,24,39,0.10);         /* MPE site hairline */
+    --radius:16px;
+    --max:480px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{font-size:17px}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans Tamil',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+  #app{width:100%;max-width:var(--max);min-height:100vh;display:flex;flex-direction:column;padding:0 20px calc(84px + env(safe-area-inset-bottom))}
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 0 8px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--gold),#c98f2f);display:flex;align-items:center;justify-content:center;font-weight:800;color:#141414;font-size:.9rem;letter-spacing:-.5px}
+  .brand-name{font-weight:700;font-size:1.02rem;letter-spacing:.2px}
+  .brand-sub{font-size:.66rem;color:var(--ink-dim);letter-spacing:.4px;text-transform:uppercase}
+  .lang-toggle{background:var(--bg-raise);border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--green);font-weight:700;font-size:.85rem;cursor:pointer}
+  .community-banner{margin:10px 0 4px;background:linear-gradient(100deg,rgba(232,180,76,.14),rgba(232,180,76,.04));border:1px solid rgba(232,180,76,.35);border-radius:var(--radius);padding:12px 16px;display:flex;align-items:center;gap:12px}
+  .community-avatar{width:40px;height:40px;border-radius:50%;background:var(--gold);color:#141414;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .community-banner b{display:block;font-size:.9rem}
+  .community-banner span{font-size:.75rem;color:var(--ink-dim)}
+  h1{font-size:1.7rem;line-height:1.2;margin:18px 0 10px;letter-spacing:-.3px}
+  h1 .accent{color:var(--green)}
+  h2{font-size:1.15rem;margin:22px 0 10px}
+  p.lead{color:var(--ink-dim);font-size:.95rem;line-height:1.55}
+  .card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:10px 0;box-shadow:0 10px 28px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.04)}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .step-num{width:30px;height:30px;border-radius:50%;background:var(--bg-raise);border:1px solid var(--green);color:var(--green);font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .step b{display:block;font-size:.93rem;margin-bottom:3px}
+  .step span{font-size:.8rem;color:var(--ink-dim);line-height:1.5}
+  .trust-strip{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+  .chip{background:var(--bg-raise);border:1px solid var(--line);color:var(--ink-dim);border-radius:999px;padding:6px 12px;font-size:.72rem}
+  .chip.green{color:var(--green);border-color:rgba(22,168,108,.45)}
+  .btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:800;font-size:1.02rem;border:1px solid rgba(0,0,0,0.12);border-radius:14px;padding:16px;margin:14px 0 6px;cursor:pointer;box-shadow:0 10px 24px rgba(22,168,108,0.18),0 2px 6px rgba(0,0,0,0.06)}
+  .btn.secondary{background:var(--bg-raise);color:var(--ink);border:1px solid var(--line);font-weight:600;box-shadow:0 10px 24px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.04)}
+  .btn.whatsapp{background:#25D366;color:#0b0b0b}
+  .rate-box{text-align:center;padding:26px 18px}
+  .rate-pair{font-size:.8rem;color:var(--ink-dim);letter-spacing:1px;text-transform:uppercase}
+  .rate-value{font-size:2.6rem;font-weight:800;color:var(--green);margin:8px 0 2px;letter-spacing:-1px}
+  .rate-note{font-size:.75rem;color:var(--ink-dim);line-height:1.5;margin-top:10px}
+  label{display:block;font-size:.8rem;color:var(--ink-dim);margin:14px 0 6px}
+  input,select{width:100%;background:var(--bg-raise);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--ink);font-size:1rem}
+  input:focus,select:focus{outline:none;border-color:rgba(22,168,108,0.45);box-shadow:0 0 0 4px rgba(22,168,108,0.10)}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0 4px;font-size:.74rem;color:var(--ink-dim);line-height:1.5}
+  .consent input{width:auto;margin-top:2px}
+  .success-code{background:linear-gradient(100deg,rgba(232,180,76,.14),rgba(232,180,76,.04));border:1px dashed var(--gold);border-radius:14px;text-align:center;padding:18px;margin:14px 0}
+  .success-code .code{font-size:1.8rem;font-weight:800;color:var(--ink);letter-spacing:3px}
+  .success-code span{font-size:.75rem;color:var(--ink-dim)}
+  details{border-bottom:1px solid var(--line);padding:14px 0}
+  summary{font-size:.93rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::after{content:'+';color:var(--green);font-size:1.2rem}
+  details[open] summary::after{content:'–'}
+  details p{font-size:.83rem;color:var(--ink-dim);line-height:1.6;margin-top:10px}
+  nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--max);background:rgba(244,243,241,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;padding:6px 0 calc(8px + env(safe-area-inset-bottom))}
+  nav button{flex:1;background:none;border:0;color:var(--ink-dim);font-size:.68rem;padding:8px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+  nav button.active{color:var(--green)}
+  nav .ico{font-size:1.15rem}
+  footer.disclosure{margin-top:auto;padding:20px 0 8px;font-size:.68rem;color:var(--ink-dim);line-height:1.5;text-align:center;border-top:1px solid var(--line)}
+  .screen{display:none;flex-direction:column;flex:1}
+  .screen.active{display:flex}
+  .desk-badge{background:var(--green);color:#fff;font-weight:800;font-size:.7rem;border-radius:6px;padding:3px 8px;display:inline-block;margin-bottom:8px}
+  .hidden{display:none!important}
+  .needs-review{outline:1px dotted rgba(232,180,76,.0)} /* TA strings flagged in i18n, visual flag off by default */
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="brand">
+      <div class="brand-logo">M</div>
+      <div>
+        <div class="brand-name">MPE <span style="color:var(--gold)">Community</span></div>
+        <div class="brand-sub" data-i18n="tagline">Send home. Safely. Legally.</div>
+      </div>
+    </div>
+    <button class="lang-toggle" id="langBtn" onclick="toggleLang()">தமிழ்</button>
+  </header>
+
+  <div class="community-banner">
+    <div class="community-avatar">K</div>
+    <div><b data-i18n="community_title">Brought to you by Kumar &amp; the Eyota community</b>
+    <span data-i18n="community_sub">Your trusted programme partner in Singapore</span></div>
+  </div>
+
+  <!-- WELCOME -->
+  <section class="screen active" id="s-home">
+    <h1 data-i18n-html="hero">Send money home — <span class="accent">the proper way.</span></h1>
+    <p class="lead" data-i18n="hero_sub">A fully legal, fully digital way to send money to your family in India. From your own bank account. Tracked every step. Receipts for every transfer.</p>
+    <div class="trust-strip">
+      <div class="chip green" data-i18n="chip1">✓ 100% legal</div>
+      <div class="chip" data-i18n="chip2">Same-day to India</div>
+      <div class="chip" data-i18n="chip3">No cash — ever</div>
+      <div class="chip" data-i18n="chip4">Receipts every time</div>
+    </div>
+    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Programme</button>
+    <button class="btn secondary" onclick="go('s-how')" data-i18n="cta_how">How it works</button>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="screen" id="s-how">
+    <h2 data-i18n="how_title">How it works</h2>
+    <div class="card">
+      <div class="step"><div class="step-num">1</div><div><b data-i18n="how1">Register</b><span data-i18n="how1s">Sign up here, or at the community desk — our officer will help you in Tamil or English. It takes a few minutes.</span></div></div>
+      <div class="step"><div class="step-num">2</div><div><b data-i18n="how2">Send from your own bank account</b><span data-i18n="how2s">You pay by PayNow from your own account. No cash changes hands — that's what keeps it fully legal and fully yours.</span></div></div>
+      <div class="step"><div class="step-num">3</div><div><b data-i18n="how3">Family receives — usually same day</b><span data-i18n="how3s">The money arrives in your family's bank account in India, usually the same day, with a receipt you can show anyone.</span></div></div>
+    </div>
+    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Programme</button>
+    <button class="btn secondary" onclick="go('s-rate')" data-i18n="cta_rate">See today's rate</button>
+  </section>
+
+  <!-- RATE -->
+  <section class="screen" id="s-rate">
+    <h2 data-i18n="rate_title">Today's rate</h2>
+    <div class="card rate-box">
+      <div class="rate-pair">SGD → INR</div>
+      <div class="rate-value" id="rateValue">—</div>
+      <div class="rate-note" data-i18n="rate_note">Indicative rate, updated daily and shown at the community desk. The exact rate is always shown to you before you confirm any transfer — no surprises, ever.</div>
+    </div>
+    <div class="card">
+      <b style="font-size:.9rem" data-i18n="rate_promise_t">Our promise on rates</b>
+      <p style="font-size:.8rem;color:var(--ink-dim);line-height:1.6;margin-top:8px" data-i18n="rate_promise">You will always see the rate and the full cost before you send. What we show is what your family receives.</p>
+    </div>
+    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Programme</button>
+  </section>
+
+  <!-- REGISTER -->
+  <section class="screen" id="s-register">
+    <div id="deskBadge" class="desk-badge hidden">DESK MODE</div>
+    <h2 data-i18n="reg_title">Join the Programme</h2>
+    <p class="lead" style="font-size:.85rem" data-i18n="reg_sub">Registration is free. Your welcome credit is applied to your first transfer.</p>
+    <form id="regForm" onsubmit="return submitEnrollment(event)">
+      <label data-i18n="f_name">Full name (as in your ID)</label>
+      <input id="f_name" required autocomplete="name">
+      <label data-i18n="f_phone">Singapore mobile number</label>
+      <input id="f_phone" required type="tel" inputmode="tel" placeholder="+65">
+      <label data-i18n="f_employer">Employer / company</label>
+      <input id="f_employer" required>
+      <label data-i18n="f_lang">Preferred language</label>
+      <select id="f_lang"><option value="ta">தமிழ் (Tamil)</option><option value="en">English</option></select>
+      <label data-i18n="f_ref">Referral code (optional)</label>
+      <input id="f_ref" placeholder="KUM-XXXX" style="text-transform:uppercase">
+      <div id="deskOfficerWrap" class="hidden">
+        <label>Desk officer initials</label>
+        <input id="f_officer" placeholder="e.g. RK">
+      </div>
+      <div class="consent"><input type="checkbox" required id="f_consent"><span data-i18n="consent">I agree that MPE Solutions may contact me about the Programme and store these details for enrollment. We never ask for your passport, work permit or bank details in this app — identity checks happen only with our licensed partner when you make your first transfer.</span></div>
+      <button class="btn" type="submit" data-i18n="cta_register">Register</button>
+    </form>
+  </section>
+
+  <!-- SUCCESS -->
+  <section class="screen" id="s-success">
+    <h2 data-i18n="ok_title">🎉 You're in!</h2>
+    <p class="lead" data-i18n="ok_sub">Welcome to the programme. Our team will contact you before your first transfer. Show this screen at the community desk.</p>
+    <div class="success-code">
+      <span data-i18n="ok_code_label">Your personal referral code</span>
+      <div class="code" id="myCode">KUM-XXXX</div>
+      <span data-i18n="ok_code_sub">Friends who join with your code — you both receive a credit.</span>
+    </div>
+    <button class="btn whatsapp" onclick="shareWhatsApp()" data-i18n="cta_share">Share on WhatsApp</button>
+    <button class="btn secondary" onclick="go('s-home')" data-i18n="cta_done">Done</button>
+  </section>
+
+  <!-- FAQ -->
+  <section class="screen" id="s-faq">
+    <h2 data-i18n="faq_title">Questions</h2>
+    <div class="card" id="faqList"></div>
+  </section>
+
+  <footer class="disclosure" data-i18n="disclosure">Money transfer services are provided by our MAS-licensed partner institution. MPE Solutions provides programme enrollment, community support and technology only, and never holds your money.</footer>
+</div>
+
+<nav>
+  <button onclick="go('s-home')" id="n-s-home" class="active"><span class="ico">🏠</span><span data-i18n="nav_home">Home</span></button>
+  <button onclick="go('s-how')" id="n-s-how"><span class="ico">🧭</span><span data-i18n="nav_how">How</span></button>
+  <button onclick="go('s-rate')" id="n-s-rate"><span class="ico">💱</span><span data-i18n="nav_rate">Rate</span></button>
+  <button onclick="go('s-register')" id="n-s-register"><span class="ico">📝</span><span data-i18n="nav_join">Join</span></button>
+  <button onclick="go('s-faq')" id="n-s-faq"><span class="ico">💬</span><span data-i18n="nav_faq">FAQ</span></button>
+</nav>
+
+<script src="i18n/strings.js"></script>
+<script src="app.js"></script>
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');</script>
+</body>
+</html>
