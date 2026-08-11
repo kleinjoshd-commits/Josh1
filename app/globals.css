@@ -2773,3 +2773,26 @@ img {
 /* Section headers sit centered above centered content everywhere. */
 .homeContextHeader { text-align: center; margin-inline: auto; }
 .homeContextHeader .homeContextIntro { margin-inline: auto; }
+
+
+/* Structured footer: the category-standard columns every orchestrator
+   site carries, above the verbatim compliance disclaimer. */
+.footerCols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+.footerHead {
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.45);
+  margin-bottom: 10px;
+}
+.footerLink {
+  display: block; color: rgba(255,255,255,0.72); text-decoration: none;
+  font-size: 13.5px; padding: 3px 0;
+}
+.footerLink:hover { color: #17C97F; }
+.footerLegal { margin-top: 16px; line-height: 1.7; }
+@media (max-width: 860px) { .footerCols { grid-template-columns: 1fr 1fr; } }

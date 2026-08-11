@@ -95,6 +95,43 @@ export default function Home() {
               </Link>
             </div>
           </section>
+
+          {/* Trust, first-class: the category norm is a compliance section
+              on the homepage. Ours states the architecture, not badges. */}
+          <section className="homeBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">Built to be trusted</h2>
+            </div>
+            <div className="outcomeGrid">
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Never holds funds</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  MPE does not hold or transmit customer funds, and does not
+                  store customer identity documents. Enforced by architecture,
+                  not policy.
+                </p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Licensed institutions, every market</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Money transfer and payment services within MPE programmes are
+                  provided by licensed partner institutions in each market,
+                  under their own regulators.
+                </p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Everything on the record</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Every approval, release and status change is written to a
+                  permanent record as it happens. When a regulator asks, the
+                  answer is already on file.
+                </p>
+              </div>
+            </div>
+            <div className="linkRow" style={{ marginTop: 20 }}>
+              <Link className="btnSecondary" href="/trust-controls">How trust works</Link>
+            </div>
+          </section>
         </div>
       </section>
 
