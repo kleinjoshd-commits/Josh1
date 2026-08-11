@@ -2769,3 +2769,7 @@ img {
   margin: 0 auto;
 }
 .pageHeaderGrid > div:first-child:empty { display: none; }
+
+/* Section headers sit centered above centered content everywhere. */
+.homeContextHeader { text-align: center; margin-inline: auto; }
+.homeContextHeader .homeContextIntro { margin-inline: auto; }

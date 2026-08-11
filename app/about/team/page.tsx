@@ -54,15 +54,18 @@ export default function TeamPage() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">THE TEAM</div>
+          <h1>Our team</h1>
+          <p className="ebSub">Operators across payments, telecoms, Gulf banking and Asia-Pacific financial services.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
           <div className="aboutTeamHeader">
-            <div className="eyebrow" style={{ marginBottom: 14 }}>
-              MPE <span className="dot" />
-              Our team
-            </div>
-            <h1 className="h1 aboutTeamTitle">Our team</h1>
             <p className="p aboutTeamSubtitle">The people building MPE.</p>
           </div>
 
