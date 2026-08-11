@@ -50,7 +50,7 @@ export const claims = {
   networkStats: [
     { value: "140+", label: "countries where money lands" },
     { value: "200+", label: "direct bank connections" },
-    { value: "180", label: "countries of payroll & EOR coverage" },
+    { value: "180", label: "countries of payroll coverage" },
     { value: "130+", label: "payout currencies" },
   ] as const,
 

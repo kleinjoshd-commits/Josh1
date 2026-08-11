@@ -10,7 +10,7 @@ import { claims } from "@/content/claims";
 const GAP_ROWS = [
   { who: "Payroll platforms", what: "stop the moment the wage lands; they serve the employer" },
   { who: "Banks", what: "hold the account but cannot acquire or engage a migrant workforce" },
-  { who: "Exchange houses & MTOs", what: "meet the worker only at the counter, transaction by transaction" },
+  { who: "Exchange houses & money transfer operators", what: "meet the worker only at the counter, transaction by transaction" },
   { who: "Payment rails", what: "are pipes sold to all of the above; they serve nobody directly" },
 ];
 
@@ -22,11 +22,11 @@ const LAYER_CARDS = [
   },
   {
     title: "The Compliance Perimeter",
-    body: "MPE never holds funds, never stores identity documents, never performs licensed activity — enforced by architecture, not policy. One product rides any licence in any country.",
+    body: "MPE never holds funds, never stores identity documents, never performs licensed activity — enforced by architecture, not policy. One product works with any licence in any country.",
   },
   {
-    title: "The Orchestration Core",
-    body: "A signed policy-and-routing engine: every transaction authorised locally, every rail swappable by configuration, every action written to a tamper-evident audit chain.",
+    title: "The Control Core",
+    body: "Every transaction approved against local rules, every partner swappable without touching the product, every action written to a permanent audit record.",
   },
 ];
 
@@ -35,18 +35,18 @@ const CHAIN = [
   { step: "Employer", mark: "ENTRY POINT", ours: false },
   { step: "Wage lands", mark: "ENTRY POINT", ours: false },
   { step: "Worker engages", detail: "MPE app + desk", mark: "ALWAYS MPE", ours: true },
-  { step: "Licensed rails", mark: "ENTRY POINT", ours: false },
+  { step: "Licensed partners", mark: "ENTRY POINT", ours: false },
   { step: "Family receives", mark: "ENTRY POINT", ours: false },
 ];
 
 // One multi-rail network (Tier 3.1) — verbatim cards, no partner names.
 const NETWORK_CARDS = [
-  { title: "Global payroll & EOR", body: "180 countries · 130+ payout currencies · full workforce capability delivered under the MPE brand" },
-  { title: "Corridor ownership", body: "200+ direct bank connections · payout & collection in 140+ countries · cash over the counter" },
+  { title: "Global payroll & employer of record", body: "180 countries · 130+ payout currencies · full workforce capability delivered under the MPE brand" },
+  { title: "Corridor coverage", body: "200+ direct bank connections · payout & collection in 140+ countries · cash over the counter" },
   { title: "Licensed across the West", body: "UK · EU/EEA · Canada · Australia · Hong Kong · 36 US states · Israel" },
-  { title: "Licensed across the Gulf & Asia", body: "All GCC states ex-KSA · Singapore (MAS MPI) · Malaysia · India · Hong Kong · Philippines" },
-  { title: "Institutional-grade", body: "client funds safeguarded at global systemically important banks · the Gulf's largest wage-protection processing runs inside the network" },
-  { title: "Swappable by design", body: "any corridor can move to a new provider seamlessly; the customer record, attribution and history stay with MPE on every rail" },
+  { title: "Licensed across the Gulf & Asia", body: "GCC states · Singapore (MAS-licensed) · Malaysia · India · Hong Kong · Philippines" },
+  { title: "Institutional-grade", body: "client funds safeguarded at the world's most important banks · some of the Gulf's largest payroll-protection programmes run inside the network" },
+  { title: "Swappable by design", body: "any corridor can move to a new provider seamlessly; the customer relationship and history stay with MPE throughout" },
 ];
 
 // For institutions (Tier 3.3). Headings per the instruction file; card copy
@@ -57,11 +57,11 @@ const INSTITUTION_CARDS = [
     body: "A workforce you cannot reach through a branch or an ad budget arrives through their employer, enrolled and engaged, under your licence.",
   },
   {
-    title: "Sticky payroll deposits",
+    title: "Deposits that stay",
     body: "Wages that land every month and stay engaged beat balances bought with promotions — the deposit arrives with the relationship attached.",
   },
   {
-    title: "Corridor & programme economics",
+    title: "Economics that work",
     body: "Programme flow concentrated corridor by corridor, with the volume and repeat behaviour that make corridor economics work.",
   },
   {
@@ -182,8 +182,8 @@ export default function Home() {
             <div className="homeSectionHeader homeContextHeader">
               <h2 className="homeSectionTitle">MPE is that layer</h2>
               <p className="p homeContextIntro">
-                Designed to operate above regulated financial infrastructure ·
-                rail-agnostic · portable across every institution
+                One product, working with licensed partners, portable across
+                every institution and every market
               </p>
             </div>
             <div className="homeInfoGrid">
@@ -212,8 +212,8 @@ export default function Home() {
               ))}
             </div>
             <p className="p" style={{ textAlign: "center", marginTop: 18 }}>
-              Start at onboarding, start at payroll, start at remittance —
-              every entry grows along the chain toward the same owned
+              Start with onboarding, start with payroll, start with sending
+              money home — every starting point grows toward the same
               relationship in the middle.
             </p>
           </section>
@@ -349,8 +349,7 @@ export default function Home() {
               ))}
             </div>
             <div className="gapBanner">
-              We are not a vendor asking for your licence. We are the
-              distribution machine your licence has been waiting for.
+              Built to make your licence more valuable.
             </div>
           </section>
 
@@ -380,8 +379,7 @@ export default function Home() {
               Timelines illustrative — regulatory and partner steps vary by market.
             </p>
             <div className="gapBanner">
-              Aligned by construction — MPE earns programme economics only when
-              the partnership transacts.
+              Aligned by design — MPE earns only when the partnership does.
             </div>
             <div className="btnRow" style={{ justifyContent: "center", marginTop: 20 }}>
               <Link className="btnPrimary" href="/#kyc">Talk to us</Link>

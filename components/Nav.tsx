@@ -64,9 +64,6 @@ export default function Nav() {
 
         {/* Desktop Nav */}
         <nav className="navLinks">
-          <Link href="/" className="navLink">
-            Home
-          </Link>
 
           <div
             style={{ position: "relative" }}
@@ -228,13 +225,13 @@ export default function Nav() {
                 cursor: "pointer",
               }}
             >
-              Solutions
+              Products
             </button>
 
             {activeMenu === "solutions" && (
               <div
                 role="menu"
-                aria-label="Solutions"
+                aria-label="Products"
                 onMouseEnter={() => openMenu("solutions")}
                 onMouseLeave={closeMenu}
                 style={{
@@ -310,9 +307,6 @@ export default function Nav() {
       {open && (
         <div className="navMobileWrap">
           <div className="container navMobileMenu">
-            <Link href="/" className="navMobileItem" onClick={closeAll}>
-              Home
-            </Link>
 
             <Link href="/about" className="navMobileItem" onClick={closeAll}>
               About
@@ -358,7 +352,7 @@ export default function Nav() {
                 setActiveMenu((v) => (v === "solutions" ? null : "solutions"))
               }
             >
-              Solutions
+              Products
             </div>
 
             {activeMenu === "solutions" && (

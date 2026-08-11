@@ -16,10 +16,11 @@ import { MAP_SVG } from "@/content/licensedMapSvg";
 import { claims } from "@/content/claims";
 
 const LABEL: Record<string, [string, string, string]> = {
-  licensed: ["Licensed network", "origination & programmes", "#17C97F"],
+  licensed: ["Licensed network", "full MPE programmes can run here", "#17C97F"],
   payout: ["Payout & collection", "money lands here", "#57A87C"],
-  motion: ["Licence in motion", "payout & collection already live", "#E0A82E"],
-  extended: ["Extended access", "via partner licensing", "#2BA6B6"],
+  motion: ["Licence in motion", "payout already live, licence underway", "#E0A82E"],
+  extended: ["Extended access", "reachable through partner licensing", "#2BA6B6"],
+  base: ["Outside the current network", "not yet served", "#6E8A7C"],
 };
 
 export default function LicensedMap() {
@@ -27,38 +28,45 @@ export default function LicensedMap() {
   const tipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const svg = boxRef.current?.querySelector<SVGSVGElement>("#worldmap");
+    // Listeners live on the React-owned WRAPPER, not on the injected svg:
+    // anything that re-applies the innerHTML (dev refresh, a future
+    // re-render) replaces the svg node, and listeners bound to it die
+    // silently. Delegation from the wrapper survives every swap.
+    const box = boxRef.current;
     const tip = tipRef.current;
-    if (!svg || !tip) return;
+    if (!box || !tip) return;
 
     const move = (e: MouseEvent) => {
       const p = e.target as SVGElement;
       if (!p.classList || !p.classList.contains("c")) { tip.style.opacity = "0"; return; }
-      const cls = ["licensed", "payout", "motion", "extended"].find(k => p.classList.contains(k));
-      if (!cls) { tip.style.opacity = "0"; return; }
+      // Every country answers on hover — including ones outside the
+      // network, which say so rather than staying mute.
+      const cls = ["licensed", "payout", "motion", "extended"].find(k => p.classList.contains(k)) ?? "base";
       const [t, d, col] = LABEL[cls];
       const name = (p as SVGElement & { dataset: DOMStringMap }).dataset.n ?? "";
+      if (!name) { tip.style.opacity = "0"; return; }
       tip.innerHTML = `<b>${name}</b><span><i class="dot" style="background:${col}"></i>${t} — ${d}</span>`;
       tip.style.left = e.clientX + 16 + "px";
       tip.style.top = e.clientY + 14 + "px";
       tip.style.opacity = "1";
     };
     const leave = () => { tip.style.opacity = "0"; };
-    svg.addEventListener("mousemove", move);
-    svg.addEventListener("mouseleave", leave);
+    box.addEventListener("mousemove", move);
+    box.addEventListener("mouseleave", leave);
 
-    // Legend focus: spotlight one status, dim the rest.
+    // Legend focus: spotlight one status, dim the rest. The svg is looked
+    // up at EVENT time for the same reason — never cached across swaps.
     const legends = Array.from(document.querySelectorAll<HTMLElement>(".mpeMap .lg"));
     const offs = legends.map(l => {
-      const enter = () => svg.classList.add("f-" + l.dataset.f);
-      const exit = () => { svg.setAttribute("class", ""); };
+      const enter = () => box.querySelector("#worldmap")?.classList.add("f-" + l.dataset.f);
+      const exit = () => box.querySelector("#worldmap")?.setAttribute("class", "");
       l.addEventListener("mouseenter", enter);
       l.addEventListener("mouseleave", exit);
       return () => { l.removeEventListener("mouseenter", enter); l.removeEventListener("mouseleave", exit); };
     });
     return () => {
-      svg.removeEventListener("mousemove", move);
-      svg.removeEventListener("mouseleave", leave);
+      box.removeEventListener("mousemove", move);
+      box.removeEventListener("mouseleave", leave);
       offs.forEach(f => f());
     };
   }, []);
@@ -103,7 +111,7 @@ export default function LicensedMap() {
         </div>
 
         <p className="foot-quote">
-          One multi-rail network — every corridor routed to the best-licensed partner, switchable by configuration.
+          One network, many licensed partners — every corridor routed to the best one for the job.
         </p>
       </div>
 

@@ -17,18 +17,12 @@ export const siteConfig = {
   nav: {
     topLevel: [
       { label: "Use Cases", href: "/use-cases" },
-      { label: "Industries", href: "/industries" },
     ] satisfies NavItem[],
     platform: [
       {
-        label: "Markets",
-        href: "/#markets",
-        description: "Where MPE programmes stand, market by market.",
-      },
-      {
-        label: "For institutions",
-        href: "/#institutions",
-        description: "What MPE brings a licensed institution.",
+        label: "Industries",
+        href: "/industries",
+        description: "Where MPE programmes fit, industry by industry.",
       },
       {
         label: "Unified Architecture",
