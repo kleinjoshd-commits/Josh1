@@ -1,179 +1,115 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import KycForm from "@/components/KycForm";
 
 export const metadata = {
   title: "MPE Workforce | MPE",
-  description: "Global workforce execution, fully controlled through MPE.",
+  description:
+    "Hire, onboard and pay international workforces in 180 countries — then serve those same workers' own financial lives, with licensed partners at every step.",
 };
 
-export default function MpeWorkforcePage() {
+const OUTCOMES = [
+  {
+    title: "Hire and pay anywhere",
+    body: "Payroll, employer of record and contractor payments in 180 countries and 130+ payout currencies — delivered under the MPE programme through licensed partner platforms. One system, one contract, every worker.",
+  },
+  {
+    title: "Then serve the worker",
+    body: "Payday is where most platforms stop. MPE continues: the same workers' own financial lives — the wage, the money sent home, the family's collection — served in their language, with licensed partner institutions providing the regulated services.",
+  },
+  {
+    title: "One relationship, end to end",
+    body: "Payroll platforms serve the employer and stop at the wage. MPE pairs the employer's payroll with the worker's own payday and holds the whole relationship — from the payroll file to the family.",
+  },
+];
+
+export default function WorkforcePage() {
   return (
     <main>
       <Nav />
 
-      <section className="deckLight">
-        <div className="wavesLight" />
-        <div className="container deckInner">
-          <div className="pageHeaderGrid">
-            <div>
-              <div className="eyebrow">
-                Solutions <span className="dot" />
-                Workforce execution
-              </div>
-
-              <h1 className="h1">MPE Workforce</h1>
-
-              <p className="p">
-                Global workforce execution, fully controlled through MPE.
-              </p>
-
-              <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                MPE Workforce gives finance and operations teams one governed
-                layer for payroll execution, EOR, contractor payments,
-                statutory obligations, and cross-border workforce funding.
-              </p>
-
-              <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                MPE centralizes visibility, approvals, release timing, worker
-                funding logic, and execution oversight across workforce payment
-                operations that span multiple countries, worker types, and
-                regulatory requirements.
-              </p>
-
-              <div className="btnRow">
-                <Link className="btnPrimary" href="/#kyc">
-                  Request Access
-                </Link>
-              </div>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Core scope</h3>
-              <ul
-                style={{
-                  margin: "18px 0 0",
-                  paddingLeft: 22,
-                  display: "grid",
-                  gap: 12,
-                }}
-              >
-                <li>Global payroll execution</li>
-                <li>Employer of Record (EOR)</li>
-                <li>Contractor payments</li>
-                <li>Benefits and statutory payments</li>
-                <li>Compliance and tax handling</li>
-                <li>Centralized visibility across entities and regions</li>
-              </ul>
-            </div>
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">MPE WORKFORCE</div>
+          <h1>From the payroll file to the family.</h1>
+          <p className="ebSub">
+            Hire, onboard and pay international workforces — then serve those
+            same workers&apos; own financial lives. Money transfer and payment
+            services within MPE programmes are provided by licensed partner
+            institutions in each market.
+          </p>
+          <div className="ebStats">
+            <div className="ebStat"><b>180</b><span>countries of payroll coverage</span></div>
+            <div className="ebStat"><b>130+</b><span>payout currencies</span></div>
+            <div className="ebStat"><b>140+</b><span>countries where money lands</span></div>
           </div>
-
-          <div className="kycGrid" style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>How control is applied</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                MPE governs approvals, funding readiness, release timing,
-                worker-group policy, and payment-state visibility before and
-                after execution occurs through licensed workforce
-                infrastructure.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Worker-type governance</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Payroll, contractor, EOR, and statutory workflows can follow
-                different approval, funding, and release rules while remaining
-                inside one operating model.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Funding and release discipline</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Workforce execution becomes more reliable when funding
-                readiness, cutoff discipline, and release controls are managed
-                upstream instead of reconciled after the fact.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Operational visibility</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Track what is approved, funded, released, and settled across
-                entities, worker groups, and countries without stitching
-                together multiple execution views.
-              </p>
-            </div>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
+            <Link className="btnSecondary" href="/use-cases">See it in use</Link>
           </div>
-
-          <div className="kycGrid" style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Why workforce payments break first</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Workforce execution is where operational complexity shows up
-                first: local compliance rules, multiple worker types, statutory
-                deadlines, and inconsistent funding paths create risk quickly.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>How MPE Workforce helps</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                MPE brings workforce execution into the same operational layer
-                as approvals, funding decisions, payout visibility, and audit
-                records, while licensed partners handle the underlying payment
-                execution.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Execution foundation</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                A licensed global payroll and EOR partner supports the primary
-                execution and compliance foundation behind MPE Workforce, while
-                MPE remains the control layer for workflow, visibility, funding
-                governance, and release orchestration.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Control at scale</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Apply funding governance, release discipline, and auditability
-                consistently across payroll, contractor, EOR, and statutory
-                workflows as workforce operations expand.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What finance teams get</h3>
-              <div className="networkOutcomeGrid">
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    One operating view across payroll, contractor, EOR, and
-                    statutory workforce payments.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    Better control over approvals, funding timing, release
-                    discipline, and payment-state visibility across regions.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    A stronger workforce execution model without losing
-                    enterprise governance as operations expand.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
+
+      <section className="deckLight">
+        <div className="container deckInner">
+          <section className="homeBand" data-animate>
+            <div className="outcomeGrid">
+              {OUTCOMES.map((o) => (
+                <div key={o.title} className="panel">
+                  <h3 style={{ marginTop: 0 }}>{o.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{o.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="homeBand" data-animate>
+            <div className="gapBanner">
+              A benefit workers feel on the first payday — and remember at renewal.
+            </div>
+          </section>
+
+          <section className="homeBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">Works with the rest of MPE</h2>
+            </div>
+            <div className="outcomeGrid">
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>MPE OS</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Approvals, routing and a permanent record for every payment
+                  your programme makes.
+                </p>
+                <div style={{ marginTop: 14 }}>
+                  <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>
+                </div>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>MPE Network</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Every corridor routed to the best licensed partner — and
+                  changeable without touching the product.
+                </p>
+                <div style={{ marginTop: 14 }}>
+                  <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>
+                </div>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>The network map</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Licensed access across the world — see where programmes can
+                  run today.
+                </p>
+                <div style={{ marginTop: 14 }}>
+                  <Link className="btnSecondary" href="/#network-map">See the network</Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <KycForm />
     </main>
   );
 }

@@ -20,7 +20,6 @@ const LABEL: Record<string, [string, string, string]> = {
   payout: ["Payout & collection", "money lands here", "#57A87C"],
   motion: ["Licence in motion", "payout already live, licence underway", "#E0A82E"],
   extended: ["Extended access", "reachable through partner licensing", "#2BA6B6"],
-  base: ["Outside the current network", "not yet served", "#6E8A7C"],
 };
 
 export default function LicensedMap() {
@@ -39,9 +38,10 @@ export default function LicensedMap() {
     const move = (e: MouseEvent) => {
       const p = e.target as SVGElement;
       if (!p.classList || !p.classList.contains("c")) { tip.style.opacity = "0"; return; }
-      // Every country answers on hover — including ones outside the
-      // network, which say so rather than staying mute.
-      const cls = ["licensed", "payout", "motion", "extended"].find(k => p.classList.contains(k)) ?? "base";
+      // Only countries served with at least payout answer on hover;
+      // countries outside the network stay quiet.
+      const cls = ["licensed", "payout", "motion", "extended"].find(k => p.classList.contains(k));
+      if (!cls) { tip.style.opacity = "0"; return; }
       const [t, d, col] = LABEL[cls];
       const name = (p as SVGElement & { dataset: DOMStringMap }).dataset.n ?? "";
       if (!name) { tip.style.opacity = "0"; return; }

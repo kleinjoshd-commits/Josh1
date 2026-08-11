@@ -45,7 +45,7 @@ const NETWORK_CARDS = [
   { title: "Corridor coverage", body: "200+ direct bank connections · payout & collection in 140+ countries · cash over the counter" },
   { title: "Licensed across the West", body: "UK · EU/EEA · Canada · Australia · Hong Kong · 36 US states · Israel" },
   { title: "Licensed across the Gulf & Asia", body: "GCC states · Singapore (MAS-licensed) · Malaysia · India · Hong Kong · Philippines" },
-  { title: "Institutional-grade", body: "client funds safeguarded at the world's most important banks · some of the Gulf's largest payroll-protection programmes run inside the network" },
+  { title: "Institutional-grade", body: "client funds safeguarded at globally systemically important banks · some of the Gulf's largest payroll-protection programmes run inside the network" },
   { title: "Swappable by design", body: "any corridor can move to a new provider seamlessly; the customer relationship and history stay with MPE throughout" },
 ];
 
@@ -72,9 +72,9 @@ const INSTITUTION_CARDS = [
 
 // Working together (Tier 3.5).
 const DOORS = [
-  { title: "Start a corridor", body: "One send market, one receive market, one licensed partner — proven end to end before it scales." },
-  { title: "Start with the workforce", body: "An employer programme first: enrolment, engagement and payday built around one workforce." },
-  { title: "Start a market", body: "A full market entry with a licensed institution — programme, corridors and community desks together." },
+  { title: "Start a corridor", body: "A programme on a partner's licence with MPE's worker layer on top — one corridor live as a pilot, then expanded lane by lane." },
+  { title: "Start with the workforce", body: "Payroll and onboarding for an employer base first — accounts filling from the first pay cycle, with licensed partners throughout." },
+  { title: "Start a market", body: "A country entry co-built around you — licence-holder, corridor partner and MPE's acquisition layer assembled together." },
 ];
 
 const TIMELINE = [

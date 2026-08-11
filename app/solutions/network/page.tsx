@@ -1,188 +1,114 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import KycForm from "@/components/KycForm";
 
 export const metadata = {
   title: "MPE Network | MPE",
   description:
-    "Access to global rails through a growing ecosystem of licensed partners.",
+    "One network of licensed partners: payout and collection in 140+ countries, 200+ direct bank connections, every corridor routed to the best partner for the job.",
 };
 
-export default function MpeNetworkPage() {
+const OUTCOMES = [
+  {
+    title: "Coverage without compromise",
+    body: "Payout and collection in 140+ countries through 200+ direct bank connections — bank transfer, mobile wallet and cash over the counter — provided by licensed partner institutions in each market.",
+  },
+  {
+    title: "The best partner, every corridor",
+    body: "No single institution is best everywhere. MPE routes each corridor to the licensed partner best placed to serve it, and can move a corridor to a new provider without a rebuild, without disruption, and without renegotiating the customer relationship.",
+  },
+  {
+    title: "Institutional-grade foundations",
+    body: "Client funds within partner programmes are safeguarded at globally systemically important banks, under each partner's own licence and regulator. MPE holds no funds at any point.",
+  },
+];
+
+export default function NetworkPage() {
   return (
     <main>
       <Nav />
 
-      <section className="deckLight">
-        <div className="wavesLight" />
-        <div className="container deckInner">
-          <div className="pageHeaderGrid">
-            <div>
-              <div className="eyebrow">
-                Solutions <span className="dot" />
-                Global rails and partner access
-              </div>
-
-              <h1 className="h1">MPE Network</h1>
-
-              <p className="p">
-                Access to global rails through a growing ecosystem of licensed
-                partners.
-              </p>
-
-              <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                MPE Network gives enterprises coordinated access to local rails,
-                cross-border execution paths, funding constructs, payment
-                tracking, and redundancy across a broader execution ecosystem.
-              </p>
-
-              <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                Licensed execution partners give customers access to global
-                payment infrastructure and partner-connected banking networks —
-                with client funds safeguarded at global systemically important
-                banks — while MPE keeps orchestration, routing logic,
-                visibility, and operational control in the customer-facing
-                layer.
-              </p>
-
-              <div className="btnRow">
-                <Link className="btnPrimary" href="/#kyc">
-                  Request Access
-                </Link>
-                <Link className="btnSecondary" href="/resources/execution-routing">
-                  Explore Routing
-                </Link>
-              </div>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Network capabilities</h3>
-              <ul
-                style={{
-                  margin: "18px 0 0",
-                  paddingLeft: 22,
-                  display: "grid",
-                  gap: 12,
-                }}
-              >
-                <li>Local payout rails and coverage</li>
-                <li>FX optimization checkpoints</li>
-                <li>Funding accounts and virtual account constructs</li>
-                <li>Payment tracking and transparency</li>
-                <li>Redundancy and failover posture</li>
-              </ul>
-            </div>
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">MPE NETWORK</div>
+          <h1>Every corridor, the best licensed partner.</h1>
+          <p className="ebSub">
+            One network, many engines: regulatory reach held by MPE&apos;s
+            licensed partners, orchestrated as a single system. Providers can
+            change — the customer relationship and history stay with MPE.
+          </p>
+          <div className="ebStats">
+            <div className="ebStat"><b>140+</b><span>countries where money lands</span></div>
+            <div className="ebStat"><b>200+</b><span>direct bank connections</span></div>
+            <div className="ebStat"><b>130+</b><span>payout currencies</span></div>
           </div>
-
-          <div className="kycGrid" style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>How control is applied</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                MPE governs routing policy, funding logic, FX checkpoints,
-                payment-state visibility, and exception handling before and
-                after execution occurs through partner infrastructure.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Routing decisions</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Teams can govern which partners, rails, and funding paths are
-                used by corridor, entity, counterparty type, cost profile, or
-                operational priority within a consistent operating model,
-                including AI-informed routing decisions inside governed policy.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>FX and funding checkpoints</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                FX exposure and funding readiness can be handled as controlled
-                checkpoints upstream of release, rather than discovered only at
-                the moment of execution.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Exception and fallback posture</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                When routes degrade or lose fit, MPE supports a more resilient
-                fallback posture across partners and rails while preserving
-                workflow, approvals, and reporting continuity.
-              </p>
-            </div>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
+            <Link className="btnSecondary" href="/#network-map">See the map</Link>
           </div>
-
-          <div className="kycGrid" style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Why it matters</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                The payment environment is no longer one provider, one rail, or
-                one network. Cost, reliability, settlement speed, currency
-                handling, and local coverage now depend on well-governed
-                routing and execution flexibility.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>How MPE Network helps</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                MPE Network brings partner-connected execution into one
-                governed control layer, so teams can manage routing, funding
-                patterns, and reporting consistently across the network.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Execution foundation</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Licensed execution partners extend MPE Network into a stronger
-                global delivery layer, including banking networks at global
-                systemically important institutions. MPE remains the
-                system of control for workflow, visibility, routing, and
-                governance.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Resilience by design</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Redundancy across partners, rails, and networks supports a more
-                resilient execution posture when specific routes degrade, become
-                more expensive, or lose operational fit.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What finance teams get</h3>
-              <div className="networkOutcomeGrid">
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    A single place to manage partner-connected execution
-                    without losing control of approvals, reporting, or routing
-                    logic.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    Better visibility into payment state, corridor behavior,
-                    exceptions, and execution outcomes across a broader network.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    A stronger foundation for global coverage and redundancy
-                    without turning the operating model into a fragmented set
-                    of disconnected workflows.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
+
+      <section className="deckLight">
+        <div className="container deckInner">
+          <section className="homeBand" data-animate>
+            <div className="outcomeGrid">
+              {OUTCOMES.map((o) => (
+                <div key={o.title} className="panel">
+                  <h3 style={{ marginTop: 0 }}>{o.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{o.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="homeBand" data-animate>
+            <div className="gapBanner">
+              Any corridor can move to a new provider seamlessly — the customer
+              relationship and history stay with MPE throughout.
+            </div>
+          </section>
+
+          <section className="homeBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">Works with the rest of MPE</h2>
+            </div>
+            <div className="outcomeGrid">
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>MPE OS</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  The control layer above the network: approvals, routing and a
+                  permanent record for every payment.
+                </p>
+                <div style={{ marginTop: 14 }}>
+                  <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>
+                </div>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Payroll and employer of record in 180 countries — the
+                  employer side of the same relationship.
+                </p>
+                <div style={{ marginTop: 14 }}>
+                  <Link className="btnSecondary" href="/solutions/workforce">Explore MPE Workforce</Link>
+                </div>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>The network map</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Licensed access across the world, market by market.
+                </p>
+                <div style={{ marginTop: 14 }}>
+                  <Link className="btnSecondary" href="/#network-map">See the network</Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <KycForm />
     </main>
   );
 }

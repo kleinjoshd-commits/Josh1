@@ -2693,3 +2693,48 @@ img {
   .marketGrid { grid-template-columns: repeat(2, 1fr); }
   .gapRow { grid-template-columns: 1fr; gap: 4px; }
 }
+
+
+/* =====================================================================
+   Emerald band — the map section's visual language, reusable as the
+   hero for Products and Use Cases so the strongest piece of the site
+   sets the tone for the family.
+   ===================================================================== */
+.emeraldBand {
+  background: radial-gradient(120% 90% at 20% 0%, #103524 0%, #0B2318 45%, #071A10 100%);
+  color: #F2F7F4;
+}
+.emeraldBand .ebWrap { max-width: 1120px; margin: 0 auto; padding: 72px 24px 56px; }
+.emeraldBand .ebTag {
+  display: inline-flex; align-items: center; gap: 10px; padding: 6px 12px;
+  border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06); color: #9DBFAF;
+  font-size: 12px; font-weight: 650; letter-spacing: 0.14em;
+}
+.emeraldBand h1 {
+  font-size: clamp(36px, 4.6vw, 54px); line-height: 1.06; font-weight: 650;
+  letter-spacing: -0.025em; margin: 18px 0 14px; color: #F2F7F4;
+}
+.emeraldBand .ebSub { color: #9DBFAF; font-size: 17px; line-height: 1.7; max-width: 720px; }
+.emeraldBand .ebStats { display: flex; gap: 34px; flex-wrap: wrap; margin-top: 34px; padding-top: 26px; border-top: 1px solid #24473A; }
+.emeraldBand .ebStat b { display: block; font-size: 28px; font-weight: 620; letter-spacing: -0.02em; color: #17C97F; }
+.emeraldBand .ebStat span { display: block; font-size: 12.5px; color: #9DBFAF; margin-top: 2px; }
+.emeraldBand .btnRow { margin-top: 30px; }
+.emeraldBand .btnSecondary { border-color: rgba(255,255,255,0.22); color: #F2F7F4; background: rgba(255,255,255,0.05); }
+
+/* Outcome blocks under an emerald hero */
+.outcomeGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.outcomeGrid .panel h3 { font-size: 19px; letter-spacing: -0.01em; }
+@media (max-width: 900px) { .outcomeGrid { grid-template-columns: 1fr; } }
+
+/* Use-case story cards */
+.caseCard {
+  background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: var(--radius); padding: 30px; display: grid; gap: 14px;
+}
+.caseKicker { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-green); }
+.caseProblem { font-size: 21px; font-weight: 640; letter-spacing: -0.015em; line-height: 1.35; color: var(--ink); }
+.caseList { display: grid; gap: 8px; margin: 4px 0 0; padding: 0; list-style: none; }
+.caseList li { position: relative; padding-left: 22px; color: var(--muted); line-height: 1.65; font-size: 15px; }
+.caseList li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; border-radius: 3px; background: var(--accent-green); opacity: 0.85; }
+.caseOutcome { border-top: 1px solid var(--hairline); padding-top: 14px; color: var(--ink); font-weight: 600; line-height: 1.6; }
