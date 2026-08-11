@@ -13,7 +13,7 @@ export type SolutionContent = {
 export const siteConfig = {
   productName: "MPE",
   companyName: "MPE Solutions Inc.",
-  domain: "mpesolutions.ai",
+  domain: "modernpayengine.com",
   nav: {
     topLevel: [
       { label: "Use Cases", href: "/use-cases" },
