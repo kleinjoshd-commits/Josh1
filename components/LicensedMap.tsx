@@ -78,7 +78,7 @@ export default function LicensedMap() {
         <h2>Licensed access across the world</h2>
         <p className="sub">
           Regulatory reach held by MPE&apos;s licensed partners, usable the day a
-          programme needs it. Hover the map, or a legend entry, to explore.
+          programme needs it. Tap or hover the map, or a legend entry, to explore.
         </p>
 
         <div className="maprow">
