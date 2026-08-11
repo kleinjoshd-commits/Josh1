@@ -96,13 +96,12 @@ export default function WorkforcePage() {
                 </div>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>The network map</h3>
+                <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Licensed access across the world, see where programmes can
-                  run today.
+                  The consumer product: money home, honestly priced.
                 </p>
                 <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/#network-map">See the network</Link>
+                  <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>
                 </div>
               </div>
             </div>
