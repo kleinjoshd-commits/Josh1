@@ -113,7 +113,7 @@ export default function KycForm() {
           </p>
 
           <p style={{ opacity: 0.7, marginTop: 6 }}>
-            MPE builds employer and institution programmes end to end — with
+            MPE builds employer and institution programmes end to end, with
             licensed partner institutions providing the regulated services in
             each market.
           </p>

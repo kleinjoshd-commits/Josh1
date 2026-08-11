@@ -1,7 +1,7 @@
 "use client";
 
 // =====================================================================
-// "Licensed access across the world" — the flagship map section
+// "Licensed access across the world", the flagship map section
 // (MPE_Website_Changes_1.md §3.4).
 //
 // This is the ONE section on the site that uses the dark emerald band:
@@ -45,7 +45,7 @@ export default function LicensedMap() {
       const [t, d, col] = LABEL[cls];
       const name = (p as SVGElement & { dataset: DOMStringMap }).dataset.n ?? "";
       if (!name) { tip.style.opacity = "0"; return; }
-      tip.innerHTML = `<b>${name}</b><span><i class="dot" style="background:${col}"></i>${t} — ${d}</span>`;
+      tip.innerHTML = `<b>${name}</b><span><i class="dot" style="background:${col}"></i>${t}, ${d}</span>`;
       tip.style.left = e.clientX + 16 + "px";
       tip.style.top = e.clientY + 14 + "px";
       tip.style.opacity = "1";
@@ -55,7 +55,7 @@ export default function LicensedMap() {
     box.addEventListener("mouseleave", leave);
 
     // Legend focus: spotlight one status, dim the rest. The svg is looked
-    // up at EVENT time for the same reason — never cached across swaps.
+    // up at EVENT time for the same reason, never cached across swaps.
     const legends = Array.from(document.querySelectorAll<HTMLElement>(".mpeMap .lg"));
     const offs = legends.map(l => {
       const enter = () => box.querySelector("#worldmap")?.classList.add("f-" + l.dataset.f);
@@ -77,7 +77,7 @@ export default function LicensedMap() {
         <div className="tag">THE NETWORK</div>
         <h2>Licensed access across the world</h2>
         <p className="sub">
-          Regulatory reach held by MPE&apos;s licensed partners — usable the day a
+          Regulatory reach held by MPE&apos;s licensed partners, usable the day a
           programme needs it. Hover the map, or a legend entry, to explore.
         </p>
 
@@ -94,7 +94,7 @@ export default function LicensedMap() {
             </div>
             <div className="lg motion" data-f="motion">
               <div className="row"><div className="sw" /><b>Licence in motion</b></div>
-              <p>Saudi bank partner · Indonesia — payout &amp; collection already live there today</p>
+              <p>Saudi bank partner · Indonesia, payout &amp; collection already live there today</p>
             </div>
             <div className="lg extended" data-f="extended">
               <div className="row"><div className="sw" /><b>Extended access</b></div>
@@ -111,7 +111,7 @@ export default function LicensedMap() {
         </div>
 
         <p className="foot-quote">
-          One network, many licensed partners — every corridor routed to the best one for the job.
+          One network, many licensed partners, every corridor routed to the best one for the job.
         </p>
       </div>
 

@@ -23,7 +23,7 @@ export default function UnifiedApproachPage() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER — RESPONSIVE GRID */}
+          {/* HEADER, RESPONSIVE GRID */}
           <div className="pageHeaderGrid">
             {/* LEFT: NARRATIVE */}
             <div>
@@ -62,7 +62,7 @@ export default function UnifiedApproachPage() {
               </p>
               <p className="p" style={{ marginTop: 10 }}>
                 <strong>Worker layer:</strong> the MPE app and assisted
-                enrolment — the owned relationship
+                enrollment, the owned relationship
               </p>
               <p className="p" style={{ marginTop: 10 }}>
                 <strong>Resilience layer:</strong> assurance for degraded and
@@ -124,7 +124,7 @@ export default function UnifiedApproachPage() {
               <p className="p" style={{ marginTop: 10 }}>
                 Extend the programme to the workforce itself: corridor-by-corridor
                 rollout with employer-grade controls, with money transfer and
-                payment services provided by licensed partner institutions —
+                payment services provided by licensed partner institutions,
                 without changing the enterprise operating model.
               </p>
             </div>

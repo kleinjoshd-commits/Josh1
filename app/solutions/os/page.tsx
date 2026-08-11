@@ -12,11 +12,11 @@ export const metadata = {
 const OUTCOMES = [
   {
     title: "Policy before payment",
-    body: "Every payment is approved against your rules before it moves — limits, approvers and controls set once and enforced everywhere. No single person can move money alone.",
+    body: "Every payment is approved against your rules before it moves: limits, approvers and controls set once and enforced everywhere. No single person can move money alone.",
   },
   {
     title: "Routing without lock-in",
-    body: "Payments route to the licensed partner best placed for each corridor. When a better provider exists, the corridor moves by configuration — no rebuild, no disruption, no renegotiation.",
+    body: "Payments route to the licensed partner best placed for each corridor. When a better provider exists, the corridor moves by configuration: no rebuild, no disruption, no renegotiation.",
   },
   {
     title: "Proof built in",
@@ -35,7 +35,7 @@ export default function MpeOsPage() {
           <h1>Every payment approved, routed and proven.</h1>
           <p className="ebSub">
             The control layer for global payment operations. MPE OS holds the
-            rules, the approvals and the record — licensed partner institutions
+            rules, the approvals and the record, licensed partner institutions
             execute the regulated services in each market.
           </p>
           <div className="ebStats">
@@ -69,7 +69,7 @@ export default function MpeOsPage() {
                 <h2 className="homeSectionTitle">One governed layer, every region</h2>
                 <p className="p homePlatformIntro">
                   Approvals, funding checks, FX oversight and release timing in
-                  one place — with visibility across partners and regions, and
+                  one place, with visibility across partners and regions, and
                   the regulated services provided by licensed partner
                   institutions in each market.
                 </p>
@@ -98,7 +98,7 @@ export default function MpeOsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payroll and employer of record in 180 countries — from the
+                  Payroll and employer of record in 180 countries, from the
                   payroll file to the family.
                 </p>
                 <div style={{ marginTop: 14 }}>
@@ -109,7 +109,7 @@ export default function MpeOsPage() {
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ marginTop: 10 }}>
                   Payout and collection in 140+ countries through licensed
-                  partners — every corridor routed to the best one.
+                  partners, every corridor routed to the best one.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>

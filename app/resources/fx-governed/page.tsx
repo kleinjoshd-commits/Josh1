@@ -23,7 +23,7 @@ export default function FxGovernedResource() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER — RESPONSIVE GRID */}
+          {/* HEADER, RESPONSIVE GRID */}
           <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>

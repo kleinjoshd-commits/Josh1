@@ -11,7 +11,7 @@ export const metadata = {
 const OUTCOMES = [
   {
     title: "Coverage without compromise",
-    body: "Payout and collection in 140+ countries through 200+ direct bank connections — bank transfer, mobile money and cash over the counter — provided by licensed partner institutions in each market.",
+    body: "Payout and collection in 140+ countries through 200+ direct bank connections: bank transfer, mobile money and cash over the counter, provided by licensed partner institutions in each market.",
   },
   {
     title: "The best partner, every corridor",
@@ -35,7 +35,7 @@ export default function NetworkPage() {
           <p className="ebSub">
             One network, many engines: regulatory reach held by MPE&apos;s
             licensed partners, orchestrated as a single system. Providers can
-            change — the customer relationship and history stay with MPE.
+            change, the customer relationship and history stay with MPE.
           </p>
           <div className="ebStats">
             <div className="ebStat"><b>140+</b><span>countries where money lands</span></div>
@@ -64,7 +64,7 @@ export default function NetworkPage() {
 
           <section className="homeBand" data-animate>
             <div className="gapBanner">
-              Any corridor can move to a new provider seamlessly — the customer
+              Any corridor can move to a new provider seamlessly; the customer
               relationship and history stay with MPE throughout.
             </div>
           </section>
@@ -87,7 +87,7 @@ export default function NetworkPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payroll and employer of record in 180 countries — the
+                  Payroll and employer of record in 180 countries, the
                   employer side of the same relationship.
                 </p>
                 <div style={{ marginTop: 14 }}>

@@ -6,48 +6,48 @@ import { claims } from "@/content/claims";
 export const metadata = {
   title: "Use Cases | MPE",
   description:
-    "How employers, operators and institutions use MPE — from the payroll file to the family, with licensed partners providing the regulated services.",
+    "How employers, operators and institutions use MPE, from the payroll file to the family, with licensed partners providing the regulated services.",
 };
 
 // Anonymized composites of real programme shapes. No customer names, no
-// invented metrics — outcomes are stated as what the programme does, not
+// invented metrics, outcomes are stated as what the programme does, not
 // as numbers we cannot publish.
 const CASES = [
   {
     kicker: "AGRICULTURE · WORKFORCE BENEFIT",
     problem:
-      "A food producer's payday ended at the bank transfer — and its migrant workforce lost 4-10% of every paycheck getting money the rest of the way home.",
+      "A food producer's payday ended at the bank transfer, and its migrant workforce lost 4-10% of every paycheck getting money the rest of the way home.",
     points: [
-      "Workers enrol in MPE Send at a staffed desk on site, in their own language, with a trained officer beside them for the first transfer.",
-      "The full cost is shown before signup — the rate, in the open, before anyone commits to anything.",
+      "Workers enroll in MPE Send at a staffed desk on site, in their own language, with a trained officer beside them for the first transfer.",
+      "The full cost is shown before signup: the rate, in the open, before anyone commits to anything.",
       "Money transfer services are provided by licensed partner institutions; the employer simply offers the programme as a benefit.",
     ],
     outcome:
-      "More of each paycheck reaches the people it was earned for — and the employer offers a benefit workers feel on the first payday.",
+      "More of each paycheck reaches the people it was earned for, and the employer offers a benefit workers feel on the first payday.",
   },
   {
     kicker: "CONSUMER GOODS · PAYMENT CONTROL",
     problem:
-      "An importer ran supplier and contractor payments across borders on spreadsheets and trust — approvals informal, releases nobody could reconstruct later.",
+      "An importer ran supplier and contractor payments across borders on spreadsheets and trust, approvals informal, releases nobody could reconstruct later.",
     points: [
       "Every payment is approved against policy before it moves; no single person can move money alone.",
       "Corridors route to the licensed partner best placed to serve each one, and can change without a rebuild.",
       "Every approval, release and status change is written to a permanent record as it happens.",
     ],
     outcome:
-      "When an auditor or the board asks what happened, the answer is already on file — for every payment, in every market.",
+      "When an auditor or the board asks what happened, the answer is already on file, for every payment, in every market.",
   },
   {
     kicker: "CONSTRUCTION · GLOBAL WORKFORCE",
     problem:
-      "A multinational contractor hired across a dozen countries — and ran payroll, contractor payments and compliance on a different system in each one.",
+      "A multinational contractor hired across a dozen countries, and ran payroll, contractor payments and compliance on a different system in each one.",
     points: [
-      "Hire, onboard and pay in 180 countries through one programme — payroll, employer of record and contractor payments together.",
-      "The same workers' own paydays are served next: the wage, the money sent home, the family's collection — with licensed partners providing the regulated services.",
+      "Hire, onboard and pay in 180 countries through one programme, payroll, employer of record and contractor payments together.",
+      "The same workers' own paydays are served next: the wage, the money sent home, the family's collection, with licensed partners providing the regulated services.",
       "One relationship covers the employer's file and the worker's family, in every market the project touches.",
     ],
     outcome:
-      "One system from the payroll file to the family — instead of a different vendor at every border.",
+      "One system from the payroll file to the family, instead of a different vendor at every border.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function UseCasesPage() {
           <h1>Built for the payday that crosses borders.</h1>
           <p className="ebSub">
             How employers, operators and institutions use MPE. Composites of
-            real programme shapes — no customer names, and the regulated
+            real programme shapes, no customer names, and the regulated
             services provided by licensed partner institutions throughout.
           </p>
           <div className="ebStats">

@@ -7,12 +7,12 @@ import { claims } from "@/content/claims";
 // =====================================================================
 // Emerald-first homepage. Seven screens, one idea each:
 //
-//   1. Hero        — the claim, the numbers, two doors in.
-//   2. The map     — the strongest piece; the hero flows straight into it.
-//   3. Statement   — the gap, as one sentence with a screen of air.
-//   4. Mission     — the only light band: why this company exists.
-//   5. Products    — three cards, one line each.
-//   6. Two doors   — employers and institutions, one paragraph each.
+//   1. Hero       , the claim, the numbers, two doors in.
+//   2. The map    , the strongest piece; the hero flows straight into it.
+//   3. Statement  , the gap, as one sentence with a screen of air.
+//   4. Mission    , the only light band: why this company exists.
+//   5. Products   , three cards, one line each.
+//   6. Two doors  , employers and institutions, one paragraph each.
 //   7. Contact.
 //
 // Everything else this page used to carry lives on the product pages.
@@ -23,7 +23,7 @@ export default function Home() {
     <main>
       <Nav />
 
-      {/* 1 — Hero. Same world as the map: one emerald surface. */}
+      {/* 1, Hero. Same world as the map: one emerald surface. */}
       <section className="emeraldBand">
         <div className="ebWrap" style={{ paddingBottom: 28 }}>
           <div className="ebTag">MPE</div>
@@ -45,22 +45,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2 — The map. No seam: the same emerald, continued. */}
+      {/* 2, The map. No seam: the same emerald, continued. */}
       <LicensedMap />
 
-      {/* 3 — The statement. One sentence, a screen of air. */}
+      {/* 3, The statement. One sentence, a screen of air. */}
       <section className="emeraldBand">
         <div className="ebWrap ebStatement" style={{ paddingTop: 34, paddingBottom: 64 }}>
           <h2>Everyone holds one piece.<br />Nobody holds the person.</h2>
           <p>
             Payroll stops at the wage. Banks hold accounts they cannot fill.
             Counters see a transaction, never a customer. MPE is the missing
-            layer — the relationship itself.
+            layer: the relationship itself.
           </p>
         </div>
       </section>
 
-      {/* 4 — Products. Four cards, one line each. */}
+      {/* 4, Products. Four cards, one line each. */}
       <section className="deckLight">
         <div className="container deckInner">
           <section className="homeBand" data-animate>
@@ -98,7 +98,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6 — Two doors. Employers and institutions, one paragraph each. */}
+      {/* 6, Two doors. Employers and institutions, one paragraph each. */}
       <section className="emeraldBand" id="partners">
         <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
           <div className="ebTag">WORKING TOGETHER</div>
@@ -107,7 +107,7 @@ export default function Home() {
               <h3>For employers</h3>
               <p>
                 One programme from payroll to payday: hire, onboard and pay
-                across borders — and your workforce enrols on site, in their
+                across borders, and your workforce enrolls on site, in their
                 own languages, with licensed partners carrying every wage home.
               </p>
               <Link className="btnPrimary" href="/#kyc">Request Access</Link>
@@ -115,7 +115,7 @@ export default function Home() {
             <div className="ebDoor">
               <h3>For licensed institutions</h3>
               <p>
-                Deposits, flow and customers you cannot acquire yourself — on
+                Deposits, flow and customers you cannot acquire yourself, on
                 your licence, under your regulation. MPE holds no funds and
                 earns only when the partnership does.
               </p>
@@ -125,7 +125,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7 — Contact. */}
+      {/* 7, Contact. */}
       <KycForm />
     </main>
   );

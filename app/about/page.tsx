@@ -5,21 +5,21 @@ import KycForm from "@/components/KycForm";
 export const metadata = {
   title: "About | MPE",
   description:
-    "Why MPE exists: money for the world's newest earners — one relationship, held across every licensed handoff, with partner institutions providing the regulated services.",
+    "Why MPE exists: money for the world's newest earners, one relationship, held across every licensed handoff, with partner institutions providing the regulated services.",
 };
 
 const BELIEFS = [
   {
     title: "The person, not the transaction",
-    body: "Every institution in the chain monetises one transaction, then loses the customer at the handoff. MPE exists to hold the person — their enrolment, their history, their trust — across every licensed handoff.",
+    body: "Every institution in the chain monetizes one transaction, then loses the customer at the handoff. MPE exists to hold the person across every licensed handoff: their enrollment, their history, their trust.",
   },
   {
     title: "Hard places force better systems",
-    body: "Serving people the system forgot — across borders, weak networks and underbanked regions — forces infrastructure that is honest, resilient and simple. Systems built for the hardest places work everywhere.",
+    body: "Serving people the system forgot, across borders, weak networks and underbanked regions, forces infrastructure that is honest, resilient and simple. Systems built for the hardest places work everywhere.",
   },
   {
     title: "Never hold the money",
-    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents. Licensed partner institutions provide the regulated services — enforced by architecture, not policy.",
+    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents. Licensed partner institutions provide the regulated services, enforced by architecture, not policy.",
   },
 ];
 
@@ -33,8 +33,8 @@ export default function AboutPage() {
           <div className="ebTag">ABOUT MPE</div>
           <h1>We hold the person.</h1>
           <p className="ebSub">
-            MPE serves globally mobile earners and their employers — across
-            the Gulf, Asia and the West — and the families their wages
+            MPE serves globally mobile earners and their employers, across
+            the Gulf, Asia and the West, and the families their wages
             support. Built on a straightforward belief: workers should not
             lose a meaningful share of their wages just to support the people
             who depend on them.

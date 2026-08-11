@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Trust & Controls | MPE",
   description:
-    "Execution moves money; controls preserve authority. Policy, approvals, release and audit — authoritative across regions, entities and currencies.",
+    "Execution moves money; controls preserve authority. Policy, approvals, release and audit: authoritative across regions, entities and currencies.",
 };
 
 export default function TrustControlsPage() {
@@ -23,7 +23,7 @@ export default function TrustControlsPage() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER — RESPONSIVE GRID */}
+          {/* HEADER, RESPONSIVE GRID */}
           <div className="pageHeaderGrid">
             {/* LEFT: NARRATIVE */}
             <div>
@@ -124,7 +124,7 @@ export default function TrustControlsPage() {
             </div>
           </div>
 
-          {/* WHY THIS MATTERS — THESIS BLOCK */}
+          {/* WHY THIS MATTERS, THESIS BLOCK */}
           <div data-animate style={{ marginTop: 28 }}>
             <div
               className="panel"

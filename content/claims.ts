@@ -3,13 +3,13 @@
  * Components import from here so a claim can be updated in one place and
  * propagate site-wide.
  *
- * HARD RULES (MPE_Website_Changes_1.md, 11 Aug 2026 — apply to every edit):
- * 1. MPE is never the provider of remittance/money-transfer services —
+ * HARD RULES (MPE_Website_Changes_1.md, 11 Aug 2026, apply to every edit):
+ * 1. MPE is never the provider of remittance/money-transfer services,
  *    licensed partners are. MPE is never the subject of those verbs.
  * 2. No custody language. No wallets, balances, or stored value
  *    attributed to MPE.
  * 3. No pricing or fee claims of any kind. Pricing is not public.
- * 4. No partner names anywhere on the public site — capability language
+ * 4. No partner names anywhere on the public site, capability language
  *    only.
  * 5. No space/orbital/MFAM content on the corporate site.
  * 6. No traction numbers (users, volumes). None are approved.
@@ -35,10 +35,10 @@ export const claims = {
   hero: {
     headline: "Money for the world's newest earners.",
     subheadline:
-      "MPE connects globally mobile earners — and their employers — to best-in-class regulated financial infrastructure, and holds the customer relationship at every step. Built for the hard places global finance forgot.",
+      "MPE connects globally mobile earners and their employers to best-in-class regulated financial infrastructure, and holds the customer relationship at every step. Built for the hard places global finance forgot.",
   },
 
-  /** Stat strip (Tier 2.2) — the only approved figures. */
+  /** Stat strip (Tier 2.2), the only approved figures. */
   stats: [
     { value: "$860B", label: "sent home by migrant workers every year" },
     { value: "280M", label: "people working outside their home country" },
@@ -54,7 +54,7 @@ export const claims = {
     { value: "130+", label: "payout currencies" },
   ] as const,
 
-  /** Markets grid (Tier 3.2) — statuses are compliance-reviewed.
+  /** Markets grid (Tier 3.2), statuses are compliance-reviewed.
    *  Changes come from Josh, not design. */
   markets: [
     { name: "Singapore", status: "LAUNCHING" },

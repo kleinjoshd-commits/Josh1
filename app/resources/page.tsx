@@ -23,7 +23,7 @@ export default function ResourcesPage() {
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER — RESPONSIVE (prevents left-gap weirdness on mobile) */}
+          {/* HEADER, RESPONSIVE (prevents left-gap weirdness on mobile) */}
           <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
@@ -66,7 +66,7 @@ export default function ResourcesPage() {
             </div>
           </div>
 
-          {/* PRIMARY RESOURCE — FULL WIDTH */}
+          {/* PRIMARY RESOURCE, FULL WIDTH */}
           <div style={{ marginTop: 22 }}>
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>
