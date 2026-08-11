@@ -113,8 +113,8 @@ export default function KycForm() {
           </p>
 
           <p style={{ opacity: 0.7, marginTop: 6 }}>
-            MPE helps employers offer a stronger workforce benefit: a better
-            outcome on payday, delivered with licensed partner institutions in
+            MPE builds employer and institution programmes end to end — with
+            licensed partner institutions providing the regulated services in
             each market.
           </p>
 

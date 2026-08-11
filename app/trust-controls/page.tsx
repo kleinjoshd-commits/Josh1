@@ -1,6 +1,12 @@
 import Nav from "../../components/Nav";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Trust & Controls | MPE",
+  description:
+    "Execution moves money; controls preserve authority. Policy, approvals, release and audit — authoritative across regions, entities and currencies.",
+};
+
 export default function TrustControlsPage() {
   return (
     <main>
@@ -9,7 +15,7 @@ export default function TrustControlsPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">TRUST &amp; CONTROLS</div>
-          <h1>Authority that persists under real-world conditions</h1>
+          <h1>Authority that persists under real-world conditions.</h1>
           <p className="ebSub">MPE is designed around a simple principle: {" "} execution moves money, but controls preserve authority.</p>
         </div>
       </section>
@@ -32,8 +38,8 @@ export default function TrustControlsPage() {
               </p>
 
               <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnPrimary" href="/#kyc">
-                  Explore a governed pilot
+                <Link className="btnPrimary" href="#kyc">
+                  Talk to us
                 </Link>
                 <Link className="btnSecondary" href="/solutions/os">
                   MPE OS overview

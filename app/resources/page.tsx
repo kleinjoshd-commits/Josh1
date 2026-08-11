@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Resources | MPE",
   description:
-    "Infrastructure notes on payment control, execution abstraction, FX governance, settlement models, and resilience.",
+    "Infrastructure notes on payment control, provider-independent routing, FX governance, settlement models, and resilience.",
 };
 
 export default function ResourcesPage() {
@@ -16,7 +16,7 @@ export default function ResourcesPage() {
         <div className="ebWrap">
           <div className="ebTag">RESOURCES</div>
           <h1>How modern payment control actually works</h1>
-          <p className="ebSub">Operator-focused explanations of how enterprise payments are governed: lifecycle control, approvals, FX decisioning, execution abstraction, and resilience. Written for finance, payroll, and payments teams who need predictability across markets without re-platforming their stack.</p>
+          <p className="ebSub">Operator-focused explanations of how enterprise payments are governed: lifecycle control, approvals, FX decisioning, provider-independent routing, and resilience. Written for finance, payroll, and payments teams who need predictability across markets without re-platforming their stack.</p>
         </div>
       </section>
 
@@ -31,7 +31,7 @@ export default function ResourcesPage() {
 
 
               <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnPrimary" href="/#kyc">
+                <Link className="btnPrimary" href="#kyc">
                   Request a walkthrough
                 </Link>
                 <Link className="btnSecondary" href="/solutions/os">
@@ -128,7 +128,7 @@ export default function ResourcesPage() {
               href="/resources/execution-routing"
               style={{ textDecoration: "none", display: "block" }}
             >
-              <h3 style={{ marginTop: 0 }}>Execution abstraction & routing</h3>
+              <h3 style={{ marginTop: 0 }}>Payment routing & provider independence</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 How separating decision authority from execution mechanics enables
                 partner-level routing, reducing friction, cost, and latency
@@ -215,7 +215,7 @@ export default function ResourcesPage() {
               flexWrap: "wrap",
             }}
           >
-            <Link className="btnPrimary" href="/#kyc">
+            <Link className="btnPrimary" href="#kyc">
               Request a walkthrough
             </Link>
             <Link className="btnSecondary" href="/solutions/os">

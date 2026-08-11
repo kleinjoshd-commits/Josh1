@@ -12,6 +12,14 @@ export default function PaymentLifecycleResource() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">REFERENCE</div>
+          <h1>The enterprise payment lifecycle</h1>
+          <p className="ebSub">Enterprise payments don’t break because money can’t move. They break because authority is fragmented , timing is unclear, and state lives across payroll systems, ERPs, bank portals, FX providers, and local rails. When lifecycle state is implicit, organizations manage payouts through exceptions, escalations, and manual reconciliation.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
@@ -19,23 +27,8 @@ export default function PaymentLifecycleResource() {
           <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
-              <div className="eyebrow">
-                Resources <span className="dot" />
-                Payment lifecycle
-              </div>
 
-              <h1 className="h1" style={{ marginBottom: 12 }}>
-                The enterprise payment lifecycle
-              </h1>
 
-              <p className="p" style={{ maxWidth: 980 }}>
-                Enterprise payments don’t break because money can’t move. They
-                break because <strong>authority is fragmented</strong>, timing is
-                unclear, and state lives across payroll systems, ERPs, bank
-                portals, FX providers, and local rails. When lifecycle state is
-                implicit, organizations manage payouts through exceptions,
-                escalations, and manual reconciliation.
-              </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 MPE is built on a simple principle: payments should

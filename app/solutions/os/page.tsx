@@ -44,7 +44,7 @@ export default function MpeOsPage() {
             <div className="ebStat"><b>Record</b><span>permanent, complete, on file</span></div>
           </div>
           <div className="btnRow">
-            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
+            <Link className="btnPrimary" href="#kyc">Request Access</Link>
             <Link className="btnSecondary" href="/trust-controls">Trust &amp; controls</Link>
           </div>
         </div>

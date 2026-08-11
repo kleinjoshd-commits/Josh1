@@ -1,6 +1,12 @@
 import Nav from "../../components/Nav";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Platform Architecture | MPE",
+  description:
+    "One control plane for payments end to end: funding, FX, approvals and release governed centrally, with execution through licensed partners.",
+};
+
 export default function UnifiedApproachPage() {
   return (
     <main>
@@ -32,8 +38,8 @@ export default function UnifiedApproachPage() {
               </p>
 
               <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnPrimary" href="/#kyc">
-                  Explore hybrid-network pilots
+                <Link className="btnPrimary" href="#kyc">
+                  Talk to us
                 </Link>
                 <Link className="btnSecondary" href="/solutions/os">
                   Explore MPE OS
@@ -74,7 +80,7 @@ export default function UnifiedApproachPage() {
 
               <p className="p" style={{ margin: 0 }}>
                 Designed for regulated, mission-critical operations, including
-                environments where terrestrial connectivity is intermittent,
+                environments where connectivity is intermittent,
                 constrained, or degraded.
               </p>
             </div>
@@ -153,8 +159,8 @@ export default function UnifiedApproachPage() {
               flexWrap: "wrap",
             }}
           >
-            <Link className="btnPrimary" href="/#kyc">
-              Explore hybrid-network pilots
+            <Link className="btnPrimary" href="#kyc">
+              Talk to us
             </Link>
             <Link className="btnSecondary" href="/trust-controls">
               Trust & controls

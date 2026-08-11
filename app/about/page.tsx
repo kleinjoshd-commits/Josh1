@@ -41,7 +41,7 @@ export default function AboutPage() {
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="/about/team">Meet the team</Link>
-            <Link className="btnSecondary" href="/#kyc">Talk to us</Link>
+            <Link className="btnSecondary" href="#kyc">Talk to us</Link>
           </div>
         </div>
       </section>

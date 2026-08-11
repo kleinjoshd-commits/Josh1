@@ -12,29 +12,21 @@ export default function ExecutionInfrastructurePage() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">REFERENCE</div>
+          <h1>How MPE works with execution infrastructure</h1>
+          <p className="ebSub">MPE is the operating layer above execution. It governs approvals, funding logic, FX checkpoints, routing decisions, release authority, AI-informed routing guidance, and payment-state visibility while licensed partners handle regulated money movement.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
           <div className="pageHeaderGrid">
             <div>
-              <div className="eyebrow">
-                Resources <span className="dot" />
-                Execution infrastructure
-              </div>
 
-              <h1 className="h1" style={{ marginBottom: 12 }}>
-                How MPE works with
-                <br />
-                execution infrastructure
-              </h1>
 
-              <p className="p" style={{ maxWidth: 960 }}>
-                MPE is the operating layer above execution. It governs
-                approvals, funding logic, FX checkpoints, routing decisions,
-                release authority, AI-informed routing guidance, and
-                payment-state visibility while licensed partners handle
-                regulated money movement.
-              </p>
 
               <p className="p" style={{ marginTop: 12, maxWidth: 960 }}>
                 That separation lets finance teams keep one control model even

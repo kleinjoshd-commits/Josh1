@@ -12,6 +12,14 @@ export default function FxGovernedResource() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">REFERENCE</div>
+          <h1>FX as a governed decision point</h1>
+          <p className="ebSub">In many payment stacks, foreign exchange is treated as an implementation detail, applied late in the payment flow and optimized for headline rate. At scale, this creates volatility, exceptions, and reconciliation risk.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
@@ -19,23 +27,8 @@ export default function FxGovernedResource() {
           <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
-              <div className="eyebrow">
-                Resources <span className="dot" />
-                FX governance
-              </div>
 
-              <h1 className="h1" style={{ marginBottom: 12 }}>
-                FX as a governed
-                <br />
-                decision point
-              </h1>
 
-              <p className="p" style={{ maxWidth: 980 }}>
-                In many payment stacks, foreign exchange is treated as an
-                implementation detail, applied late in the payment flow and
-                optimized for headline rate. At scale, this creates volatility,
-                exceptions, and reconciliation risk.
-              </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 MPE treats FX as a{" "}
@@ -183,7 +176,7 @@ export default function FxGovernedResource() {
               }}
             >
               <Link className="btnSecondary" href="/resources/execution-routing">
-                Execution abstraction
+                Provider-independent routing
               </Link>
               <Link className="btnSecondary" href="/trust-controls">
                 Trust & Controls

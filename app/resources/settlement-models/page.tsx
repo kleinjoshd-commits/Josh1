@@ -12,6 +12,14 @@ export default function SettlementModelsResource() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">REFERENCE</div>
+          <h1>Local & global settlement models</h1>
+          <p className="ebSub">“Settlement” describes how value actually completes: which institution moves funds, through which local clearing systems, under which regulatory permissions, and with what confirmation. The complexity isn’t that money can’t move. It’s that the execution path varies by market.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
@@ -19,24 +27,8 @@ export default function SettlementModelsResource() {
           <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
-              <div className="eyebrow">
-                Resources <span className="dot" />
-                Settlement models
-              </div>
 
-              <h1 className="h1" style={{ marginBottom: 12 }}>
-                Local & global
-                <br />
-                settlement models
-              </h1>
 
-              <p className="p" style={{ maxWidth: 980 }}>
-                “Settlement” describes how value actually completes: which
-                institution moves funds, through which local clearing systems,
-                under which regulatory permissions, and with what confirmation.
-                The complexity isn’t that money can’t move. It’s that the
-                execution path varies by market.
-              </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 MPE keeps the operating layer consistent across
@@ -270,7 +262,7 @@ export default function SettlementModelsResource() {
                 FX governance
               </Link>
               <Link className="btnSecondary" href="/resources/execution-routing">
-                Execution abstraction
+                Provider-independent routing
               </Link>
               <Link className="btnPrimary" href="/#kyc">
                 Request a walkthrough

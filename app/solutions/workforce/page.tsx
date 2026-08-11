@@ -44,7 +44,7 @@ export default function WorkforcePage() {
             <div className="ebStat"><b>140+</b><span>countries where money lands</span></div>
           </div>
           <div className="btnRow">
-            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
+            <Link className="btnPrimary" href="#kyc">Request Access</Link>
             <Link className="btnSecondary" href="/use-cases">See it in use</Link>
           </div>
         </div>

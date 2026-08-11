@@ -2,7 +2,7 @@ import Nav from "../../../components/Nav";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Execution Abstraction & Routing | MPE",
+  title: "Payment Routing & Provider Independence | MPE",
   description:
     "How separating decision authority from execution enables partner-level routing without breaking governance, auditability, or control.",
 };
@@ -12,6 +12,14 @@ export default function ExecutionAbstractionResource() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">REFERENCE</div>
+          <h1>Provider-independent routing</h1>
+          <p className="ebSub">Most enterprise payment stacks tightly couple{" "} decision authority with{" "} execution mechanics. As a result, changing banks, adding corridors, or introducing new payout partners often requires reworking approvals, controls, and operating workflows.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
@@ -19,25 +27,8 @@ export default function ExecutionAbstractionResource() {
           <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
-              <div className="eyebrow">
-                Resources <span className="dot" />
-                Execution abstraction
-              </div>
 
-              <h1 className="h1" style={{ marginBottom: 12 }}>
-                Execution abstraction
-                <br />
-                & routing
-              </h1>
 
-              <p className="p" style={{ maxWidth: 980 }}>
-                Most enterprise payment stacks tightly couple{" "}
-                <strong>decision authority</strong> with{" "}
-                <strong>execution mechanics</strong>. As a result, changing
-                banks, adding corridors, or introducing new payout partners
-                often requires reworking approvals, controls, and operating
-                workflows.
-              </p>
 
               <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
                 MPE separates these concerns. Decision authority
@@ -83,7 +74,7 @@ export default function ExecutionAbstractionResource() {
               />
 
               <p className="p" style={{ margin: 0 }}>
-                Execution abstraction enables partner diversity, corridor
+                Provider-independent routing enables partner diversity, corridor
                 optimization, and resilience without retraining teams or
                 weakening controls.
               </p>
@@ -111,7 +102,7 @@ export default function ExecutionAbstractionResource() {
               Separating authority from execution
             </h2>
             <p className="p">
-              Execution abstraction means that the organization decides{" "}
+              Provider-independent routing means that the organization decides{" "}
               <strong>what is allowed to happen</strong> before deciding{" "}
               <strong>how it happens</strong>.
             </p>
@@ -135,7 +126,7 @@ export default function ExecutionAbstractionResource() {
             </div>
 
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
-              What execution abstraction enables
+              What provider-independent routing enables
             </h2>
 
             <div
@@ -170,7 +161,7 @@ export default function ExecutionAbstractionResource() {
             <div className="panel" style={{ marginTop: 28 }}>
               <h3 style={{ marginTop: 0 }}>Detailed implementation notes</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                A deeper technical breakdown of execution abstraction, covering
+                A deeper technical breakdown of provider-independent routing, covering
                 routing logic, fallback strategies, provider interoperability,
                 and audit implications.
               </p>

@@ -43,7 +43,7 @@ export default function NetworkPage() {
             <div className="ebStat"><b>130+</b><span>payout currencies</span></div>
           </div>
           <div className="btnRow">
-            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
+            <Link className="btnPrimary" href="#kyc">Request Access</Link>
             <Link className="btnSecondary" href="/#network-map">See the map</Link>
           </div>
         </div>

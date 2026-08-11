@@ -44,7 +44,7 @@ export default function SendPage() {
             <div className="ebStat"><b>One</b><span>price, shown before signup</span></div>
           </div>
           <div className="btnRow">
-            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
+            <Link className="btnPrimary" href="#kyc">Request Access</Link>
             <Link className="btnSecondary" href="/use-cases">See it in use</Link>
           </div>
         </div>
