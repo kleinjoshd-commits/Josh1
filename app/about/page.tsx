@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 export const metadata = {
   title: "About | MPE",
   description:
-    "Why MPE exists, who it serves first, and how that mission leads toward resilient financial rails beyond Earth.",
+    "Why MPE exists: one relationship layer for globally mobile earners and their employers, with licensed partner institutions providing the regulated services.",
 };
 
 export default function AboutPage() {
@@ -31,18 +31,16 @@ export default function AboutPage() {
               </p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 880 }}>
-                The focus today is migrant workers in the U.S. who send money
-                home across borders and families in rural or underbanked
-                regions that need better access, stronger value protection, and
-                more reliable reach.
+                MPE serves globally mobile earners and their employers —
+                across the Gulf, Asia and the West — and the families in
+                rural or underbanked regions their wages support. Licensed
+                partner institutions provide the regulated services; MPE
+                holds the relationship.
               </p>
 
               <div className="btnRow">
                 <Link className="btnPrimary" href="/#kyc">
                   Request Access
-                </Link>
-                <Link className="btnSecondary" href="/future-commerce">
-                  Beyond Earth
                 </Link>
               </div>
             </div>
@@ -57,8 +55,8 @@ export default function AboutPage() {
                 infrastructure.
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                Systems that work across weak networks on Earth are the systems
-                that can one day work beyond Earth.
+                Systems that work across weak networks are the systems
+                that work everywhere.
               </p>
             </div>
           </div>

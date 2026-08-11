@@ -67,10 +67,6 @@ export const claims = {
     { name: "Indonesia", status: "STRATEGIC" },
   ] as const,
 
-  /** Only approved proof-point sentence for credibility sections. */
-  proofPoint:
-    "MPE is in active pilots with US employers in agriculture and care services.",
-
   /** Compliance footer (Tier 1.6). Use verbatim on every page. */
   footerDisclaimer:
     "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software and community programmes. Money transfer and payment services within MPE programmes are provided by licensed partner institutions in each market. MPE does not hold or transmit customer funds, and does not store customer identity documents. Market designations describe partner-network capability and programmes in development, and do not constitute an offer of regulated services in any jurisdiction.",

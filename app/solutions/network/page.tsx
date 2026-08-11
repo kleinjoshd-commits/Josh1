@@ -11,7 +11,7 @@ export const metadata = {
 const OUTCOMES = [
   {
     title: "Coverage without compromise",
-    body: "Payout and collection in 140+ countries through 200+ direct bank connections — bank transfer, mobile wallet and cash over the counter — provided by licensed partner institutions in each market.",
+    body: "Payout and collection in 140+ countries through 200+ direct bank connections — bank transfer, mobile money and cash over the counter — provided by licensed partner institutions in each market.",
   },
   {
     title: "The best partner, every corridor",
