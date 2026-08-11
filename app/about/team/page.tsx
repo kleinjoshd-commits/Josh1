@@ -42,7 +42,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Kok Rie Ooi",
-    title: "Asia Lead",
+    title: "Managing Director, APAC",
     photo: "/KokRieOoiMPE.png",
     linkedin:
       "https://www.linkedin.com/in/kok-rie-ooi-%E7%8E%8B%E5%9B%BD%E7%A4%BC-mba-bsc-computing-1a3a551/",
