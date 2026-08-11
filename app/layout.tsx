@@ -1,14 +1,13 @@
 import "./globals.css";
 import AnimateOnScroll from "../components/AnimateOnScroll";
-import AnnouncementBanner from "../components/AnnouncementBanner";
 import SiteFooter from "../components/SiteFooter";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),
-  title: "MPE | Financial Access for Hard Places",
+  title: "MPE | One relationship layer for the world's newest earners",
   description:
-    "MPE helps workers send more money home through zero-fee remittances, USD-held wallets, and resilient financial access built for hard environments on Earth and beyond.",
+    "MPE connects globally mobile earners and their employers to regulated financial infrastructure, and holds the customer relationship at every step. Money transfer and payment services within MPE programmes are provided by licensed partner institutions in each market.",
   icons: {
     icon: "/favicon.png",
   },
@@ -22,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AnnouncementBanner />
         {children}
         <SiteFooter />
         <AnimateOnScroll />

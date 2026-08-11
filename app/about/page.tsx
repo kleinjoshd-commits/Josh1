@@ -67,10 +67,11 @@ export default function AboutPage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>What the platform offers today</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Employers can offer a workforce benefit with real weight:
-                zero-fee remittances, USD-held wallets, and broader wallet
-                access for workers who need to move money across borders or use
-                funds while traveling internationally.
+                Employers can offer a workforce benefit with real weight: a
+                better outcome on payday for workers who support family across
+                borders. Money transfer and payment services within MPE
+                programmes are provided by licensed partner institutions in
+                each market.
               </p>
             </div>
 
@@ -141,8 +142,8 @@ export default function AboutPage() {
                 <div className="networkOutcomeCard">
                   <p className="p networkOutcomeCopy">
                     Next, the same discipline applies to increasingly
-                    distributed, hybrid, and satellite-connected financial
-                    environments where continuity and trust matter even more.
+                    distributed and hard-to-reach financial environments where
+                    continuity and trust matter even more.
                   </p>
                 </div>
                 <div className="networkOutcomeCard">

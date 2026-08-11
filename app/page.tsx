@@ -2,8 +2,87 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
+import LicensedMap from "../components/LicensedMap";
 import { siteConfig } from "@/lib/siteConfig";
 import { claims } from "@/content/claims";
+
+// The gap (Tier 2.4) — verbatim rows.
+const GAP_ROWS = [
+  { who: "Payroll platforms", what: "stop the moment the wage lands; they serve the employer" },
+  { who: "Banks", what: "hold the account but cannot acquire or engage a migrant workforce" },
+  { who: "Exchange houses & MTOs", what: "meet the worker only at the counter, transaction by transaction" },
+  { who: "Payment rails", what: "are pipes sold to all of the above; they serve nobody directly" },
+];
+
+// MPE is that layer (Tier 2.5) — verbatim cards.
+const LAYER_CARDS = [
+  {
+    title: "The Product",
+    body: "A mobile-first money experience for the actual worker — live honest rates, three-tap sends, assisted enrolment at a physical desk, twenty languages structurally supported.",
+  },
+  {
+    title: "The Compliance Perimeter",
+    body: "MPE never holds funds, never stores identity documents, never performs licensed activity — enforced by architecture, not policy. One product rides any licence in any country.",
+  },
+  {
+    title: "The Orchestration Core",
+    body: "A signed policy-and-routing engine: every transaction authorised locally, every rail swappable by configuration, every action written to a tamper-evident audit chain.",
+  },
+];
+
+// How the money moves (Tier 2.6).
+const CHAIN = [
+  { step: "Employer", mark: "ENTRY POINT", ours: false },
+  { step: "Wage lands", mark: "ENTRY POINT", ours: false },
+  { step: "Worker engages", detail: "MPE app + desk", mark: "ALWAYS MPE", ours: true },
+  { step: "Licensed rails", mark: "ENTRY POINT", ours: false },
+  { step: "Family receives", mark: "ENTRY POINT", ours: false },
+];
+
+// One multi-rail network (Tier 3.1) — verbatim cards, no partner names.
+const NETWORK_CARDS = [
+  { title: "Global payroll & EOR", body: "180 countries · 130+ payout currencies · full workforce capability delivered under the MPE brand" },
+  { title: "Corridor ownership", body: "200+ direct bank connections · payout & collection in 140+ countries · cash over the counter" },
+  { title: "Licensed across the West", body: "UK · EU/EEA · Canada · Australia · Hong Kong · 36 US states · Israel" },
+  { title: "Licensed across the Gulf & Asia", body: "All GCC states ex-KSA · Singapore (MAS MPI) · Malaysia · India · Hong Kong · Philippines" },
+  { title: "Institutional-grade", body: "client funds safeguarded at global systemically important banks · the Gulf's largest wage-protection processing runs inside the network" },
+  { title: "Swappable by design", body: "any corridor can move to a new provider seamlessly; the customer record, attribution and history stay with MPE on every rail" },
+];
+
+// For institutions (Tier 3.3). Headings per the instruction file; card copy
+// authored in site voice (the referenced redesign HTML was not provided).
+const INSTITUTION_CARDS = [
+  {
+    title: "Customer acquisition",
+    body: "A workforce you cannot reach through a branch or an ad budget arrives through their employer, enrolled and engaged, under your licence.",
+  },
+  {
+    title: "Sticky payroll deposits",
+    body: "Wages that land every month and stay engaged beat balances bought with promotions — the deposit arrives with the relationship attached.",
+  },
+  {
+    title: "Corridor & programme economics",
+    body: "Programme flow concentrated corridor by corridor, with the volume and repeat behaviour that make corridor economics work.",
+  },
+  {
+    title: "The employer channel",
+    body: "One employer relationship delivers a whole workforce at once — acquisition economics no consumer channel can match.",
+  },
+];
+
+// Working together (Tier 3.5).
+const DOORS = [
+  { title: "Start a corridor", body: "One send market, one receive market, one licensed partner — proven end to end before it scales." },
+  { title: "Start with the workforce", body: "An employer programme first: enrolment, engagement and payday built around one workforce." },
+  { title: "Start a market", body: "A full market entry with a licensed institution — programme, corridors and community desks together." },
+];
+
+const TIMELINE = [
+  { phase: "SCOPE", span: "two weeks" },
+  { phase: "PAPER", span: "~30 days" },
+  { phase: "PILOT", span: "~90 days" },
+  { phase: "SCALE", span: "corridor by corridor" },
+];
 
 export default function Home() {
   return (
@@ -18,34 +97,25 @@ export default function Home() {
               <div className="homeHeroCopy">
                 <div className="eyebrow">
                   MPE <span className="dot" />
-                  Global financial infrastructure
+                  The relationship layer
                 </div>
 
-                <h1 className="h1">
-                  Financial rails where they&apos;re needed most.
-                </h1>
+                <h1 className="h1">{claims.hero.headline}</h1>
 
-                <p className="p homeHeroLead homeHeroAltitude">
-                  Zero-fee remittances. USD-held wallets. Family debit cards.
-                  Cross-border access across 160+ countries.
-                </p>
+                <p className="p homeHeroLead">{claims.hero.subheadline}</p>
 
                 <p className="p homeHeroSecondary">
-                  MPE helps workers send more of each paycheck home, hold value
-                  in USD instead of volatile local currency, and access funds
-                  through a wallet and debit card built for cross-border
-                  workforces. The platform operates across the corridors that
-                  define modern labor flows, including the United States,
-                  Europe, Singapore, the GCC, South Asia, Southeast Asia,
-                  Africa, and Latin America.
+                  {claims.serviceAttribution} MPE builds the product, the
+                  enrolment and the relationship — and keeps them portable
+                  across every institution in the network.
                 </p>
 
                 <div className="btnRow homeHeroActions">
                   <Link className="btnPrimary" href="/#kyc">
                     Request Access
                   </Link>
-                  <Link className="btnSecondary" href="/solutions/balance">
-                    See How It Works
+                  <Link className="btnSecondary" href="/#institutions">
+                    Partner with MPE
                   </Link>
                 </div>
               </div>
@@ -63,8 +133,8 @@ export default function Home() {
                       body: "Employers can offer something workers feel immediately: a better outcome after payday.",
                     },
                     {
-                      title: "Built for frontier conditions",
-                      body: "Hard remittance corridors train the infrastructure future distributed economies will require.",
+                      title: "One owned relationship",
+                      body: "The worker's enrolment, history and trust stay with MPE across every rail and every market.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="homeHeroRailItem">
@@ -74,6 +144,16 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+            </div>
+
+            {/* Stat strip (Tier 2.2) — the only approved figures. */}
+            <div className="statStrip" data-animate>
+              {claims.stats.map((s) => (
+                <div key={s.label} className="statCell">
+                  <b>{s.value}</b>
+                  <span>{s.label}</span>
+                </div>
+              ))}
             </div>
 
             <section className="homeBand homeStartBand" data-animate>
@@ -93,18 +173,77 @@ export default function Home() {
               <h2 className="homeSectionTitle">
                 If you can serve an unbanked family in rural Oaxaca, you can serve frontier economies anywhere.
               </h2>
-              <p className="p homeOrbitLead">
-                That includes orbital economies.
-              </p>
               <p className="p homeHeroSecondary homeHeroThesisBody">
-                If financial infrastructure can work across borders, weak
+                Financial infrastructure that works across borders, weak
                 connectivity, underbanked recipients, and hard operating
-                conditions on Earth, it is already being trained for frontier
-                environments.
+                conditions is infrastructure that works, full stop. That is
+                the bar MPE builds to.
               </p>
             </div>
           </section>
 
+          {/* The gap (Tier 2.4) */}
+          <section className="homeBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">Everyone holds one piece. Nobody holds the person.</h2>
+            </div>
+            <div className="gapRows">
+              {GAP_ROWS.map((r) => (
+                <div key={r.who} className="gapRow">
+                  <b>{r.who}</b>
+                  <span>{r.what}</span>
+                </div>
+              ))}
+            </div>
+            <div className="gapBanner">
+              The missing layer — converting a worker into an engaged financial
+              customer at the moment the wage lands — is not something any
+              licensed institution is built to do.
+            </div>
+          </section>
+
+          {/* MPE is that layer (Tier 2.5) */}
+          <section className="homeBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">MPE is that layer</h2>
+              <p className="p homeContextIntro">
+                Designed to operate above regulated financial infrastructure ·
+                rail-agnostic · portable across every institution
+              </p>
+            </div>
+            <div className="homeInfoGrid">
+              {LAYER_CARDS.map((c) => (
+                <div key={c.title} className="panel homeInfoCard">
+                  <h3>{c.title}</h3>
+                  <p>{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* How the money moves (Tier 2.6) */}
+          <section className="homeBand" data-animate>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">How the money moves — and where we enter</h2>
+            </div>
+            <div className="chainFlow">
+              {CHAIN.map((c, i) => (
+                <div key={c.step} className={"chainStep" + (c.ours ? " chainOurs" : "")}>
+                  <div className="chainMark">{c.mark}</div>
+                  <b>{c.step}</b>
+                  {c.detail && <span>{c.detail}</span>}
+                  {i < CHAIN.length - 1 && <div className="chainArrow" aria-hidden>→</div>}
+                </div>
+              ))}
+            </div>
+            <p className="p" style={{ textAlign: "center", marginTop: 18 }}>
+              Start at onboarding, start at payroll, start at remittance —
+              every entry grows along the chain toward the same owned
+              relationship in the middle.
+            </p>
+          </section>
+
+          {/* Employer track (Tier 0: kept) */}
           <section className="homeBand" data-animate>
             <div className="homeSectionHeader homeContextHeader">
               <h2 className="homeSectionTitle">Why employers offer MPE</h2>
@@ -127,8 +266,8 @@ export default function Home() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Stand out in hiring</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  MPE is easy to understand: help workers send more money home
-                  and protect more of what they earn.
+                  MPE is easy to understand: a benefit workers feel on payday
+                  and remember at renewal.
                 </p>
               </div>
               <div className="panel">
@@ -141,63 +280,11 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="homeBand homeContextBand" data-animate>
-            <div className="homeSectionHeader homeContextHeader">
-              <h2 className="homeSectionTitle">How MPE works</h2>
-              <p className="p homeContextIntro">
-                The model is simple. Employers offer MPE as a workforce
-                benefit. Workers get a wallet built for sending money home,
-                holding value in USD, and accessing funds across borders.
-                Licensed partners handle regulated execution where appropriate.
-              </p>
-            </div>
-
-            <div className="homeTagGrid">
-              {[
-                "Employers offer MPE as a workforce benefit after payroll",
-                "Workers receive a wallet for send-home transfers, employee payments, and international travel use",
-                "Families access funds without relying on a traditional bank account in supported regions",
-                "USD-held balances and wallet and card access built to hold up where connectivity fails",
-              ].map((tag) => (
-                <div key={tag} className="homeTag">
-                  {tag}
-                </div>
-              ))}
-            </div>
-
-            <div className="homeInfoGrid">
-              <div className="panel homeInfoCard">
-                <h3>Free remittance</h3>
-                <p>
-                  Workers move money home without losing a share of each transfer
-                  to avoidable fees.
-                </p>
-              </div>
-
-              <div className="panel homeInfoCard">
-                <h3>Protected value</h3>
-                <p>
-                  USD-held balances help workers and families reduce exposure to
-                  local currency devaluation and volatility.
-                </p>
-              </div>
-
-              <div className="panel homeInfoCard">
-                <h3>Partner-enabled execution</h3>
-                <p>
-                  MPE orchestrates the experience while licensed partners support
-                  regulated money movement and delivery.
-                </p>
-              </div>
-            </div>
-          </section>
-
+          {/* Platform band (Tier 0: kept, retitled off custody language) */}
           <section className="homeBand homePlatformBand" data-animate>
             <div className="homePlatformGrid">
               <div className="homePlatformCopy">
-                <h2 className="homeSectionTitle">
-                  Why MPE matters beyond the wallet
-                </h2>
+                <h2 className="homeSectionTitle">One governed layer behind the experience</h2>
                 <p className="p homePlatformIntro">
                   Behind the worker experience is one governed layer for
                   approvals, routing, FX oversight, release logic, and
@@ -206,11 +293,7 @@ export default function Home() {
 
                 <div className="homeModuleRow">
                   {siteConfig.nav.solutions.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="homeModuleChip"
-                    >
+                    <Link key={item.href} href={item.href} className="homeModuleChip">
                       {item.label}
                     </Link>
                   ))}
@@ -234,26 +317,106 @@ export default function Home() {
             </div>
           </section>
 
+          {/* One multi-rail network (Tier 3.1) */}
           <section className="homeBand" data-animate>
-            <div className="panel" style={{ textAlign: "center" }}>
-              <h2 className="homeSectionTitle">
-                Why this matters
-              </h2>
-              <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
-                For workers, it means more of each paycheck reaches home. For
-                families, it means better access, stronger value protection,
-                and less dependence on fragile local infrastructure. For
-                employers, it means offering a benefit people understand
-                immediately and remember for the right reasons.
-              </p>
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">One multi-rail network</h2>
+            </div>
+            <div className="kycGrid">
+              {NETWORK_CARDS.map((c) => (
+                <div key={c.title} className="panel">
+                  <h3 style={{ marginTop: 0 }}>{c.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </section>
+
+      {/* The map (Tier 3.4) — the one dark emerald band on the site. */}
+      <LicensedMap />
+
+      <section className="deckLight">
+        <div className="container deckInner">
+          {/* Markets (Tier 3.2) */}
+          <section className="homeBand" data-animate id="markets">
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">Markets</h2>
+            </div>
+            <div className="marketGrid">
+              {claims.markets.map((m) => (
+                <div key={m.name} className="marketCell">
+                  <b>{m.name}</b>
+                  <span className={"marketPill pill-" + m.status.toLowerCase().replace(/\s+/g, "-")}>
+                    {m.status}
+                  </span>
+                </div>
+              ))}
             </div>
           </section>
 
+          {/* For institutions (Tier 3.3) */}
+          <section className="homeBand" data-animate id="institutions">
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">What MPE brings a licensed institution</h2>
+              <p className="p homeContextIntro">
+                Deposits, flow and customers you cannot acquire yourself — on
+                your licence, under your regulation.
+              </p>
+            </div>
+            <div className="kycGrid">
+              {INSTITUTION_CARDS.map((c) => (
+                <div key={c.title} className="panel">
+                  <h3 style={{ marginTop: 0 }}>{c.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{c.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="gapBanner">
+              We are not a vendor asking for your licence. We are the
+              distribution machine your licence has been waiting for.
+            </div>
+          </section>
+
+          {/* Working together (Tier 3.5) */}
+          <section className="homeBand" data-animate id="working-together">
+            <div className="homeSectionHeader homeContextHeader">
+              <h2 className="homeSectionTitle">Working together</h2>
+            </div>
+            <div className="homeInfoGrid">
+              {DOORS.map((d) => (
+                <div key={d.title} className="panel homeInfoCard">
+                  <h3>{d.title}</h3>
+                  <p>{d.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="timelineRow">
+              {TIMELINE.map((t, i) => (
+                <div key={t.phase} className="timelineStep">
+                  <b>{t.phase}</b>
+                  <span>{t.span}</span>
+                  {i < TIMELINE.length - 1 && <div className="chainArrow" aria-hidden>→</div>}
+                </div>
+              ))}
+            </div>
+            <p className="p small" style={{ textAlign: "center", marginTop: 8 }}>
+              Timelines illustrative — regulatory and partner steps vary by market.
+            </p>
+            <div className="gapBanner">
+              Aligned by construction — MPE earns programme economics only when
+              the partnership transacts.
+            </div>
+            <div className="btnRow" style={{ justifyContent: "center", marginTop: 20 }}>
+              <Link className="btnPrimary" href="/#kyc">Talk to us</Link>
+            </div>
+          </section>
+
+          {/* Mission voice (Tier 0: kept) */}
           <section className="homeBand" data-animate>
             <div className="panel" style={{ textAlign: "center" }}>
-              <h2 className="homeSectionTitle">
-                Where resilience becomes necessary
-              </h2>
+              <h2 className="homeSectionTitle">Where resilience becomes necessary</h2>
               <p className="p" style={{ maxWidth: "none", marginTop: 12 }}>
                 Some workers and families live at the edge of conventional
                 financial access. Weak connectivity, rural distance, and

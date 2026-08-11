@@ -35,7 +35,7 @@ export default function KycForm() {
 
             <p style={{ opacity: 0.62, marginTop: 12, fontSize: 14 }}>
               No obligation. We will review whether MPE fits your workforce
-              benefit, wallet, or partner model.
+              benefit or partner model.
             </p>
           </div>
         </div>
@@ -113,8 +113,9 @@ export default function KycForm() {
           </p>
 
           <p style={{ opacity: 0.7, marginTop: 6 }}>
-            MPE helps employers offer a stronger workforce benefit through
-            zero-fee remittances, USD-held wallets, and broader financial access.
+            MPE helps employers offer a stronger workforce benefit: a better
+            outcome on payday, delivered with licensed partner institutions in
+            each market.
           </p>
 
           <form

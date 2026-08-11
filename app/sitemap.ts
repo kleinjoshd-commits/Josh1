@@ -8,19 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: `https://${siteConfig.domain}/balance`,
-      lastModified: new Date(),
-    },
-    {
       url: `https://${siteConfig.domain}/solutions/os`,
       lastModified: new Date(),
     },
     {
       url: `https://${siteConfig.domain}/solutions/workforce`,
-      lastModified: new Date(),
-    },
-    {
-      url: `https://${siteConfig.domain}/solutions/balance`,
       lastModified: new Date(),
     },
     {
@@ -41,14 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `https://${siteConfig.domain}/about/team`,
-      lastModified: new Date(),
-    },
-    {
-      url: `https://${siteConfig.domain}/future-commerce`,
-      lastModified: new Date(),
-    },
-    {
-      url: `https://${siteConfig.domain}/press`,
       lastModified: new Date(),
     },
     {

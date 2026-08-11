@@ -205,9 +205,6 @@ export default function TrustControlsPage() {
             <Link className="btnSecondary" href="/unified-approach">
               Unified architecture
             </Link>
-            <Link className="btnSecondary" href="/satellite">
-              Satellite resilience
-            </Link>
             <Link className="btnSecondary" href="/solutions/os">
               MPE OS overview
             </Link>

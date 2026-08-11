@@ -34,9 +34,9 @@ export default function UnifiedApproachPage() {
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
                 This is a layered architecture: a single governed operating
-                layer above execution, with wallet and resilience capabilities
-                available wherever the operating environment demands stronger
-                continuity and assurance.
+                layer above execution, with worker-experience and resilience
+                capabilities available wherever the operating environment
+                demands stronger continuity and assurance.
               </p>
 
               <div className="btnRow" style={{ marginTop: 18 }}>
@@ -45,9 +45,6 @@ export default function UnifiedApproachPage() {
                 </Link>
                 <Link className="btnSecondary" href="/solutions/os">
                   Explore MPE OS
-                </Link>
-                <Link className="btnSecondary" href="/solutions/balance">
-                  Explore MPE Balance
                 </Link>
               </div>
             </div>
@@ -66,10 +63,12 @@ export default function UnifiedApproachPage() {
                 <strong>Execution:</strong> local banks + licensed partners
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Wallet layer:</strong> MPE Balance (worker access + remittance)
+                <strong>Worker layer:</strong> the MPE app and assisted
+                enrolment — the owned relationship
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Resilience layer:</strong> satellite-informed assurance
+                <strong>Resilience layer:</strong> assurance for degraded and
+                constrained environments
               </p>
 
               <div
@@ -125,9 +124,10 @@ export default function UnifiedApproachPage() {
             <div className="panel" style={{ textDecoration: "none" }}>
               <h3 style={{ marginTop: 0 }}>4) Extend to workers when it drives outcomes</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Add MPE Balance for worker access and remittance: faster access to earnings,
-                corridor-by-corridor rollout, and employer-grade controls, without
-                changing the enterprise operating model.
+                Extend the programme to the workforce itself: corridor-by-corridor
+                rollout with employer-grade controls, with money transfer and
+                payment services provided by licensed partner institutions —
+                without changing the enterprise operating model.
               </p>
             </div>
 
@@ -145,9 +145,9 @@ export default function UnifiedApproachPage() {
             <div className="panel" style={{ textDecoration: "none" }}>
               <h3 style={{ marginTop: 0 }}>6) Outlast networks without changing rails</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Satellite-informed resilience strengthens critical control moments
+                Resilience engineering strengthens critical control moments
                 (approvals, authorization, and release) so decision authority can persist
-                when terrestrial infrastructure is degraded, congested, or unavailable.
+                when infrastructure is degraded, congested, or unavailable.
               </p>
             </div>
           </div>
@@ -166,9 +166,6 @@ export default function UnifiedApproachPage() {
             </Link>
             <Link className="btnSecondary" href="/trust-controls">
               Trust & controls
-            </Link>
-            <Link className="btnSecondary" href="/satellite">
-              Satellite resilience
             </Link>
           </div>
 

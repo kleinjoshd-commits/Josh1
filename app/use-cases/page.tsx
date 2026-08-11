@@ -14,8 +14,6 @@ const productBlurbs: Record<string, string> = {
     "The control layer for approvals, routing, FX oversight, and release logic across the payment lifecycle.",
   "/solutions/workforce":
     "Global workforce execution for distributed teams: payroll, contractors, EOR, and statutory obligations.",
-  "/solutions/balance":
-    "Worker wallets for zero-fee remittances, USD-held balances, and family debit cards.",
   "/solutions/network":
     "Partner-connected delivery across trusted local banks and licensed cross-border partners.",
 };
@@ -40,9 +38,9 @@ export default function UseCasesPage() {
               <p className="p" style={{ maxWidth: 880 }}>
                 MPE is the governed operating layer for cross-border worker
                 payments and the cross-border movement of capital that surrounds
-                them. Employers offer the benefit. Workers use the wallet.
-                Partners handle regulated execution. MPE coordinates the
-                experience.
+                them. Employers offer the benefit. Workers use the MPE app.
+                Licensed partner institutions provide the regulated services.
+                MPE coordinates the experience.
               </p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 880 }}>

@@ -141,8 +141,7 @@ export default function MpeOsPage() {
               <h3 style={{ marginTop: 0 }}>Execution &amp; Compliance</h3>
               <p className="p" style={{ marginTop: 10, maxWidth: "none" }}>
                 Global payment execution and regulatory coverage are provided
-                through licensed infrastructure partners, including Papaya
-                Global.
+                through licensed infrastructure partners in each market.
               </p>
             </div>
           </div>

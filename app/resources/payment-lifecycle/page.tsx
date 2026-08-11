@@ -208,7 +208,7 @@ export default function PaymentLifecycleResource() {
             <p className="p">Two transitions deserve special attention at scale:</p>
             <p className="p" style={{ marginTop: 10 }}>
               <strong>Funding</strong> is not an assumption. It’s a state
-              transition. Funds should be confirmed before release, and wallet
+              transition. Funds should be confirmed before release, and funding
               pools can be used to reserve liquidity across entities and
               currencies when prefunding is operationally required.
             </p>

@@ -186,31 +186,29 @@ export default function ResourcesPage() {
             </Link>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>
-                Resilience & trust (satellite-informed)
-              </h3>
+              <h3 style={{ marginTop: 0 }}>Resilience &amp; trust</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                How resilience applies to payment control systems, and when
-                satellite-informed capabilities strengthen critical control
-                events without changing rails or workflows.
+                How resilience applies to payment control systems, and how
+                critical control events stay strong without changing rails or
+                workflows.
               </p>
               <div style={{ marginTop: 14 }}>
-                <Link className="btnSecondary" href="/satellite">
-                  Satellite infrastructure
+                <Link className="btnSecondary" href="/trust-controls">
+                  Trust &amp; controls
                 </Link>
               </div>
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Worker experience (MPE Balance)</h3>
+              <h3 style={{ marginTop: 0 }}>Worker experience</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                How governed payout experiences extend to workers: faster access
-                to earnings and remittance options, while employers retain
-                oversight and compliance controls.
+                How governed payout experiences extend to workers, while
+                employers retain oversight and licensed partner institutions
+                provide the regulated services.
               </p>
               <div style={{ marginTop: 14 }}>
-                <Link className="btnSecondary" href="/solutions/balance">
-                  Explore MPE Balance
+                <Link className="btnSecondary" href="/solutions/workforce">
+                  Explore MPE Workforce
                 </Link>
               </div>
             </div>

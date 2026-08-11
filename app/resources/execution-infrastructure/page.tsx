@@ -101,9 +101,10 @@ export default function ExecutionInfrastructurePage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Primary execution foundation</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                In workforce and network contexts, Papaya Global provides the
-                primary execution foundation behind MPE&apos;s operating layer,
-                extending access to licensed global payment infrastructure.
+                In workforce and network contexts, our licensed global payroll
+                partner provides the primary execution foundation behind
+                MPE&apos;s operating layer, extending access to licensed global
+                payment infrastructure.
               </p>
             </div>
           </div>

@@ -44,9 +44,6 @@ export default function MpeWorkforcePage() {
                 <Link className="btnPrimary" href="/#kyc">
                   Request Access
                 </Link>
-                <Link className="btnSecondary" href="/solutions/balance">
-                  Explore MPE Balance
-                </Link>
               </div>
             </div>
 
@@ -132,10 +129,10 @@ export default function MpeWorkforcePage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Execution foundation</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Papaya Global supports the primary execution and compliance
-                foundation behind MPE Workforce, while MPE remains the control
-                layer for workflow, visibility, funding governance, and release
-                orchestration.
+                A licensed global payroll and EOR partner supports the primary
+                execution and compliance foundation behind MPE Workforce, while
+                MPE remains the control layer for workflow, visibility, funding
+                governance, and release orchestration.
               </p>
             </div>
 

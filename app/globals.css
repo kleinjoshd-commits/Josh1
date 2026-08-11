@@ -2596,3 +2596,97 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+/* =====================================================================
+   11 Aug 2026 repositioning (MPE_Website_Changes_1.md).
+   New sections in the EXISTING light system. Accent tokens per the
+   design direction: brand green #12A96B (bright #17C97F for emphasis),
+   gold #E0A82E reserved for "In motion" status only.
+   ===================================================================== */
+:root {
+  --accent-green: #12A96B;
+  --accent-green-hi: #17C97F;
+  --accent-gold: #E0A82E;
+}
+
+/* Stat strip (Tier 2.2) */
+.statStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(11,27,20,0.10);
+  border-bottom: 1px solid rgba(11,27,20,0.10);
+}
+.statCell b { display: block; font-size: 34px; letter-spacing: -0.02em; color: var(--accent-green); }
+.statCell span { display: block; margin-top: 4px; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+
+/* The gap (Tier 2.4) */
+.gapRows { display: grid; gap: 10px; max-width: 860px; margin: 0 auto; }
+.gapRow {
+  display: grid; grid-template-columns: 220px 1fr; gap: 16px; align-items: baseline;
+  background: #fff; border: 1px solid rgba(11,27,20,0.08); border-radius: var(--radius2);
+  padding: 16px 20px;
+}
+.gapRow b { font-size: 15px; }
+.gapRow span { color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+.gapBanner {
+  margin: 26px auto 0; max-width: 860px; text-align: center;
+  background: rgba(18,169,107,0.08); border: 1px solid rgba(18,169,107,0.25);
+  border-radius: var(--radius2); padding: 18px 24px;
+  font-weight: 600; line-height: 1.6;
+}
+
+/* How the money moves (Tier 2.6) */
+.chainFlow {
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  align-items: stretch; margin-top: 10px;
+}
+.chainStep {
+  position: relative; background: #fff; border: 1px solid rgba(11,27,20,0.10);
+  border-radius: var(--radius2); padding: 14px 34px 14px 18px; min-width: 150px;
+}
+.chainStep b { display: block; font-size: 15px; }
+.chainStep span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.chainMark {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: var(--muted);
+  margin-bottom: 6px;
+}
+.chainOurs { border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(18,169,107,0.15); }
+.chainOurs .chainMark { color: var(--accent-green); }
+.chainArrow {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  color: var(--accent-green); font-weight: 700;
+}
+
+/* Markets grid (Tier 3.2) */
+.marketGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.marketCell {
+  background: #fff; border: 1px solid rgba(11,27,20,0.08); border-radius: var(--radius2);
+  padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.marketCell b { font-size: 14.5px; }
+.marketPill {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+}
+.pill-launching { background: rgba(23,201,127,0.16); color: #0d7a4e; }
+.pill-ready { background: rgba(18,169,107,0.10); color: var(--accent-green); }
+.pill-in-motion { background: rgba(224,168,46,0.16); color: #8a5d06; }
+.pill-strategic { background: rgba(11,27,20,0.07); color: var(--muted); }
+
+/* Working together timeline (Tier 3.5) */
+.timelineRow { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 26px; }
+.timelineStep {
+  position: relative; background: #fff; border: 1px solid rgba(11,27,20,0.10);
+  border-radius: var(--radius2); padding: 12px 36px 12px 18px; text-align: center;
+}
+.timelineStep b { display: block; font-size: 13px; letter-spacing: 0.08em; color: var(--accent-green); }
+.timelineStep span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+@media (max-width: 900px) {
+  .statStrip { grid-template-columns: repeat(2, 1fr); }
+  .marketGrid { grid-template-columns: repeat(2, 1fr); }
+  .gapRow { grid-template-columns: 1fr; gap: 4px; }
+}

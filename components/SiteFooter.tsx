@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/siteConfig";
+import { claims } from "@/content/claims";
 
 export default function SiteFooter() {
   return (
@@ -9,15 +10,11 @@ export default function SiteFooter() {
           <div>{siteConfig.domain}</div>
         </div>
 
-        <div style={{ marginTop: 12 }}>
-          {siteConfig.footerFinePrint.map((line) => (
-            <div key={line} className="small" style={{ marginTop: 6 }}>
-              {line}
-            </div>
-          ))}
+        {/* Tier 1.6: verbatim compliance disclaimer on every page. */}
+        <div className="small" style={{ marginTop: 12, lineHeight: 1.7 }}>
+          {claims.footerDisclaimer}
         </div>
       </div>
     </footer>
   );
 }
-

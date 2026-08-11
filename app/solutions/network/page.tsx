@@ -36,12 +36,12 @@ export default function MpeNetworkPage() {
               </p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                Papaya Global is MPE Network&apos;s primary execution partner,
-                giving customers access to licensed global payment
-                infrastructure and partner-connected banking networks,
-                including J.P. Morgan and Citi, while MPE keeps
-                orchestration, routing logic, visibility, and operational
-                control in the customer-facing layer.
+                Licensed execution partners give customers access to global
+                payment infrastructure and partner-connected banking networks —
+                with client funds safeguarded at global systemically important
+                banks — while MPE keeps orchestration, routing logic,
+                visibility, and operational control in the customer-facing
+                layer.
               </p>
 
               <div className="btnRow">
@@ -135,10 +135,9 @@ export default function MpeNetworkPage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Execution foundation</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Papaya Global is the primary execution partner behind MPE
-                Network, extending MPE into a stronger global delivery
-                layer that includes banking networks associated with
-                institutions such as J.P. Morgan and Citi. MPE remains the
+                Licensed execution partners extend MPE Network into a stronger
+                global delivery layer, including banking networks at global
+                systemically important institutions. MPE remains the
                 system of control for workflow, visibility, routing, and
                 governance.
               </p>

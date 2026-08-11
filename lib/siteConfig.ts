@@ -18,13 +18,10 @@ export const siteConfig = {
     topLevel: [
       { label: "Use Cases", href: "/use-cases" },
       { label: "Industries", href: "/industries" },
+      { label: "Markets", href: "/#markets" },
+      { label: "For institutions", href: "/#institutions" },
     ] satisfies NavItem[],
     platform: [
-      {
-        label: "Satellite Resilience",
-        href: "/satellite",
-        description: "Resilience and assurance for constrained environments.",
-      },
       {
         label: "Unified Architecture",
         href: "/unified-approach",
@@ -34,12 +31,6 @@ export const siteConfig = {
         label: "Trust & Controls",
         href: "/trust-controls",
         description: "Policy, approvals, lifecycle control, and audit authority.",
-      },
-      {
-        label: "Beyond Earth",
-        href: "/future-commerce",
-        description:
-          "Why hard payment environments on Earth are the proving ground for frontier finance.",
       },
       {
         label: "Resources",
@@ -59,21 +50,15 @@ export const siteConfig = {
         description: "Global workforce execution coordinated through MPE.",
       },
       {
-        label: "MPE Balance",
-        href: "/solutions/balance",
-        description: "Worker financial accounts for globally distributed teams.",
-      },
-      {
         label: "MPE Network",
         href: "/solutions/network",
         description: "Access to global rails through licensed infrastructure partners.",
       },
     ] satisfies NavItem[],
   },
-  footerFinePrint: [
-    "MPE is developed by MPE Solutions Inc.",
-    "MPE Solutions Inc. provides orchestration and control software. Payment execution infrastructure includes licensed partners such as Papaya Global.",
-  ],
+  // Tier 1.6: the compliance footer is rendered verbatim from
+  // content/claims.ts (claims.footerDisclaimer) on every page.
+  footerFinePrint: [] as string[],
   solutionPages: {
     os: {
       title: "MPE OS",
@@ -97,17 +82,6 @@ export const siteConfig = {
         "Benefits and statutory payments",
         "Compliance and tax handling",
         "Centralized visibility across entities and regions",
-      ],
-    },
-    balance: {
-      title: "MPE Balance",
-      subtext: "Worker financial accounts designed for globally distributed teams.",
-      capabilities: [
-        "Worker wallet experience (white-labeled)",
-        "Multi-currency balances",
-        "Cross-border remittance and family support flows",
-        "Faster access to wages (where available)",
-        "Card access and paycard replacement (where available)",
       ],
     },
     network: {
