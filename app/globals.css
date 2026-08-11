@@ -2750,9 +2750,10 @@ img {
 .ebDoor { background: rgba(18,41,29,0.75); border: 1px solid #24473A; border-radius: 18px; padding: 30px; }
 .ebDoor h3 { margin: 0; font-size: 20px; letter-spacing: -0.01em; color: #F2F7F4; }
 .ebDoor p { color: #9DBFAF; font-size: 15px; line-height: 1.7; margin: 10px 0 20px; }
-.productTrio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.productTrio { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .productTrio a.panel { text-decoration: none; display: block; transition: transform 0.15s, border-color 0.2s; }
 .productTrio a.panel:hover { transform: translateY(-2px); border-color: var(--accent-green); }
 .productTrio .panel .go { color: var(--accent-green); font-weight: 650; font-size: 14px; }
 .linkRow { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+@media (max-width: 1000px) { .productTrio { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 860px) { .ebDoors, .productTrio { grid-template-columns: 1fr; } }

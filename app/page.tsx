@@ -60,24 +60,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 — Mission. The one light band. */}
+      {/* 4 — Products. Four cards, one line each. */}
       <section className="deckLight">
         <div className="container deckInner">
           <section className="homeBand" data-animate>
-            <div className="panel" style={{ textAlign: "center", padding: 40 }}>
-              <h2 className="homeSectionTitle">We start where the system fails people</h2>
-              <p className="p" style={{ maxWidth: 700, margin: "14px auto 0" }}>
-                Every payday, workers lose <strong>{claims.wageLossRange}</strong> of
-                their wages just to send money home. If you can serve an
-                unbanked family in rural Oaxaca, you can serve anyone,
-                anywhere. That is the bar MPE builds to.
-              </p>
-            </div>
-          </section>
-
-          {/* 5 — Products. Three cards, one line each. */}
-          <section className="homeBand" data-animate>
             <div className="productTrio">
+              <Link href="/solutions/send" className="panel">
+                <h3 style={{ marginTop: 0 }}>MPE Send</h3>
+                <p className="p" style={{ margin: "10px 0 18px" }}>
+                  Money home, honestly priced.
+                </p>
+                <span className="go">Explore →</span>
+              </Link>
               <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
@@ -112,8 +106,9 @@ export default function Home() {
             <div className="ebDoor">
               <h3>For employers</h3>
               <p>
-                A benefit your workforce feels on the first payday: their own
-                money, honestly priced, arriving where it was earned to go.
+                One programme from payroll to payday: hire, onboard and pay
+                across borders — and your workforce enrols on site, in their
+                own languages, with licensed partners carrying every wage home.
               </p>
               <Link className="btnPrimary" href="/#kyc">Request Access</Link>
             </div>

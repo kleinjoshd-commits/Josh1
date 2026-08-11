@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import KycForm from "@/components/KycForm";
 
 export const metadata = {
   title: "About | MPE",
@@ -7,155 +8,68 @@ export const metadata = {
     "Why MPE exists: one relationship layer for globally mobile earners and their employers, with licensed partner institutions providing the regulated services.",
 };
 
+const BELIEFS = [
+  {
+    title: "The person, not the transaction",
+    body: "Every institution in the chain monetises one transaction, then loses the customer at the handoff. MPE exists to hold the person — their enrolment, their history, their trust — across every licensed handoff.",
+  },
+  {
+    title: "Hard places force better systems",
+    body: "Serving people the system forgot — across borders, weak networks and underbanked regions — forces infrastructure that is honest, resilient and simple. Systems built for the hardest places work everywhere.",
+  },
+  {
+    title: "Never hold the money",
+    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents. Licensed partner institutions provide the regulated services — enforced by architecture, not policy.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <main>
       <Nav />
 
-      <section className="deckLight">
-        <div className="wavesLight" />
-        <div className="container deckInner">
-          <div className="pageHeaderGrid">
-            <div>
-              <div className="eyebrow">
-                About <span className="dot" />
-                Mission and company
-              </div>
-
-              <h1 className="h1">Why MPE exists</h1>
-
-              <p className="p" style={{ maxWidth: 880 }}>
-                The company is built on a straightforward belief: workers
-                should not lose a meaningful share of their wages just to
-                support the people who depend on them.
-              </p>
-
-              <p className="p" style={{ marginTop: 14, maxWidth: 880 }}>
-                MPE serves globally mobile earners and their employers —
-                across the Gulf, Asia and the West — and the families in
-                rural or underbanked regions their wages support. Licensed
-                partner institutions provide the regulated services; MPE
-                holds the relationship.
-              </p>
-
-              <div className="btnRow">
-                <Link className="btnPrimary" href="/#kyc">
-                  Request Access
-                </Link>
-              </div>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What we believe</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                The hardest payment problems are the most important ones.
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                Hard-to-reach people and hard-to-reach places force better
-                infrastructure.
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                Systems that work across weak networks are the systems
-                that work everywhere.
-              </p>
-            </div>
-          </div>
-
-          <div className="kycGrid" style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What the platform offers today</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Employers can offer a workforce benefit with real weight: a
-                better outcome on payday for workers who support family across
-                borders. Money transfer and payment services within MPE
-                programmes are provided by licensed partner institutions in
-                each market.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Why families feel it</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Families can access funds without needing the right traditional
-                bank setup. Value can be held in USD where local currencies are
-                unstable. Reach can extend into rural and underbanked regions.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Why this leads to space</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                If you can build financial infrastructure that reaches an
-                unbanked family in rural Oaxaca with limited connectivity, you
-                are building the kind of resilient system that can operate in
-                much harder environments later.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>How we think about execution</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                MPE is the worker-facing and employer-facing layer. Licensed
-                partners support regulated execution where appropriate. That
-                keeps the experience clear while respecting how money movement
-                actually gets delivered.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 28 }}>
-            <div className="panel" style={{ textAlign: "center" }}>
-              <h3 style={{ marginTop: 0 }}>Our team</h3>
-              <p className="p" style={{ marginTop: 10, marginLeft: "auto", marginRight: "auto" }}>
-                The people building MPE: leadership, partnerships, finance,
-                and regional operations.
-              </p>
-              <div
-                style={{
-                  marginTop: 16,
-                  display: "flex",
-                  gap: 12,
-                  flexWrap: "wrap",
-                  justifyContent: "center",
-                }}
-              >
-                <Link className="btnPrimary" href="/about/team">
-                  Meet the team
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>The arc from today to tomorrow</h3>
-              <div className="networkOutcomeGrid">
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    Today, the mission is to help workers keep more of what they
-                    earn and help families access funds with less loss, less
-                    delay, and less dependence on fragile local infrastructure.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    Next, the same discipline applies to increasingly
-                    distributed and hard-to-reach financial environments where
-                    continuity and trust matter even more.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    Long term, MPE is on a mission to put the financial rails in
-                    space. That ambition has to prove itself first on Earth, in
-                    the real payment problems people live with every day.
-                  </p>
-                </div>
-              </div>
-            </div>
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">ABOUT MPE</div>
+          <h1>The relationship layer.</h1>
+          <p className="ebSub">
+            MPE serves globally mobile earners and their employers — across
+            the Gulf, Asia and the West — and the families their wages
+            support. Built on a straightforward belief: workers should not
+            lose a meaningful share of their wages just to support the people
+            who depend on them.
+          </p>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="/about/team">Meet the team</Link>
+            <Link className="btnSecondary" href="/#kyc">Talk to us</Link>
           </div>
         </div>
       </section>
+
+      <section className="deckLight">
+        <div className="container deckInner">
+          <section className="homeBand" data-animate>
+            <div className="outcomeGrid">
+              {BELIEFS.map((b) => (
+                <div key={b.title} className="panel">
+                  <h3 style={{ marginTop: 0 }}>{b.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{b.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="homeBand" data-animate>
+            <div className="gapBanner">
+              Leadership across payments, telecoms, Gulf banking and
+              Asia-Pacific financial services.{" "}
+              <Link href="/about/team" style={{ color: "inherit" }}>Meet the team →</Link>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <KycForm />
     </main>
   );
 }

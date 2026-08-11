@@ -15,7 +15,7 @@ const OUTCOMES = [
   },
   {
     title: "Then serve the worker",
-    body: "Payday is where most platforms stop. MPE continues: the same workers' own financial lives — the wage, the money sent home, the family's collection — served in their language, with licensed partner institutions providing the regulated services.",
+    body: "Payday is where most platforms stop. MPE continues: the same workers' own paydays, served through MPE Send — in their language, at an honest rate, with licensed partner institutions providing the regulated services.",
   },
   {
     title: "One relationship, end to end",
@@ -65,7 +65,8 @@ export default function WorkforcePage() {
 
           <section className="homeBand" data-animate>
             <div className="gapBanner">
-              A benefit workers feel on the first payday — and remember at renewal.
+              Enrolment where the workforce lives and works — wages home from
+              the first pay cycle.
             </div>
           </section>
 

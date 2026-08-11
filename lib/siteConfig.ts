@@ -42,6 +42,11 @@ export const siteConfig = {
     ] satisfies NavItem[],
     solutions: [
       {
+        label: "MPE Send",
+        href: "/solutions/send",
+        description: "The consumer experience: money home, honestly priced.",
+      },
+      {
         label: "MPE OS",
         href: "/solutions/os",
         description: "Orchestration and control for global payment operations.",
