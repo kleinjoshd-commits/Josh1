@@ -18,7 +18,7 @@ const CASES = [
     problem:
       "A food producer's payday ended at the bank transfer — and its migrant workforce lost 4-10% of every paycheck getting money the rest of the way home.",
     points: [
-      "Workers enrol at a staffed desk on site, in their own language, with a trained officer beside them for the first transfer.",
+      "Workers enrol in MPE Send at a staffed desk on site, in their own language, with a trained officer beside them for the first transfer.",
       "The full cost is shown before signup — the rate, in the open, before anyone commits to anything.",
       "Money transfer services are provided by licensed partner institutions; the employer simply offers the programme as a benefit.",
     ],
@@ -96,34 +96,27 @@ export default function UseCasesPage() {
             <div className="homeSectionHeader homeContextHeader">
               <h2 className="homeSectionTitle">Start where it fits</h2>
             </div>
-            <div className="outcomeGrid">
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE OS</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Every payment approved, routed and proven.
-                </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>
-                </div>
-              </div>
-              <div className="panel">
+            <div className="productTrio">
+              <Link href="/solutions/send" className="panel">
+                <h3 style={{ marginTop: 0 }}>MPE Send</h3>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Money home, honestly priced.</p>
+                <span className="go">Explore →</span>
+              </Link>
+              <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  From the payroll file to the family.
-                </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/workforce">Explore MPE Workforce</Link>
-                </div>
-              </div>
-              <div className="panel">
+                <p className="p" style={{ margin: "10px 0 18px" }}>From the payroll file to the family.</p>
+                <span className="go">Explore →</span>
+              </Link>
+              <Link href="/solutions/network" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Every corridor, the best licensed partner.
-                </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>
-                </div>
-              </div>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Every corridor, the best licensed partner.</p>
+                <span className="go">Explore →</span>
+              </Link>
+              <Link href="/solutions/os" className="panel">
+                <h3 style={{ marginTop: 0 }}>MPE OS</h3>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Every payment approved, routed and proven.</p>
+                <span className="go">Explore →</span>
+              </Link>
             </div>
           </section>
         </div>
