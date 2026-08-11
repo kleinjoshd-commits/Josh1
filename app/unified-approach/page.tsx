@@ -6,6 +6,14 @@ export default function UnifiedApproachPage() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">PLATFORM ARCHITECTURE</div>
+          <h1>One control plane. Payments end to end.</h1>
+          <p className="ebSub">MPE governs the decisions that matter: funding, FX decision points, approvals, and payout authorization. Execution routes through trusted local banks and licensed partners. Embed MPE where it adds the most control, or run it as the central operating layer across the stack.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
@@ -13,24 +21,8 @@ export default function UnifiedApproachPage() {
           <div className="pageHeaderGrid">
             {/* LEFT: NARRATIVE */}
             <div>
-              <div className="eyebrow">
-                Platform architecture <span className="dot" />
-                Unified control plane
-              </div>
 
-              <h1 className="h1" style={{ marginBottom: 12 }}>
-                One control plane.
-                <br />
-                Payments end to end.
-              </h1>
 
-              <p className="p" style={{ maxWidth: 860 }}>
-                MPE governs the decisions that matter: funding, FX decision
-                points, approvals, and payout authorization. Execution
-                routes through trusted local banks and licensed partners. Embed
-                MPE where it adds the most control, or run it as the central
-                operating layer across the stack.
-              </p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
                 This is a layered architecture: a single governed operating

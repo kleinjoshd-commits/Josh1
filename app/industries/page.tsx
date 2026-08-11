@@ -12,25 +12,21 @@ export default function IndustriesPage() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">INDUSTRIES</div>
+          <h1>Built for Distributed, Global Operations</h1>
+          <p className="ebSub">Organizations operating across regions, contractors, assets, and partners require financial control that matches the complexity of their operations. MPE provides a single operational layer for managing payments across distributed and mission-critical environments.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
           <div className="pageHeaderGrid">
             <div>
-              <div className="eyebrow">
-                Industries <span className="dot" />
-                Distributed financial operations
-              </div>
 
-              <h1 className="h1">Built for Distributed, Global Operations</h1>
 
-              <p className="p" style={{ maxWidth: 900 }}>
-                Organizations operating across regions, contractors, assets,
-                and partners require financial control that matches the
-                complexity of their operations. MPE provides a single
-                operational layer for managing payments across distributed and
-                mission-critical environments.
-              </p>
 
               <div className="btnRow">
                 <Link className="btnPrimary" href="/#kyc">

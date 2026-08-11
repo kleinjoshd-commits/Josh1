@@ -5,7 +5,7 @@ import KycForm from "@/components/KycForm";
 export const metadata = {
   title: "About | MPE",
   description:
-    "Why MPE exists: one relationship layer for globally mobile earners and their employers, with licensed partner institutions providing the regulated services.",
+    "Why MPE exists: money for the world's newest earners — one relationship, held across every licensed handoff, with partner institutions providing the regulated services.",
 };
 
 const BELIEFS = [
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">ABOUT MPE</div>
-          <h1>The relationship layer.</h1>
+          <h1>We hold the person.</h1>
           <p className="ebSub">
             MPE serves globally mobile earners and their employers — across
             the Gulf, Asia and the West — and the families their wages

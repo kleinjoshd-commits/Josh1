@@ -33,7 +33,7 @@ export const claims = {
 
   /** Hero (Tier 2.1). */
   hero: {
-    headline: "One relationship layer for the world's newest earners.",
+    headline: "Money for the world's newest earners.",
     subheadline:
       "MPE connects globally mobile earners — and their employers — to best-in-class regulated financial infrastructure, and holds the customer relationship at every step. Built for the hard places global finance forgot.",
   },

@@ -6,6 +6,14 @@ export default function TrustControlsPage() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">TRUST &amp; CONTROLS</div>
+          <h1>Authority that persists under real-world conditions</h1>
+          <p className="ebSub">MPE is designed around a simple principle: {" "} execution moves money, but controls preserve authority.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
@@ -13,24 +21,8 @@ export default function TrustControlsPage() {
           <div className="pageHeaderGrid">
             {/* LEFT: NARRATIVE */}
             <div>
-              <div className="eyebrow">
-                Platform foundation <span className="dot" />
-                Trust & controls
-              </div>
 
-              <h1 className="h1">
-                Authority that persists
-                <br />
-                under real-world conditions
-              </h1>
 
-              <p className="p">
-                MPE is designed around a simple principle:
-                <strong>
-                  {" "}
-                  execution moves money, but controls preserve authority.
-                </strong>
-              </p>
 
               <p className="p" style={{ marginTop: 14 }}>
                 Trust & Controls define how funding, FX decisions, approvals,

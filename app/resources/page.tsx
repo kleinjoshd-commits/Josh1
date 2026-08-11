@@ -12,6 +12,14 @@ export default function ResourcesPage() {
     <main>
       <Nav />
 
+      <section className="emeraldBand">
+        <div className="ebWrap">
+          <div className="ebTag">RESOURCES</div>
+          <h1>How modern payment control actually works</h1>
+          <p className="ebSub">Operator-focused explanations of how enterprise payments are governed: lifecycle control, approvals, FX decisioning, execution abstraction, and resilience. Written for finance, payroll, and payments teams who need predictability across markets without re-platforming their stack.</p>
+        </div>
+      </section>
+
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
@@ -19,24 +27,8 @@ export default function ResourcesPage() {
           <div className="pageHeaderGrid">
             {/* LEFT */}
             <div>
-              <div className="eyebrow">
-                Resources <span className="dot" />
-                Reference notes for finance & operations
-              </div>
 
-              <h1 className="h1" style={{ marginBottom: 12 }}>
-                How modern payment control
-                <br />
-                actually works
-              </h1>
 
-              <p className="p" style={{ maxWidth: 900 }}>
-                Operator-focused explanations of how enterprise payments are
-                governed: lifecycle control, approvals, FX decisioning, execution
-                abstraction, and resilience. Written for finance, payroll, and
-                payments teams who need predictability across markets without
-                re-platforming their stack.
-              </p>
 
               <div className="btnRow" style={{ marginTop: 18 }}>
                 <Link className="btnPrimary" href="/#kyc">
