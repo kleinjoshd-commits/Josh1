@@ -117,10 +117,12 @@ export default function LicensedMap() {
           background:radial-gradient(120% 90% at 20% 0%, #103524 0%, var(--mBg) 45%, var(--mBg2) 100%);
           color:var(--mInk);
         }
-        .mpeMap .wrap{max-width:1240px;margin:0 auto;padding:70px 28px 60px}
-        .mpeMap .tag{color:var(--mFaint);font-size:11px;font-weight:700;letter-spacing:3px}
-        .mpeMap h2{font-size:clamp(30px,3.6vw,44px);margin:10px 0 8px;color:var(--mInk)}
-        .mpeMap .sub{color:var(--mSub);font-size:16px;max-width:760px}
+        .mpeMap .wrap{max-width:1120px;margin:0 auto;padding:64px 24px 56px}
+        .mpeMap .tag{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:999px;
+          border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.06);
+          color:var(--mSub);font-size:12px;font-weight:650;letter-spacing:0.14em}
+        .mpeMap h2{font-size:30px;line-height:1.12;font-weight:620;letter-spacing:-0.02em;margin:14px 0 10px;color:var(--mInk)}
+        .mpeMap .sub{color:var(--mSub);font-size:15.5px;line-height:1.7;max-width:760px}
         .mpeMap .maprow{display:grid;grid-template-columns:1fr 250px;gap:34px;align-items:start;margin-top:38px}
         .mpeMap .mapbox{position:relative}
         .mpeMap #worldmap{width:100%;height:auto;display:block;filter:drop-shadow(0 20px 60px rgba(0,0,0,.45))}
@@ -138,7 +140,7 @@ export default function LicensedMap() {
         .mpeMap svg.f-licensed .c:not(.licensed),.mpeMap svg.f-payout .c:not(.payout),
         .mpeMap svg.f-motion .c:not(.motion),.mpeMap svg.f-extended .c:not(.extended){opacity:.18}
         .mpeMap .legend{display:flex;flex-direction:column;gap:10px;position:sticky;top:30px}
-        .mpeMap .lg{background:rgba(18,41,29,.75);border:1px solid var(--mLine);border-radius:12px;padding:14px 16px;transition:border-color .2s,transform .15s;cursor:pointer}
+        .mpeMap .lg{background:rgba(18,41,29,.75);border:1px solid var(--mLine);border-radius:16px;padding:14px 16px;transition:border-color .2s,transform .15s;cursor:pointer}
         .mpeMap .lg:hover{border-color:var(--mGrn);transform:translateX(-3px)}
         .mpeMap .lg .row{display:flex;align-items:center;gap:10px}
         .mpeMap .lg .sw{width:16px;height:16px;border-radius:5px;flex:none}
@@ -154,9 +156,9 @@ export default function LicensedMap() {
         .mapTip span{color:#9DBFAF;font-size:11.5px}
         .mapTip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
         .mpeMap .statsline{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid var(--mLine)}
-        .mpeMap .sl b{font-size:30px;color:var(--mEmerald)}
+        .mpeMap .sl b{font-size:28px;font-weight:620;letter-spacing:-0.02em;color:var(--mEmerald)}
         .mpeMap .sl span{display:block;font-size:12px;color:var(--mSub)}
-        .mpeMap .foot-quote{font-style:italic;color:var(--mGrn);text-align:center;font-size:17px;margin-top:40px}
+        .mpeMap .foot-quote{color:var(--mSub);text-align:center;font-size:15.5px;margin-top:36px}
         @media(max-width:860px){.mpeMap .maprow{grid-template-columns:1fr}.mpeMap .legend{flex-direction:row;flex-wrap:wrap;position:static}.mpeMap .lg{flex:1 1 45%}}
       `}</style>
     </section>

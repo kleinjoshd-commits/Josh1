@@ -1283,7 +1283,7 @@ img {
   padding: 36px 0 34px;
   display: grid;
   gap: 30px;
-  grid-template-columns: minmax(0, 1.32fr) minmax(260px, 0.68fr);
+  grid-template-columns: 1fr;
   align-items: start;
 }
 
@@ -2613,29 +2613,32 @@ img {
 .statStrip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 14px;
   margin-top: 42px;
-  padding: 26px 0;
-  border-top: 1px solid rgba(11,27,20,0.10);
-  border-bottom: 1px solid rgba(11,27,20,0.10);
 }
-.statCell b { display: block; font-size: 34px; letter-spacing: -0.02em; color: var(--accent-green); }
-.statCell span { display: block; margin-top: 4px; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+.statCell {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.statCell b { display: block; font-size: 32px; font-weight: 620; letter-spacing: -0.02em; color: var(--accent-green); }
+.statCell span { display: block; margin-top: 6px; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
 
 /* The gap (Tier 2.4) */
 .gapRows { display: grid; gap: 10px; max-width: 860px; margin: 0 auto; }
 .gapRow {
   display: grid; grid-template-columns: 220px 1fr; gap: 16px; align-items: baseline;
-  background: #fff; border: 1px solid rgba(11,27,20,0.08); border-radius: var(--radius2);
-  padding: 16px 20px;
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius2);
+  padding: 18px 22px;
 }
 .gapRow b { font-size: 15px; }
 .gapRow span { color: var(--muted); font-size: 14.5px; line-height: 1.6; }
 .gapBanner {
   margin: 26px auto 0; max-width: 860px; text-align: center;
   background: rgba(18,169,107,0.08); border: 1px solid rgba(18,169,107,0.25);
-  border-radius: var(--radius2); padding: 18px 24px;
-  font-weight: 600; line-height: 1.6;
+  border-radius: var(--radius); padding: 20px 26px;
+  font-weight: 600; line-height: 1.6; color: var(--ink);
 }
 
 /* How the money moves (Tier 2.6) */
@@ -2644,7 +2647,7 @@ img {
   align-items: stretch; margin-top: 10px;
 }
 .chainStep {
-  position: relative; background: #fff; border: 1px solid rgba(11,27,20,0.10);
+  position: relative; background: var(--surface); border: 1px solid var(--hairline);
   border-radius: var(--radius2); padding: 14px 34px 14px 18px; min-width: 150px;
 }
 .chainStep b { display: block; font-size: 15px; }
@@ -2663,7 +2666,7 @@ img {
 /* Markets grid (Tier 3.2) */
 .marketGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .marketCell {
-  background: #fff; border: 1px solid rgba(11,27,20,0.08); border-radius: var(--radius2);
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius2);
   padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
 }
 .marketCell b { font-size: 14.5px; }
@@ -2679,7 +2682,7 @@ img {
 /* Working together timeline (Tier 3.5) */
 .timelineRow { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 26px; }
 .timelineStep {
-  position: relative; background: #fff; border: 1px solid rgba(11,27,20,0.10);
+  position: relative; background: var(--surface); border: 1px solid var(--hairline);
   border-radius: var(--radius2); padding: 12px 36px 12px 18px; text-align: center;
 }
 .timelineStep b { display: block; font-size: 13px; letter-spacing: 0.08em; color: var(--accent-green); }

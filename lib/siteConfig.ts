@@ -18,10 +18,18 @@ export const siteConfig = {
     topLevel: [
       { label: "Use Cases", href: "/use-cases" },
       { label: "Industries", href: "/industries" },
-      { label: "Markets", href: "/#markets" },
-      { label: "For institutions", href: "/#institutions" },
     ] satisfies NavItem[],
     platform: [
+      {
+        label: "Markets",
+        href: "/#markets",
+        description: "Where MPE programmes stand, market by market.",
+      },
+      {
+        label: "For institutions",
+        href: "/#institutions",
+        description: "What MPE brings a licensed institution.",
+      },
       {
         label: "Unified Architecture",
         href: "/unified-approach",

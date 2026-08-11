@@ -119,31 +119,6 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-
-              <div className="homeHeroRail" aria-label="Operating priorities">
-                <div className="homeHeroRailLabel">Why it matters</div>
-                <div className="homeHeroRailList">
-                  {[
-                    {
-                      title: "More wages reach home",
-                      body: "Built so more of each paycheck reaches the people it was earned for.",
-                    },
-                    {
-                      title: "A real employer benefit",
-                      body: "Employers can offer something workers feel immediately: a better outcome after payday.",
-                    },
-                    {
-                      title: "One owned relationship",
-                      body: "The worker's enrolment, history and trust stay with MPE across every rail and every market.",
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="homeHeroRailItem">
-                      <h3>{item.title}</h3>
-                      <p>{item.body}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Stat strip (Tier 2.2) — the only approved figures. */}
