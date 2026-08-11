@@ -2757,3 +2757,15 @@ img {
 .linkRow { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
 @media (max-width: 1000px) { .productTrio { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 860px) { .ebDoors, .productTrio { grid-template-columns: 1fr; } }
+
+/* After the emerald-hero conversion the platform pages' pageHeaderGrid
+   lost its left-column heading, leaving a lopsided two-column shell.
+   It now flows as one centered column, panels full width. */
+.pageHeaderGrid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 18px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pageHeaderGrid > div:first-child:empty { display: none; }
