@@ -7,35 +7,27 @@ type KycResponse = {
   error?: string;
 };
 
+const INTERESTS = ["Employer programme", "Licensed institution", "Partner or other"];
+
 export default function KycForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [interest, setInterest] = useState(INTERESTS[0]);
 
   if (submitted) {
     return (
-      <section id="kyc" className="deckDark">
-        <div className="container darkInner">
-          <div
-            style={{
-              maxWidth: 760,
-              margin: "0 auto",
-              padding: 28,
-              borderRadius: 20,
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.12)",
-            }}
-          >
-            <h3 style={{ marginTop: 0 }}>Thanks, we’ll reach out</h3>
-
-            <p style={{ opacity: 0.78, marginTop: 10 }}>
-              Someone from our team will review your information and contact you
-              shortly to discuss your workforce, corridor needs, and next steps.
+      <section id="kyc" className="emeraldBand">
+        <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
+          <div className="ebTag">TALK TO US</div>
+          <div className="kycCard">
+            <h3 style={{ marginTop: 0 }}>Received. A person will reply.</h3>
+            <p style={{ opacity: 0.8, marginTop: 10 }}>
+              Your note went to the team, not a queue. We will come back to you
+              about your programme and the right way to start.
             </p>
-
-            <p style={{ opacity: 0.62, marginTop: 12, fontSize: 14 }}>
-              No obligation. We will review whether MPE fits your workforce
-              benefit or partner model.
+            <p style={{ opacity: 0.6, marginTop: 12, fontSize: 14 }}>
+              No obligation, and nothing is shared beyond MPE.
             </p>
           </div>
         </div>
@@ -55,6 +47,7 @@ export default function KycForm() {
         Array.from(fd.entries()).map(([key, value]) => [key, String(value)])
       );
 
+      payload.interest = interest;
       payload.pageUrl = window.location.href;
       payload.submittedAtIso = new Date().toISOString();
       payload.userAgent = navigator.userAgent;
@@ -84,49 +77,37 @@ export default function KycForm() {
     }
   }
 
-  const inputStyle = {
-    padding: 14,
-    borderRadius: 14,
-    border: "1px solid rgba(255,255,255,0.18)",
-    background: "rgba(255,255,255,0.85)",
-    color: "#000",
-  };
-
   return (
-    <section id="kyc" className="deckDark">
-      <div className="container darkInner">
-        <div
-          style={{
-            maxWidth: 760,
-            margin: "0 auto",
-            padding: 28,
-            borderRadius: 20,
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.12)",
-          }}
-        >
-          <h3 style={{ marginTop: 0 }}>Request Access</h3>
-
-          <p style={{ opacity: 0.82, marginTop: 8 }}>
-            Share a few details about your organization. We will follow up to
-            understand your workforce, payment corridors, and where MPE may fit.
+    <section id="kyc" className="emeraldBand">
+      <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
+        <div className="ebTag">TALK TO US</div>
+        <div className="kycHead">
+          <h2>Start the conversation.</h2>
+          <p>
+            An employer programme, an institutional partnership, or something
+            we have not thought of yet: share a few details and the right
+            person replies.
           </p>
+        </div>
 
-          <p style={{ opacity: 0.7, marginTop: 6 }}>
-            MPE builds employer and institution programmes end to end, with
-            licensed partner institutions providing the regulated services in
-            each market.
-          </p>
+        <div className="kycCard">
+          {/* Who is writing: shapes the follow-up, travels with the form. */}
+          <div className="kycPills" role="radiogroup" aria-label="I am contacting MPE as">
+            {INTERESTS.map((i) => (
+              <button
+                key={i}
+                type="button"
+                role="radio"
+                aria-checked={interest === i}
+                className={"kycPill" + (interest === i ? " kycPillOn" : "")}
+                onClick={() => setInterest(i)}
+              >
+                {i}
+              </button>
+            ))}
+          </div>
 
-          <form
-            style={{
-              marginTop: 22,
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 16,
-            }}
-            onSubmit={onSubmit}
-          >
+          <form className="kycFormGrid" onSubmit={onSubmit}>
             <input
               name="website"
               tabIndex={-1}
@@ -148,80 +129,49 @@ export default function KycForm() {
             <input
               name="companyName"
               required
-              placeholder="Company name"
-              style={{ ...inputStyle, gridColumn: "span 2" }}
+              placeholder="Organization"
+              className="kycInput kycSpan2"
             />
-
-            <input
-              name="fullName"
-              required
-              placeholder="Your name"
-              style={inputStyle}
-            />
-
+            <input name="fullName" required placeholder="Your name" className="kycInput" />
             <input
               name="email"
               required
               type="email"
               placeholder="Work email"
-              style={inputStyle}
+              className="kycInput"
             />
-
             <input
               name="countryOrRegion"
               placeholder="Country / region"
-              style={inputStyle}
+              className="kycInput"
             />
-
             <input
               name="monthlyPayoutVolume"
-              placeholder="Estimated monthly payout volume (optional)"
-              style={inputStyle}
+              placeholder="Estimated monthly volume (optional)"
+              className="kycInput"
             />
-
             <textarea
               name="useCase"
-              placeholder="Tell us a bit about your use case (optional)"
+              placeholder="What would you like to build? (optional)"
               rows={4}
-              style={{ ...inputStyle, gridColumn: "span 2" }}
+              className="kycInput kycSpan2"
             />
 
-            {error ? (
-              <div
-                style={{
-                  gridColumn: "span 2",
-                  padding: 12,
-                  borderRadius: 14,
-                  border: "1px solid rgba(255,80,80,0.35)",
-                  background: "rgba(255,80,80,0.10)",
-                  color: "rgba(255,255,255,0.92)",
-                  fontSize: 14,
-                }}
-              >
-                {error}
-              </div>
-            ) : null}
+            {error ? <div className="kycError kycSpan2">{error}</div> : null}
 
-            <div style={{ gridColumn: "span 2", marginTop: 14 }}>
+            <div className="kycSpan2" style={{ marginTop: 6 }}>
               <button
                 type="submit"
                 className="btnPrimary"
                 style={{ width: "100%", opacity: sending ? 0.85 : 1 }}
                 disabled={sending}
               >
-                {sending ? "Sending..." : "Request Access"}
+                {sending ? "Sending..." : "Talk to us"}
               </button>
-
-              <p
-                style={{
-                  marginTop: 10,
-                  fontSize: 13,
-                  opacity: 0.65,
-                  textAlign: "center",
-                }}
-              >
-                No obligation. We will reach out to discuss fit, supported
-                corridors, and workforce needs.
+              <p className="kycFine">
+                No obligation. A person replies, and nothing is shared beyond
+                MPE. Money transfer and payment services within MPE programmes
+                are provided by licensed partner institutions in each market.
               </p>
             </div>
           </form>
