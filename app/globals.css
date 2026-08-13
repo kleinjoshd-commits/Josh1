@@ -2801,7 +2801,7 @@ img {
 .kycHead h2 { font-size: 30px; line-height: 1.12; font-weight: 620; letter-spacing: -0.02em; margin: 14px 0 10px; color: #F2F7F4; }
 .kycHead p { color: #9DBFAF; font-size: 15.5px; line-height: 1.7; max-width: 640px; }
 .kycCard {
-  margin-top: 28px; max-width: 760px;
+  margin: 28px auto 0; max-width: 760px;
   background: rgba(18,41,29,0.75); border: 1px solid #24473A;
   border-radius: 18px; padding: 28px;
 }
@@ -2829,3 +2829,6 @@ img {
 }
 .kycFine { margin-top: 12px; font-size: 12.5px; color: #6E8A7C; line-height: 1.6; text-align: center; }
 @media (max-width: 700px) { .kycFormGrid { grid-template-columns: 1fr; } .kycSpan2 { grid-column: span 1; } }
+
+.kycCenter { text-align: center; }
+.kycCenter .kycHead p { margin-left: auto; margin-right: auto; }

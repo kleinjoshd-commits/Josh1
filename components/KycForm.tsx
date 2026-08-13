@@ -80,6 +80,7 @@ export default function KycForm() {
   return (
     <section id="kyc" className="emeraldBand">
       <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
+        <div className="kycCenter">
         <div className="ebTag">TALK TO US</div>
         <div className="kycHead">
           <h2>Start the conversation.</h2>
@@ -88,6 +89,7 @@ export default function KycForm() {
             we have not thought of yet: share a few details and the right
             person replies.
           </p>
+        </div>
         </div>
 
         <div className="kycCard">

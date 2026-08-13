@@ -137,6 +137,7 @@ export default function LicensedMap() {
         .mpeMap .c{fill:var(--mBase);stroke:#0E3B2A;stroke-width:1.1;transition:fill .25s,opacity .3s;cursor:default}
         .mpeMap .c.payout{fill:var(--mPayout);cursor:pointer}
         .mpeMap .c.licensed{fill:var(--mEmerald);cursor:pointer}
+        .mpeMap .c.marker{stroke:#F2F7F4;stroke-width:2.5}
         .mpeMap .c.extended{fill:var(--mTeal);cursor:pointer}
         .mpeMap .c.motion{fill:var(--mGold);cursor:pointer;animation:mpeBreathe 3.2s ease-in-out infinite}
         @keyframes mpeBreathe{0%,100%{fill:var(--mGold)}50%{fill:var(--mGoldHi)}}

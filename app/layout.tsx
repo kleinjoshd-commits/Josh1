@@ -10,6 +10,7 @@ export const metadata = {
     "MPE connects globally mobile earners and their employers to regulated financial infrastructure, and holds the customer relationship at every step. Money transfer and payment services within MPE programmes are provided by licensed partner institutions in each market.",
   icons: {
     icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
 };
 
