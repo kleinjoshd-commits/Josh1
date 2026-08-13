@@ -34,12 +34,16 @@ export default function Home() {
             <Link className="btnSecondary" href="/#partners">Partner with MPE</Link>
           </div>
           <div className="ebStats">
-            {claims.stats.map((s) => (
-              <div className="ebStat" key={s.label}>
-                <b>{s.value}</b>
-                <span>{s.label}</span>
-              </div>
-            ))}
+            {/* The 140+ countries figure lives with the map just below;
+                showing it here too said the same thing twice. */}
+            {claims.stats
+              .filter((s) => !s.label.includes("countries where money lands"))
+              .map((s) => (
+                <div className="ebStat" key={s.label}>
+                  <b>{s.value}</b>
+                  <span>{s.label}</span>
+                </div>
+              ))}
           </div>
           <p className="ebAttribution">{claims.serviceAttribution}</p>
         </div>

@@ -19,7 +19,7 @@ const LABEL: Record<string, [string, string, string]> = {
   licensed: ["Licensed network", "full MPE programmes can run here", "#17C97F"],
   payout: ["Payout & collection", "money lands here", "#57A87C"],
   motion: ["Licence in motion", "payout already live, licence underway", "#E0A82E"],
-  extended: ["Extended access", "reachable through partner licensing", "#2BA6B6"],
+  extended: ["Extended access", "via the Hong Kong extension", "#2BA6B6"],
 };
 
 export default function LicensedMap() {
@@ -98,7 +98,7 @@ export default function LicensedMap() {
             </div>
             <div className="lg extended" data-f="extended">
               <div className="row"><div className="sw" /><b>Extended access</b></div>
-              <p>China · via partner licensing</p>
+              <p>China · via the Hong Kong extension</p>
             </div>
             <div className="note">Access shown is the combined contracted and in-process partner network.</div>
           </div>
