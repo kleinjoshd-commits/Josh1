@@ -5,7 +5,7 @@ import KycForm from "@/components/KycForm";
 export const metadata = {
   title: "About | MPE",
   description:
-    "Why MPE exists: money for the world's newest earners, one relationship, held across every licensed handoff, with partner institutions providing the regulated services.",
+    "Why MPE exists: financial infrastructure for a borderless economy, one relationship, held across every licensed handoff, with partner institutions providing the regulated services.",
 };
 
 const BELIEFS = [
