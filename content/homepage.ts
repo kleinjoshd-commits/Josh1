@@ -65,7 +65,7 @@ export const homepageCopy = {
         image: "/media/built-distributors.webp",
       },
       {
-        title: "Machines and autonomy",
+        title: "Machines and autonomous systems",
         body: "Machines that pay their own way.",
         href: "#mfam",
         image: "/media/built-machines.webp",

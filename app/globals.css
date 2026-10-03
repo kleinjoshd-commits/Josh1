@@ -3654,9 +3654,16 @@ header.siteHeader {
   padding: 24px;
 }
 .hpShotCopy strong {
+  display: block;
   color: #f7f8f6;
-  font-size: 22px;
-  letter-spacing: -0.03em;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  text-wrap: wrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 .hpShotCopy p {
   margin: 8px 0 0;
@@ -3680,6 +3687,13 @@ header.siteHeader {
   .cineStats b { font-size: 22px; }
   .cineStats span { font-size: 10px; max-width: 16ch; min-height: 2.5em; line-height: 1.25; }
   .hpBuiltGrid a.hpShot { min-height: 320px; }
+  .hpShotCopy strong {
+    max-width: 12.05em;
+    font-size: 22px;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    text-wrap: wrap;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .routeFlow {
