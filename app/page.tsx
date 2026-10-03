@@ -97,6 +97,13 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="hpFilm" id="film" aria-labelledby="film-title">
+        <div className="hpWrap">
+          <h2 id="film-title">{homepageCopy.filmHeading}</h2>
+          <FilmPlayer source={homepageMedia.brand} still="modal" preview={false} preload="none" />
+        </div>
+      </section>
+
       <LicensedMap />
 
       <section className="hpMfam" id="mfam" aria-labelledby="mfam-title">

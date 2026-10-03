@@ -6,7 +6,7 @@
 export const homepageCopy = {
   heroKicker: "Financial infrastructure for a borderless economy",
   bookCta: "Book a call",
-  watchCta: "Watch the film",
+  filmHeading: "Watch the film",
   playCta: "Play film",
   closeCta: "Close",
   heroFine: "MPE never holds funds. Licensed partners do.",

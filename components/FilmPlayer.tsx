@@ -28,6 +28,10 @@ type Props = {
   background?: boolean;
   /** Framed hero window. Poster first, video after load. No play button. */
   framed?: boolean;
+  /** Stage still. The full film uses its own poster, not the loop frame. */
+  still?: "loop" | "modal";
+  /** Muted loop behind the poster. Off for a poster that only plays the full film. */
+  preview?: boolean;
 };
 
 function subscribeMotion(onChange: () => void) {
@@ -43,18 +47,28 @@ function motionNow() {
 function Poster({
   source,
   priority = "auto",
+  still = "loop",
 }: {
   source: HomepageFilm;
   eager?: boolean;
   priority?: "high" | "low" | "auto";
+  still?: "loop" | "modal";
 }) {
-  const webp = "loopPosterWebp" in source ? source.loopPosterWebp : undefined;
+  const modal = still === "modal" && "modalPoster" in source;
+  const src = modal ? source.modalPoster : source.loopPoster;
+  const webp = modal
+    ? "modalPosterWebp" in source
+      ? source.modalPosterWebp
+      : undefined
+    : "loopPosterWebp" in source
+      ? source.loopPosterWebp
+      : undefined;
   return (
     <picture>
       {webp ? <source srcSet={webp} type="image/webp" /> : null}
       {/* Plain img so the jpg fallback is what non-webp browsers serve. */}
       <img
-        src={source.loopPoster}
+        src={src}
         alt=""
         width={1920}
         height={1080}
@@ -67,7 +81,7 @@ function Poster({
 }
 
 const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
-  { source, lazy = false, preload = "metadata", background = false, framed = false },
+  { source, lazy = false, preload = "metadata", background = false, framed = false, still = "loop", preview = true },
   ref
 ) {
   const stageRef = useRef<HTMLDivElement>(null);
@@ -165,7 +179,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
     if (idRef.current != null) updatePlayer(idRef.current, { modal: open });
   }, [open]);
 
-  const mountVideo = allowMotion && (heroLoop ? armLoop : seen);
+  const mountVideo = preview && allowMotion && (heroLoop ? armLoop : seen);
   const stageClass = background ? "cineFill" : framed ? "heroLoop" : "hpStage";
 
   return (
@@ -174,6 +188,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
         {framed ? null : (
           <Poster
             source={source}
+            still={still}
             eager={!lazy || background}
             priority={background ? "low" : !lazy ? "high" : "low"}
           />
@@ -183,7 +198,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             ref={loopRef}
             className={shown ? "isOn" : undefined}
             data-loop={heroLoop ? "hero" : "mfam"}
-            poster={source.loopPoster}
+            poster={still === "modal" && "modalPoster" in source ? source.modalPoster : source.loopPoster}
             muted
             loop
             playsInline
@@ -197,8 +212,8 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             <source src={source.loopMp4} type="video/mp4" />
           </video>
         ) : null}
-        {background ? null : (
-          <button type="button" className={framed ? "hpPlay heroPlay" : "hpPlay"} onClick={openModal}>
+        {background || framed ? null : (
+          <button type="button" className="hpPlay" onClick={openModal}>
             <span className="hpPlayMark" aria-hidden="true">
               <svg width="11" height="12" viewBox="0 0 11 12">
                 <path d="M1 1.2v9.6L10 6 1 1.2z" fill="currentColor" />

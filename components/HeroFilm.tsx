@@ -1,15 +1,9 @@
-import { preload } from "react-dom";
 import { claims } from "@/content/claims";
 import { homepageCopy } from "@/content/homepage";
-import { homepageMedia } from "@/content/media";
-import FilmPlayer from "./FilmPlayer";
 import PaymentPanel from "./PaymentPanel";
 import StatCount from "./StatCount";
-import WatchFilm from "./WatchFilm";
 
 export default function HeroFilm() {
-  preload(homepageMedia.brand.loopPosterWebp, { as: "image", fetchPriority: "high" });
-
   return (
     <section className="cineHero">
       <div className="cineInner">
@@ -22,23 +16,9 @@ export default function HeroFilm() {
               <a className="btnPrimary" href="#kyc">
                 {homepageCopy.bookCta}
               </a>
-              <WatchFilm label={homepageCopy.watchCta} />
             </div>
           </div>
           <div className="cineMedia">
-            <div className="heroFrame">
-              {/* Server-rendered so the still can paint before the player hydrates. */}
-              <img
-                className="heroPoster"
-                src={homepageMedia.brand.loopPosterWebp}
-                alt=""
-                width={1600}
-                height={900}
-                decoding="sync"
-                fetchPriority="high"
-              />
-              <FilmPlayer source={homepageMedia.brand} framed preload="auto" />
-            </div>
             <PaymentPanel />
           </div>
           <div className="cineFoot">

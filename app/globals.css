@@ -2901,13 +2901,6 @@ img {
   backdrop-filter: blur(10px);
 }
 .hpPlay:hover { background: rgba(5, 8, 8, 0.92); }
-.heroPlay {
-  left: 50%;
-  top: 38%;
-  bottom: auto;
-  z-index: 2;
-  transform: translate(-50%, -50%);
-}
 .hpPlayMark {
   width: 32px;
   height: 32px;
@@ -4083,7 +4076,9 @@ html.js .hpShot img.isIn {
   position: relative;
   min-width: 0;
   align-self: center;
-  padding: 0 0 28px 18px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
 }
 .heroFrame {
   position: relative;
@@ -4107,23 +4102,14 @@ html.js .hpShot img.isIn {
   inset: 0;
 }
 .cineHero .cineMedia .payPanel {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 3;
-  width: min(300px, 84%);
+  position: relative;
+  left: auto;
+  bottom: auto;
+  z-index: 1;
+  width: min(440px, 100%);
   min-height: 0;
-  padding: 14px 14px 12px;
-  border-radius: 16px;
 }
-.cineHero .cineMedia .payBody { min-height: 0; gap: 10px; }
-.cineHero .cineMedia .payAmount { font-size: 28px; }
-.cineHero .cineMedia .payMeta b { font-size: 13px; }
-.cineHero .cineMedia .payMeta small { font-size: 11px; }
-.cineHero .cineMedia .payMark { width: 28px; height: 28px; border-radius: 8px; }
-.cineHero .cineMedia .payMark svg { width: 15px; height: 15px; }
-.cineHero .cineMedia .paySteps { gap: 6px; }
-.cineHero .cineMedia .paySteps li { font-size: 9px; letter-spacing: 0.02em; gap: 6px; }
+.cineHero .cineMedia .payBody { min-height: 220px; }
 .cineHero .cineStats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4157,31 +4143,15 @@ html.js .hpShot img.isIn {
   }
   .cineHero .cineCopy,
   .cineHero .cineFoot { align-self: stretch; }
-  .cineHero .cineMedia { padding: 4px 0 36px; }
-  .cineHero .cineMedia .payPanel {
-    left: 12px;
-    right: 12px;
-    width: auto;
-  }
+  .cineHero .cineMedia { justify-content: stretch; padding: 4px 0 0; }
+  .cineHero .cineMedia .payPanel { width: 100%; }
   .cineHero h1 { max-width: 12em; }
 }
 
 @media (max-width: 700px) {
   .cineHero .cineInner { padding: 96px var(--page-pad) 40px; }
-  .cineHero .cineMedia {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-  .cineHero .cineMedia .payPanel {
-    position: relative;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    /* 10% of the column width is about 18% of a 16:9 frame. */
-    margin-top: -10%;
-  }
+  .cineHero .cineMedia { padding: 0; }
+  .cineHero .cineMedia .payPanel { width: 100%; margin-top: 0; }
   .cineHero .cineMedia .payAmount { font-size: 26px; }
   .cineHero .cineStats { gap: 14px 16px; }
   .cineHero .cineStats b { font-size: 28px; }
@@ -4314,10 +4284,21 @@ main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
 }
 
 .hpWho,
-.hpDev {
+.hpDev,
+.hpFilm {
   background: #07110d;
   color: #f4f7f5;
 }
+.hpFilm h2 {
+  margin: 0 0 22px;
+  font-size: 44px;
+  line-height: 1.08;
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  color: #f7f8f6;
+  text-align: left;
+}
+.hpFilm .hpWrap { padding-top: 8px; padding-bottom: 72px; }
 .hpWho h2,
 .hpDev h2 {
   margin: 0;
@@ -4446,11 +4427,13 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
 }
 @media (max-width: 900px) {
   .hpWho h2,
-  .hpDev h2 { font-size: 36px; }
+  .hpDev h2,
+  .hpFilm h2 { font-size: 36px; }
 }
 @media (max-width: 700px) {
   .hpWho h2,
-  .hpDev h2 { font-size: 32px; }
+  .hpDev h2,
+  .hpFilm h2 { font-size: 32px; }
   .whoGrid,
   .cardGrid2,
   .trustList,
