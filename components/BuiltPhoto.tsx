@@ -24,7 +24,9 @@ export default function BuiltPhoto({
 
   useEffect(() => {
     const img = ref.current;
-    if (img && img.complete && img.naturalWidth > 0) setReady(true);
+    if (!img || !img.complete || img.naturalWidth === 0) return;
+    const frame = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const img = (

@@ -8,8 +8,7 @@
 export const homepageMedia = {
   brand: {
     title: "MPE film",
-    // Orchestration cut, trimmed before the zoom-out so the hero loop can restart.
-    // Swap in the seamless 1920 and 1280 re-cut by replacing these files.
+    // Seamless 12s orchestration loop. The hero plays it with the native loop attribute.
     loopWebm: "/media/mpe-brand-film-loop.webm",
     loopMp4: "/media/mpe-brand-film-loop.mp4",
     loopPoster: "/media/mpe-hero-loop-poster.jpg",

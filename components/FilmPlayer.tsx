@@ -100,7 +100,9 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
   const loopRef = useRef<HTMLVideoElement>(null);
   const repeatRef = useRef(repeat);
   const endedRef = useRef(false);
-  repeatRef.current = repeat;
+  useEffect(() => {
+    repeatRef.current = repeat;
+  }, [repeat]);
   const idRef = useRef<number | null>(null);
   const allowRef = useRef(false);
   const modalRef = useRef(false);
@@ -133,10 +135,13 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
 
   useEffect(() => {
     if (!heroLoop) return;
-    setArmLoop(true);
+    const frame = requestAnimationFrame(() => setArmLoop(true));
     const onOpen = () => openModal();
     window.addEventListener("mpe-open-film", onOpen);
-    return () => window.removeEventListener("mpe-open-film", onOpen);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("mpe-open-film", onOpen);
+    };
   }, [heroLoop, openModal]);
 
   useEffect(() => {
