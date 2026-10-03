@@ -33,6 +33,9 @@ export default function BusinessesPage() {
           <p className="p">
             Your people get verified, get paid, and send money home, from an app branded as yours.
           </p>
+          <p className="p">
+            Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. {product.funds} The card account sits with the issuing partner.
+          </p>
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">How you integrate</h2>
@@ -49,16 +52,6 @@ export default function BusinessesPage() {
               <li>Your people send money home</li>
               <li>You see payouts and verification in one console</li>
             </ul>
-          </div>
-
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">Spend and earn</h2>
-            <p className="p">
-              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement.
-            </p>
-            <p className="p">
-              {product.funds} The card account sits with the issuing partner.
-            </p>
           </div>
         </div>
       </section>
