@@ -39,10 +39,9 @@ export default function SolutionPage({
               <p className="p">{subtext}</p>
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                MPE orchestrates and controls global payment operations while
-                execution is provided by licensed partners. Governance, release
-                decisions, routing, and auditability stay in one operating
-                layer even when execution paths vary.
+                MPE provides orchestration and control software. Authorize,
+                Route, Sign. Licensed partners execute. MPE does not hold or
+                transmit customer funds.
               </p>
 
               <div className="btnRow">
@@ -124,21 +123,17 @@ export default function SolutionPage({
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>How it works</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                MPE orchestrates and controls the lifecycle from instruction
-                intake through approval, release, and settlement visibility.
-                Partner routing remains abstracted behind a governed operating
-                layer so enterprise teams do not need to redesign workflows each
-                time geography, network, or provider changes.
+                Authorize, Route, Sign, then Delivered. The payment takes the
+                best licensed path. MPE does not move the money.
               </p>
             </div>
 
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Operating model</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Policies, permissions, funding controls, audit trails, and
-                reporting stay centralized in MPE. Execution is provided by
-                licensed partners, which preserves compliance coverage without
-                positioning MPE as the executing entity.
+                Licensed partners provide the money transfer and payment
+                services. MPE does not hold or transmit customer funds, and
+                does not store customer identity documents.
               </p>
             </div>
           </div>
@@ -147,8 +142,8 @@ export default function SolutionPage({
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Execution &amp; Compliance</h3>
               <p className="p" style={{ marginTop: 10, maxWidth: "none" }}>
-                Global payment execution and regulatory coverage are provided
-                through licensed infrastructure partners in each market.
+                Money transfer and payment services within MPE programs are
+                provided by licensed partner institutions in each market.
               </p>
             </div>
           </div>

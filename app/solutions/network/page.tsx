@@ -6,21 +6,21 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE Network | MPE",
-  "Licensed reach in 140+ countries, 200+ direct bank connections and 130+ payout currencies. MPE never holds funds."
+  "140+ countries where money lands, 200+ direct bank connections, 130+ payout currencies. Licensed partners move the money. MPE never holds funds."
 );
 
 const OUTCOMES = [
   {
-    title: "Licensed reach",
-    body: "Money lands in 140+ countries through 200+ direct bank connections and 130+ payout currencies. Licensed partners provide the regulated services.",
+    title: "Where money lands",
+    body: "140+ countries, 200+ direct bank connections, 130+ payout currencies. Licensed partners provide the regulated services.",
   },
   {
     title: "Best route",
-    body: "Each payment routes to the licensed partner best placed for it. A better provider is a configuration change. The platform keeps the relationship.",
+    body: "Each payment takes the best licensed path. MPE does not move the money.",
   },
   {
     title: "MPE never holds funds",
-    body: "Licensed partners hold and move the money. MPE does not hold or transmit customer funds, and does not store customer identity documents.",
+    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents. Licensed partners do.",
   },
 ];
 
@@ -32,11 +32,12 @@ export default function NetworkPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE NETWORK</div>
-          <h1>Licensed reach, 140+ countries.</h1>
+          <h1>140+ countries, through licensed partners.</h1>
           <p className="ebSub">
-            One network of licensed partners, orchestrated as one system.
-            Outputs are bank, card, wallet, local account and machine.
-            Providers can change. The relationship stays.
+            Money lands through licensed partners. Outputs are bank, card,
+            wallet, local account and machine. Machine payments are in
+            development, patent pending. MPE is not a bank and does not move
+            the money.
           </p>
           <div className="ebStats">
             {claims.stats.map((stat) => (

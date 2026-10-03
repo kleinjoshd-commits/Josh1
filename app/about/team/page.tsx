@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Team | MPE",
-  "The people building MPE. Leadership across payments, telecoms, Gulf banking and Asia-Pacific financial services."
+  "The people building MPE."
 );
 
 type TeamMember = {
@@ -59,7 +59,7 @@ export default function TeamPage() {
         <div className="ebWrap">
           <div className="ebTag">THE TEAM</div>
           <h1>Our team</h1>
-          <p className="ebSub">Operators across payments, telecoms, Gulf banking and Asia-Pacific financial services.</p>
+          <p className="ebSub">The people building MPE.</p>
         </div>
       </section>
 

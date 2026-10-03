@@ -4,149 +4,51 @@ import KycForm from "@/components/KycForm";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Execution infrastructure | MPE",
-  "MPE is the operating layer. Licensed partners execute. Authorize, Route, Sign. MPE never holds funds."
+  "Execution | MPE",
+  "Licensed partners execute. MPE provides orchestration and control software and never holds funds."
 );
 
 export default function ExecutionInfrastructurePage() {
   return (
     <main className="sitePage">
       <Nav />
-
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>MPE governs. Partners execute.</h1>
-          <p className="ebSub">Approvals, routing and release stay in one layer. Licensed partners move the money. MPE never holds funds.</p>
+          <h1>Partners execute.</h1>
+          <p className="ebSub">
+            MPE provides orchestration and control software. Money transfer
+            and payment services within MPE programs are provided by licensed
+            partner institutions in each market.
+          </p>
+          <div className="btnRow">
+            <Link className="btnSecondary" href="/resources">Back to Resources</Link>
+            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+          </div>
         </div>
       </section>
-
       <section className="deckLight">
-        <div className="wavesLight" />
         <div className="container deckInner">
-          <div className="pageHeaderGrid">
-            <div>
-
-
-
-              <p className="p" style={{ marginTop: 12, maxWidth: 960 }}>
-                That separation lets finance teams keep one control model even
-                when execution spans local networks, cross-border partners,
-                banking networks, workforce infrastructure, and future network
-                constructs.
-              </p>
-
-              <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnSecondary" href="/resources">
-                  Back to Resources
-                </Link>
-                <Link className="btnPrimary" href="/#kyc">
-                  Request Access
-                </Link>
-              </div>
-            </div>
-
+          <div className="outcomeGrid">
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>At a glance</h3>
+              <h3 style={{ marginTop: 0 }}>What MPE does</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>MPE:</strong> orchestration, control, visibility, and
-                governed release
+                Orchestration and control. Authorize, Route, Sign. MPE does
+                not hold or transmit customer funds, and does not store
+                customer identity documents.
               </p>
+            </div>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>What partners do</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Execution partners:</strong> licensed payment delivery
-                and regulatory coverage
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Outcome:</strong> one operating model across a more
-                complex payment environment
+                Licensed partner institutions provide the money transfer and
+                payment services. MPE is not a bank and is not described here
+                as a money transmitter.
               </p>
             </div>
           </div>
-
-          <div className="kycGrid" style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What MPE controls</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Policy, approvals, release timing, funding readiness, FX
-                decision points, routing logic, exception handling, and the
-                operating record for every payment workflow.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What execution partners do</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Licensed partners provide the regulated execution layer:
-                delivery into local networks, jurisdictional coverage, local payment
-                mechanics, and compliance obligations tied to execution.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Why the separation matters</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Finance teams keep one system for authority and visibility
-                rather than rebuilding workflows every time execution
-                requirements vary by corridor, entity, or partner.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Primary execution foundation</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                In workforce and network contexts, our licensed global payroll
-                partner provides the primary execution foundation behind
-                MPE&apos;s operating layer, extending access to licensed global
-                payment infrastructure.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 28 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Operational model</h3>
-              <div className="kycGrid" style={{ marginTop: 16 }}>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    Finance defines what can happen: policy, approvals, funding,
-                    FX, and release conditions.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    MPE decides how execution should be governed across networks,
-                    partners, entities, and payment states, including
-                    AI-informed routing guidance within policy boundaries.
-                  </p>
-                </div>
-                <div className="networkOutcomeCard">
-                  <p className="p networkOutcomeCopy">
-                    Licensed infrastructure delivers execution while MPE
-                    preserves the operating record, visibility, and control
-                    model above it.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            style={{
-              marginTop: 26,
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-            }}
-          >
-            <Link className="btnSecondary" href="/resources/execution-routing">
-              Execution routing
-            </Link>
-            <Link className="btnSecondary" href="/unified-approach">
-              Unified architecture
-            </Link>
-            <Link className="btnPrimary" href="/#kyc">
-              Request Access
-            </Link>
+          <div className="btnRow" style={{ marginTop: 28 }}>
+            <Link className="btnSecondary" href="/resources/execution-routing">Routing</Link>
           </div>
         </div>
       </section>

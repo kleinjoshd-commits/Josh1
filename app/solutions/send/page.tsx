@@ -16,11 +16,11 @@ const OUTCOMES = [
   },
   {
     title: "Authorize, Route, Sign",
-    body: "Every payout follows the same path. Authorize the payment, route it, then sign. Delivered is the record.",
+    body: "Every payout follows the same path. Authorize, Route, Sign. Then the status is Delivered.",
   },
   {
     title: "Platforms keep the relationship",
-    body: "MPE never holds funds, and does not store customer identity documents. The platform keeps the customer.",
+    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents. You keep the relationship.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function SendPage() {
             payout currencies. Licensed partners move the money.
           </p>
           <div className="ebStats">
-            {claims.stats.map((stat) => (
+            {claims.stats.filter((stat) => stat.label !== "countries of payroll coverage").map((stat) => (
               <div className="ebStat" key={stat.label}>
                 <b>{stat.value}</b>
                 <span>{stat.label}</span>

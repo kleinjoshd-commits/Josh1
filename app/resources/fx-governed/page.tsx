@@ -4,170 +4,38 @@ import KycForm from "@/components/KycForm";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "FX | MPE",
-  "FX is decided inside Route, before Sign. Delivered amounts are known before the payment is released."
+  "Cross-border payments | MPE",
+  "Cross-border payments are part of the integration. Rates are not published. Licensed partners execute."
 );
 
 export default function FxGovernedResource() {
   return (
     <main className="sitePage">
       <Nav />
-
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>FX is part of Route.</h1>
-          <p className="ebSub">The rate is locked before Sign. Delivered amounts are known before the licensed partner executes.</p>
+          <h1>Cross-border payments.</h1>
+          <p className="ebSub">
+            Cross-border payments are part of the integration. 130+ payout
+            currencies. Rates, locks, and timing are not published on this
+            site.
+          </p>
+          <div className="btnRow">
+            <Link className="btnSecondary" href="/resources">Back to Resources</Link>
+            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+          </div>
         </div>
       </section>
-
       <section className="deckLight">
-        <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER, RESPONSIVE GRID */}
-          <div className="pageHeaderGrid">
-            {/* LEFT */}
-            <div>
-
-
-
-              <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
-                MPE treats FX as a{" "}
-                <strong>governed decision point</strong>: explicitly timed,
-                approved, and auditable, so delivered amounts are predictable
-                before funds are released.
-              </p>
-
-              <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnSecondary" href="/resources">
-                  Back to Resources
-                </Link>
-                <Link className="btnPrimary" href="/#kyc">
-                  Request a walkthrough
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT: AT-A-GLANCE */}
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>At a glance</h3>
-
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Problem:</strong> FX applied late and implicitly
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Approach:</strong> FX as an explicit, approved state
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Outcome:</strong> predictable payouts and fewer
-                exceptions
-              </p>
-
-              <div
-                style={{
-                  height: 1,
-                  opacity: 0.12,
-                  margin: "14px 0",
-                  background: "currentColor",
-                }}
-              />
-
-              <p className="p" style={{ margin: 0 }}>
-                Predictability matters more than theoretical best rates for
-                payroll, vendor runs, and regulated payouts.
-              </p>
-            </div>
-          </div>
-
-          {/* ARTICLE */}
-          <div style={{ marginTop: 28, maxWidth: 980 }}>
-            <h2 className="h2" style={{ marginBottom: 10 }}>
-              Why “best rate” is the wrong optimization
-            </h2>
-            <p className="p">
-              FX is often optimized for spot rate at the moment of execution.
-              While this may look efficient on paper, it introduces uncertainty
-              into delivered amounts, timing, and reconciliation, especially
-              across large payroll and vendor batches.
-            </p>
+          <div className="panel">
+            <h3 style={{ marginTop: 0 }}>What is stated</h3>
             <p className="p" style={{ marginTop: 10 }}>
-              When FX is applied late, teams lose the ability to answer basic
-              operational questions in advance: how much will be delivered, in
-              which currency, and when exceptions should be escalated.
+              Payout currencies are 130+. Licensed partners provide the
+              payment services. MPE does not publish a rate, a lock, or a
+              guarantee that a delivered amount is known in advance.
             </p>
-
-            <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
-              Treating FX as a lifecycle checkpoint
-            </h2>
-            <p className="p">
-              In a governed payment lifecycle, FX is not a side effect. It is a
-              state transition.
-            </p>
-            <p className="p" style={{ marginTop: 10 }}>
-              MPE allows FX decisions to be made, approved, and
-              locked before release. This aligns treasury intent with execution
-              reality and ensures delivered amounts are known ahead of time.
-            </p>
-
-            <div className="panel" style={{ marginTop: 14 }}>
-              <h3 style={{ marginTop: 0 }}>Conceptual model</h3>
-              <p className="p" style={{ marginTop: 10, marginBottom: 0 }}>
-                <strong>Authorize</strong>, <strong>Route</strong> (FX locked),{" "}
-                <strong>Sign</strong>
-              </p>
-            </div>
-
-            <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
-              What FX governance enables
-            </h2>
-
-            <div
-              className="kycGrid"
-              style={{ marginTop: 14, alignItems: "stretch" }}
-            >
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Predictable payroll runs</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Employees receive expected amounts without last-minute FX
-                  variance or post-run adjustments.
-                </p>
-              </div>
-
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Cleaner reconciliation</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Delivered amounts match approved amounts, reducing exceptions
-                  and manual investigation.
-                </p>
-              </div>
-
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Clear accountability</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  FX decisions are attributable, auditable, and aligned with
-                  treasury policy.
-                </p>
-              </div>
-            </div>
-
-            <div
-              style={{
-                marginTop: 26,
-                display: "flex",
-                gap: 12,
-                flexWrap: "wrap",
-              }}
-            >
-              <Link className="btnSecondary" href="/resources/execution-routing">
-                Provider-independent routing
-              </Link>
-              <Link className="btnSecondary" href="/trust-controls">
-                Trust & Controls
-              </Link>
-              <Link className="btnPrimary" href="/#kyc">
-                Request a walkthrough
-              </Link>
-            </div>
           </div>
         </div>
       </section>

@@ -10,16 +10,16 @@ export const metadata = pageMeta(
 
 const BELIEFS = [
   {
-    title: "The flow, not a single product",
-    body: "Payouts, wallets, cards, identity and cross-border are one integration. Platforms keep the customer. Licensed partners move the money. MPE never holds funds.",
+    title: "One integration",
+    body: "Payouts, wallets, cards, identity and cross-border payments. For platforms, people and machines. Machine payments are in development, patent pending.",
   },
   {
-    title: "Hard places force better systems",
-    body: "Serving people, platforms and machines across borders, weak networks and hard operating conditions forces infrastructure that is honest, resilient and simple. Systems built for the hardest places work everywhere.",
+    title: "Partners move the money",
+    body: "Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. MPE never holds funds.",
   },
   {
     title: "Never hold the money",
-    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents. Licensed partner institutions provide the regulated services, enforced by architecture, not policy.",
+    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents.",
   },
 ];
 
@@ -60,8 +60,6 @@ export default function AboutPage() {
 
           <section className="homeBand" data-animate>
             <div className="gapBanner">
-              Leadership across payments, telecoms, Gulf banking and
-              Asia-Pacific financial services.{" "}
               <Link href="/about/team" style={{ color: "inherit" }}>Meet the team →</Link>
             </div>
           </section>

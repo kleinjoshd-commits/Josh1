@@ -5,178 +5,35 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Routing | MPE",
-  "Route is the second step. Decision authority stays with MPE. Execution moves across licensed partners without a rebuild."
+  "Each payment takes the best licensed path. Licensed partners execute. MPE never holds funds."
 );
 
 export default function ExecutionAbstractionResource() {
   return (
     <main className="sitePage">
       <Nav />
-
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>Route, without a rebuild.</h1>
-          <p className="ebSub">Authority stays in one layer. A better licensed partner is a configuration change, not a new approval model.</p>
+          <h1>Best licensed path.</h1>
+          <p className="ebSub">
+            Route is the second step. The payment takes the best licensed
+            path. This page does not publish speeds, fees, or a failover SLA.
+          </p>
+          <div className="btnRow">
+            <Link className="btnSecondary" href="/resources">Back to Resources</Link>
+            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+          </div>
         </div>
       </section>
-
       <section className="deckLight">
-        <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER, RESPONSIVE GRID */}
-          <div className="pageHeaderGrid">
-            {/* LEFT */}
-            <div>
-
-
-
-              <p className="p" style={{ maxWidth: 980, marginTop: 12 }}>
-                MPE separates these concerns. Decision authority
-                lives in a governed control plane. Execution is routed
-                dynamically across trusted banks and licensed partners (with
-                AI-informed routing guidance where useful) without breaking
-                policy, auditability, or lifecycle state.
-              </p>
-
-              <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnSecondary" href="/resources">
-                  Back to Resources
-                </Link>
-                <Link className="btnPrimary" href="/#kyc">
-                  Request a walkthrough
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT: AT-A-GLANCE */}
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>At a glance</h3>
-
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Problem:</strong> controls tied to specific providers
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Approach:</strong> abstract execution behind a control
-                plane
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Outcome:</strong> flexible routing without governance
-                drift
-              </p>
-
-              <div
-                style={{
-                  height: 1,
-                  opacity: 0.12,
-                  margin: "14px 0",
-                  background: "currentColor",
-                }}
-              />
-
-              <p className="p" style={{ margin: 0 }}>
-                Provider-independent routing enables partner diversity, corridor
-                optimization, and resilience without retraining teams or
-                weakening controls.
-              </p>
-            </div>
-          </div>
-
-          {/* ARTICLE */}
-          <div style={{ marginTop: 28, maxWidth: 980 }}>
-            <h2 className="h2" style={{ marginBottom: 10 }}>
-              Why tightly coupled execution breaks at scale
-            </h2>
-            <p className="p">
-              In many payment systems, approvals, funding, FX, and release logic
-              are embedded directly into bank portals, processor workflows, or
-              provider-specific APIs. This creates hidden dependencies between
-              decision authority and execution mechanics.
-            </p>
+          <div className="panel">
+            <h3 style={{ marginTop: 0 }}>What is stated</h3>
             <p className="p" style={{ marginTop: 10 }}>
-              When a provider changes, a corridor underperforms, or a new local
-              bank is required, teams are forced to rewire approvals, controls,
-              and reconciliation logic, increasing risk and operational drag.
+              Smart routing picks the best path for each payment. Licensed
+              partners execute. MPE does not move the money.
             </p>
-
-            <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
-              Separating authority from execution
-            </h2>
-            <p className="p">
-              Provider-independent routing means that the organization decides{" "}
-              <strong>what is allowed to happen</strong> before deciding{" "}
-              <strong>how it happens</strong>.
-            </p>
-            <p className="p" style={{ marginTop: 10 }}>
-              MPE governs lifecycle state, approvals, funding, FX
-              decision points, and release conditions in a centralized control
-              plane. Execution instructions are then dispatched to the most
-              appropriate bank or licensed partner based on policy, geography,
-              currency, and availability.
-            </p>
-
-            <div className="panel" style={{ marginTop: 14 }}>
-              <h3 style={{ marginTop: 0 }}>Conceptual model</h3>
-              <p className="p" style={{ marginTop: 10, marginBottom: 0 }}>
-                <strong>Control plane:</strong> authority, policy, lifecycle,
-                audit
-                <br />
-                <strong>Execution layer:</strong> banks, PSPs, local clearing,
-                partners
-              </p>
-            </div>
-
-            <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
-              What provider-independent routing enables
-            </h2>
-
-            <div
-              className="kycGrid"
-              style={{ marginTop: 14, alignItems: "stretch" }}
-            >
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Partner-level routing</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Route payouts by corridor, currency, entity, or risk profile
-                  without changing approval flows or user workflows.
-                </p>
-              </div>
-
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Operational resilience</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Shift execution when providers degrade or fail, while
-                  preserving lifecycle state and authority.
-                </p>
-              </div>
-
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Timing</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Choose the path for settlement speed and cutoff windows
-                  without splitting the controls.
-                </p>
-              </div>
-            </div>
-
-            <div
-              style={{
-                marginTop: 26,
-                display: "flex",
-                gap: 12,
-                flexWrap: "wrap",
-              }}
-            >
-              <Link className="btnSecondary" href="/trust-controls">
-                Trust & Controls
-              </Link>
-              <Link className="btnSecondary" href="/unified-approach">
-                Unified architecture
-              </Link>
-              <Link className="btnPrimary" href="/#kyc">
-                Request a walkthrough
-              </Link>
-            </div>
           </div>
         </div>
       </section>

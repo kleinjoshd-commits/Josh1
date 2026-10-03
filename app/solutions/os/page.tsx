@@ -6,21 +6,21 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE OS | MPE",
-  "Approve, route and prove. Every payment is authorized, routed and signed, with licensed partners executing in each market."
+  "Authorize, Route, Sign. Licensed partners execute. MPE does not hold or transmit customer funds."
 );
 
 const OUTCOMES = [
   {
     title: "Authorize",
-    body: "Policy, limits and approvers are set once and enforced before a payment moves. No single person moves money alone.",
+    body: "The payment is authorized before it moves. MPE does not move the money.",
   },
   {
     title: "Route",
-    body: "The payment takes the best licensed path. A better provider is a configuration change, not a rebuild.",
+    body: "The payment takes the best licensed path. Licensed partners execute.",
   },
   {
     title: "Sign",
-    body: "The release is signed and written to the record. Delivered is what remains when an auditor asks what happened.",
+    body: "The release is the Sign step. Delivered is the status that follows. MPE never holds funds.",
   },
 ];
 
@@ -32,16 +32,16 @@ export default function MpeOsPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE OS</div>
-          <h1>Approve, route and prove.</h1>
+          <h1>Authorize, Route, Sign.</h1>
           <p className="ebSub">
-            The control layer for the platform. Authorize, Route, Sign.
-            Licensed partner institutions execute the regulated services.
-            MPE never holds funds.
+            The control steps on the platform. Licensed partners execute.
+            MPE does not hold or transmit customer funds, and does not store
+            customer identity documents.
           </p>
           <div className="ebStats">
-            <div className="ebStat"><b>Authorize</b><span>Policy before the payment</span></div>
+            <div className="ebStat"><b>Authorize</b><span>Before the payment moves</span></div>
             <div className="ebStat"><b>Route</b><span>Best licensed path</span></div>
-            <div className="ebStat"><b>Sign</b><span>Then it is delivered</span></div>
+            <div className="ebStat"><b>Sign</b><span>Then the status is Delivered</span></div>
           </div>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request Access</Link>
@@ -66,11 +66,10 @@ export default function MpeOsPage() {
           <section className="homeBand" data-animate>
             <div className="homePlatformGrid">
               <div className="homePlatformCopy">
-                <h2 className="homeSectionTitle">One governed layer</h2>
+                <h2 className="homeSectionTitle">One integration</h2>
                 <p className="p homePlatformIntro">
-                  Approvals, funding checks and release timing in one place.
-                  Visibility across partners and regions. The regulated
-                  services stay with licensed partners.
+                  Authorize, Route, Sign. Licensed partners provide the
+                  regulated services. MPE never holds funds.
                 </p>
               </div>
               <div className="homeVisualShell">
@@ -106,7 +105,7 @@ export default function MpeOsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Licensed reach in 140+ countries. 200+ direct bank connections.
+                  140+ countries where money lands. 200+ direct bank connections.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>

@@ -6,21 +6,21 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE Workforce | MPE",
-  "Pay a global workforce. Payroll coverage in 180 countries, then payouts, wallets and cards on the same integration."
+  "Pay a global workforce. 180 countries of payroll coverage. Licensed partners move the money. MPE never holds funds."
 );
 
 const OUTCOMES = [
   {
-    title: "Pay a global workforce",
-    body: "Payroll, employer of record and contractor payments in 180 countries and 130+ payout currencies, through licensed partner platforms.",
+    title: "Payroll coverage",
+    body: "180 countries of payroll coverage, through licensed partners. MPE does not hold or transmit customer funds.",
   },
   {
     title: "Payouts, wallets and cards",
-    body: "The same people can receive a payout, hold a wallet or use a card. Licensed partners provide the regulated services. MPE never holds funds.",
+    body: "Bank, card, wallet or local account, on the same integration. Licensed partners provide the regulated services.",
   },
   {
     title: "One integration",
-    body: "Payroll and the payout stay on one platform. Authorize, Route, Sign. Platforms keep the relationship.",
+    body: "Authorize, Route, Sign. You keep the relationship. MPE never holds funds.",
   },
 ];
 
@@ -34,9 +34,9 @@ export default function WorkforcePage() {
           <div className="ebTag">MPE WORKFORCE</div>
           <h1>Pay a global workforce.</h1>
           <p className="ebSub">
-            Hire, onboard and pay across borders, then offer payouts, wallets
-            and cards on the same integration. {claims.stats[3].value} countries
-            of payroll coverage. Licensed partners move the money.
+            Pay a workforce from the same integration. {claims.stats[3].value}{" "}
+            countries of payroll coverage. Payouts, wallets and cards sit on
+            that integration. Licensed partners move the money.
           </p>
           <div className="ebStats">
             {claims.stats.map((stat) => (
@@ -83,7 +83,7 @@ export default function WorkforcePage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Licensed reach in 140+ countries, 200+ direct bank connections.
+                  140+ countries where money lands. 200+ direct bank connections.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>

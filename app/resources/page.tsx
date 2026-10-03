@@ -5,8 +5,41 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Resources | MPE",
-  "How the platform works: lifecycle, routing, FX and settlement. Authorize, Route, Sign. MPE never holds funds."
+  "Notes on the flow: Authorize, Route, Sign. Licensed partners move the money. MPE never holds funds."
 );
+
+const NOTES = [
+  {
+    href: "/resources/payment-lifecycle",
+    title: "Payment lifecycle",
+    body: "Authorize, Route, Sign, then Delivered. MPE does not move the money.",
+  },
+  {
+    href: "/resources/execution-infrastructure",
+    title: "Execution",
+    body: "Licensed partners provide the regulated services. MPE never holds funds.",
+  },
+  {
+    href: "/resources/execution-routing",
+    title: "Routing",
+    body: "Each payment takes the best licensed path.",
+  },
+  {
+    href: "/resources/fx-governed",
+    title: "Cross-border payments",
+    body: "Cross-border payments are part of the integration. Rates are not published.",
+  },
+  {
+    href: "/resources/settlement-models",
+    title: "Where money lands",
+    body: "140+ countries, 200+ direct bank connections, 130+ payout currencies.",
+  },
+  {
+    href: "/solutions/workforce",
+    title: "Workforce",
+    body: "180 countries of payroll coverage, on the same integration.",
+  },
+];
 
 export default function ResourcesPage() {
   return (
@@ -17,217 +50,30 @@ export default function ResourcesPage() {
         <div className="ebWrap">
           <div className="ebTag">RESOURCES</div>
           <h1>How the platform works.</h1>
-          <p className="ebSub">Short notes on lifecycle, routing, FX and settlement. One integration. Licensed partners move the money.</p>
+          <p className="ebSub">
+            Short notes limited to the approved facts. Licensed partners move
+            the money. MPE never holds funds.
+          </p>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+            <Link className="btnSecondary" href="/solutions/os">MPE OS</Link>
+          </div>
         </div>
       </section>
 
       <section className="deckLight">
-        <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER, RESPONSIVE (prevents left-gap weirdness on mobile) */}
-          <div className="pageHeaderGrid">
-            {/* LEFT */}
-            <div>
-
-
-
-              <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnPrimary" href="#kyc">
-                  Request a walkthrough
-                </Link>
-                <Link className="btnSecondary" href="/solutions/os">
-                  Explore MPE OS
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT: AT-A-GLANCE */}
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>How to use these</h3>
-
-              <p className="p" style={{ marginTop: 10 }}>
-                Short, operator-grade references you can share internally:
-                governance, routing, FX timing, and settlement, written from a
-                control-plane perspective.
-              </p>
-
-              <div
-                style={{
-                  height: 1,
-                  opacity: 0.12,
-                  margin: "14px 0",
-                  background: "currentColor",
-                }}
-              />
-
-              <p className="p" style={{ margin: 0 }}>
-                Each resource maps to an MPE control capability and
-                includes practical implications for finance and operations.
-              </p>
-            </div>
-          </div>
-
-          {/* PRIMARY RESOURCE, FULL WIDTH */}
-          <div style={{ marginTop: 22 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>
-                Understanding the enterprise payment lifecycle
-              </h3>
-
-              <p className="p" style={{ marginTop: 10, maxWidth: "none" }}>
-                Most payment failures are not caused by networks or banks. They are
-                caused by unclear authority, implicit state, and fragmented
-                decision-making across systems. This resource explains how
-                explicit, enforceable lifecycle states enable predictable,
-                auditable global payouts, even as execution routes vary by market
-                and provider.
-              </p>
-
-              <div
-                style={{
-                  marginTop: 16,
-                  display: "flex",
-                  gap: 12,
-                  flexWrap: "wrap",
-                }}
-              >
-                <Link className="btnPrimary" href="/resources/payment-lifecycle">
-                  Read the resource
-                </Link>
-                <Link className="btnSecondary" href="/resources/execution-infrastructure">
-                  Execution infrastructure
-                </Link>
-                <Link className="btnSecondary" href="/trust-controls">
-                  Trust & Controls
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* TOPICS */}
-          <div className="kycGrid" style={{ marginTop: 24, alignItems: "stretch" }}>
-            <Link
-              className="panel"
-              href="/resources/execution-infrastructure"
-              style={{ textDecoration: "none", display: "block" }}
-            >
-              <h3 style={{ marginTop: 0 }}>Execution infrastructure</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                How MPE works with partner-connected execution infrastructure
-                while keeping approvals, routing, FX, release authority, and
-                visibility in one operating layer.
-              </p>
-              <div style={{ marginTop: 14 }}>
-                <span className="btnSecondary" style={{ opacity: 0.95 }}>
-                  Read
-                </span>
-              </div>
-            </Link>
-
-            <Link
-              className="panel"
-              href="/resources/execution-routing"
-              style={{ textDecoration: "none", display: "block" }}
-            >
-              <h3 style={{ marginTop: 0 }}>Payment routing & provider independence</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                How separating decision authority from execution mechanics enables
-                partner-level routing, reducing friction, cost, and latency
-                while maintaining a single governed operating layer.
-              </p>
-              <div style={{ marginTop: 14 }}>
-                <span className="btnSecondary" style={{ opacity: 0.95 }}>
-                  Read
-                </span>
-              </div>
-            </Link>
-
-            <Link
-              className="panel"
-              href="/resources/fx-governed"
-              style={{ textDecoration: "none", display: "block" }}
-            >
-              <h3 style={{ marginTop: 0 }}>FX as a governed decision point</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Why FX timing matters more than “best rate,” and how locking and
-                approval checkpoints improve predictability for payroll and vendor
-                runs.
-              </p>
-              <div style={{ marginTop: 14 }}>
-                <span className="btnSecondary" style={{ opacity: 0.95 }}>
-                  Read
-                </span>
-              </div>
-            </Link>
-
-            <Link
-              className="panel"
-              href="/resources/settlement-models"
-              style={{ textDecoration: "none", display: "block" }}
-            >
-              <h3 style={{ marginTop: 0 }}>Local & global settlement models</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                A control-layer view of domestic vs cross-border settlement: routing
-                through compliant local banks (including WPS contexts) and licensed
-                partners while keeping governance consistent.
-              </p>
-              <div style={{ marginTop: 14 }}>
-                <span className="btnSecondary" style={{ opacity: 0.95 }}>
-                  Read
-                </span>
-              </div>
-            </Link>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Resilience &amp; trust</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                How resilience applies to payment control systems, and how
-                critical control events stay strong without changing networks or
-                workflows.
-              </p>
-              <div style={{ marginTop: 14 }}>
-                <Link className="btnSecondary" href="/trust-controls">
-                  Trust &amp; controls
-                </Link>
-              </div>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Workforce</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Pay a global workforce, then offer payouts, wallets and cards
-                on the same integration. Licensed partners provide the
-                regulated services.
-              </p>
-              <div style={{ marginTop: 14 }}>
-                <Link className="btnSecondary" href="/solutions/workforce">
-                  Explore MPE Workforce
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div
-            style={{
-              marginTop: 28,
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-            }}
-          >
-            <Link className="btnPrimary" href="#kyc">
-              Request a walkthrough
-            </Link>
-            <Link className="btnSecondary" href="/solutions/os">
-              Explore MPE OS
-            </Link>
-            <Link className="btnSecondary" href="/unified-approach">
-              Platform architecture
-            </Link>
+          <div className="outcomeGrid">
+            {NOTES.map((note) => (
+              <Link key={note.href} href={note.href} className="panel" style={{ textDecoration: "none" }}>
+                <h3 style={{ marginTop: 0 }}>{note.title}</h3>
+                <p className="p" style={{ margin: "10px 0 0" }}>{note.body}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
+
       <KycForm />
     </main>
   );

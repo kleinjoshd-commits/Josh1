@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Use Cases | MPE",
-  "How platforms use MPE for payouts, wallets, cards, identity and machine payments. One integration for platforms, people and machines."
+  "Payouts, wallets, cards, identity and cross-border payments for platforms, people and machines. Machine payments are in development, patent pending."
 );
 
 export default function UseCasesPage() {
@@ -20,7 +20,8 @@ export default function UseCasesPage() {
           <p className="ebSub">
             One integration for payouts, wallets, cards, identity and
             cross-border payments. For platforms, people and machines.
-            Licensed partners provide the regulated services.
+            Machine payments are in development, patent pending. Licensed
+            partners provide the regulated services.
           </p>
         </div>
       </section>
@@ -44,12 +45,12 @@ export default function UseCasesPage() {
               </Link>
               <Link href="/solutions/network" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>Licensed reach, 140+ countries.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>140+ countries, through licensed partners.</p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/os" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>Approve, route and prove.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Authorize, Route, Sign.</p>
                 <span className="go">Explore →</span>
               </Link>
             </div>

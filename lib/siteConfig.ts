@@ -22,7 +22,7 @@ export const siteConfig = {
       {
         label: "Industries",
         href: "/industries",
-        description: "Where MPE programs fit, industry by industry.",
+        description: "Platforms, people, and machines.",
       },
       {
         label: "Unified Architecture",
@@ -32,7 +32,7 @@ export const siteConfig = {
       {
         label: "Trust & Controls",
         href: "/trust-controls",
-        description: "Policy, approvals, lifecycle control, and audit authority.",
+        description: "Authorize, Route, Sign. Partners execute.",
       },
       {
         label: "Resources",
@@ -49,7 +49,7 @@ export const siteConfig = {
       {
         label: "MPE OS",
         href: "/solutions/os",
-        description: "Approve, route and prove.",
+        description: "Authorize, Route, Sign.",
       },
       {
         label: "MPE Workforce",
@@ -59,7 +59,7 @@ export const siteConfig = {
       {
         label: "MPE Network",
         href: "/solutions/network",
-        description: "Licensed reach, 140+ countries.",
+        description: "140+ countries, through licensed partners.",
       },
     ] satisfies NavItem[],
   },
@@ -69,37 +69,30 @@ export const siteConfig = {
   solutionPages: {
     os: {
       title: "MPE OS",
-      subtext: "Approve, route and prove. Authorize, Route, Sign.",
+      subtext: "Authorize, Route, Sign. Licensed partners execute.",
       capabilities: [
-        "Approval workflows and separation of duties",
         "Authorize, Route, Sign, then Delivered",
-        "Routing and execution abstraction across partners and networks",
-        "FX control and governed exposure management",
-        "Audit trails, reporting, and governance",
-        "Vendor, subcontractor, and mass payout workflows",
+        "Best licensed path for each payment",
+        "MPE does not hold or transmit customer funds",
       ],
     },
     workforce: {
       title: "MPE Workforce",
       subtext: "Pay a global workforce. 180 countries of payroll coverage.",
       capabilities: [
-        "Global payroll execution",
-        "Employer of Record (EOR)",
-        "Contractor payments",
-        "Benefits and statutory payments",
-        "Compliance and tax handling",
-        "Centralized visibility across entities and regions",
+        "180 countries of payroll coverage",
+        "Payouts, wallets and cards on the same integration",
+        "Licensed partners provide the regulated services",
       ],
     },
     network: {
       title: "MPE Network",
-      subtext: "Licensed reach in 140+ countries. MPE never holds funds.",
+      subtext: "140+ countries where money lands. MPE never holds funds.",
       capabilities: [
-        "Local payout coverage",
-        "FX optimization checkpoints",
-        "Funding accounts and virtual account constructs (where available)",
-        "Payment tracking and transparency",
-        "Redundancy and failover posture",
+        "140+ countries where money lands",
+        "200+ direct bank connections",
+        "130+ payout currencies",
+        "MPE does not hold or transmit customer funds",
       ],
     },
   } satisfies Record<string, SolutionContent>,

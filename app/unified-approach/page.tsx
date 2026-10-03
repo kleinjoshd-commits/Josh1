@@ -5,8 +5,27 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Platform Architecture | MPE",
-  "One control plane. Authorize, Route, Sign. Execution through licensed partners. MPE never holds funds."
+  "One integration. Authorize, Route, Sign. Licensed partners execute. MPE never holds funds."
 );
+
+const LAYERS = [
+  {
+    title: "One integration",
+    body: "Payouts, wallets, cards, identity and cross-border payments. For platforms, people and machines.",
+  },
+  {
+    title: "Authorize, Route, Sign",
+    body: "That is the flow. Delivered is the status that follows. MPE does not move the money.",
+  },
+  {
+    title: "Licensed partners execute",
+    body: "Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market.",
+  },
+  {
+    title: "Machines, in development",
+    body: "Machine payments are in development, patent pending. They are not a live payout product.",
+  },
+];
 
 export default function UnifiedApproachPage() {
   return (
@@ -16,155 +35,31 @@ export default function UnifiedApproachPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">PLATFORM ARCHITECTURE</div>
-          <h1>One control plane.</h1>
-          <p className="ebSub">Authorize, Route, Sign. Funding, FX and release stay in one layer. Licensed partners execute. MPE never holds funds.</p>
+          <h1>One integration.</h1>
+          <p className="ebSub">
+            Authorize, Route, Sign. Licensed partners execute. MPE does not
+            hold or transmit customer funds.
+          </p>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+            <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>
+          </div>
         </div>
       </section>
 
       <section className="deckLight">
-        <div className="wavesLight" />
         <div className="container deckInner">
-          {/* HEADER, RESPONSIVE GRID */}
-          <div className="pageHeaderGrid">
-            {/* LEFT: NARRATIVE */}
-            <div>
-
-
-
-              <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                One governed layer above execution. Payouts, wallets, cards,
-                identity and machine payments stay on the same integration.
-              </p>
-
-              <div className="btnRow" style={{ marginTop: 18 }}>
-                <Link className="btnPrimary" href="#kyc">
-                  Talk to us
-                </Link>
-                <Link className="btnSecondary" href="/solutions/os">
-                  Explore MPE OS
-                </Link>
+          <div className="outcomeGrid">
+            {LAYERS.map((item) => (
+              <div className="panel" key={item.title}>
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
               </div>
-            </div>
-
-            {/* RIGHT: AT-A-GLANCE PANEL */}
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Architecture at a glance</h3>
-
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Inputs:</strong> ERP / HRIS / Payroll
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Control plane:</strong> funding + FX + approvals + release
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Execution:</strong> local banks + licensed partners
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Who it serves:</strong> platforms, people and machines
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                <strong>Resilience layer:</strong> assurance for degraded and
-                constrained environments
-              </p>
-
-              <div
-                style={{
-                  height: 1,
-                  opacity: 0.12,
-                  margin: "14px 0",
-                  background: "currentColor",
-                }}
-              />
-
-              <p className="p" style={{ margin: 0 }}>
-                Designed for regulated, mission-critical operations, including
-                environments where connectivity is intermittent,
-                constrained, or degraded.
-              </p>
-            </div>
-          </div>
-
-          {/* LAYERED ARCHITECTURE GRID */}
-          <div className="kycGrid" style={{ marginTop: 22 }}>
-            <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>1) Deploy where it adds the most value</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                MPE can be layered into the workflows, providers, and networks
-                where you need more control and visibility.
-              </p>
-              <p className="p" style={{ marginTop: 10 }}>
-                Or use MPE as a unified operating stack for orchestration,
-                governance, and execution oversight across the full payment
-                environment.
-              </p>
-            </div>
-
-            <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>2) Govern payment decisions centrally</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Define policy and permissions, maker-checker approvals, FX decision
-                points, lifecycle states, and controlled release. Maintain audit-grade
-                visibility across regions, entities, and payout corridors.
-              </p>
-            </div>
-
-            <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>3) Route execution through the right network</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Settle through trusted local banks for domestic flows and licensed
-                partners for cross-border payouts. Stay provider-agnostic while
-                operating through a single governed layer.
-              </p>
-            </div>
-
-            <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>4) Serve platforms, people and machines</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                The same integration covers payouts, wallets, cards, identity
-                and machine payments. Licensed partners provide the regulated
-                services. The platform keeps the relationship.
-              </p>
-            </div>
-
-            <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>
-                5) Strengthen integrity where assurance matters
-              </h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Apply additional trust controls for higher-risk flows: stronger integrity
-                guarantees, clearer authorization, and tighter auditability for sensitive
-                operating environments.
-              </p>
-            </div>
-
-            <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>6) Keep control when networks degrade</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Resilience engineering strengthens critical control moments
-                (approvals, authorization, and release) so decision authority can persist
-                when infrastructure is degraded, congested, or unavailable.
-              </p>
-            </div>
-          </div>
-
-          {/* CTA FOOTER */}
-          <div
-            style={{
-              marginTop: 26,
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-            }}
-          >
-            <Link className="btnPrimary" href="#kyc">
-              Talk to us
-            </Link>
-            <Link className="btnSecondary" href="/trust-controls">
-              Trust & controls
-            </Link>
+            ))}
           </div>
         </div>
       </section>
+
       <KycForm />
     </main>
   );
