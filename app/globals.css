@@ -2901,6 +2901,13 @@ img {
   backdrop-filter: blur(10px);
 }
 .hpPlay:hover { background: rgba(5, 8, 8, 0.92); }
+.heroPlay {
+  left: 50%;
+  top: 38%;
+  bottom: auto;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
 .hpPlayMark {
   width: 32px;
   height: 32px;

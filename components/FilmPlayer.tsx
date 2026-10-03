@@ -10,7 +10,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-import { createPortal } from "react-dom";
+import { createPortal, flushSync } from "react-dom";
 import { homepageCopy } from "@/content/homepage";
 import type { HomepageFilm } from "@/content/media";
 import { registerPlayer, unregisterPlayer, updatePlayer } from "./filmPlayback";
@@ -84,7 +84,12 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
   const openModal = useCallback(() => {
     modalRef.current = true;
     if (idRef.current != null) updatePlayer(idRef.current, { modal: true });
-    setOpen(true);
+    flushSync(() => setOpen(true));
+    const video = document.querySelector<HTMLVideoElement>("video[data-loop='modal']");
+    if (video) {
+      video.muted = false;
+      void video.play().catch(() => {});
+    }
   }, []);
 
   const closeModal = useCallback(() => {
@@ -182,6 +187,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             muted
             loop
             playsInline
+            autoPlay={heroLoop}
             preload={heroLoop ? "auto" : seen ? "metadata" : preload}
             tabIndex={-1}
             aria-hidden="true"
@@ -191,8 +197,8 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             <source src={source.loopMp4} type="video/mp4" />
           </video>
         ) : null}
-        {background || framed ? null : (
-          <button type="button" className="hpPlay" onClick={openModal}>
+        {background ? null : (
+          <button type="button" className={framed ? "hpPlay heroPlay" : "hpPlay"} onClick={openModal}>
             <span className="hpPlayMark" aria-hidden="true">
               <svg width="11" height="12" viewBox="0 0 11 12">
                 <path d="M1 1.2v9.6L10 6 1 1.2z" fill="currentColor" />
