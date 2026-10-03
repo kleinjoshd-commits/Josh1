@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import KycForm from "@/components/KycForm";
+import RequestAccess from "@/components/RequestAccess";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
@@ -58,18 +58,20 @@ export default function TeamPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">THE TEAM</div>
-          <h1>Our team</h1>
-          <p className="ebSub">The people building MPE.</p>
+          <h1>The people building MPE.</h1>
+          <p className="ebSub">
+            Talk to the team about sandbox access. Titles below are the roles
+            on the site. No extra biographies are published here.
+          </p>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
+          </div>
         </div>
       </section>
 
       <section className="deckLight">
         <div className="wavesLight" />
         <div className="container deckInner">
-          <div className="aboutTeamHeader">
-            <p className="p aboutTeamSubtitle">The people building MPE.</p>
-          </div>
-
           <div className="aboutTeamGrid">
             {team.map((m) => (
               <article key={m.name} className="panel aboutTeamCard">
@@ -106,17 +108,12 @@ export default function TeamPage() {
             ))}
           </div>
 
-          <div className="btnRow" style={{ marginTop: 36 }}>
-            <Link className="btnSecondary" href="/about">
-              Back to About
-            </Link>
-            <Link className="btnPrimary" href="#kyc">
-              Request Access
-            </Link>
-          </div>
+          <p className="p" style={{ marginTop: 28 }}>
+            <Link className="quietLink" href="/about">About the platform</Link>
+          </p>
         </div>
       </section>
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }

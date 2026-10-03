@@ -4256,6 +4256,39 @@ main.sitePage .btnSecondary:hover {
   background: rgba(255, 255, 255, 0.06) !important;
 }
 main.sitePage .aboutTeamLinkedin { color: rgba(232, 240, 236, 0.82); }
+main.sitePage .flowSteps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+main.sitePage .flowSteps li {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 22px;
+}
+main.sitePage .flowIndex {
+  color: #16a86c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+main.sitePage .flowSteps b {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #f7f8f6;
+}
+main.sitePage .flowSteps p { margin: 0; }
+main.sitePage .sectionBlock { margin-top: 72px; }
+main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
+@media (max-width: 800px) {
+  main.sitePage .flowSteps { grid-template-columns: 1fr; }
+}
 @media (max-width: 900px) {
   main.sitePage .emeraldBand h1,
   main.sitePage .homeSectionTitle,

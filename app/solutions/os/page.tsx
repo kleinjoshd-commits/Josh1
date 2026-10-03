@@ -1,27 +1,22 @@
-import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import KycForm from "@/components/KycForm";
+import FlowRow from "@/components/FlowRow";
+import RequestAccess from "@/components/RequestAccess";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE OS | MPE",
-  "Authorize, Route, Sign. Licensed partners execute. MPE does not hold or transmit customer funds."
+  "Platform API with sandbox keys, webhooks, docs, and embeds for KYC, payouts, and card. An ops console for payments, KYC, and payouts."
 );
 
-const OUTCOMES = [
-  {
-    title: "Authorize",
-    body: "The payment is authorized before it moves. MPE does not move the money.",
-  },
-  {
-    title: "Route",
-    body: "The payment takes the best licensed path. Licensed partners execute.",
-  },
-  {
-    title: "Sign",
-    body: "The release is the Sign step. Delivered is the status that follows. MPE never holds funds.",
-  },
+const SURFACE = [
+  { title: "Platform API", body: "One API in front of many licensed providers. Sandbox keys first." },
+  { title: "Webhooks", body: "Events for payments, KYC, and payouts." },
+  { title: "Docs", body: "API docs come with access. There is no public docs URL on this site." },
+  { title: "Embeds", body: product.embeds },
+  { title: "Ops console", body: "Operators see and act on payments, KYC, and payouts." },
+  { title: "Audit record", body: "Every route decision is signed into the audit record." },
 ];
 
 export default function MpeOsPage() {
@@ -32,100 +27,57 @@ export default function MpeOsPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE OS</div>
-          <h1>Authorize, Route, Sign.</h1>
+          <h1>The API, the embeds, and the console.</h1>
           <p className="ebSub">
-            The control steps on the platform. Licensed partners execute.
-            MPE does not hold or transmit customer funds, and does not store
-            customer identity documents.
+            For developers integrating the platform, and for operators running
+            it. {product.funds}
           </p>
-          <div className="ebStats">
-            <div className="ebStat"><b>Authorize</b><span>Before the payment moves</span></div>
-            <div className="ebStat"><b>Route</b><span>Best licensed path</span></div>
-            <div className="ebStat"><b>Sign</b><span>Then the status is Delivered</span></div>
-          </div>
           <div className="btnRow">
-            <Link className="btnPrimary" href="#kyc">Request Access</Link>
-            <Link className="btnSecondary" href="/trust-controls">Trust &amp; controls</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
 
       <section className="deckLight">
         <div className="container deckInner">
-          <section className="homeBand" data-animate>
-            <div className="outcomeGrid">
-              {OUTCOMES.map((o) => (
-                <div key={o.title} className="panel">
-                  <h3 style={{ marginTop: 0 }}>{o.title}</h3>
-                  <p className="p" style={{ marginTop: 10 }}>{o.body}</p>
+          <h2 className="homeSectionTitle">How you integrate</h2>
+          <FlowRow steps={product.integrate} />
+
+          <div className="sectionBlock">
+            <h2 className="homeSectionTitle">How a payment is decided</h2>
+            <FlowRow steps={product.flow} />
+          </div>
+
+          <div className="sectionBlock">
+            <h2 className="homeSectionTitle">What you get</h2>
+            <div className="outcomeGrid" style={{ marginTop: 18 }}>
+              {SURFACE.map((item) => (
+                <div className="panel" key={item.title}>
+                  <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
 
-          <section className="homeBand" data-animate>
-            <div className="homePlatformGrid">
-              <div className="homePlatformCopy">
-                <h2 className="homeSectionTitle">One integration</h2>
-                <p className="p homePlatformIntro">
-                  Authorize, Route, Sign. Licensed partners provide the
-                  regulated services. MPE never holds funds.
-                </p>
-              </div>
-              <div className="homeVisualShell">
-                <div className="card homeVisualCard">
-                  <div className="cardInner">
-                    <Image
-                      src="/mpe-ui.png"
-                      alt="MPE platform interface"
-                      width={1600}
-                      height={1000}
-                      style={{ width: "100%", height: "auto", display: "block" }}
-                    />
-                  </div>
+          <div className="sectionBlock">
+            <h2 className="homeSectionTitle">Also on the same API</h2>
+            <div className="outcomeGrid" style={{ marginTop: 18 }}>
+              {product.platformProducts.map((item) => (
+                <div className="panel" key={item.title}>
+                  <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
                 </div>
-              </div>
+              ))}
             </div>
-          </section>
-
-          <section className="homeBand" data-animate>
-            <div className="homeSectionHeader homeContextHeader">
-              <h2 className="homeSectionTitle">Works with the rest of MPE</h2>
-            </div>
-            <div className="outcomeGrid">
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Payroll coverage in 180 countries, on the same integration.
-                </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/workforce">Explore MPE Workforce</Link>
-                </div>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Network</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  140+ countries where money lands. 200+ direct bank connections.
-                </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>
-                </div>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Send</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Payouts to any account: bank, card, wallet or local account.
-                </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>
-                </div>
-              </div>
-            </div>
-          </section>
+            <p className="p" style={{ marginTop: 18 }}>
+              <Link className="quietLink" href="/solutions/send">Payout types</Link>
+            </p>
+          </div>
         </div>
       </section>
 
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }

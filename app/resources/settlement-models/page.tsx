@@ -1,12 +1,13 @@
-import Nav from "../../../components/Nav";
 import Link from "next/link";
-import KycForm from "@/components/KycForm";
+import Nav from "@/components/Nav";
+import RequestAccess from "@/components/RequestAccess";
 import { claims } from "@/content/claims";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Where money lands | MPE",
-  "140+ countries where money lands, 200+ direct bank connections, 130+ payout currencies. Licensed partners execute."
+  "Coverage | MPE",
+  "140+ countries where money lands, 200+ direct bank connections, 130+ payout currencies, 180 countries of payroll coverage."
 );
 
 export default function SettlementModelsResource() {
@@ -15,11 +16,11 @@ export default function SettlementModelsResource() {
       <Nav />
       <section className="emeraldBand">
         <div className="ebWrap">
-          <div className="ebTag">REFERENCE</div>
-          <h1>Where money lands.</h1>
+          <div className="ebTag">COVERAGE</div>
+          <h1>Where money can land.</h1>
           <p className="ebSub">
-            These are the only coverage figures on the site. Licensed partners
-            execute. MPE never holds funds.
+            These are the only coverage figures. Licensed providers execute.
+            MPE never holds funds.
           </p>
           <div className="ebStats">
             {claims.stats.map((stat) => (
@@ -30,25 +31,27 @@ export default function SettlementModelsResource() {
             ))}
           </div>
           <div className="btnRow">
-            <Link className="btnSecondary" href="/resources">Back to Resources</Link>
-            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
       <section className="deckLight">
         <div className="container deckInner">
-          <div className="panel">
-            <h3 style={{ marginTop: 0 }}>What is stated</h3>
-            <p className="p" style={{ marginTop: 10 }}>
-              140+ countries where money lands. 200+ direct bank connections.
-              130+ payout currencies. 180 countries of payroll coverage.
-              Outputs are bank, card, wallet, local account and machine.
-              Machine payments are in development, patent pending.
-            </p>
+          <h2 className="homeSectionTitle">Payout types</h2>
+          <div className="outcomeGrid" style={{ marginTop: 18 }}>
+            {product.payouts.map((item) => (
+              <div className="panel" key={item.title}>
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
+              </div>
+            ))}
           </div>
+          <p className="p" style={{ marginTop: 18 }}>
+            <Link className="quietLink" href="/#network-map">Map of where money can land</Link>
+          </p>
         </div>
       </section>
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }

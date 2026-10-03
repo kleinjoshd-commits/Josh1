@@ -22,34 +22,34 @@ export const siteConfig = {
       {
         label: "Industries",
         href: "/industries",
-        description: "Platforms, people, and machines.",
+        description: "Embed it, or take a branded app.",
       },
       {
         label: "Unified Architecture",
         href: "/unified-approach",
-        description: "How orchestration, execution, and controls fit together.",
+        description: "One Platform API in front of many providers.",
       },
       {
         label: "Trust & Controls",
         href: "/trust-controls",
-        description: "Authorize, Route, Sign. Partners execute.",
+        description: "Every decision is signed into an audit record.",
       },
       {
         label: "Resources",
         href: "/resources",
-        description: "Reference notes on lifecycle, routing, FX, and settlement.",
+        description: "Sandbox, webhooks, embeds, and the console.",
       },
     ] satisfies NavItem[],
     solutions: [
       {
         label: "MPE Send",
         href: "/solutions/send",
-        description: "Payouts to any account.",
+        description: "Bank, debit card push, and mobile wallets.",
       },
       {
         label: "MPE OS",
         href: "/solutions/os",
-        description: "Authorize, Route, Sign.",
+        description: "Platform API, embeds, and the ops console.",
       },
       {
         label: "MPE Workforce",
@@ -59,7 +59,7 @@ export const siteConfig = {
       {
         label: "MPE Network",
         href: "/solutions/network",
-        description: "140+ countries, through licensed partners.",
+        description: "One adapter for licensed providers.",
       },
     ] satisfies NavItem[],
   },
@@ -69,11 +69,11 @@ export const siteConfig = {
   solutionPages: {
     os: {
       title: "MPE OS",
-      subtext: "Authorize, Route, Sign. Licensed partners execute.",
+      subtext: "Platform API, embeds, and the ops console.",
       capabilities: [
-        "Authorize, Route, Sign, then Delivered",
-        "Best licensed path for each payment",
-        "MPE does not hold or transmit customer funds",
+        "Sandbox keys, webhooks, and docs",
+        "Embeds for KYC, payouts, and card",
+        "Every decision signed into the audit record",
       ],
     },
     workforce: {
@@ -81,18 +81,18 @@ export const siteConfig = {
       subtext: "Pay a global workforce. 180 countries of payroll coverage.",
       capabilities: [
         "180 countries of payroll coverage",
-        "Payouts, wallets and cards on the same integration",
-        "Licensed partners provide the regulated services",
+        "Embed the screens, or take a branded app",
+        "MPE never holds funds",
       ],
     },
     network: {
       title: "MPE Network",
-      subtext: "140+ countries where money lands. MPE never holds funds.",
+      subtext: "One adapter for licensed providers. MPE never holds funds.",
       capabilities: [
+        "Best route, Fastest, or Lowest cost",
         "140+ countries where money lands",
         "200+ direct bank connections",
         "130+ payout currencies",
-        "MPE does not hold or transmit customer funds",
       ],
     },
   } satisfies Record<string, SolutionContent>,

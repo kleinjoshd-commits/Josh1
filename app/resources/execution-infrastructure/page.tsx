@@ -1,11 +1,13 @@
-import Nav from "../../../components/Nav";
 import Link from "next/link";
-import KycForm from "@/components/KycForm";
+import Nav from "@/components/Nav";
+import FlowRow from "@/components/FlowRow";
+import RequestAccess from "@/components/RequestAccess";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Execution | MPE",
-  "Licensed partners execute. MPE provides orchestration and control software and never holds funds."
+  "Integrate | MPE",
+  "Sandbox keys, webhooks, docs, and embeds for KYC, payouts, and card. Hosted web, a JS drop-in, and a Swift wrapper for iOS."
 );
 
 export default function ExecutionInfrastructurePage() {
@@ -14,45 +16,36 @@ export default function ExecutionInfrastructurePage() {
       <Nav />
       <section className="emeraldBand">
         <div className="ebWrap">
-          <div className="ebTag">REFERENCE</div>
-          <h1>Partners execute.</h1>
+          <div className="ebTag">INTEGRATE</div>
+          <h1>Sandbox, then the screens.</h1>
           <p className="ebSub">
-            MPE provides orchestration and control software. Money transfer
-            and payment services within MPE programs are provided by licensed
-            partner institutions in each market.
+            For a developer adding MPE to an existing app. {product.funds}
           </p>
           <div className="btnRow">
-            <Link className="btnSecondary" href="/resources">Back to Resources</Link>
-            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
       <section className="deckLight">
         <div className="container deckInner">
-          <div className="outcomeGrid">
+          <h2 className="homeSectionTitle">The sequence</h2>
+          <FlowRow steps={product.integrate} />
+          <div className="sectionBlock">
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What MPE does</h3>
+              <h3 style={{ marginTop: 0 }}>Embeds</h3>
+              <p className="p" style={{ marginTop: 10 }}>{product.embeds}</p>
               <p className="p" style={{ marginTop: 10 }}>
-                Orchestration and control. Authorize, Route, Sign. MPE does
-                not hold or transmit customer funds, and does not store
-                customer identity documents.
-              </p>
-            </div>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>What partners do</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Licensed partner institutions provide the money transfer and
-                payment services. MPE is not a bank and is not described here
-                as a money transmitter.
+                Platforms that already have an app use these. Distributors
+                without an app get a ready-made branded app instead.
               </p>
             </div>
           </div>
-          <div className="btnRow" style={{ marginTop: 28 }}>
-            <Link className="btnSecondary" href="/resources/execution-routing">Routing</Link>
-          </div>
+          <p className="p" style={{ marginTop: 18 }}>
+            <Link className="quietLink" href="/solutions/os">MPE OS</Link>
+          </p>
         </div>
       </section>
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }

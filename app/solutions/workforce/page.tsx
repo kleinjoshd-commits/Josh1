@@ -1,28 +1,15 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import KycForm from "@/components/KycForm";
+import FlowRow from "@/components/FlowRow";
+import RequestAccess from "@/components/RequestAccess";
 import { claims } from "@/content/claims";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE Workforce | MPE",
-  "Pay a global workforce. 180 countries of payroll coverage. Licensed partners move the money. MPE never holds funds."
+  "Pay a workforce on the Platform API. 180 countries of payroll coverage. Embed the screens, or take a branded app. MPE never holds funds."
 );
-
-const OUTCOMES = [
-  {
-    title: "Payroll coverage",
-    body: "180 countries of payroll coverage, through licensed partners. MPE does not hold or transmit customer funds.",
-  },
-  {
-    title: "Payouts, wallets and cards",
-    body: "Bank, card, wallet or local account, on the same integration. Licensed partners provide the regulated services.",
-  },
-  {
-    title: "One integration",
-    body: "Authorize, Route, Sign. You keep the relationship. MPE never holds funds.",
-  },
-];
 
 export default function WorkforcePage() {
   return (
@@ -32,78 +19,72 @@ export default function WorkforcePage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE WORKFORCE</div>
-          <h1>Pay a global workforce.</h1>
+          <h1>Pay a workforce from your product.</h1>
           <p className="ebSub">
-            Pay a workforce from the same integration. {claims.stats[3].value}{" "}
-            countries of payroll coverage. Payouts, wallets and cards sit on
-            that integration. Licensed partners move the money.
+            For workforce platforms and for distributors who need an app.
+            {claims.stats[3].value} countries of payroll coverage. {product.funds}
           </p>
-          <div className="ebStats">
-            {claims.stats.map((stat) => (
-              <div className="ebStat" key={stat.label}>
-                <b>{stat.value}</b>
-                <span>{stat.label}</span>
-              </div>
-            ))}
-          </div>
           <div className="btnRow">
-            <Link className="btnPrimary" href="#kyc">Request Access</Link>
-            <Link className="btnSecondary" href="/use-cases">See it in use</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
 
       <section className="deckLight">
         <div className="container deckInner">
-          <section className="homeBand" data-animate>
-            <div className="outcomeGrid">
-              {OUTCOMES.map((o) => (
-                <div key={o.title} className="panel">
-                  <h3 style={{ marginTop: 0 }}>{o.title}</h3>
-                  <p className="p" style={{ marginTop: 10 }}>{o.body}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <h2 className="homeSectionTitle">How a payment works</h2>
+          <FlowRow steps={product.flow} />
 
-          <section className="homeBand" data-animate>
-            <div className="homeSectionHeader homeContextHeader">
-              <h2 className="homeSectionTitle">Works with the rest of MPE</h2>
-            </div>
-            <div className="outcomeGrid">
+          <div className="sectionBlock">
+            <h2 className="homeSectionTitle">What people get</h2>
+            <div className="outcomeGrid" style={{ marginTop: 18 }}>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE OS</h3>
+                <h3 style={{ marginTop: 0 }}>Payouts</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Authorize, route and sign every payment in the program.
+                  Bank account, debit card push, mobile wallet, or local account.
                 </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>
-                </div>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Network</h3>
+                <h3 style={{ marginTop: 0 }}>Wallet and card</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  140+ countries where money lands. 200+ direct bank connections.
+                  An in-app balance, and a card in the platform&apos;s brand.
                 </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>
-                </div>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Send</h3>
+                <h3 style={{ marginTop: 0 }}>Identity</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payouts to any account: bank, card, wallet or local account.
+                  Instant ID checks, as an embeddable KYC screen.
                 </p>
-                <div style={{ marginTop: 14 }}>
-                  <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>
-                </div>
               </div>
             </div>
-          </section>
+          </div>
+
+          <div className="sectionBlock">
+            <h2 className="homeSectionTitle">How you ship it</h2>
+            <div className="outcomeGrid" style={{ marginTop: 18 }}>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>You have an app</h3>
+                <p className="p" style={{ marginTop: 10 }}>{product.embeds}</p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>You do not</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  A ready-made app in your brand: sign-up, identity, payouts, and cards.
+                </p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Same API</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  Sandbox keys, webhooks, and the ops console.{" "}
+                  <Link className="quietLink" href="/solutions/os">Integration steps</Link>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }

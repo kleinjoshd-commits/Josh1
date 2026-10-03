@@ -1,12 +1,19 @@
-import Nav from "../../../components/Nav";
 import Link from "next/link";
-import KycForm from "@/components/KycForm";
+import Nav from "@/components/Nav";
+import RequestAccess from "@/components/RequestAccess";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Routing | MPE",
-  "Each payment takes the best licensed path. Licensed partners execute. MPE never holds funds."
+  "Route choice | MPE",
+  "Each payment is Best route, Fastest, or Lowest cost. One standard adapter. Providers are not named."
 );
+
+const MODES = [
+  { title: "Best route", body: "One of the three choices for that payment." },
+  { title: "Fastest", body: "The route chosen for speed." },
+  { title: "Lowest cost", body: "The route chosen for cost. No public price list." },
+];
 
 export default function ExecutionAbstractionResource() {
   return (
@@ -14,30 +21,29 @@ export default function ExecutionAbstractionResource() {
       <Nav />
       <section className="emeraldBand">
         <div className="ebWrap">
-          <div className="ebTag">REFERENCE</div>
-          <h1>Best licensed path.</h1>
+          <div className="ebTag">ROUTING</div>
+          <h1>Three ways to route.</h1>
           <p className="ebSub">
-            Route is the second step. The payment takes the best licensed
-            path. This page does not publish speeds, fees, or a failover SLA.
+            MPE picks one per payment, then signs that decision. {product.adapter}
           </p>
           <div className="btnRow">
-            <Link className="btnSecondary" href="/resources">Back to Resources</Link>
-            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
       <section className="deckLight">
         <div className="container deckInner">
-          <div className="panel">
-            <h3 style={{ marginTop: 0 }}>What is stated</h3>
-            <p className="p" style={{ marginTop: 10 }}>
-              Smart routing picks the best path for each payment. Licensed
-              partners execute. MPE does not move the money.
-            </p>
+          <div className="outcomeGrid">
+            {MODES.map((mode) => (
+              <div className="panel" key={mode.title}>
+                <h3 style={{ marginTop: 0 }}>{mode.title}</h3>
+                <p className="p" style={{ marginTop: 10 }}>{mode.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }

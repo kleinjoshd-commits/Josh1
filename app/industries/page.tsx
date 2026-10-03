@@ -1,27 +1,13 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import KycForm from "@/components/KycForm";
+import RequestAccess from "@/components/RequestAccess";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Industries | MPE",
-  "One integration for platforms, people and machines. Machine payments are in development, patent pending. MPE never holds funds."
+  "Who it is for | MPE",
+  "Platforms embed KYC, payouts, and card. Distributors without an app get a branded app. MFAM is concept stage, patent pending."
 );
-
-const AUDIENCES = [
-  {
-    title: "Platforms",
-    body: "Payouts, wallets, cards, identity and cross-border payments, in the platform's own experience. Licensed partners move the money.",
-  },
-  {
-    title: "People",
-    body: "Pay a workforce from the same integration. 180 countries of payroll coverage. You keep the relationship.",
-  },
-  {
-    title: "Machines and autonomous systems",
-    body: "Machine payments are in development, patent pending. MFAM is not a live payout product. It does not move money.",
-  },
-];
 
 export default function IndustriesPage() {
   return (
@@ -30,15 +16,13 @@ export default function IndustriesPage() {
 
       <section className="emeraldBand">
         <div className="ebWrap">
-          <div className="ebTag">INDUSTRIES</div>
-          <h1>Platforms, people and machines.</h1>
+          <div className="ebTag">WHO IT IS FOR</div>
+          <h1>Embed it, or take the branded app.</h1>
           <p className="ebSub">
-            One integration for payouts, wallets, cards, identity and
-            cross-border payments. These are the audiences on the homepage.
-            They are not a list of live customer programs.
+            Two ways in, plus a concept for machines. {product.funds}
           </p>
           <div className="btnRow">
-            <Link className="btnPrimary" href="#kyc">Request Access</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
@@ -46,17 +30,36 @@ export default function IndustriesPage() {
       <section className="deckLight">
         <div className="container deckInner">
           <div className="outcomeGrid">
-            {AUDIENCES.map((item) => (
-              <div className="panel" key={item.title}>
-                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-                <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
-              </div>
-            ))}
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>You already have an app</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                Embed KYC, payouts, and card. {product.embeds}
+              </p>
+              <p className="p" style={{ marginTop: 14 }}>
+                <Link className="quietLink" href="/solutions/os">Platform API and console</Link>
+              </p>
+            </div>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>You do not have an app</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                Distributors and partners get a ready-made app in their brand:
+                sign-up, identity, payouts, and cards.
+              </p>
+              <p className="p" style={{ marginTop: 14 }}>
+                <Link className="quietLink" href="/solutions/workforce">Workforce and branded app</Link>
+              </p>
+            </div>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>The payer is a machine</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                {product.audiences[2].body}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }

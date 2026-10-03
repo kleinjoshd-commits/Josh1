@@ -1,31 +1,15 @@
-import Nav from "../../components/Nav";
 import Link from "next/link";
-import KycForm from "@/components/KycForm";
+import Nav from "@/components/Nav";
+import FlowRow from "@/components/FlowRow";
+import RequestAccess from "@/components/RequestAccess";
+import { claims } from "@/content/claims";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Trust & Controls | MPE",
-  "Authorize, Route, Sign. Licensed partners move the money. MPE does not hold or transmit customer funds."
+  "Trust and controls | MPE",
+  "Every route decision is signed into an audit record. MPE never holds funds. Licensed providers move the money."
 );
-
-const POINTS = [
-  {
-    title: "Authorize",
-    body: "The payment is authorized before it moves. MPE does not move the money.",
-  },
-  {
-    title: "Route",
-    body: "The payment takes the best licensed path. Licensed partners execute.",
-  },
-  {
-    title: "Sign",
-    body: "Sign is the release step. Delivered is the status that follows.",
-  },
-  {
-    title: "MPE never holds funds",
-    body: "MPE does not hold or transmit customer funds, and does not store customer identity documents.",
-  },
-];
 
 export default function TrustControlsPage() {
   return (
@@ -34,36 +18,49 @@ export default function TrustControlsPage() {
 
       <section className="emeraldBand">
         <div className="ebWrap">
-          <div className="ebTag">TRUST &amp; CONTROLS</div>
-          <h1>Authorize, Route, Sign.</h1>
+          <div className="ebTag">TRUST AND CONTROLS</div>
+          <h1>The decision is signed.</h1>
           <p className="ebSub">
-            MPE provides orchestration and control software. Licensed partners
-            move the money. No certification or uptime claim is published here.
+            For a buyer who needs to know who moved the money, and what MPE
+            decided. {product.funds}
           </p>
           <div className="btnRow">
-            <Link className="btnPrimary" href="#kyc">Talk to us</Link>
-            <Link className="btnSecondary" href="/solutions/os">MPE OS</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
 
       <section className="deckLight">
         <div className="container deckInner">
-          <div className="outcomeGrid">
-            {POINTS.map((item) => (
-              <div className="panel" key={item.title}>
-                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-                <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
+          <h2 className="homeSectionTitle">What is recorded</h2>
+          <FlowRow steps={product.flow} />
+
+          <div className="sectionBlock">
+            <div className="outcomeGrid">
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Audit record</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  MPE signs every route decision into an audit record. Operators
+                  can see it in the console, with the payment, the KYC, and the payout.
+                </p>
               </div>
-            ))}
-          </div>
-          <div className="btnRow" style={{ marginTop: 28 }}>
-            <Link className="btnSecondary" href="/unified-approach">Platform architecture</Link>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Who holds the funds</h3>
+                <p className="p" style={{ marginTop: 10 }}>{claims.noCustody}</p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>What this page does not claim</h3>
+                <p className="p" style={{ marginTop: 10 }}>
+                  No SOC, PCI, or ISO badge. No uptime figure. MPE is not a bank
+                  and is not a money transmitter.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <KycForm />
+      <RequestAccess />
     </main>
   );
 }
