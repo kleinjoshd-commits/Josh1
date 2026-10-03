@@ -3059,7 +3059,7 @@ img {
 .hpMfamFilm { margin-top: 36px; width: 100%; max-width: none; }
 .hpMfam .hpDisclaimer { color: rgba(17, 24, 39, 0.55); }
 .hpMfam .hpStage {
-  background: #0c1612 url("/media/mpe-mfam-film-loop-poster.jpg") center 42% / cover no-repeat;
+  background: #0c1612 url("/media/mpe-mfam-film-loop-poster.jpg") center / cover no-repeat;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
   border-color: rgba(255, 255, 255, 0.12);
 }
@@ -3671,7 +3671,7 @@ html.js .hpShot img.isIn {
   opacity: 1;
   transform: scale(1);
 }
-.hpShotDrone { object-position: center 38%; }
+.hpShotDrone { object-fit: cover; object-position: center bottom; }
 .hpShot:hover img { transform: scale(1.1); }
 .hpShotShade {
   position: absolute;
