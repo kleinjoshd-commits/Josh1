@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Cross-border payouts | MPE",
-  "Cross-border payouts use the same Platform API. 130+ payout currencies. Rates are not published. MPE never holds funds."
+  "Cross-border payouts use the same Platform API. A quote can include an expiry. There is no rate lock. MPE never holds funds."
 );
 
 export default function FxGovernedResource() {
@@ -17,9 +17,9 @@ export default function FxGovernedResource() {
           <div className="ebTag">CROSS-BORDER</div>
           <h1>Cross-border is a payout type.</h1>
           <p className="ebSub">
-            Same API as a domestic payout. 130+ payout currencies. The route
-            can be Best route, Fastest, or Lowest cost. Rates are not published
-            on this site. MPE never holds funds.
+            Same API as a domestic bank payout. 130+ payout currencies. The
+            route is scored on success, speed and cost. A quote can include an
+            expiry. There is no rate lock. MPE never holds funds.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>
@@ -31,9 +31,8 @@ export default function FxGovernedResource() {
           <div className="panel">
             <h3 style={{ marginTop: 0 }}>What you do not get from this page</h3>
             <p className="p" style={{ marginTop: 10 }}>
-              No rate lock, no published FX quote, and no promise that a
-              delivered amount is known in advance. Licensed providers execute
-              the payout.
+              A quote can carry an expiry. There is no rate lock, and no
+              published price list. Licensed partners execute the payout.
             </p>
             <p className="p" style={{ marginTop: 14 }}>
               <Link className="quietLink" href="/solutions/send">Payout types</Link>

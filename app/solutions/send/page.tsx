@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE Send | MPE",
-  "Payouts to a bank account, debit card, mobile wallet, or local account, including cross-border. One Platform API. MPE never holds funds."
+  "Payouts to bank, card, wallet, and cross-border. One Platform API. MPE never holds funds."
 );
 
 export default function SendPage() {
@@ -37,7 +37,7 @@ export default function SendPage() {
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Where it can land</h2>
             <div className="outcomeGrid" style={{ marginTop: 18 }}>
-              {product.payouts.map((item) => (
+              {product.outputs.map((item) => (
                 <div className="panel" key={item.title}>
                   <h3 style={{ marginTop: 0 }}>{item.title}</h3>
                   <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
@@ -56,14 +56,13 @@ export default function SendPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Platform API</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Sandbox keys, webhooks, and docs. The route is Best route,
-                  Fastest, or Lowest cost.
+                  Sandbox access, API docs, and {product.webhooks} {product.route}
                 </p>
               </div>
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Ops console</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Operators see and act on payouts.{" "}
+                  {product.consoleSee}{" "}
                   <Link className="quietLink" href="/solutions/os">See the console</Link>
                 </p>
               </div>

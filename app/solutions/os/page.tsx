@@ -7,16 +7,16 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE OS | MPE",
-  "Platform API with sandbox keys, webhooks, docs, and embeds for KYC, payouts, and card. An ops console for payments, KYC, and payouts."
+  "Sandbox access, API docs, and embeds come with access. Signed webhooks for KYC and payout status. MPE never holds funds."
 );
 
 const SURFACE = [
-  { title: "Platform API", body: "One API in front of many licensed providers. Sandbox keys first." },
-  { title: "Webhooks", body: "Events for payments, KYC, and payouts." },
-  { title: "Docs", body: "API docs come with access. There is no public docs URL on this site." },
-  { title: "Embeds", body: product.embeds },
-  { title: "Ops console", body: "Operators see and act on payments, KYC, and payouts." },
-  { title: "Audit record", body: "Every route decision is signed into the audit record." },
+  { title: "Platform API", body: "One API in front of many licensed providers. Sandbox access comes with Request access." },
+  { title: "Webhooks", body: product.webhooks },
+  { title: "Docs and embeds", body: product.embeds + " API docs come with access." },
+  { title: "What operators see", body: product.consoleSee },
+  { title: "What operators can do", body: product.consoleDo },
+  { title: "Audit record", body: "Every decision is signed and written to a tamper-evident record." },
 ];
 
 export default function MpeOsPage() {
@@ -63,12 +63,18 @@ export default function MpeOsPage() {
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Also on the same API</h2>
             <div className="outcomeGrid" style={{ marginTop: 18 }}>
-              {product.platformProducts.map((item) => (
-                <div className="panel" key={item.title}>
-                  <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-                  <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
-                </div>
-              ))}
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Wallets</h3>
+                <p className="p" style={{ marginTop: 10 }}>Payouts to mobile wallets. MPE does not hold a balance.</p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Branded cards</h3>
+                <p className="p" style={{ marginTop: 10 }}>{product.cards}</p>
+              </div>
+              <div className="panel">
+                <h3 style={{ marginTop: 0 }}>Identity</h3>
+                <p className="p" style={{ marginTop: 10 }}>{product.identity}</p>
+              </div>
             </div>
             <p className="p" style={{ marginTop: 18 }}>
               <Link className="quietLink" href="/solutions/send">Payout types</Link>

@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Integrate | MPE",
-  "Sandbox keys, webhooks, docs, and embeds for KYC, payouts, and card. Hosted web, a JS drop-in, and a Swift wrapper for iOS."
+  "Sandbox access, API docs, and embeds come with access. Hosted web embed, JS drop-in, and an iOS wrapper."
 );
 
 export default function ExecutionInfrastructurePage() {

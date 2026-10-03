@@ -89,7 +89,7 @@ export const siteConfig = {
       title: "MPE Network",
       subtext: "One adapter for licensed providers. MPE never holds funds.",
       capabilities: [
-        "Best route, Fastest, or Lowest cost",
+        "Scores every route on success, speed and cost",
         "140+ countries where money lands",
         "200+ direct bank connections",
         "130+ payout currencies",

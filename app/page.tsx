@@ -145,7 +145,7 @@ export default function Home() {
               <Link href="/solutions/send" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Payouts to any account.
+                  Bank, card, wallet, and cross-border.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
@@ -159,14 +159,14 @@ export default function Home() {
               <Link href="/solutions/network" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Licensed reach, 140+ countries.
+                  Reach through licensed partners, 140+ countries.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/os" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Approve, route and prove.
+                  Authorize, route and sign.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
@@ -196,9 +196,7 @@ export default function Home() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Everything on the record</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Every approval, release and status change is written to a
-                  permanent record as it happens. When a regulator asks, the
-                  answer is already on file.
+                  Every decision is signed and written to a tamper-evident record.
                 </p>
               </div>
             </div>

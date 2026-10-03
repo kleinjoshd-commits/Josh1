@@ -3,21 +3,21 @@
 import { Fragment, useEffect, useState } from "react";
 
 const TABS = [
-  { id: "payouts", label: "Payouts", route: "Best route", dest: "Bank" },
-  { id: "wallets", label: "Wallets", route: "Fastest", dest: "Wallet" },
-  { id: "cards", label: "Cards", route: "Lowest cost", dest: "Card" },
-  { id: "identity", label: "Identity", route: "", dest: "" },
-  { id: "machines", label: "Machines", route: "Fastest", dest: "Machine" },
+  { id: "payouts", label: "Payouts", dest: "Bank" },
+  { id: "wallets", label: "Wallets", dest: "Wallet" },
+  { id: "cards", label: "Cards", dest: "Card" },
+  { id: "identity", label: "Identity", dest: "" },
+  { id: "machines", label: "Machines", dest: "Machine" },
 ] as const;
 
-const ROUTES = ["Best route", "Fastest", "Lowest cost"] as const;
-const DESTS = ["Bank", "Card", "Wallet", "Local account", "Machine"] as const;
+const FACTORS = ["Success", "Speed", "Cost"] as const;
+const DESTS = ["Bank", "Card", "Wallet", "Cross-border", "Machine"] as const;
 
 const ROWS = [
   { name: "Bank deposit", amount: "$2,480.00" },
   { name: "Debit card push", amount: "€860.00" },
   { name: "Wallet payout", amount: "£420.00" },
-  { name: "Local account", amount: "MXN 12,400" },
+  { name: "Cross-border", amount: "MXN 12,400" },
   { name: "Machine payment", amount: "$12.40" },
 ] as const;
 
@@ -78,11 +78,10 @@ export default function RoutingDiagram() {
 
   const active = TABS[tab];
   const identity = active.id === "identity";
-  const routeIndex = ROUTES.indexOf(active.route as (typeof ROUTES)[number]);
   const destIndex = DESTS.indexOf(active.dest as (typeof DESTS)[number]);
   const mobileSteps = identity
     ? ["Platform", "Verify", "MPE"]
-    : ["Platform", "MPE", active.route, active.dest];
+    : ["Platform", "MPE", "Scores every route", active.dest];
 
   const platformToMpe = link(right(platform), midY(platform), mpe.x, midY(mpe));
   const platformToVerify = drop(midX(platform), platform.y, midX(verify), verify.y + verify.h);
@@ -112,27 +111,27 @@ export default function RoutingDiagram() {
         aria-label={
           identity
             ? "Identity: platform to verify, then MPE."
-            : `${active.label}: platform to MPE, then ${active.route}, then ${active.dest}.`
+            : `${active.label}: platform to MPE, scores every route, then ${active.dest}.`
         }
       >
         <title>
-          {identity ? "Identity. Verify. MPE." : `${active.label}. ${active.route}. ${active.dest}.`}
+          {identity ? "Identity. Verify. MPE." : `${active.label}. Scores every route. ${active.dest}.`}
         </title>
         <Connector d={platformToMpe} on={!identity} />
         <Connector d={platformToVerify} on={identity} />
         <Connector d={verifyToMpe} on={identity} />
         {routeBoxes.map((box, index) => (
           <Connector
-            key={ROUTES[index]}
+            key={FACTORS[index]}
             d={link(right(mpe), midY(mpe), box.x, midY(box))}
-            on={!identity && index === routeIndex}
+            on={!identity}
           />
         ))}
         {!identity
           ? destBoxes.map((box, index) => (
               <Connector
                 key={DESTS[index]}
-                d={link(right(routeBoxes[routeIndex]), midY(routeBoxes[routeIndex]), box.x, midY(box))}
+                d={link(right(routeBoxes[1]), midY(routeBoxes[1]), box.x, midY(box))}
                 on={index === destIndex}
               />
             ))
@@ -140,8 +139,8 @@ export default function RoutingDiagram() {
         <Node box={platform} label="Platform" on />
         <Node box={verify} label="Verify" on={identity} />
         <Node box={mpe} label="MPE" on hub />
-        {ROUTES.map((route, index) => (
-          <Node key={route} box={routeBoxes[index]} label={route} on={!identity && route === active.route} />
+        {FACTORS.map((factor, index) => (
+          <Node key={factor} box={routeBoxes[index]} label={factor} on={!identity} />
         ))}
         {DESTS.map((dest, index) => (
           <Node key={dest} box={destBoxes[index]} label={dest} on={!identity && dest === active.dest} />

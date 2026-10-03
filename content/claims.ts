@@ -69,7 +69,7 @@ export const claims = {
 
   /** Compliance footer (Tier 1.6). Use verbatim on every page. */
   footerDisclaimer:
-    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software. MPE does not hold or transmit customer funds, and does not store customer identity documents. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. Payout options, wallets, cards and currencies vary by platform and country. Market designations describe partner-network capability and programs in development, and do not constitute an offer of regulated services in any jurisdiction. MFAM is in development, patent pending.",
+    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software. MPE does not hold or transmit customer funds, and does not store customer identity documents. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. Payout options, wallets, cards and currencies vary by platform and country. Market designations describe partner-network capability and programs in development, and do not constitute an offer of regulated services in any jurisdiction. MFAM is patent pending, concept stage.",
 } as const;
 
 export type Claims = typeof claims;

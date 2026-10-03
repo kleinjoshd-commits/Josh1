@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "MPE Network | MPE",
-  "One standard adapter for licensed providers. Best route, Fastest, or Lowest cost. 140+ countries. MPE never holds funds."
+  "One standard adapter for licensed providers. Every route is scored on success, speed and cost. 140+ countries. MPE never holds funds."
 );
 
 export default function NetworkPage() {
@@ -43,9 +43,8 @@ export default function NetworkPage() {
           <h2 className="homeSectionTitle">How a route is chosen</h2>
           <FlowRow steps={product.flow} />
           <p className="p" style={{ marginTop: 18 }}>
-            You do not name or contract each provider in your app. The adapter
-            is the same. The choice on a payment is Best route, Fastest, or
-            Lowest cost, and that choice is signed into the audit record.
+            {product.adapter} {product.route} The decision is written to a
+            tamper-evident record. A customer does not pick a route.
           </p>
           <p className="p" style={{ marginTop: 14 }}>
             <Link className="quietLink" href="/#network-map">See where money can land</Link>

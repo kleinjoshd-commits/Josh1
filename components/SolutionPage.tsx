@@ -123,8 +123,8 @@ export default function SolutionPage({
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>How it works</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Authorize, Route, Sign, then Delivered. The payment takes the
-                best licensed path. MPE does not move the money.
+                Authorize, Route, Sign, then Delivered. Success, speed and
+                cost are scored, and one route is signed. MPE does not move the money.
               </p>
             </div>
 

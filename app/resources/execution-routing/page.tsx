@@ -5,14 +5,14 @@ import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Route choice | MPE",
-  "Each payment is Best route, Fastest, or Lowest cost. One standard adapter. Providers are not named."
+  "Routing | MPE",
+  "MPE scores every allowed route on success, speed and cost, picks one, and signs that decision before anything moves."
 );
 
-const MODES = [
-  { title: "Best route", body: "One of the three choices for that payment." },
-  { title: "Fastest", body: "The route chosen for speed." },
-  { title: "Lowest cost", body: "The route chosen for cost. No public price list." },
+const FACTORS = [
+  { title: "Success", body: "Likelihood the payout completes." },
+  { title: "Speed", body: "How quickly that route can deliver. No speed figure is published." },
+  { title: "Cost", body: "What that route costs. No price list is published." },
 ];
 
 export default function ExecutionAbstractionResource() {
@@ -22,9 +22,9 @@ export default function ExecutionAbstractionResource() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">ROUTING</div>
-          <h1>Three ways to route.</h1>
+          <h1>Scores every route.</h1>
           <p className="ebSub">
-            MPE picks one per payment, then signs that decision. {product.adapter}
+            {product.route} A customer does not pick a route. {product.adapter}
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>
@@ -34,10 +34,10 @@ export default function ExecutionAbstractionResource() {
       <section className="deckLight">
         <div className="container deckInner">
           <div className="outcomeGrid">
-            {MODES.map((mode) => (
-              <div className="panel" key={mode.title}>
-                <h3 style={{ marginTop: 0 }}>{mode.title}</h3>
-                <p className="p" style={{ marginTop: 10 }}>{mode.body}</p>
+            {FACTORS.map((factor) => (
+              <div className="panel" key={factor.title}>
+                <h3 style={{ marginTop: 0 }}>{factor.title}</h3>
+                <p className="p" style={{ marginTop: 10 }}>{factor.body}</p>
               </div>
             ))}
           </div>

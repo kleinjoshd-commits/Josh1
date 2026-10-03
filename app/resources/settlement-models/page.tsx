@@ -39,7 +39,7 @@ export default function SettlementModelsResource() {
         <div className="container deckInner">
           <h2 className="homeSectionTitle">Payout types</h2>
           <div className="outcomeGrid" style={{ marginTop: 18 }}>
-            {product.payouts.map((item) => (
+            {product.outputs.map((item) => (
               <div className="panel" key={item.title}>
                 <h3 style={{ marginTop: 0 }}>{item.title}</h3>
                 <p className="p" style={{ marginTop: 10 }}>{item.body}</p>

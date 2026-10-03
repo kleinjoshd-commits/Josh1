@@ -43,7 +43,7 @@ export default function IndustriesPage() {
               <h3 style={{ marginTop: 0 }}>You do not have an app</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Distributors and partners get a ready-made app in their brand:
-                sign-up, identity, payouts, and cards.
+                identity, payouts, and cards. There is no self-serve signup.
               </p>
               <p className="p" style={{ marginTop: 14 }}>
                 <Link className="quietLink" href="/solutions/workforce">Workforce and branded app</Link>

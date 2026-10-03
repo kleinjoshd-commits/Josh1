@@ -40,8 +40,10 @@ export default function TrustControlsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Audit record</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  MPE signs every route decision into an audit record. Operators
-                  can see it in the console, with the payment, the KYC, and the payout.
+                  Every decision is signed and written to a tamper-evident record.
+                  Operators can see the route chosen and why, and can approve or
+                  reject KYC, cancel or return a payout, resend a webhook, and
+                  resolve a reconciliation case.
                 </p>
               </div>
               <div className="panel">

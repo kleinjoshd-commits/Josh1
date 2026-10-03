@@ -35,13 +35,13 @@ export default function UnifiedApproachPage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Your platform</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Platform API, webhooks, and embeds. Or a branded app if you do not have one.
+                Sandbox access, API docs, and embeds. Or a branded app if you do not have one.
               </p>
             </div>
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>MPE</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Picks Best route, Fastest, or Lowest cost, and signs the decision into the audit record. MPE does not move the money.
+                {product.route} MPE does not move the money.
               </p>
             </div>
             <div className="panel">

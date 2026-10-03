@@ -41,20 +41,16 @@ export default function WorkforcePage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Payouts</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Bank account, debit card push, mobile wallet, or local account.
+                  Bank, card, wallet, or cross-border. Wallet means a payout to a mobile wallet.
                 </p>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Wallet and card</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  An in-app balance, and a card in the platform&apos;s brand.
-                </p>
+                <h3 style={{ marginTop: 0 }}>Cards</h3>
+                <p className="p" style={{ marginTop: 10 }}>{product.cards}</p>
               </div>
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Identity</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Instant ID checks, as an embeddable KYC screen.
-                </p>
+                <p className="p" style={{ marginTop: 10 }}>{product.identity}</p>
               </div>
             </div>
           </div>
@@ -69,14 +65,14 @@ export default function WorkforcePage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>You do not</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  A ready-made app in your brand: sign-up, identity, payouts, and cards.
+                  A ready-made app in your brand comes with access: identity, payouts, and cards.
                 </p>
               </div>
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Same API</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Sandbox keys, webhooks, and the ops console.{" "}
-                  <Link className="quietLink" href="/solutions/os">Integration steps</Link>
+                  Sandbox access and {product.webhooks}{" "}
+                  <Link className="quietLink" href="/solutions/os">The ops console</Link>
                 </p>
               </div>
             </div>

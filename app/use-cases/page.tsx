@@ -12,12 +12,12 @@ const STARTS = [
   {
     href: "/solutions/send",
     title: "Payouts",
-    body: "Bank account, debit card push, mobile wallet, local account, and cross-border.",
+    body: "Bank, card, wallet, and cross-border. Wallet means a mobile wallet payout.",
   },
   {
     href: "/solutions/os",
-    title: "Wallets, cards, and KYC",
-    body: "In-app balance, branded cards, and instant ID checks, embedded in your app.",
+    title: "Cards and KYC",
+    body: "Branded cards with spend controls and freeze. Document and selfie checks in your app.",
   },
   {
     href: "/solutions/workforce",
@@ -27,7 +27,7 @@ const STARTS = [
   {
     href: "/solutions/network",
     title: "Many providers, one adapter",
-    body: "Best route, Fastest, or Lowest cost. Providers are not named.",
+    body: "Every allowed route is scored on success, speed and cost. Providers are not named.",
   },
   {
     href: "/industries",

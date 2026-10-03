@@ -12,7 +12,7 @@ const NOTES = [
   {
     href: "/resources/execution-infrastructure",
     title: "Integrate",
-    body: "Sandbox keys, webhooks, docs, embeds, and the ops console.",
+    body: "Sandbox access, API docs, embeds, signed webhooks, and the ops console.",
   },
   {
     href: "/resources/payment-lifecycle",
@@ -22,12 +22,12 @@ const NOTES = [
   {
     href: "/resources/execution-routing",
     title: "Route choice",
-    body: "Best route, Fastest, or Lowest cost. One adapter. No provider names.",
+    body: "Scored on success, speed and cost. One route is signed. No provider names.",
   },
   {
     href: "/solutions/send",
     title: "Payout types",
-    body: "Bank account, debit card push, mobile wallet, local account, cross-border.",
+    body: "Bank, card, wallet, cross-border, and machine.",
   },
   {
     href: "/resources/settlement-models",
