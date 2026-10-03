@@ -42,10 +42,10 @@ export default function RoutingDiagram() {
         <Node x={194} y={320} w={150} h={44} label="Card" />
         <Node x={16} y={400} w={150} h={44} label="Wallet" />
         <Node x={194} y={400} w={150} h={44} label="Machine" />
-        <Pulse begin="0s" path="M180,56 V136 H62 V232 C62,280 91,300 91,320" />
-        <Pulse begin="1.3s" path="M180,56 V232 C180,280 269,300 269,320" />
-        <Pulse begin="2.6s" path="M180,56 V136 H298 V232 C298,310 91,360 91,400" />
-        <Pulse begin="3.9s" path="M180,56 V136 H298 V232 C298,340 269,370 269,400" />
+        <Pulse begin="0s" path="M180,56 V136 H62 V232 C70,270 91,300 91,320" />
+        <Pulse begin="1.3s" path="M180,56 V232 C220,270 269,300 269,320" />
+        <Pulse begin="2.6s" path="M180,56 V136 H62 V232 C62,340 91,370 91,400" />
+        <Pulse begin="3.9s" path="M180,56 V136 H298 V232 C298,330 269,370 269,400" />
       </svg>
     </div>
   );
@@ -77,10 +77,10 @@ function MobileLines() {
     "M180 136 H62 V188",
     "M180 136 V188",
     "M180 136 H298 V188",
-    "M62 232 C62 280 91 300 91 320",
-    "M180 232 C180 280 269 300 269 320",
-    "M298 232 C298 310 91 360 91 400",
-    "M298 232 C298 340 269 370 269 400",
+    "M62 232 C70 270 91 300 91 320",
+    "M62 232 C62 340 91 370 91 400",
+    "M180 232 C220 270 269 300 269 320",
+    "M298 232 C298 330 269 370 269 400",
   ];
   return (
     <g fill="none" stroke="#16A86C" strokeWidth="1.25" opacity="0.55">
