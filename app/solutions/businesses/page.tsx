@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
+import { OpsConsole, SplitStory, WorkerPhone } from "@/components/ProductVisuals";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -29,22 +30,23 @@ export default function BusinessesPage() {
 
       <section className="deckLight">
         <div className="container deckInner">
-          <h2 className="homeSectionTitle">The job</h2>
-          <p className="p">
-            Your people get verified, get paid, and send money home, from an app branded as yours.
-          </p>
-          <p className="p">
-            Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. {product.funds} The card account sits with the issuing partner.
-          </p>
-
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">How you integrate</h2>
+          <SplitStory
+            visual={
+              <>
+                <WorkerPhone />
+                <OpsConsole />
+              </>
+            }
+          >
+            <h2 className="homeSectionTitle">The job</h2>
             <p className="p">
-              Take the ready-made app. It carries your brand. You do not build one.
+              Your people get verified, get paid, and send money home, from an app branded as yours.
             </p>
-          </div>
-
-          <div className="sectionBlock">
+            <p className="p">
+              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. {product.funds} The card account sits with the issuing partner.
+            </p>
+            <h2 className="homeSectionTitle">How you integrate</h2>
+            <p className="p">Take the ready-made app. It carries your brand. You do not build one.</p>
             <h2 className="homeSectionTitle">What you get</h2>
             <ul className="trustList">
               <li>Your people get verified</li>
@@ -52,7 +54,7 @@ export default function BusinessesPage() {
               <li>Your people send money home</li>
               <li>You see payouts and verification in one console</li>
             </ul>
-          </div>
+          </SplitStory>
         </div>
       </section>
 

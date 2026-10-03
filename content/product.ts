@@ -48,8 +48,8 @@ export const product = {
   ],
   developerSteps: [
     {
-      title: "Get sandbox access",
-      body: "Sandbox access, API docs and embeds come with access.",
+      title: "Get access",
+      body: "API docs and embeds come with access.",
     },
     {
       title: "Enroll and verify",

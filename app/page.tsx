@@ -4,8 +4,8 @@ import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
 import LicensedMap from "../components/LicensedMap";
 import HeroFilm from "../components/HeroFilm";
-import BuiltPhoto from "../components/BuiltPhoto";
 import FilmPlayer from "../components/FilmPlayer";
+import { SegmentVisual } from "../components/ProductVisuals";
 import LineIcon from "../components/LineIcon";
 import RoutingDiagram from "../components/RoutingDiagram";
 import CodeSample from "../components/CodeSample";
@@ -70,29 +70,27 @@ export default function Home() {
             {homepageCopy.who.heading}
           </h2>
           <div className="whoGrid">
-            {segments.map((card) =>
-              "image" in card ? (
-                <Link key={card.href} href={card.href} className="hpShot">
-                  <BuiltPhoto
-                    src={card.image}
-                    avif="/media/built-machines.avif"
-                    className="hpShotDrone"
-                    width={1400}
-                    height={1708}
+            {segments.map((card) => (
+              <Link key={card.href} href={card.href} className="whoCard">
+                <span className="whoVisual" aria-hidden="true">
+                  <SegmentVisual
+                    kind={
+                      card.href.endsWith("/platforms")
+                        ? "platforms"
+                        : card.href.endsWith("/fintechs")
+                          ? "fintechs"
+                          : card.href.endsWith("/businesses")
+                            ? "businesses"
+                            : "machines"
+                    }
                   />
-                  <span className="hpShotShade" aria-hidden="true" />
-                  <span className="hpShotCopy">
-                    <strong>{card.title}</strong>
-                    <p>{card.body}</p>
-                  </span>
-                </Link>
-              ) : (
-                <Link key={card.href} href={card.href} className="whoText">
+                </span>
+                <span className="whoCopy">
                   <strong>{card.title}</strong>
                   <p>{card.body}</p>
-                </Link>
-              )
-            )}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

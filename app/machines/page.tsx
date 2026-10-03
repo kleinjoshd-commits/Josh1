@@ -12,7 +12,7 @@ export const metadata = pageMeta(
 
 export default function MachinesPage() {
   return (
-    <main className="sitePage">
+    <main className="sitePage machinesPage">
       <Nav />
 
       <section className="emeraldBand">

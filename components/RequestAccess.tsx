@@ -8,7 +8,7 @@ type Props = {
 
 export default function RequestAccess({
   title = "Request access.",
-  lede = "Sandbox access, API docs and embeds come with access.",
+  lede = "Tell us what you pay out, issue, or check.",
   submitLabel = "Request access",
 }: Props) {
   return <KycForm title={title} lede={lede} submitLabel={submitLabel} />;

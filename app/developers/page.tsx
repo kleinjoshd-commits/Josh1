@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Developers | MPE",
-  "Sandbox access, API docs and embeds come with access. Pay out, then listen for signed webhooks."
+  "API docs and embeds come with access. Pay out, then listen for signed webhooks."
 );
 
 export default function DevelopersPage() {
@@ -21,10 +21,10 @@ export default function DevelopersPage() {
           <div className="ebTag">DEVELOPERS</div>
           <h1>Integrate in four steps.</h1>
           <p className="ebSub">
-            Sandbox access, API docs and embeds come with access.
+            API docs and embeds come with access.
           </p>
           <div className="btnRow">
-            <Link className="btnPrimary" href="#kyc">Request sandbox access</Link>
+            <Link className="btnPrimary" href="#kyc">Request access</Link>
           </div>
         </div>
       </section>
@@ -33,18 +33,19 @@ export default function DevelopersPage() {
         <div className="container deckInner">
           <FlowRow steps={product.developerSteps} className="flowFour" />
 
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">Pay out</h2>
-            <CodeSample code={product.payoutSample} label="Payout request and response" />
+          <div className="codePair">
+            <div className="codeWindow">
+              <p>Pay out</p>
+              <CodeSample code={product.payoutSample} label="Payout request and response" />
+            </div>
+            <div className="codeWindow">
+              <p>Signed webhooks</p>
+              <CodeSample code={product.webhookSample} label="Webhook headers and events" />
+            </div>
           </div>
-
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">Signed webhooks</h2>
-            <p className="p">
-              Each event carries X-MPE-Timestamp, X-MPE-Signature and X-MPE-Event-Id, signed with HMAC-SHA256.
-            </p>
-            <CodeSample code={product.webhookSample} label="Webhook headers and events" />
-          </div>
+          <p className="p" style={{ marginTop: 12 }}>
+            Each event carries X-MPE-Timestamp, X-MPE-Signature and X-MPE-Event-Id, signed with HMAC-SHA256.
+          </p>
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Embeds</h2>
@@ -61,9 +62,9 @@ export default function DevelopersPage() {
       </section>
 
       <RequestAccess
-        title="Request sandbox access."
-        lede="Sandbox access and docs come with access."
-        submitLabel="Request sandbox access"
+        title="Request access."
+        lede="API docs and embeds come with access."
+        submitLabel="Request access"
       />
     </main>
   );

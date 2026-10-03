@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
+import { SegmentVisual } from "@/components/ProductVisuals";
 import { segments } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -29,6 +30,19 @@ export default function SolutionsPage() {
           <div className="cardGrid2">
             {segments.map((item) => (
               <Link className="panel" href={item.href} key={item.href}>
+                <span className="solArt" aria-hidden="true">
+                  <SegmentVisual
+                    kind={
+                      item.href.endsWith("/platforms")
+                        ? "platforms"
+                        : item.href.endsWith("/fintechs")
+                          ? "fintechs"
+                          : item.href.endsWith("/businesses")
+                            ? "businesses"
+                            : "machines"
+                    }
+                  />
+                </span>
                 <h3 style={{ marginTop: 0 }}>{item.title}</h3>
                 <p className="p" style={{ marginTop: 10 }}>{item.detail}</p>
                 <span className="go">Open</span>

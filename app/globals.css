@@ -4283,7 +4283,7 @@ main.sitePage .flowSteps b {
   color: #f7f8f6;
 }
 main.sitePage .flowSteps p { margin: 0; }
-main.sitePage .sectionBlock { margin-top: 72px; }
+main.sitePage .sectionBlock { margin-top: 36px; }
 main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
 @media (max-width: 800px) {
   main.sitePage .flowSteps { grid-template-columns: 1fr; }
@@ -4338,45 +4338,58 @@ main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
 .whoGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 14px;
+  margin-top: 18px;
 }
-.whoGrid a.whoText {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 280px;
-  padding: 24px;
-  border-radius: 16px;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f7f8f6;
-}
-.whoGrid a.whoText:hover { border-color: rgba(125, 255, 195, 0.45); }
-.whoGrid a.whoText strong {
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-.whoGrid a.whoText p {
-  margin: 8px 0 0;
-  max-width: 28ch;
-  color: rgba(232, 240, 236, 0.78);
-  font-size: 16px;
-  line-height: 1.45;
-}
-.whoGrid a.hpShot {
+.whoCard {
   position: relative;
   display: block;
-  min-height: 280px;
-  padding: 0;
+  height: 280px;
   overflow: hidden;
   border-radius: 16px;
-  background: #0c1612;
-  color: #f4f7f5;
+  background: #10241c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f7f8f6;
   text-decoration: none;
-  isolation: isolate;
+}
+.whoCard:hover { border-color: rgba(125, 255, 195, 0.45); }
+.whoVisual {
+  position: absolute;
+  inset: 0 0 78px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px 0;
+}
+.whoVisual .whoDrone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: calc(100% + 78px);
+  object-fit: cover;
+  object-position: center 42%;
+}
+.whoCopy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 28px 16px 14px;
+  background: linear-gradient(180deg, rgba(7, 17, 13, 0) 0%, rgba(7, 17, 13, 0.92) 42%, #07110d 100%);
+}
+.whoCopy strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 620;
+  letter-spacing: -0.03em;
+}
+.whoCopy p {
+  margin: 4px 0 0;
+  max-width: 36ch;
+  color: rgba(232, 240, 236, 0.82);
+  font-size: 14px;
+  line-height: 1.35;
 }
 .codePanel {
   margin: 18px 0 0;
@@ -4461,8 +4474,289 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   .trustList,
   .operatorGrid,
   main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr; }
-  .whoGrid a.whoText,
-  .whoGrid a.hpShot { min-height: 220px; }
+  .whoCard { height: 280px; }
+}
+.vizRow {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
+  gap: 28px;
+  align-items: center;
+}
+.vizRow + .vizRow,
+.vizPage .vizRow { margin-top: 28px; }
+.deckInner > .vizRow:first-child { margin-top: 0; }
+.vizCopy h2 { margin: 22px 0 8px; }
+.vizCopy h2:first-child { margin-top: 0; }
+.vizCopy .p { margin: 0 0 8px; }
+.vizCopy .trustList { grid-template-columns: 1fr; gap: 8px; margin-top: 8px; }
+.vizCopy .trustList li { padding: 12px 14px; }
+.vizCopy .flowSteps { grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+.vizCopy .flowSteps li { padding: 14px 16px; }
+.vizCopy .flowSteps b { font-size: 18px; margin: 6px 0 4px; }
+.vizSide { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.vizSide .routeBoard { margin: 0; }
+.vizPhone {
+  width: 168px;
+  border-radius: 22px;
+  padding: 8px 8px 10px;
+  background: #0b1a14;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+.vizPhoneTop {
+  margin: 0 8px 8px;
+  color: #d7efe4;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.vizPhoneBody {
+  border-radius: 16px;
+  background: #f6f8f7;
+  color: #10241c;
+  padding: 12px;
+  min-height: 132px;
+}
+.vizPay p,
+.vizPay span,
+.vizPay strong,
+.vizPay em { display: block; }
+.vizPay p { margin: 0; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #3d5c4e; }
+.vizPay strong { margin: 4px 0; font-size: 20px; letter-spacing: -0.03em; }
+.vizPay span { font-size: 12px; color: #3d5c4e; }
+.vizPay em { margin-top: 10px; font-style: normal; font-size: 11px; font-weight: 750; letter-spacing: 0.08em; color: #0d8a58; }
+.vizCardFace {
+  height: 72px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(145deg, #147a52, #0c3d2c);
+  color: #f4f7f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.vizCardFace span { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.vizCardFace b { font-size: 13px; font-weight: 650; }
+.vizFreeze {
+  margin-top: 8px;
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #c9ddd4;
+  font-size: 11px;
+  font-weight: 700;
+}
+.vizHost {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  width: 100%;
+  min-height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0e1f18;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.vizHostNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 12px;
+  background: #0a1712;
+  color: rgba(232, 240, 236, 0.72);
+  font-size: 12px;
+  font-weight: 650;
+}
+.vizHostNav .isOn { color: #7dffc3; }
+.vizHostMain { padding: 14px 14px 16px; }
+.vizHostMain > p {
+  margin: 0 0 10px;
+  color: rgba(232, 240, 236, 0.7);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vizHostPhones { display: flex; gap: 12px; justify-content: center; }
+.whoCard .vizHost { min-height: 0; height: 100%; border: 0; background: transparent; }
+.whoCard .vizPhone { width: 132px; }
+.whoCard .vizPhoneBody { min-height: 108px; padding: 10px; }
+.whoCard .vizPay strong { font-size: 16px; }
+.vizWorker { display: flex; justify-content: center; }
+.vizWorkerList {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+.vizWorkerList li {
+  margin: 0;
+  padding: 6px 0;
+  border-bottom: 1px solid #e2ebe6;
+  font-size: 13px;
+  font-weight: 650;
+}
+.vizBrowser {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #f6f8f7;
+  color: #10241c;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+.vizBrowserBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #10241c;
+}
+.vizBrowserBar span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+}
+.vizBrowserBar b {
+  margin-left: 8px;
+  color: rgba(232, 240, 236, 0.8);
+  font-size: 12px;
+  font-weight: 650;
+}
+.vizOps { padding: 12px; }
+.vizOps table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.vizOps th { text-align: left; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #5d756a; padding: 0 0 8px; }
+.vizOps td { padding: 8px 8px 8px 0; border-top: 1px solid #e2ebe6; font-weight: 650; }
+.vizOps ul {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+.vizOps li {
+  margin: 0;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #e7f3ed;
+  font-size: 11px;
+  font-weight: 700;
+}
+.vizRoutes { list-style: none; margin: 0; padding: 8px; }
+.vizRoutes li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 12px 12px;
+  border-bottom: 1px solid #e2ebe6;
+  font-weight: 700;
+}
+.vizRoutes em { font-style: normal; font-size: 12px; color: #3d5c4e; }
+.vizRoutes .isDown em { color: #9a5b2a; }
+.vizRoutes .isPicked em { color: #0d8a58; }
+.vizMini {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  width: min(100%, 420px);
+}
+.vizMiniProviders,
+.vizMiniScore {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.vizMiniProviders span,
+.vizMiniScore span,
+.vizMiniScore b {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+.vizMiniScore {
+  background: rgba(22, 168, 108, 0.16);
+  border: 1px solid rgba(125, 255, 195, 0.35);
+  border-radius: 14px;
+  padding: 8px;
+}
+.vizMiniScore b { background: transparent; border: 0; color: #7dffc3; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; }
+.vizMiniLines {
+  width: 28px;
+  height: 72px;
+  background:
+    linear-gradient(#7dffc3, #7dffc3) center/2px 100% no-repeat;
+  position: relative;
+}
+.vizMiniLines::before,
+.vizMiniLines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #7dffc3;
+}
+.vizMiniLines::before { top: 8px; }
+.vizMiniLines::after { bottom: 8px; }
+.whoCard .vizMini { width: 100%; }
+.codePair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+.codeWindow {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+}
+.codeWindow p {
+  margin: 0;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9dccb6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.codeWindow .codePanel { margin: 0; border: 0; border-radius: 0; background: transparent; }
+.solArt {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 168px;
+  margin: -4px -4px 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #10241c;
+  position: relative;
+}
+.solArt .vizHost,
+.solArt .vizWorker,
+.solArt .vizMini { transform: scale(0.62); transform-origin: top center; }
+.solArt .whoDrone {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+.solArt .vizHost { min-height: 168px; height: 168px; border: 0; }
+.machinesPage .ebWrap { padding-bottom: 28px; }
+.machinesPage .deckInner { padding-top: 36px; }
+.machinesPage .sectionBlock { margin-top: 22px; }
+.machinesPage .operatorGrid { margin-top: 12px; }
+.machinesPage .hpDisclaimer { margin: 10px 0 0; }
+@media (max-width: 900px) {
+  .vizRow,
+  .codePair { grid-template-columns: 1fr; }
+  .vizHost { grid-template-columns: 72px 1fr; }
 }
 
 .payFace:first-child {

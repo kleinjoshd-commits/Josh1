@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import FlowRow from "@/components/FlowRow";
 import RoutingDiagram from "@/components/RoutingDiagram";
 import RequestAccess from "@/components/RequestAccess";
+import { OpsConsole, SplitStory } from "@/components/ProductVisuals";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -31,17 +32,20 @@ export default function PlatformPage() {
 
       <section className="deckLight">
         <div className="container deckInner">
-          <h2 className="homeSectionTitle">How a payment moves</h2>
-          <FlowRow steps={product.flow} />
+          <SplitStory visual={<OpsConsole />}>
+            <h2 className="homeSectionTitle">How a payment moves</h2>
+            <FlowRow steps={product.flow} />
+          </SplitStory>
 
           <div className="sectionBlock">
-            <h2 className="homeSectionTitle">The score</h2>
-            <p className="p">
-              Success, speed and cost sit in one score. The line runs from your platform, through MPE, to that score, then to the route that was picked.
-            </p>
-            <div className="sectionBlock">
-              <RoutingDiagram />
-            </div>
+            <SplitStory
+              visual={<RoutingDiagram />}
+            >
+              <h2 className="homeSectionTitle">The score</h2>
+              <p className="p">
+                Success, speed and cost sit in one score. The line runs from your platform, through MPE, to that score, then to the route that was picked.
+              </p>
+            </SplitStory>
           </div>
 
           <div className="sectionBlock">

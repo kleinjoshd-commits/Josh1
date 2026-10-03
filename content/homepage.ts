@@ -64,9 +64,9 @@ export const homepageCopy = {
 
   developers: {
     eyebrow: "Developers",
-    heading: "Request sandbox access.",
-    lede: "Sandbox access and docs come with access.",
-    cta: "Request sandbox access",
+    heading: "Pay out, then listen for signed webhooks.",
+    lede: "API docs and embeds come with access.",
+    cta: "Request access",
   },
 
   closing: {
