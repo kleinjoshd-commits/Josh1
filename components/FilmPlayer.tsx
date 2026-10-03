@@ -26,6 +26,8 @@ type Props = {
   preload?: "none" | "metadata" | "auto";
   /** Full-bleed background. No play button. Open the modal from outside. */
   background?: boolean;
+  /** Framed hero window. Poster first, video after load. No play button. */
+  framed?: boolean;
 };
 
 function subscribeMotion(onChange: () => void) {
@@ -65,7 +67,7 @@ function Poster({
 }
 
 const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
-  { source, lazy = false, preload = "metadata", background = false },
+  { source, lazy = false, preload = "metadata", background = false, framed = false },
   ref
 ) {
   const stageRef = useRef<HTMLDivElement>(null);
@@ -93,8 +95,10 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
 
   useImperativeHandle(ref, () => ({ open: openModal }), [openModal]);
 
+  const heroLoop = background || framed;
+
   useEffect(() => {
-    if (!background) return;
+    if (!heroLoop) return;
     let timer = 0;
     const arm = () => {
       timer = window.setTimeout(() => setArmLoop(true), 1500);
@@ -108,7 +112,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
       window.removeEventListener("mpe-open-film", onOpen);
       window.clearTimeout(timer);
     };
-  }, [background, openModal]);
+  }, [heroLoop, openModal]);
 
   useEffect(() => {
     const node = stageRef.current;
@@ -158,29 +162,36 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
   useEffect(() => {
     allowRef.current = allowMotion;
     if (idRef.current != null) updatePlayer(idRef.current, {});
-  }, [allowMotion, seen]);
+  }, [allowMotion, seen, armLoop]);
 
   useEffect(() => {
     modalRef.current = open;
     if (idRef.current != null) updatePlayer(idRef.current, { modal: open });
   }, [open]);
 
-  const mountVideo = allowMotion && (background ? armLoop : seen);
+  const mountVideo = allowMotion && (heroLoop ? armLoop : seen);
+  const stageClass = background ? "cineFill" : framed ? "heroLoop" : "hpStage";
 
   return (
     <>
-      <div className={background ? "cineFill" : "hpStage"} ref={stageRef}>
-        <Poster source={source} eager={!lazy || background} priority={background ? "low" : !lazy ? "high" : "low"} />
+      <div className={stageClass} ref={stageRef}>
+        {framed ? null : (
+          <Poster
+            source={source}
+            eager={!lazy || background}
+            priority={background ? "low" : !lazy ? "high" : "low"}
+          />
+        )}
         {mountVideo ? (
           <video
             ref={loopRef}
             className={shown ? "isOn" : undefined}
-            data-loop={background ? "hero" : "mfam"}
-            poster={source.loopPoster}
+            data-loop={heroLoop ? "hero" : "mfam"}
+            poster={framed ? undefined : source.loopPoster}
             muted
             loop
             playsInline
-            preload={background ? "none" : seen ? "metadata" : preload}
+            preload={heroLoop ? "none" : seen ? "metadata" : preload}
             tabIndex={-1}
             aria-hidden="true"
             onPlaying={() => setShown(true)}
@@ -189,7 +200,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             <source src={source.loopMp4} type="video/mp4" />
           </video>
         ) : null}
-        {background ? null : (
+        {background || framed ? null : (
           <button type="button" className="hpPlay" onClick={openModal}>
             <span className="hpPlayMark" aria-hidden="true">
               <svg width="11" height="12" viewBox="0 0 11 12">

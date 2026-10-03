@@ -1,3 +1,4 @@
+import { preload } from "react-dom";
 import { claims } from "@/content/claims";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
@@ -7,10 +8,10 @@ import StatCount from "./StatCount";
 import WatchFilm from "./WatchFilm";
 
 export default function HeroFilm() {
+  preload(homepageMedia.brand.loopPosterWebp, { as: "image", fetchPriority: "high" });
+
   return (
     <section className="cineHero">
-      <FilmPlayer source={homepageMedia.brand} background preload="none" />
-      <div className="cineScrim" aria-hidden="true" />
       <div className="cineInner">
         <div className="cineTop">
           <div className="cineCopy">
@@ -24,20 +25,35 @@ export default function HeroFilm() {
               <WatchFilm label={homepageCopy.watchCta} />
             </div>
           </div>
-          <PaymentPanel />
-        </div>
-        <div className="cineFoot">
-          <div className="cineStats">
-            {claims.stats
-              .filter((s) => s.strip)
-              .map((s) => (
-                <div key={s.value}>
-                  <StatCount value={s.value} />
-                  <span>{s.label}</span>
-                </div>
-              ))}
+          <div className="cineMedia">
+            <div className="heroFrame">
+              {/* Server-rendered so the still can paint before the player hydrates. */}
+              <img
+                className="heroPoster"
+                src={homepageMedia.brand.loopPosterWebp}
+                alt=""
+                width={1600}
+                height={900}
+                decoding="sync"
+                fetchPriority="high"
+              />
+              <FilmPlayer source={homepageMedia.brand} framed preload="none" />
+            </div>
+            <PaymentPanel />
           </div>
-          <p className="cineFine">{homepageCopy.heroFine}</p>
+          <div className="cineFoot">
+            <div className="cineStats">
+              {claims.stats
+                .filter((s) => s.strip)
+                .map((s) => (
+                  <div key={s.value}>
+                    <StatCount value={s.value} />
+                    <span>{s.label}</span>
+                  </div>
+                ))}
+            </div>
+            <p className="cineFine">{homepageCopy.heroFine}</p>
+          </div>
         </div>
       </div>
     </section>

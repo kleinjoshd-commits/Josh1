@@ -3168,6 +3168,7 @@ img {
 }
 @media (prefers-reduced-motion: reduce) {
   .hpStage video,
+  .heroFrame video,
   .cineFill video,
   .routePulse { display: none; }
 }
@@ -3201,7 +3202,8 @@ header.siteHeader {
   z-index: 0;
 }
 .cineFill picture,
-.hpStage picture {
+.hpStage picture,
+.heroFrame picture {
   position: absolute;
   inset: 0;
   display: block;
@@ -3209,26 +3211,31 @@ header.siteHeader {
 }
 .cineFill picture img,
 .hpStage picture img,
+.heroFrame picture img,
 .cineFill video,
-.hpStage video {
+.hpStage video,
+.heroFrame video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 .cineFill picture img,
-.hpStage picture img {
+.hpStage picture img,
+.heroFrame picture img {
   position: absolute;
   inset: 0;
 }
 .cineFill video,
-.hpStage video {
+.hpStage video,
+.heroFrame video {
   position: absolute;
   inset: 0;
   opacity: 0;
 }
 .cineFill video.isOn,
-.hpStage video.isOn {
+.hpStage video.isOn,
+.heroFrame video.isOn {
   opacity: 1;
   transition: opacity 0.45s ease;
 }
@@ -4036,6 +4043,127 @@ html.js .hpShot img.isIn {
   .routeFeed span { grid-column: 1 / -1; }
   .routeDesktop { display: none; }
   .routeMobile { display: flex; flex-direction: column; }
+}
+
+/* Hero: copy and stats on the left, framed loop on the right. */
+.cineHero {
+  min-height: 0;
+  overflow: visible;
+  background:
+    radial-gradient(720px 420px at 74% 38%, rgba(22, 168, 108, 0.16), transparent 70%),
+    radial-gradient(540px 380px at 8% 92%, rgba(12, 36, 28, 0.9), transparent 72%),
+    #07110d;
+}
+.cineHero .cineInner {
+  min-height: 0;
+  justify-content: flex-start;
+  padding: 124px var(--page-pad) 64px;
+}
+.cineHero .cineTop {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-areas:
+    "copy media"
+    "stats media";
+  column-gap: 28px;
+  row-gap: 28px;
+  align-items: center;
+}
+.cineHero .cineCopy { grid-area: copy; align-self: end; }
+.cineHero .cineFoot { grid-area: stats; align-self: start; margin-top: 0; }
+.cineHero .cineMedia {
+  grid-area: media;
+  position: relative;
+  min-width: 0;
+  align-self: center;
+  padding: 0 0 28px 18px;
+}
+.heroFrame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0c1612;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.42);
+}
+.heroPoster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.heroLoop {
+  position: absolute;
+  inset: 0;
+}
+.cineHero .cineMedia .payPanel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: min(300px, 84%);
+  min-height: 0;
+  padding: 14px 14px 12px;
+  border-radius: 16px;
+}
+.cineHero .cineMedia .payBody { min-height: 0; gap: 10px; }
+.cineHero .cineMedia .payAmount { font-size: 28px; }
+.cineHero .cineMedia .payMeta b { font-size: 13px; }
+.cineHero .cineMedia .payMeta small { font-size: 11px; }
+.cineHero .cineMedia .payMark { width: 28px; height: 28px; border-radius: 8px; }
+.cineHero .cineMedia .payMark svg { width: 15px; height: 15px; }
+.cineHero .cineMedia .paySteps { gap: 6px; }
+.cineHero .cineMedia .paySteps li { font-size: 9px; letter-spacing: 0.02em; gap: 6px; }
+.cineHero .cineStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: none;
+  gap: 16px 20px;
+  margin-top: 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.cineHero .cineStats > div,
+.cineHero .cineStats > div + div {
+  flex: none;
+  margin: 0;
+  padding: 0;
+  border-right: 0;
+}
+.cineHero .cineStats b { font-size: 32px; }
+.cineHero .cineStats span { max-width: 18ch; }
+.cineHero h1 { max-width: 10em; font-size: clamp(40px, 3.5vw, 56px); }
+
+@media (max-width: 900px) {
+  .cineHero .cineInner { padding: 108px var(--page-pad) 48px; }
+  .cineHero .cineTop {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "media"
+      "stats";
+    row-gap: 22px;
+  }
+  .cineHero .cineCopy,
+  .cineHero .cineFoot { align-self: stretch; }
+  .cineHero .cineMedia { padding: 4px 0 36px; }
+  .cineHero .cineMedia .payPanel {
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+  .cineHero h1 { max-width: 12em; }
+}
+
+@media (max-width: 700px) {
+  .cineHero .cineInner { padding: 96px var(--page-pad) 40px; }
+  .cineHero .cineMedia .payAmount { font-size: 26px; }
+  .cineHero .cineStats { gap: 14px 16px; }
+  .cineHero .cineStats b { font-size: 28px; }
 }
 
 .payFace:first-child {

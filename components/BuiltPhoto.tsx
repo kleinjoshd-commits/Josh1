@@ -37,7 +37,7 @@ export default function BuiltPhoto({
       height={height}
       className={className ? `${className}${ready ? " isIn" : ""}` : ready ? "isIn" : undefined}
       loading="eager"
-      fetchPriority="high"
+      fetchPriority="low"
       decoding="async"
       onLoad={() => setReady(true)}
     />
