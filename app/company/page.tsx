@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Company | MPE",
-  "MPE builds orchestration software. Licensed partners move the money. Meet the people building MPE."
+  "MPE builds orchestration software. Licensed partners move the money. For platforms, fintechs, businesses without an app, and operators of machines."
 );
 
 type TeamMember = {
@@ -60,7 +60,7 @@ export default function CompanyPage() {
           <div className="ebTag">COMPANY</div>
           <h1>MPE builds the software. Licensed partners move the money.</h1>
           <p className="ebSub">
-            Orchestration for platforms, fintechs, distributors, and operators of machines. {product.funds}
+            Orchestration for platforms, fintechs, businesses without an app, and operators of machines. {product.funds}
           </p>
         </div>
       </section>

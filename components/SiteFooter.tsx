@@ -17,7 +17,7 @@ const COLUMNS = [
       { label: "Overview", href: "/solutions" },
       { label: "Platforms", href: "/solutions/platforms" },
       { label: "Fintechs", href: "/solutions/fintechs" },
-      { label: "Distributors", href: "/solutions/distributors" },
+      { label: "Businesses without an app", href: "/solutions/businesses" },
     ],
   },
   {

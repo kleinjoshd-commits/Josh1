@@ -36,7 +36,7 @@ export default function PlatformsPage() {
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">
-              Card program
+              Card program{" "}
               <span className="soonPill">Coming soon</span>
             </h2>
             <p className="p">

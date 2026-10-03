@@ -21,7 +21,7 @@ export default function NotFound() {
           <h1>This page is not here.</h1>
           <p className="ebSub">
             The link may be old. MPE is still one API for platforms, fintechs,
-            distributors and operators of machines.
+            businesses without an app, and operators of machines.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="/">Back home</Link>

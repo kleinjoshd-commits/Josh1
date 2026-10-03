@@ -15,7 +15,7 @@ import { product, segments } from "@/content/product";
 
 export const metadata: Metadata = {
   description:
-    "One API for payouts, cards, identity and machine payments. For platforms, fintechs, distributors and operators of machines. MPE never holds funds.",
+    "One API for payouts, cards, identity and machine payments. For platforms, fintechs, businesses without an app, and operators of machines. MPE never holds funds.",
 };
 
 function LeadCopy({ text }: { text: string }) {

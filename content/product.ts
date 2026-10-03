@@ -98,11 +98,11 @@ export const segments = [
     href: "/solutions/fintechs",
   },
   {
-    title: "Distributors",
-    body: "A ready-made app in your brand.",
+    title: "Businesses without an app",
+    body: "No app? Get one in your brand. Pay your people, let them spend, and earn from it.",
     detail:
-      "Partner networks with no app of their own take a ready-made app in their brand.",
-    href: "/solutions/distributors",
+      "No app? Get one in your brand. Pay your people, let them spend, and earn from it. Spend and earn are coming soon.",
+    href: "/solutions/businesses",
   },
   {
     title: "Machines",

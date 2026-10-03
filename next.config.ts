@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
       { source: "/resources", destination: "/platform", statusCode: 301 },
       { source: "/resources/:path*", destination: "/platform", statusCode: 301 },
       { source: "/solutions/workforce", destination: "/solutions/platforms", statusCode: 301 },
+      { source: "/solutions/distributors", destination: "/solutions/businesses", statusCode: 301 },
       { source: "/solutions/send", destination: "/platform", statusCode: 301 },
       { source: "/solutions/network", destination: "/platform", statusCode: 301 },
       { source: "/solutions/os", destination: "/platform", statusCode: 301 },

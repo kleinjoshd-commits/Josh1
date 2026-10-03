@@ -8,7 +8,7 @@ const PATHS = [
   "/solutions",
   "/solutions/platforms",
   "/solutions/fintechs",
-  "/solutions/distributors",
+  "/solutions/businesses",
   "/developers",
   "/company",
 ];

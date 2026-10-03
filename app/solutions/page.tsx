@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Solutions | MPE",
-  "Platforms, fintechs, distributors, and operators of machines. Four ways to use the same API."
+  "Platforms, fintechs, businesses without an app, and operators of machines. Four ways to use the same API."
 );
 
 export default function SolutionsPage() {
