@@ -28,7 +28,7 @@ export default function KycForm({
   if (submitted) {
     return (
       <section id="kyc" className="emeraldBand">
-        <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
+        <div className="ebWrap">
           <div className="ebTag">TALK TO US</div>
           <div className="kycCard">
             <h3 style={{ marginTop: 0 }}>Received. A person will reply.</h3>
@@ -89,7 +89,7 @@ export default function KycForm({
 
   return (
     <section id="kyc" className="emeraldBand">
-      <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
+      <div className="ebWrap">
         <div className="kycCenter">
         <div className="ebTag">TALK TO US</div>
         <div className="kycHead">

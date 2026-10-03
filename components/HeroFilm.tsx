@@ -1,48 +1,59 @@
-"use client";
-
-import { useRef } from "react";
+import { preload } from "react-dom";
 import { claims } from "@/content/claims";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
-import FilmPlayer, { type FilmPlayerHandle } from "./FilmPlayer";
+import FilmPlayer from "./FilmPlayer";
+import PaymentPanel from "./PaymentPanel";
+import StatCount from "./StatCount";
+import WatchFilm from "./WatchFilm";
 
 export default function HeroFilm() {
-  const filmRef = useRef<FilmPlayerHandle>(null);
+  preload(homepageMedia.brand.loopPosterWebp, { as: "image", fetchPriority: "high" });
 
   return (
     <section className="cineHero">
-      <FilmPlayer ref={filmRef} source={homepageMedia.brand} background preload="auto" />
-      <div className="cineScrim" aria-hidden="true" />
       <div className="cineInner">
-        <div className="cineCopy">
-          <p className="hpHeroKicker">{homepageCopy.heroKicker}</p>
-          <h1>{claims.hero.headline}</h1>
-          <p className="cineSub">{claims.hero.subheadline}</p>
-          <div className="btnRow">
-            <a className="btnPrimary" href="#kyc">
-              {homepageCopy.bookCta}
-            </a>
-            <button
-              type="button"
-              className="btnSecondary"
-              onClick={() => filmRef.current?.open()}
-            >
-              {homepageCopy.watchCta}
-            </button>
+        <div className="cineTop">
+          <div className="cineCopy">
+            <p className="hpHeroKicker">{homepageCopy.heroKicker}</p>
+            <h1>{claims.hero.headline}</h1>
+            <p className="cineSub">{claims.hero.subheadline}</p>
+            <div className="btnRow">
+              <a className="btnPrimary" href="#kyc">
+                {homepageCopy.bookCta}
+              </a>
+              <WatchFilm label={homepageCopy.watchCta} />
+            </div>
           </div>
-        </div>
-        <div className="cineFoot">
-          <div className="cineStats">
-            {claims.stats
-              .filter((s) => s.strip)
-              .map((s) => (
-                <div key={s.value}>
-                  <b>{s.value}</b>
-                  <span>{s.label}</span>
-                </div>
-              ))}
+          <div className="cineMedia">
+            <div className="heroFrame">
+              {/* Server-rendered so the still can paint before the player hydrates. */}
+              <img
+                className="heroPoster"
+                src={homepageMedia.brand.loopPosterWebp}
+                alt=""
+                width={1600}
+                height={900}
+                decoding="sync"
+                fetchPriority="high"
+              />
+              <FilmPlayer source={homepageMedia.brand} framed preload="none" />
+            </div>
+            <PaymentPanel />
           </div>
-          <p className="cineFine">{homepageCopy.heroFine}</p>
+          <div className="cineFoot">
+            <div className="cineStats">
+              {claims.stats
+                .filter((s) => s.strip)
+                .map((s) => (
+                  <div key={s.value}>
+                    <StatCount value={s.value} />
+                    <span>{s.label}</span>
+                  </div>
+                ))}
+            </div>
+            <p className="cineFine">{homepageCopy.heroFine}</p>
+          </div>
         </div>
       </div>
     </section>

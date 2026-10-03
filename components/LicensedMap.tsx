@@ -13,12 +13,11 @@
 // =====================================================================
 import { useEffect, useRef } from "react";
 import { MAP_SVG } from "@/content/licensedMapSvg";
-import { claims } from "@/content/claims";
 
 const LABEL: Record<string, [string, string, string]> = {
-  licensed: ["Licensed network", "full MPE programmes can run here", "#17C97F"],
-  payout: ["Payout & collection", "money lands here", "#57A87C"],
-  motion: ["Licence in motion", "payout already live, licence underway", "#E0A82E"],
+  licensed: ["Licensed network", "a full program can run here", "#17C97F"],
+  payout: ["Payout and collection", "money lands here", "#57A87C"],
+  motion: ["License in motion", "payout already live, license underway", "#E0A82E"],
   extended: ["Extended access", "via the Hong Kong extension", "#2BA6B6"],
 };
 
@@ -35,23 +34,39 @@ export default function LicensedMap() {
     const tip = tipRef.current;
     if (!box || !tip) return;
 
-    const move = (e: MouseEvent) => {
-      const p = e.target as SVGElement;
-      if (!p.classList || !p.classList.contains("c")) { tip.style.opacity = "0"; return; }
-      // Only countries served with at least payout answer on hover;
-      // countries outside the network stay quiet.
+    const show = (clientX: number, clientY: number, target: EventTarget | null) => {
+      const p = target as SVGElement | null;
+      if (!p?.classList || !p.classList.contains("c")) { tip.style.opacity = "0"; return; }
+      // Only countries served with at least payout answer on hover or click.
+      // Countries outside the network stay quiet.
       const cls = ["licensed", "payout", "motion", "extended"].find(k => p.classList.contains(k));
       if (!cls) { tip.style.opacity = "0"; return; }
       const [t, d, col] = LABEL[cls];
-      const name = (p as SVGElement & { dataset: DOMStringMap }).dataset.n ?? "";
+      const name = p.dataset.n ?? "";
       if (!name) { tip.style.opacity = "0"; return; }
       tip.innerHTML = `<b>${name}</b><span><i class="dot" style="background:${col}"></i>${t}, ${d}</span>`;
-      tip.style.left = e.clientX + 16 + "px";
-      tip.style.top = e.clientY + 14 + "px";
+      const tipW = tip.offsetWidth || 220;
+      const tipH = tip.offsetHeight || 64;
+      const legend = box.parentElement?.querySelector(".legend")?.getBoundingClientRect();
+      let left = clientX + 16;
+      let top = clientY + 14;
+      const hitsLegend = legend
+        && left + tipW > legend.left - 10
+        && top + tipH > legend.top
+        && top < legend.bottom;
+      if (hitsLegend || left + tipW > window.innerWidth - 8) left = clientX - tipW - 16;
+      if (left < 8) left = 8;
+      if (top + tipH > window.innerHeight - 8) top = clientY - tipH - 12;
+      if (top < 8) top = 8;
+      tip.style.left = left + "px";
+      tip.style.top = top + "px";
       tip.style.opacity = "1";
     };
+    const move = (e: MouseEvent) => show(e.clientX, e.clientY, e.target);
+    const tap = (e: MouseEvent) => show(e.clientX, e.clientY, e.target);
     const leave = () => { tip.style.opacity = "0"; };
     box.addEventListener("mousemove", move);
+    box.addEventListener("click", tap);
     box.addEventListener("mouseleave", leave);
 
     // Legend focus: spotlight one status, dim the rest. The svg is looked
@@ -66,6 +81,7 @@ export default function LicensedMap() {
     });
     return () => {
       box.removeEventListener("mousemove", move);
+      box.removeEventListener("click", tap);
       box.removeEventListener("mouseleave", leave);
       offs.forEach(f => f());
     };
@@ -77,8 +93,8 @@ export default function LicensedMap() {
         <div className="tag">THE NETWORK</div>
         <h2>Licensed access across the world</h2>
         <p className="sub">
-          Regulatory reach held by MPE&apos;s licensed partners, usable the day a
-          programme needs it. Tap or hover the map, or a legend entry, to explore.
+          Where money can land, and where a full program can run. Tap or hover
+          the map, or a legend entry, to explore.
         </p>
 
         <div className="maprow">
@@ -86,32 +102,26 @@ export default function LicensedMap() {
           <div className="legend">
             <div className="lg licensed" data-f="licensed">
               <div className="row"><div className="sw" /><b>Licensed network</b></div>
-              <p>UK · EU/EEA · CA · AU · HK · US · IL · GCC · SG · MY · IN · PH</p>
+              <p>Full programs in licensed markets.</p>
             </div>
             <div className="lg payout" data-f="payout">
               <div className="row"><div className="sw" /><b>Payout &amp; collection</b></div>
-              <p>Money lands in {claims.countryCount} countries · Bangladesh · Nepal · Pakistan · Sri Lanka · Vietnam · Mexico · Africa</p>
+              <p>Payout and collection across the partner network.</p>
             </div>
             <div className="lg motion" data-f="motion">
-              <div className="row"><div className="sw" /><b>Licence in motion</b></div>
-              <p>Saudi bank partner · Indonesia, payout &amp; collection already live there today</p>
+              <div className="row"><div className="sw" /><b>License in motion</b></div>
+              <p>Payout is already live while a license is underway.</p>
             </div>
             <div className="lg extended" data-f="extended">
               <div className="row"><div className="sw" /><b>Extended access</b></div>
-              <p>China · via the Hong Kong extension</p>
+              <p>Reach beyond the core licensed markets.</p>
             </div>
             <div className="note">Access shown is the combined contracted and in-process partner network.</div>
           </div>
         </div>
 
-        <div className="statsline">
-          {claims.networkStats.map(s => (
-            <div className="sl" key={s.label}><b>{s.value}</b><span>{s.label}</span></div>
-          ))}
-        </div>
-
         <p className="foot-quote">
-          One network, many licensed partners, every corridor routed to the best one for the job.
+          One network. Each payment takes the best path.
         </p>
       </div>
 
@@ -122,14 +132,13 @@ export default function LicensedMap() {
           --mBg:#0B2318; --mBg2:#071A10; --mLine:#24473A; --mInk:#F2F7F4; --mSub:#9DBFAF; --mFaint:#6E8A7C;
           --mGrn:#12A96B; --mEmerald:#17C97F; --mEmeraldHi:#2FE89C; --mGold:#E0A82E; --mGoldHi:#F2C55C;
           --mPayout:#3E7D5C; --mPayoutHi:#57A87C; --mTeal:#1E7F8C; --mTealHi:#2BA6B6; --mBase:#12261B;
-          background:radial-gradient(120% 90% at 20% 0%, #103524 0%, var(--mBg) 45%, var(--mBg2) 100%);
+          background:#07110d;
           color:var(--mInk);
         }
-        .mpeMap .wrap{max-width:1120px;margin:0 auto;padding:64px 24px 56px}
-        .mpeMap .tag{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:999px;
-          border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.06);
-          color:var(--mSub);font-size:12px;font-weight:650;letter-spacing:0.14em}
-        .mpeMap h2{font-size:30px;line-height:1.12;font-weight:620;letter-spacing:-0.02em;margin:14px 0 10px;color:var(--mInk)}
+        .mpeMap .wrap{width:min(var(--page),100%);max-width:var(--page);margin:0 auto;padding:96px var(--page-pad);box-sizing:border-box}
+        .mpeMap .tag{display:block;padding:0;border:0;background:none;border-radius:0;
+          color:#16A86C;font-size:12px;font-weight:700;letter-spacing:0.12em}
+        .mpeMap h2{font-size:44px;line-height:1.08;font-weight:560;letter-spacing:-0.035em;margin:14px 0 10px;color:var(--mInk);text-align:left}
         .mpeMap .sub{color:var(--mSub);font-size:15.5px;line-height:1.7;max-width:760px}
         .mpeMap .maprow{display:grid;grid-template-columns:1fr 250px;gap:34px;align-items:start;margin-top:38px}
         .mpeMap .mapbox{position:relative}
@@ -167,7 +176,7 @@ export default function LicensedMap() {
         .mpeMap .statsline{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid var(--mLine)}
         .mpeMap .sl b{font-size:28px;font-weight:620;letter-spacing:-0.02em;color:var(--mEmerald)}
         .mpeMap .sl span{display:block;font-size:12px;color:var(--mSub)}
-        .mpeMap .foot-quote{color:var(--mSub);text-align:center;font-size:15.5px;margin-top:36px}
+        .mpeMap .foot-quote{color:var(--mSub);text-align:left;font-size:15.5px;margin-top:36px}
         @media(max-width:860px){.mpeMap .maprow{grid-template-columns:1fr}.mpeMap .legend{flex-direction:row;flex-wrap:wrap;position:static}.mpeMap .lg{flex:1 1 45%}}
       `}</style>
     </section>

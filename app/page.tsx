@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
 import LicensedMap from "../components/LicensedMap";
 import HeroFilm from "../components/HeroFilm";
+import BuiltPhoto from "../components/BuiltPhoto";
 import FilmPlayer from "../components/FilmPlayer";
 import LineIcon from "../components/LineIcon";
 import RoutingDiagram from "../components/RoutingDiagram";
@@ -12,7 +13,8 @@ import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
 
 export const metadata: Metadata = {
-  description: claims.hero.subheadline,
+  description:
+    "One integration for payouts, wallets, cards, identity and machine payments. For platforms, people and machines. MPE never holds funds.",
 };
 
 function LeadCopy({ text }: { text: string }) {
@@ -36,7 +38,7 @@ export default function Home() {
   const mfam = homepageCopy.mfam;
 
   return (
-    <main>
+    <main className="home">
       <Nav />
       <HeroFilm />
 
@@ -73,8 +75,13 @@ export default function Home() {
           <div className="hpBuiltGrid">
             {built.cards.map((card, index) => (
               <a key={card.title} href={card.href} className="hpShot" data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={card.image} alt="" width={1400} height={880} />
+                <BuiltPhoto
+                  src={card.image}
+                  avif={card.image.endsWith("built-machines.webp") ? "/media/built-machines.avif" : undefined}
+                  className={card.image.endsWith("built-machines.webp") ? "hpShotDrone" : undefined}
+                  width={card.image.endsWith("built-machines.webp") ? 1400 : 1400}
+                  height={card.image.endsWith("built-machines.webp") ? 1708 : 880}
+                />
                 <span className="hpShotShade" aria-hidden="true" />
                 <span className="hpShotCopy">
                   <strong>{card.title}</strong>
@@ -128,22 +135,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The map. No seam with the sections around it: the same emerald. */}
       <LicensedMap />
 
-      {/* 3, The statement. One sentence, a screen of air. */}
-      <section className="emeraldBand">
-        <div className="ebWrap ebStatement" style={{ paddingTop: 34, paddingBottom: 64 }}>
-          <h2>Every way money moves.<br />One integration.</h2>
-          <p>
-            Smart routing, payouts, wallets, cards, identity, cross-border
-            and machine payments. For people, platforms and machines.
-            Licensed partners move the money. MPE never holds funds.
-          </p>
-        </div>
-      </section>
-
-      {/* 4, Products. Four cards, one line each. */}
+      {/* Products. Four cards, one line each. */}
       <section className="deckLight">
         <div className="container deckInner">
           <section className="homeBand" data-animate>
@@ -151,28 +145,28 @@ export default function Home() {
               <Link href="/solutions/send" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Payouts for people, priced in the open.
+                  Payouts to any account.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  One audience: a global workforce.
+                  Pay a global workforce.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/network" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Every corridor, the best licensed partner.
+                  Licensed reach, 140+ countries.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/os" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Every payment approved, routed and proven.
+                  Approve, route and prove.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
@@ -182,23 +176,20 @@ export default function Home() {
           {/* Trust, first-class: the category norm is a compliance section
               on the homepage. Ours states the architecture, not badges. */}
           <section className="homeBand" data-animate>
-            <div className="homeSectionHeader homeContextHeader">
+            <div className="homeSectionHeader">
               <h2 className="homeSectionTitle">Built to be trusted</h2>
             </div>
             <div className="outcomeGrid">
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Never holds funds</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  MPE does not hold or transmit customer funds, and does not
-                  store customer identity documents. Enforced by architecture,
-                  not policy.
+                  {claims.noCustody} Enforced by architecture, not policy.
                 </p>
               </div>
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Licensed institutions, every market</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Money transfer and payment services within MPE programs are
-                  provided by licensed partner institutions in each market,
+                  Payment services in each market are provided by licensed partners,
                   under their own regulators.
                 </p>
               </div>
@@ -211,7 +202,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="linkRow" style={{ marginTop: 20 }}>
+            <div className="linkRow">
               <Link className="btnSecondary" href="/trust-controls">How trust works</Link>
             </div>
           </section>
@@ -220,24 +211,21 @@ export default function Home() {
 
       {/* 6, Two doors. Employers and institutions, one paragraph each. */}
       <section className="emeraldBand" id="partners">
-        <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
+        <div className="ebWrap">
           <div className="ebTag">WORKING TOGETHER</div>
           <div className="ebDoors">
             <div className="ebDoor">
               <h3>For employers</h3>
               <p>
                 One workforce program on the same integration: hire, onboard
-                and pay across borders, with payouts, wallets and cards for
-                workers, and licensed partners moving the money.
+                and pay across borders, with payouts, wallets and cards.
               </p>
               <Link className="btnPrimary" href="/#kyc">Request Access</Link>
             </div>
             <div className="ebDoor">
               <h3>For licensed institutions</h3>
               <p>
-                Deposits, flow and customers you cannot acquire yourself, on
-                your license, under your regulation. MPE holds no funds and
-                earns only when the partnership does.
+                Deposits and customers on your license, under your regulation.
               </p>
               <Link className="btnSecondary" href="/#kyc">Talk to us</Link>
             </div>
