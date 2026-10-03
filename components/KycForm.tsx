@@ -7,7 +7,7 @@ type KycResponse = {
   error?: string;
 };
 
-const INTERESTS = ["Employer program", "Licensed institution", "Partner or other"];
+const INTERESTS = ["Platform integration", "Workforce program", "Licensed institution"];
 
 type KycFormProps = {
   title?: string;
@@ -17,7 +17,7 @@ type KycFormProps = {
 
 export default function KycForm({
   title = "Start the conversation.",
-  lede = "An employer program, an institutional partnership, or something we have not thought of yet: share a few details and the right person replies.",
+  lede = "A platform, a workforce program, or an institutional partnership: share a few details and the right person replies.",
   submitLabel = "Talk to us",
 }: KycFormProps = {}) {
   const [submitted, setSubmitted] = useState(false);

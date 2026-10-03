@@ -134,11 +134,11 @@ export default function Home() {
       {/* 3, The statement. One sentence, a screen of air. */}
       <section className="emeraldBand">
         <div className="ebWrap ebStatement" style={{ paddingTop: 34, paddingBottom: 64 }}>
-          <h2>Everyone holds one piece.<br />Nobody holds the person.</h2>
+          <h2>Every way money moves.<br />One integration.</h2>
           <p>
-            Payroll stops at the wage. Banks hold accounts they cannot fill.
-            Counters see a transaction, never a customer. MPE is the missing
-            layer: the relationship itself.
+            Smart routing, payouts, wallets, cards, identity, cross-border
+            and machine payments. For people, platforms and machines.
+            Licensed partners move the money. MPE never holds funds.
           </p>
         </div>
       </section>
@@ -151,14 +151,14 @@ export default function Home() {
               <Link href="/solutions/send" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Money home, honestly priced.
+                  Payouts for people, priced in the open.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  From the payroll file to the family.
+                  One audience: a global workforce.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
@@ -226,9 +226,9 @@ export default function Home() {
             <div className="ebDoor">
               <h3>For employers</h3>
               <p>
-                One program from payroll to payday: hire, onboard and pay
-                across borders, and your workforce enrolls on site, in their
-                own languages, with licensed partners carrying every wage home.
+                One workforce program on the same integration: hire, onboard
+                and pay across borders, with payouts, wallets and cards for
+                workers, and licensed partners moving the money.
               </p>
               <Link className="btnPrimary" href="/#kyc">Request Access</Link>
             </div>

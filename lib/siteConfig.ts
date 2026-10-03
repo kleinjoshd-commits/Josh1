@@ -44,7 +44,7 @@ export const siteConfig = {
       {
         label: "MPE Send",
         href: "/solutions/send",
-        description: "The consumer experience: money home, honestly priced.",
+        description: "Payouts for people, priced in the open.",
       },
       {
         label: "MPE OS",
@@ -59,7 +59,7 @@ export const siteConfig = {
       {
         label: "MPE Network",
         href: "/solutions/network",
-        description: "Access to global rails through licensed infrastructure partners.",
+        description: "Payout coverage through licensed infrastructure partners.",
       },
     ] satisfies NavItem[],
   },
@@ -73,7 +73,7 @@ export const siteConfig = {
       capabilities: [
         "Approval workflows and separation of duties",
         "Payment lifecycle states (create → approve → release → settle)",
-        "Routing and execution abstraction across partners and rails",
+        "Routing and execution abstraction across partners and networks",
         "FX control and governed exposure management",
         "Audit trails, reporting, and governance",
         "Vendor, subcontractor, and mass payout workflows",
@@ -93,9 +93,9 @@ export const siteConfig = {
     },
     network: {
       title: "MPE Network",
-      subtext: "Access to global rails through a growing ecosystem of licensed partners.",
+      subtext: "Payout coverage through a growing ecosystem of licensed partners.",
       capabilities: [
-        "Local payout rails and coverage",
+        "Local payout coverage",
         "FX optimization checkpoints",
         "Funding accounts and virtual account constructs (where available)",
         "Payment tracking and transparency",

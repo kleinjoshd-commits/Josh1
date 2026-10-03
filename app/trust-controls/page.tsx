@@ -92,7 +92,7 @@ export default function TrustControlsPage() {
               <p className="p" style={{ marginTop: 10 }}>
                 Every payment begins as a governed intent. Policies define who
                 can initiate, approve, modify, or release funds, before any
-                execution rail is engaged.
+                execution begins.
               </p>
             </div>
 

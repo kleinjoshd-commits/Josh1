@@ -15,7 +15,7 @@ export const metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),
   title: "MPE | Financial infrastructure for a borderless economy",
   description:
-    "MPE connects globally mobile earners and their employers to regulated financial infrastructure, and holds the customer relationship at every step. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market.",
+    "One integration for every way money moves: payouts, wallets, cards, identity and cross-border, routed across licensed partners. For people, platforms and machines. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market.",
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",

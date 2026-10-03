@@ -91,7 +91,7 @@ export default function UnifiedApproachPage() {
             <div className="panel" style={{ textDecoration: "none" }}>
               <h3 style={{ marginTop: 0 }}>1) Deploy where it adds the most value</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                MPE can be layered into the workflows, providers, and rails
+                MPE can be layered into the workflows, providers, and networks
                 where you need more control and visibility.
               </p>
               <p className="p" style={{ marginTop: 10 }}>
@@ -111,7 +111,7 @@ export default function UnifiedApproachPage() {
             </div>
 
             <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>3) Route execution through the right rail</h3>
+              <h3 style={{ marginTop: 0 }}>3) Route execution through the right network</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Settle through trusted local banks for domestic flows and licensed
                 partners for cross-border payouts. Stay provider-agnostic while
@@ -141,7 +141,7 @@ export default function UnifiedApproachPage() {
             </div>
 
             <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>6) Outlast networks without changing rails</h3>
+              <h3 style={{ marginTop: 0 }}>6) Keep control when networks degrade</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Resilience engineering strengthens critical control moments
                 (approvals, authorization, and release) so decision authority can persist

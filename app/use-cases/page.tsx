@@ -6,7 +6,7 @@ import { claims } from "@/content/claims";
 export const metadata = {
   title: "Use Cases | MPE",
   description:
-    "How employers, operators and institutions use MPE, from the payroll file to the family, with licensed partners providing the regulated services.",
+    "How platforms, operators and institutions use MPE, for people, workforces and machines, with licensed partners providing the regulated services.",
 };
 
 // Anonymized composites of real program shapes. No customer names, no
@@ -16,14 +16,14 @@ const CASES = [
   {
     kicker: "AGRICULTURE · WORKFORCE BENEFIT",
     problem:
-      "A food producer's payday ended at the bank transfer, and its migrant workforce lost 4-10% of every paycheck getting money the rest of the way home.",
+      "A food producer paid a seasonal workforce by bank transfer, and had no payouts, wallet or card inside the same program.",
     points: [
       "Workers enroll in MPE Send at a staffed desk on site, in their own language, with a trained officer beside them for the first transfer.",
       "The full cost is shown before signup: the rate, in the open, before anyone commits to anything.",
       "Money transfer services are provided by licensed partner institutions; the employer simply offers the program as a benefit.",
     ],
     outcome:
-      "More of each paycheck reaches the people it was earned for, and the employer offers a benefit workers feel on the first payday.",
+      "Workers get paid the way that fits, and the employer offers payouts without becoming a payments company.",
   },
   {
     kicker: "CONSUMER GOODS · PAYMENT CONTROL",
@@ -43,11 +43,11 @@ const CASES = [
       "A multinational contractor hired across a dozen countries, and ran payroll, contractor payments and compliance on a different system in each one.",
     points: [
       "Hire, onboard and pay in 180 countries through one program, payroll, employer of record and contractor payments together.",
-      "The same workers' own paydays are served next: the wage, the money sent home, the family's collection, with licensed partners providing the regulated services.",
-      "One relationship covers the employer's file and the worker's family, in every market the project touches.",
+      "The same workers can then use payouts, a wallet and a card, with licensed partners providing the regulated services.",
+      "One relationship covers the employer's file and the worker's payouts, in every market the project touches.",
     ],
     outcome:
-      "One system from the payroll file to the family, instead of a different vendor at every border.",
+      "One system from payroll to payout, instead of a different vendor at every border.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function UseCasesPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">USE CASES</div>
-          <h1>Built for the payday that crosses borders.</h1>
+          <h1>Built for every way money moves.</h1>
           <p className="ebSub">
             How employers, operators and institutions use MPE. Composites of
             real program shapes, no customer names, and the regulated
@@ -99,12 +99,12 @@ export default function UseCasesPage() {
             <div className="productTrio">
               <Link href="/solutions/send" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>Money home, honestly priced.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Payouts for people, priced in the open.</p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>From the payroll file to the family.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>One audience: a global workforce.</p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/network" className="panel">

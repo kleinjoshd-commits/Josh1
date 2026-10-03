@@ -38,18 +38,11 @@ export const claims = {
       "Payouts, wallets, cards, identity and cross-border, routed across licensed partners. For people, platforms and machines.",
   },
 
-  /**
-   * Market context, not MPE volume. Sources:
-   * $860B — World Bank / KNOMAD, Migration and Development Brief 39:
-   *   global remittance flows estimated at $860 billion in 2023.
-   * ~6% — World Bank press release, 26 June 2024 (Brief 40): the global
-   *   average cost of sending $200 was 6.4% in Q4 2023. Remittance Prices
-   *   Worldwide (18 Aug 2025) puts the same average at 6.36%.
-   */
+  /** Hero strip. Same figures as the network map. Not market-size claims. */
   stats: [
-    { value: "$860B", label: "Global remittance flows", strip: true },
-    { value: "~6%", label: "Average cost to send $200", strip: true },
-    { value: "140+", label: "countries where money lands through our network", strip: false },
+    { value: "140+", label: "countries where money lands", strip: true },
+    { value: "200+", label: "direct bank connections", strip: true },
+    { value: "130+", label: "payout currencies", strip: true },
   ] as const,
 
   /** Network stat line (Tier 3.1 / 3.4). */

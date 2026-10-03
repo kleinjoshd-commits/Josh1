@@ -24,7 +24,7 @@ export const homepageCopy = {
       {
         icon: "payout",
         title: "Payouts",
-        body: "Bank, card, wallet or family abroad.",
+        body: "Bank, card, wallet or local account.",
       },
       {
         icon: "wallet",
@@ -115,8 +115,8 @@ export const homepageCopy = {
   },
 
   closing: {
-    heading: "Let's get your workers paid.",
-    lede: "Tell us about your platform and your workers. In a 20-minute call, we'll show you how MPE fits.",
+    heading: "See how money moves on your platform.",
+    lede: "Tell us what you need to pay, store, issue or approve. In a 20-minute call, we'll show you how MPE fits.",
     cta: "Book a call",
   },
 

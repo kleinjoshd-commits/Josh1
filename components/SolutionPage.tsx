@@ -128,7 +128,7 @@ export default function SolutionPage({
                 intake through approval, release, and settlement visibility.
                 Partner routing remains abstracted behind a governed operating
                 layer so enterprise teams do not need to redesign workflows each
-                time geography, rail, or provider changes.
+                time geography, network, or provider changes.
               </p>
             </div>
 

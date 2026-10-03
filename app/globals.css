@@ -3542,7 +3542,7 @@ header.siteHeader {
   display: flex;
   align-items: flex-start;
   gap: 0;
-  max-width: 520px;
+  max-width: 780px;
 }
 .cineStats > div {
   flex: 1 1 0;
@@ -3566,7 +3566,7 @@ header.siteHeader {
 }
 .cineStats span {
   margin-top: 8px;
-  max-width: 26ch;
+  max-width: 28ch;
   font-size: 12px;
   line-height: 1.3;
   letter-spacing: -0.01em;
@@ -3671,12 +3671,12 @@ header.siteHeader {
   .cineStats { max-width: none; gap: 0; }
   .cineStats > div,
   .cineStats > div + div {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .cineStats > div:first-child { padding-left: 0; }
-  .cineStats b { font-size: 28px; }
-  .cineStats span { font-size: 11px; max-width: 16ch; }
+  .cineStats b { font-size: 22px; }
+  .cineStats span { font-size: 10px; max-width: 16ch; min-height: 2.5em; line-height: 1.25; }
   .hpBuiltGrid a.hpShot { min-height: 320px; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -74,7 +74,7 @@ export default function ResourcesPage() {
               </h3>
 
               <p className="p" style={{ marginTop: 10, maxWidth: "none" }}>
-                Most payment failures are not caused by rails or banks. They are
+                Most payment failures are not caused by networks or banks. They are
                 caused by unclear authority, implicit state, and fragmented
                 decision-making across systems. This resource explains how
                 explicit, enforceable lifecycle states enable predictable,
@@ -181,7 +181,7 @@ export default function ResourcesPage() {
               <h3 style={{ marginTop: 0 }}>Resilience &amp; trust</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 How resilience applies to payment control systems, and how
-                critical control events stay strong without changing rails or
+                critical control events stay strong without changing networks or
                 workflows.
               </p>
               <div style={{ marginTop: 14 }}>
