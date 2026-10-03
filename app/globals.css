@@ -4161,6 +4161,20 @@ html.js .hpShot img.isIn {
 
 @media (max-width: 700px) {
   .cineHero .cineInner { padding: 96px var(--page-pad) 40px; }
+  .cineHero .cineMedia {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .cineHero .cineMedia .payPanel {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    /* 10% of the column width is about 18% of a 16:9 frame. */
+    margin-top: -10%;
+  }
   .cineHero .cineMedia .payAmount { font-size: 26px; }
   .cineHero .cineStats { gap: 14px 16px; }
   .cineHero .cineStats b { font-size: 28px; }
