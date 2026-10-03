@@ -3153,7 +3153,7 @@ img {
   .hpTiles { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 800px) {
-  .hpWrap { padding: 64px 24px; }
+  .hpWrap { padding: 64px var(--page-pad); }
   .hpSteps,
   .hpPoints,
   .hpSplit { grid-template-columns: 1fr; }
@@ -3930,15 +3930,28 @@ header.siteHeader {
 .home .deckLight .panel p,
 .home .deckLight .panel .p { color: var(--muted); }
 .home .homeBand { max-width: none; margin-left: 0; margin-right: 0; }
-.home .homeSectionHeader,
+.home .homeSectionHeader {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
 .home .linkRow { text-align: left; justify-content: flex-start; }
 .home .hpWrap,
-.home .deckInner,
 .home .emeraldBand .ebWrap,
 .home .mpeMap .wrap {
+  padding: 96px var(--page-pad);
+}
+.home .deckInner {
   padding-top: 96px;
   padding-bottom: 96px;
 }
+.container.deckInner {
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}
+.home .homeBand { margin-top: 48px; }
+.home .deckInner > .homeBand:first-child { margin-top: 0; }
 .home .hpCaps h2,
 .home .hpBuilt h2,
 .home .hpOrch h2,
@@ -3979,9 +3992,11 @@ header.siteHeader {
   .home .hpMfam h2,
   .home .mpeMap h2 { font-size: 32px; text-align: left; }
   .home .hpWrap,
-  .home .deckInner,
   .home .emeraldBand .ebWrap,
   .home .mpeMap .wrap {
+    padding: 64px var(--page-pad);
+  }
+  .home .deckInner {
     padding-top: 64px;
     padding-bottom: 64px;
   }

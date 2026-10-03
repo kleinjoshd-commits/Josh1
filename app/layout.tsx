@@ -7,8 +7,10 @@ import { siteConfig } from "@/lib/siteConfig";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: true,
   variable: "--font-inter",
+  preload: true,
 });
 
 const description =

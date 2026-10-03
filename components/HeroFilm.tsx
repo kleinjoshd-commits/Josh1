@@ -1,19 +1,15 @@
-"use client";
-
-import { useRef } from "react";
 import { claims } from "@/content/claims";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
-import FilmPlayer, { type FilmPlayerHandle } from "./FilmPlayer";
+import FilmPlayer from "./FilmPlayer";
 import PaymentPanel from "./PaymentPanel";
 import StatCount from "./StatCount";
+import WatchFilm from "./WatchFilm";
 
 export default function HeroFilm() {
-  const filmRef = useRef<FilmPlayerHandle>(null);
-
   return (
     <section className="cineHero">
-      <FilmPlayer ref={filmRef} source={homepageMedia.brand} background preload="auto" />
+      <FilmPlayer source={homepageMedia.brand} background preload="none" />
       <div className="cineScrim" aria-hidden="true" />
       <div className="cineInner">
         <div className="cineTop">
@@ -25,13 +21,7 @@ export default function HeroFilm() {
               <a className="btnPrimary" href="#kyc">
                 {homepageCopy.bookCta}
               </a>
-              <button
-                type="button"
-                className="btnSecondary"
-                onClick={() => filmRef.current?.open()}
-              >
-                {homepageCopy.watchCta}
-              </button>
+              <WatchFilm label={homepageCopy.watchCta} />
             </div>
           </div>
           <PaymentPanel />

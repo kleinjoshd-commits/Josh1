@@ -78,11 +78,11 @@ export default function Home() {
                   <picture>
                     <source srcSet="/media/built-machines.avif" type="image/avif" />
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="hpShotDrone" src={card.image} alt="" width={1400} height={1708} />
+                    <img className="hpShotDrone" src={card.image} alt="" width={1400} height={1708} loading="lazy" decoding="async" />
                   </picture>
                 ) : (
                   /* eslint-disable-next-line @next/next/no-img-element */
-                  <img src={card.image} alt="" width={1400} height={880} />
+                  <img src={card.image} alt="" width={1400} height={880} loading="lazy" decoding="async" />
                 )}
                 <span className="hpShotShade" aria-hidden="true" />
                 <span className="hpShotCopy">

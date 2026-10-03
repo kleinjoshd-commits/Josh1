@@ -41,9 +41,11 @@ function motionNow() {
 function Poster({
   source,
   eager,
+  priority = "auto",
 }: {
   source: HomepageFilm;
   eager: boolean;
+  priority?: "high" | "low" | "auto";
 }) {
   const webp = "loopPosterWebp" in source ? source.loopPosterWebp : undefined;
   return (
@@ -57,7 +59,7 @@ function Poster({
         height={1080}
         decoding="async"
         loading={eager ? "eager" : "lazy"}
-        fetchPriority={eager ? "high" : "low"}
+        fetchPriority={priority}
       />
     </picture>
   );
@@ -75,6 +77,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
   const [open, setOpen] = useState(false);
   const [seen, setSeen] = useState(!lazy);
   const [shown, setShown] = useState(false);
+  const [armLoop, setArmLoop] = useState(false);
   const allowMotion = useSyncExternalStore(subscribeMotion, motionNow, () => false);
 
   const openModal = useCallback(() => {
@@ -90,6 +93,23 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
   }, []);
 
   useImperativeHandle(ref, () => ({ open: openModal }), [openModal]);
+
+  useEffect(() => {
+    if (!background) return;
+    let timer = 0;
+    const arm = () => {
+      timer = window.setTimeout(() => setArmLoop(true), 1500);
+    };
+    const onOpen = () => openModal();
+    if (document.readyState === "complete") arm();
+    else window.addEventListener("load", arm, { once: true });
+    window.addEventListener("mpe-open-film", onOpen);
+    return () => {
+      window.removeEventListener("load", arm);
+      window.removeEventListener("mpe-open-film", onOpen);
+      window.clearTimeout(timer);
+    };
+  }, [background, openModal]);
 
   useEffect(() => {
     const node = stageRef.current;
@@ -146,12 +166,12 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
     if (idRef.current != null) updatePlayer(idRef.current, { modal: open });
   }, [open]);
 
-  const mountVideo = allowMotion && (background || seen);
+  const mountVideo = allowMotion && (background ? armLoop : seen);
 
   return (
     <>
       <div className={background ? "cineFill" : "hpStage"} ref={stageRef}>
-        <Poster source={source} eager={!lazy} />
+        <Poster source={source} eager={!lazy || background} priority={background ? "low" : !lazy ? "high" : "low"} />
         {mountVideo ? (
           <video
             ref={loopRef}
@@ -161,7 +181,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             muted
             loop
             playsInline
-            preload={background || seen ? "auto" : preload}
+            preload={background ? "none" : seen ? "metadata" : preload}
             tabIndex={-1}
             aria-hidden="true"
             onPlaying={() => setShown(true)}
