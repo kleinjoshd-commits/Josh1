@@ -3056,7 +3056,7 @@ img {
   color: var(--ink);
 }
 
-.hpMfamFilm { margin-top: 36px; max-width: 920px; }
+.hpMfamFilm { margin-top: 36px; width: 100%; max-width: none; }
 .hpMfam .hpDisclaimer { color: rgba(17, 24, 39, 0.55); }
 .hpMfam .hpStage {
   background: #0c1612 url("/media/mpe-mfam-film-loop-poster.jpg") center 42% / cover no-repeat;
@@ -3661,8 +3661,15 @@ header.siteHeader {
 }
 .hpShot img {
   object-fit: cover;
+}
+html.js .hpShot img {
+  opacity: 0;
   transform: scale(1.04);
-  transition: transform 0.7s ease;
+  transition: opacity 0.5s ease, transform 0.7s ease;
+}
+html.js .hpShot img.isIn {
+  opacity: 1;
+  transform: scale(1);
 }
 .hpShotDrone { object-position: center 38%; }
 .hpShot:hover img { transform: scale(1.1); }
@@ -3728,8 +3735,9 @@ header.siteHeader {
     animation: none;
     stroke-dasharray: none;
   }
+  html.js .hpShot img,
   .hpShot img,
-  .hpShot:hover img { transform: none; transition: none; }
+  .hpShot:hover img { opacity: 1; transform: none; transition: none; }
   .payFace { animation: none; opacity: 0; }
   .payStill { display: block; }
   .payStage { display: none; }

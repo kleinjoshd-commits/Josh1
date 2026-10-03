@@ -8,45 +8,48 @@ function parseStat(value: string) {
   return { n: Number(match[1]), suffix: match[2] };
 }
 
+/**
+ * The markup is the finished figure. The count runs only after the strip
+ * has been off-screen and then scrolls into view, and it finishes within 1.2s.
+ */
 export default function StatCount({ value }: { value: string }) {
   const { n, suffix } = parseStat(value);
   const ref = useRef<HTMLElement>(null);
   const [shown, setShown] = useState(n);
-  const [started, setStarted] = useState(false);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setShown(n);
-      return;
-    }
+    if (reduce) return;
     const el = ref.current;
     if (!el) return;
+    let offscreen = false;
+    let frame = 0;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setStarted(true);
+        if (!entry.isIntersecting) {
+          offscreen = true;
+          return;
+        }
         observer.disconnect();
+        if (!offscreen) return;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min(1, (now - start) / 1100);
+          const eased = 1 - Math.pow(1 - t, 3);
+          setShown(Math.round(n * eased));
+          if (t < 1) frame = requestAnimationFrame(tick);
+        };
+        setShown(0);
+        frame = requestAnimationFrame(tick);
       },
-      { threshold: 0.6 }
+      { threshold: 0.5 }
     );
     observer.observe(el);
-    return () => observer.disconnect();
-  }, [n]);
-
-  useEffect(() => {
-    if (!started) return;
-    const start = performance.now();
-    let frame = 0;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / 900);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setShown(Math.round(n * eased));
-      if (t < 1) frame = requestAnimationFrame(tick);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
     };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [started, n]);
+  }, [n]);
 
   return (
     <b ref={ref}>

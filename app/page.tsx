@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
 import LicensedMap from "../components/LicensedMap";
 import HeroFilm from "../components/HeroFilm";
+import BuiltPhoto from "../components/BuiltPhoto";
 import FilmPlayer from "../components/FilmPlayer";
 import LineIcon from "../components/LineIcon";
 import RoutingDiagram from "../components/RoutingDiagram";
@@ -74,16 +75,13 @@ export default function Home() {
           <div className="hpBuiltGrid">
             {built.cards.map((card, index) => (
               <a key={card.title} href={card.href} className="hpShot" data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
-                {card.image.endsWith("built-machines.webp") ? (
-                  <picture>
-                    <source srcSet="/media/built-machines.avif" type="image/avif" />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="hpShotDrone" src={card.image} alt="" width={1400} height={1708} loading="lazy" decoding="async" />
-                  </picture>
-                ) : (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img src={card.image} alt="" width={1400} height={880} loading="lazy" decoding="async" />
-                )}
+                <BuiltPhoto
+                  src={card.image}
+                  avif={card.image.endsWith("built-machines.webp") ? "/media/built-machines.avif" : undefined}
+                  className={card.image.endsWith("built-machines.webp") ? "hpShotDrone" : undefined}
+                  width={card.image.endsWith("built-machines.webp") ? 1400 : 1400}
+                  height={card.image.endsWith("built-machines.webp") ? 1708 : 880}
+                />
                 <span className="hpShotShade" aria-hidden="true" />
                 <span className="hpShotCopy">
                   <strong>{card.title}</strong>
