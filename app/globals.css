@@ -3254,6 +3254,7 @@ header.siteHeader {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .cineCopy { max-width: 1072px; }
 .cineHero .hpHeroKicker {
@@ -3312,7 +3313,7 @@ header.siteHeader {
   line-height: 1.4;
   color: rgba(232, 240, 236, 0.8);
 }
-.cineFoot { margin-top: auto; padding-top: 24px; }
+.cineFoot { margin-top: 36px; padding-top: 0; }
 .cineStats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3505,7 +3506,8 @@ header.siteHeader {
   .hpCapGrid,
   .hpBuiltGrid,
   .hpTiles { grid-template-columns: 1fr; }
-  .cineInner { padding: 96px 16px 16px; }
+  .cineInner { justify-content: flex-start; padding: 96px 16px 20px; }
+  .cineFoot { margin-top: auto; }
   .cineHero .cineSub { font-size: 15px; }
   .cineStats { gap: 0; max-width: none; }
   .cineStats span { font-size: 11px; }

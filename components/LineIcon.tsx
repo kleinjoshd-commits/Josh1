@@ -33,9 +33,9 @@ function Glyph({ name }: { name: IconName }) {
   if (name === "wallet") {
     return (
       <>
-        <rect x="3" y="7" width="18" height="12" rx="2" {...common} />
-        <path d="M3 11h18" {...common} />
-        <path d="M15 14.2h3.2" {...common} />
+        <path d="M4 9.2h14.2A1.8 1.8 0 0 1 20 11v6.2a1.8 1.8 0 0 1-1.8 1.8H5.8A1.8 1.8 0 0 1 4 17.2V9.2z" {...common} />
+        <path d="M4 9.2 6.4 6h9.4L18.2 9.2" {...common} />
+        <circle cx="16.1" cy="13.4" r="1.15" {...common} />
       </>
     );
   }

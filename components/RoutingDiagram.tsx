@@ -221,8 +221,9 @@ function DestIcon({ name, x, y }: { name: "bank" | "card" | "wallet" | "machine"
       ) : null}
       {name === "wallet" ? (
         <>
-          <rect x="1.5" y="4" width="15" height="11" rx="1.6" {...common} />
-          <path d="M1.5 8h15" {...common} />
+          <path d="M1.6 6.2h12.2A1.4 1.4 0 0 1 15.2 7.6V13a1.4 1.4 0 0 1-1.4 1.4H3A1.4 1.4 0 0 1 1.6 13V6.2z" {...common} />
+          <path d="M1.6 6.2 3.4 3.6h8.4l1.8 2.6" {...common} />
+          <circle cx="12.1" cy="10" r="0.95" {...common} />
         </>
       ) : null}
       {name === "machine" ? (
