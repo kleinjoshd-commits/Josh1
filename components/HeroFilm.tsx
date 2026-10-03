@@ -5,7 +5,6 @@ import { homepageMedia } from "@/content/media";
 import FilmPlayer from "./FilmPlayer";
 import PaymentPanel from "./PaymentPanel";
 import StatCount from "./StatCount";
-import WatchFilm from "./WatchFilm";
 
 export default function HeroFilm() {
   preload(homepageMedia.brand.loopPosterWebp, { as: "image", fetchPriority: "high" });
@@ -22,12 +21,10 @@ export default function HeroFilm() {
               <a className="btnPrimary" href="#kyc">
                 {homepageCopy.bookCta}
               </a>
-              <WatchFilm label={homepageCopy.watchCta} />
             </div>
           </div>
           <div className="cineMedia">
             <div className="heroFrame">
-              {/* Server-rendered so the still can paint before the player hydrates. */}
               <img
                 className="heroPoster"
                 src={homepageMedia.brand.loopPosterWebp}
@@ -37,7 +34,7 @@ export default function HeroFilm() {
                 decoding="sync"
                 fetchPriority="high"
               />
-              <FilmPlayer source={homepageMedia.brand} framed preload="none" />
+              <FilmPlayer source={homepageMedia.brand} framed preload="auto" />
             </div>
             <PaymentPanel />
           </div>

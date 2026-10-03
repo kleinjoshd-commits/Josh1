@@ -10,7 +10,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-import { createPortal } from "react-dom";
+import { createPortal, flushSync } from "react-dom";
 import { homepageCopy } from "@/content/homepage";
 import type { HomepageFilm } from "@/content/media";
 import { registerPlayer, unregisterPlayer, updatePlayer } from "./filmPlayback";
@@ -28,6 +28,12 @@ type Props = {
   background?: boolean;
   /** Framed hero window. Poster first, video after load. No play button. */
   framed?: boolean;
+  /** Stage still. The full film uses its own poster, not the loop frame. */
+  still?: "loop" | "modal";
+  /** Muted loop behind the poster. Off for a poster that only plays the full film. */
+  preview?: boolean;
+  /** Seamless clips repeat. Anything else plays once and holds the last frame. */
+  repeat?: boolean;
 };
 
 function subscribeMotion(onChange: () => void) {
@@ -43,22 +49,42 @@ function motionNow() {
 function Poster({
   source,
   priority = "auto",
+  still = "loop",
 }: {
   source: HomepageFilm;
   eager?: boolean;
   priority?: "high" | "low" | "auto";
+  still?: "loop" | "modal";
 }) {
-  const webp = "loopPosterWebp" in source ? source.loopPosterWebp : undefined;
-  return (
-    <picture>
-      {webp ? <source srcSet={webp} type="image/webp" /> : null}
-      {/* Plain img so the jpg fallback is what non-webp browsers serve. */}
+  const modal = still === "modal" && "modalPoster" in source;
+  const src = modal ? source.modalPoster : source.loopPoster;
+  const webp = modal
+    ? undefined
+    : "loopPosterWebp" in source
+      ? source.loopPosterWebp
+      : undefined;
+  if (!webp) {
+    return (
       <img
-        src={source.loopPoster}
+        src={src}
         alt=""
         width={1920}
         height={1080}
-        decoding="async"
+        decoding="sync"
+        loading="eager"
+        fetchPriority={priority === "low" ? "high" : priority}
+      />
+    );
+  }
+  return (
+    <picture>
+      <source srcSet={webp} type="image/webp" />
+      <img
+        src={src}
+        alt=""
+        width={1920}
+        height={1080}
+        decoding="sync"
         loading="eager"
         fetchPriority={priority}
       />
@@ -67,11 +93,16 @@ function Poster({
 }
 
 const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
-  { source, lazy = false, preload = "metadata", background = false, framed = false },
+  { source, lazy = false, preload = "metadata", background = false, framed = false, still = "loop", preview = true, repeat = true },
   ref
 ) {
   const stageRef = useRef<HTMLDivElement>(null);
   const loopRef = useRef<HTMLVideoElement>(null);
+  const repeatRef = useRef(repeat);
+  const endedRef = useRef(false);
+  useEffect(() => {
+    repeatRef.current = repeat;
+  }, [repeat]);
   const idRef = useRef<number | null>(null);
   const allowRef = useRef(false);
   const modalRef = useRef(false);
@@ -84,7 +115,12 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
   const openModal = useCallback(() => {
     modalRef.current = true;
     if (idRef.current != null) updatePlayer(idRef.current, { modal: true });
-    setOpen(true);
+    flushSync(() => setOpen(true));
+    const video = document.querySelector<HTMLVideoElement>("video[data-loop='modal']");
+    if (video) {
+      video.muted = false;
+      void video.play().catch(() => {});
+    }
   }, []);
 
   const closeModal = useCallback(() => {
@@ -99,18 +135,12 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
 
   useEffect(() => {
     if (!heroLoop) return;
-    let timer = 0;
-    const arm = () => {
-      timer = window.setTimeout(() => setArmLoop(true), 1500);
-    };
+    const frame = requestAnimationFrame(() => setArmLoop(true));
     const onOpen = () => openModal();
-    if (document.readyState === "complete") arm();
-    else window.addEventListener("load", arm, { once: true });
     window.addEventListener("mpe-open-film", onOpen);
     return () => {
-      window.removeEventListener("load", arm);
+      cancelAnimationFrame(frame);
       window.removeEventListener("mpe-open-film", onOpen);
-      window.clearTimeout(timer);
     };
   }, [heroLoop, openModal]);
 
@@ -124,6 +154,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
       play: () => {
         const loop = loopRef.current;
         if (!loop) return;
+        if (!repeatRef.current && (endedRef.current || loop.ended)) return;
         loop.muted = true;
         void loop.play().catch(() => {});
       },
@@ -169,15 +200,30 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
     if (idRef.current != null) updatePlayer(idRef.current, { modal: open });
   }, [open]);
 
-  const mountVideo = allowMotion && (heroLoop ? armLoop : seen);
+  const mountVideo = preview && allowMotion && (heroLoop ? armLoop : seen);
   const stageClass = background ? "cineFill" : framed ? "heroLoop" : "hpStage";
+  const stillPoster =
+    still === "modal" && "modalPoster" in source ? source.modalPoster : source.loopPoster;
 
   return (
     <>
-      <div className={stageClass} ref={stageRef}>
+      <div
+        className={stageClass}
+        ref={stageRef}
+        style={
+          framed
+            ? undefined
+            : {
+                backgroundImage: `url(${stillPoster})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
+        }
+      >
         {framed ? null : (
           <Poster
             source={source}
+            still={still}
             eager={!lazy || background}
             priority={background ? "low" : !lazy ? "high" : "low"}
           />
@@ -187,11 +233,15 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             ref={loopRef}
             className={shown ? "isOn" : undefined}
             data-loop={heroLoop ? "hero" : "mfam"}
-            poster={framed ? undefined : source.loopPoster}
+            poster={still === "modal" && "modalPoster" in source ? source.modalPoster : source.loopPoster}
             muted
-            loop
+            loop={repeat}
             playsInline
-            preload={heroLoop ? "none" : seen ? "metadata" : preload}
+            onEnded={() => {
+              if (!repeatRef.current) endedRef.current = true;
+            }}
+            autoPlay={heroLoop}
+            preload={heroLoop ? "auto" : seen ? "metadata" : preload}
             tabIndex={-1}
             aria-hidden="true"
             onPlaying={() => setShown(true)}
@@ -231,7 +281,6 @@ function FilmModal({
   onClose: () => void;
 }) {
   const titleId = useId();
-  const noteId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const onCloseRef = useRef(onClose);
@@ -302,7 +351,6 @@ function FilmModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        aria-describedby={noteId}
         ref={dialogRef}
         onMouseDown={(event) => event.stopPropagation()}
       >
@@ -327,7 +375,6 @@ function FilmModal({
           preload="metadata"
           data-loop="modal"
         />
-        <p id={noteId}>{homepageCopy.filmDisclaimer}</p>
       </div>
     </div>,
     document.body

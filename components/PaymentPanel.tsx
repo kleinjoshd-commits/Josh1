@@ -14,7 +14,7 @@ const PAYMENTS = [
   { amount: "$2,480.00", place: "Bank deposit", country: "United States", icon: "bank" },
   { amount: "€860.00", place: "Debit card push", country: "Germany", icon: "card" },
   { amount: "£420.00", place: "Wallet payout", country: "United Kingdom", icon: "wallet" },
-  { amount: "MXN 12,400", place: "Local account", country: "Mexico", icon: "account" },
+  { amount: "MXN 12,400", place: "Cross-border", country: "Mexico", icon: "bank" },
   { amount: "$12.40", place: "Machine payment", country: "Singapore", icon: "machine" },
 ] as const;
 
@@ -51,14 +51,6 @@ function Mark({ name }: { name: (typeof PAYMENTS)[number]["icon"] }) {
         <path d="M4 9.2h14.2A1.8 1.8 0 0 1 20 11v6.2a1.8 1.8 0 0 1-1.8 1.8H5.8A1.8 1.8 0 0 1 4 17.2V9.2z" {...common} />
         <path d="M4 9.2 6.4 6h9.4L18.2 9.2" {...common} />
         <circle cx="16.1" cy="13.4" r="1.15" {...common} />
-      </svg>
-    );
-  }
-  if (name === "account") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="4" y="5" width="16" height="14" rx="2" {...common} />
-        <path d="M8 9h8M8 13h5" {...common} />
       </svg>
     );
   }

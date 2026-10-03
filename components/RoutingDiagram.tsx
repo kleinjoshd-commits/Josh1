@@ -3,21 +3,21 @@
 import { Fragment, useEffect, useState } from "react";
 
 const TABS = [
-  { id: "payouts", label: "Payouts", route: "Best route", dest: "Bank" },
-  { id: "wallets", label: "Wallets", route: "Fastest", dest: "Wallet" },
-  { id: "cards", label: "Cards", route: "Lowest cost", dest: "Card" },
-  { id: "identity", label: "Identity", route: "", dest: "" },
-  { id: "machines", label: "Machines", route: "Fastest", dest: "Machine" },
+  { id: "payouts", label: "Payouts", dest: "Bank" },
+  { id: "wallets", label: "Wallets", dest: "Wallet" },
+  { id: "cards", label: "Cards", dest: "Card" },
+  { id: "identity", label: "Identity", dest: "" },
+  { id: "machines", label: "Machines", dest: "Machine" },
 ] as const;
 
-const ROUTES = ["Best route", "Fastest", "Lowest cost"] as const;
-const DESTS = ["Bank", "Card", "Wallet", "Local account", "Machine"] as const;
+const FACTORS = ["Success", "Speed", "Cost"] as const;
+const DESTS = ["Bank", "Card", "Wallet", "Cross-border", "Machine"] as const;
 
 const ROWS = [
   { name: "Bank deposit", amount: "$2,480.00" },
   { name: "Debit card push", amount: "€860.00" },
   { name: "Wallet payout", amount: "£420.00" },
-  { name: "Local account", amount: "MXN 12,400" },
+  { name: "Cross-border", amount: "MXN 12,400" },
   { name: "Machine payment", amount: "$12.40" },
 ] as const;
 
@@ -28,11 +28,7 @@ type Box = { x: number; y: number; w: number; h: number };
 const platform: Box = { x: 8, y: 138, w: 132, h: 56 };
 const verify: Box = { x: 164, y: 24, w: 128, h: 48 };
 const mpe: Box = { x: 324, y: 126, w: 128, h: 80 };
-const routeBoxes: Box[] = [
-  { x: 516, y: 20, w: 158, h: 48 },
-  { x: 516, y: 142, w: 158, h: 48 },
-  { x: 516, y: 264, w: 158, h: 48 },
-];
+const score: Box = { x: 508, y: 72, w: 196, h: 188 };
 const destBoxes: Box[] = DESTS.map((_, index) => ({
   x: 832,
   y: 8 + index * 64,
@@ -61,7 +57,10 @@ export default function RoutingDiagram() {
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => setMotion(!media.matches);
+    const apply = () => {
+      const shot = document.documentElement.hasAttribute("data-shot");
+      setMotion(!media.matches && !shot);
+    };
     apply();
     media.addEventListener("change", apply);
     return () => media.removeEventListener("change", apply);
@@ -78,15 +77,15 @@ export default function RoutingDiagram() {
 
   const active = TABS[tab];
   const identity = active.id === "identity";
-  const routeIndex = ROUTES.indexOf(active.route as (typeof ROUTES)[number]);
   const destIndex = DESTS.indexOf(active.dest as (typeof DESTS)[number]);
   const mobileSteps = identity
     ? ["Platform", "Verify", "MPE"]
-    : ["Platform", "MPE", active.route, active.dest];
+    : ["Platform", "MPE", "Scores every route", active.dest];
 
   const platformToMpe = link(right(platform), midY(platform), mpe.x, midY(mpe));
   const platformToVerify = drop(midX(platform), platform.y, midX(verify), verify.y + verify.h);
   const verifyToMpe = drop(midX(verify), verify.y + verify.h, midX(mpe), mpe.y);
+  const mpeToScore = link(right(mpe), midY(mpe), score.x, midY(score));
 
   return (
     <div className="routeBoard">
@@ -112,37 +111,26 @@ export default function RoutingDiagram() {
         aria-label={
           identity
             ? "Identity: platform to verify, then MPE."
-            : `${active.label}: platform to MPE, then ${active.route}, then ${active.dest}.`
+            : `${active.label}: platform to MPE, scores every route, then ${active.dest}.`
         }
       >
         <title>
-          {identity ? "Identity. Verify. MPE." : `${active.label}. ${active.route}. ${active.dest}.`}
+          {identity ? "Identity. Verify. MPE." : `${active.label}. Scores every route. ${active.dest}.`}
         </title>
         <Connector d={platformToMpe} on={!identity} />
         <Connector d={platformToVerify} on={identity} />
         <Connector d={verifyToMpe} on={identity} />
-        {routeBoxes.map((box, index) => (
+        <Connector d={mpeToScore} on={!identity} />
+        {!identity && destIndex >= 0 ? (
           <Connector
-            key={ROUTES[index]}
-            d={link(right(mpe), midY(mpe), box.x, midY(box))}
-            on={!identity && index === routeIndex}
+            d={link(right(score), midY(score), destBoxes[destIndex].x, midY(destBoxes[destIndex]))}
+            on
           />
-        ))}
-        {!identity
-          ? destBoxes.map((box, index) => (
-              <Connector
-                key={DESTS[index]}
-                d={link(right(routeBoxes[routeIndex]), midY(routeBoxes[routeIndex]), box.x, midY(box))}
-                on={index === destIndex}
-              />
-            ))
-          : null}
+        ) : null}
         <Node box={platform} label="Platform" on />
         <Node box={verify} label="Verify" on={identity} />
         <Node box={mpe} label="MPE" on hub />
-        {ROUTES.map((route, index) => (
-          <Node key={route} box={routeBoxes[index]} label={route} on={!identity && route === active.route} />
-        ))}
+        <ScoreNode on={!identity} />
         {DESTS.map((dest, index) => (
           <Node key={dest} box={destBoxes[index]} label={dest} on={!identity && dest === active.dest} />
         ))}
@@ -194,6 +182,64 @@ function Connector({ d, on }: { d: string; on: boolean }) {
           pathLength={100}
         />
       ) : null}
+    </g>
+  );
+}
+
+function ScoreNode({ on }: { on: boolean }) {
+  const chipW = score.w - 28;
+  const chipH = 32;
+  const chipX = score.x + 14;
+  const firstY = score.y + 46;
+  return (
+    <g opacity={on ? 1 : 0.38}>
+      <rect
+        x={score.x}
+        y={score.y}
+        width={score.w}
+        height={score.h}
+        rx={14}
+        fill="rgba(255,255,255,0.06)"
+        stroke={on ? "rgba(125,255,195,0.75)" : "rgba(255,255,255,0.14)"}
+      />
+      <text
+        x={score.x + score.w / 2}
+        y={score.y + 28}
+        textAnchor="middle"
+        fill="#f7f8f6"
+        fontSize={15}
+        fontFamily="inherit"
+        fontWeight={600}
+      >
+        Score
+      </text>
+      {FACTORS.map((factor, index) => {
+        const y = firstY + index * (chipH + 8);
+        return (
+          <g key={factor}>
+            <rect
+              x={chipX}
+              y={y}
+              width={chipW}
+              height={chipH}
+              rx={8}
+              fill="rgba(125,255,195,0.12)"
+              stroke="rgba(125,255,195,0.45)"
+            />
+            <text
+              x={chipX + chipW / 2}
+              y={y + chipH / 2 + 4}
+              textAnchor="middle"
+              fill="#f7f8f6"
+              fontSize={13}
+              fontFamily="inherit"
+              fontWeight={600}
+            >
+              {factor}
+            </text>
+          </g>
+        );
+      })}
     </g>
   );
 }

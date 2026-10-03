@@ -8,6 +8,7 @@
 export const homepageMedia = {
   brand: {
     title: "MPE film",
+    // Seamless 12s orchestration loop. The hero plays it with the native loop attribute.
     loopWebm: "/media/mpe-brand-film-loop.webm",
     loopMp4: "/media/mpe-brand-film-loop.mp4",
     loopPoster: "/media/mpe-hero-loop-poster.jpg",
@@ -18,6 +19,7 @@ export const homepageMedia = {
   },
   mfam: {
     title: "MFAM film",
+    // Loop ends before the zoom-out. It does not meet the first frame, so it plays once and holds.
     loopWebm: "/media/mpe-mfam-film-loop.webm",
     loopMp4: "/media/mpe-mfam-film-loop.mp4",
     loopPoster: "/media/mpe-mfam-film-loop-poster.jpg",
