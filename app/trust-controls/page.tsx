@@ -1,22 +1,23 @@
 import Nav from "../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Trust & Controls | MPE",
-  description:
-    "Execution moves money; controls preserve authority. Policy, approvals, release and audit: authoritative across regions, entities and currencies.",
-};
+export const metadata = pageMeta(
+  "Trust & Controls | MPE",
+  "Authorize, Route, Sign. Policy, approvals and the record stay with MPE. Licensed partners move the money."
+);
 
 export default function TrustControlsPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">TRUST &amp; CONTROLS</div>
-          <h1>Authority that persists under real-world conditions.</h1>
-          <p className="ebSub">MPE is designed around a simple principle: {" "} execution moves money, but controls preserve authority.</p>
+          <h1>Controls that keep authority.</h1>
+          <p className="ebSub">Authorize, Route, Sign. Licensed partners move the money. MPE keeps the policy, the approval and the record.</p>
         </div>
       </section>
 
@@ -206,11 +207,13 @@ export default function TrustControlsPage() {
             <Link className="btnSecondary" href="/solutions/os">
               MPE OS overview
             </Link>
+            <Link className="btnPrimary" href="#kyc">
+              Request Access
+            </Link>
           </div>
-
-          <div style={{ height: 40 }} />
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

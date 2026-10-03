@@ -4180,6 +4180,99 @@ html.js .hpShot img.isIn {
   .cineHero .cineStats b { font-size: 28px; }
 }
 
+/* Inner pages share the homepage system. Homepage stays on .home. */
+main.sitePage {
+  background: #07110d;
+  color: #f4f7f5;
+}
+main.sitePage .emeraldBand,
+main.sitePage .deckLight {
+  background: #07110d;
+  color: #f4f7f5;
+}
+main.sitePage .wavesLight { display: none; }
+main.sitePage .ebWrap,
+main.sitePage .deckInner {
+  padding-top: 72px;
+  padding-bottom: 0;
+}
+main.sitePage > section:last-child .ebWrap {
+  padding-bottom: 72px;
+}
+main.sitePage .emeraldBand h1,
+main.sitePage .homeSectionTitle,
+main.sitePage h1.h1,
+main.sitePage h2.h2,
+main.sitePage .ebStatement h2 {
+  font-size: 44px;
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-align: left;
+  color: #f7f8f6;
+  max-width: none;
+  margin-left: 0;
+}
+main.sitePage .ebSub,
+main.sitePage .deckLight .p,
+main.sitePage .deckLight p,
+main.sitePage .deckLight li,
+main.sitePage .homeContextIntro,
+main.sitePage .homePlatformIntro {
+  color: rgba(232, 240, 236, 0.78);
+}
+main.sitePage .panel,
+main.sitePage .gapBanner,
+main.sitePage .card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f4f7f5;
+}
+main.sitePage .panel h3,
+main.sitePage .aboutTeamName,
+main.sitePage .gapBanner {
+  color: #f7f8f6;
+  text-align: left;
+}
+main.sitePage .aboutTeamRole { color: rgba(232, 240, 236, 0.72); }
+main.sitePage .gapBanner,
+main.sitePage .pageHeaderGrid,
+main.sitePage .homeSectionHeader,
+main.sitePage .ebStatement {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+main.sitePage .linkRow { justify-content: flex-start; }
+main.sitePage .btnSecondary {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.62) !important;
+  color: #f4f7f5 !important;
+  box-shadow: none !important;
+}
+main.sitePage .btnSecondary:hover {
+  border-color: #fff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+main.sitePage .aboutTeamLinkedin { color: rgba(232, 240, 236, 0.82); }
+@media (max-width: 900px) {
+  main.sitePage .emeraldBand h1,
+  main.sitePage .homeSectionTitle,
+  main.sitePage h1.h1,
+  main.sitePage h2.h2,
+  main.sitePage .ebStatement h2 { font-size: 36px; }
+  main.sitePage .ebWrap,
+  main.sitePage .deckInner { padding-top: 56px; }
+}
+@media (max-width: 700px) {
+  main.sitePage .emeraldBand h1,
+  main.sitePage .homeSectionTitle,
+  main.sitePage h1.h1,
+  main.sitePage h2.h2,
+  main.sitePage .ebStatement h2 { font-size: 32px; }
+}
+
 .payFace:first-child {
   animation-name: payInFirst;
 }

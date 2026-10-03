@@ -1,22 +1,23 @@
 import Nav from "../../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Execution Infrastructure | MPE",
-  description:
-    "How MPE works with partner-connected execution infrastructure while keeping orchestration and control in one operating layer.",
-};
+export const metadata = pageMeta(
+  "Execution infrastructure | MPE",
+  "MPE is the operating layer. Licensed partners execute. Authorize, Route, Sign. MPE never holds funds."
+);
 
 export default function ExecutionInfrastructurePage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>How MPE works with execution infrastructure</h1>
-          <p className="ebSub">MPE is the operating layer above execution. It governs approvals, funding logic, FX checkpoints, routing decisions, release authority, AI-informed routing guidance, and payment-state visibility while licensed partners handle regulated money movement.</p>
+          <h1>MPE governs. Partners execute.</h1>
+          <p className="ebSub">Approvals, routing and release stay in one layer. Licensed partners move the money. MPE never holds funds.</p>
         </div>
       </section>
 
@@ -149,6 +150,7 @@ export default function ExecutionInfrastructurePage() {
           </div>
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

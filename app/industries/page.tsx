@@ -1,126 +1,82 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Industries | MPE",
-  description:
-    "Financial infrastructure for distributed and mission-critical operations.",
-};
+export const metadata = pageMeta(
+  "Industries | MPE",
+  "One integration for platforms, people and machines. Payouts, wallets, cards, identity and cross-border payments across distributed operations."
+);
+
+const INDUSTRIES = [
+  {
+    title: "Machines and autonomous systems",
+    body: "Pay machines the same way you pay people: authorize, route and sign, with a machine as the output.",
+  },
+  {
+    title: "Platforms",
+    body: "Embed payouts, wallets, cards and identity. The platform keeps the customer. Licensed partners move the money.",
+  },
+  {
+    title: "Maritime",
+    body: "Crews, port operations and vendor payments for fleets that do not stay in one country.",
+  },
+  {
+    title: "Logistics",
+    body: "Carriers, contractors and warehouses across regions, on one integration.",
+  },
+  {
+    title: "Defense and government support",
+    body: "Controlled, auditable payments for distributed personnel, vendors and partners.",
+  },
+  {
+    title: "Construction and field services",
+    body: "Crews, subcontractors and project payments, with the record attached.",
+  },
+  {
+    title: "Energy and infrastructure",
+    body: "Remote sites, contractors and multi-entity projects under one control layer.",
+  },
+  {
+    title: "Agriculture",
+    body: "Seasonal and mobile operations, paid through licensed partners. MPE never holds funds.",
+  },
+];
 
 export default function IndustriesPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">INDUSTRIES</div>
-          <h1>Built for distributed, global operations.</h1>
-          <p className="ebSub">Organizations operating across regions, contractors, assets, and partners require financial control that matches the complexity of their operations. MPE provides a single operational layer for managing payments across distributed and mission-critical environments.</p>
+          <h1>One integration, every operation.</h1>
+          <p className="ebSub">
+            Payouts, wallets, cards, identity and cross-border payments for
+            platforms, people and machines. The same flow everywhere:
+            Authorize, Route, Sign.
+          </p>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="#kyc">Request Access</Link>
+          </div>
         </div>
       </section>
 
       <section className="deckLight">
-        <div className="wavesLight" />
         <div className="container deckInner">
-          <div className="pageHeaderGrid">
-            <div>
-
-
-
-              <div className="btnRow">
-                <Link className="btnPrimary" href="#kyc">
-                  Request Access
-                </Link>
+          <div className="kycGrid">
+            {INDUSTRIES.map((item) => (
+              <div className="panel" key={item.title}>
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
               </div>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Common challenge</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Whether supporting maritime fleets, logistics networks, defense
-                operations, infrastructure projects, construction teams, or
-                seasonal agriculture workforces, these organizations share the
-                same operational reality: distributed teams, multiple
-                currencies/providers, limited visibility, and high operational
-                risk.
-              </p>
-            </div>
-          </div>
-
-          <div className="kycGrid" style={{ marginTop: 24 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Maritime</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Support global crews, port operations, and cross-border vendor
-                payments for fleets operating worldwide.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Logistics &amp; Supply Chain</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Manage payments across carriers, contractors, warehouses, and
-                partners spanning multiple regions.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Defense &amp; Government Support</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Enable controlled, auditable payments for distributed personnel,
-                vendors, and operational partners.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Construction &amp; Field Services</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Control payments for distributed crews, subcontractors, and
-                project-based operations.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Energy &amp; Infrastructure</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Coordinate financial operations across remote sites,
-                contractors, and multi-entity project structures.
-              </p>
-            </div>
-
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Agriculture &amp; Seasonal Operations</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                Manage payments for seasonal, mobile, and international labor
-                forces.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 24 }}>
-            <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Built for Continuous Operations</h3>
-              <p className="p" style={{ marginTop: 10, maxWidth: "none" }}>
-                MPE is designed for organizations that cannot afford fragmented
-                financial control across distributed teams, providers, and
-                operating environments.
-              </p>
-              <p className="p" style={{ marginTop: 10, maxWidth: "none" }}>
-                It supports resilient financial operations with governed
-                approvals, visibility across execution partners, and workflows
-                that remain usable in complex and constrained environments.
-              </p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 24, textAlign: "center" }}>
-            <Link className="btnPrimary" href="#kyc">
-              Request Access
-            </Link>
+            ))}
           </div>
         </div>
       </section>
+
+      <KycForm />
     </main>
   );
 }

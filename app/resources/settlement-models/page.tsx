@@ -1,22 +1,23 @@
 import Nav from "../../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Local & Global Settlement Models | MPE",
-  description:
-    "A control-plane view of domestic vs cross-border settlement: how routing through trusted local banks and licensed partners stays consistent under one governed operating layer.",
-};
+export const metadata = pageMeta(
+  "Settlement | MPE",
+  "Domestic and cross-border settlement stay under one flow: Authorize, Route, Sign. Licensed partners and local banks execute."
+);
 
 export default function SettlementModelsResource() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>Local & global settlement models</h1>
-          <p className="ebSub">“Settlement” describes how value actually completes: which institution moves funds, through which local clearing systems, under which regulatory permissions, and with what confirmation. The complexity isn’t that money can’t move. It’s that the execution path varies by market.</p>
+          <h1>Settlement, one flow.</h1>
+          <p className="ebSub">The path varies by market. The flow does not: Authorize, Route, Sign. Licensed partners and local banks execute. MPE never holds funds.</p>
         </div>
       </section>
 
@@ -232,24 +233,6 @@ export default function SettlementModelsResource() {
               </div>
             </div>
 
-            <div className="panel" style={{ marginTop: 28 }}>
-              <h3 style={{ marginTop: 0 }}>Detailed corridor notes</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                A deeper breakdown of settlement models, covering corridor
-                routing patterns, confirmation behaviors, cutoff strategies, and
-                partner selection criteria.
-              </p>
-
-              <div style={{ marginTop: 14 }}>
-                <span
-                  className="btnSecondary"
-                  style={{ opacity: 0.7, cursor: "default" }}
-                >
-                  Coming soon
-                </span>
-              </div>
-            </div>
-
             <div
               style={{
                 marginTop: 26,
@@ -271,6 +254,7 @@ export default function SettlementModelsResource() {
           </div>
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

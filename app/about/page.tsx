@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "About | MPE",
-  description:
-    "Why MPE exists: one integration for every way money moves, for people, platforms and machines, with licensed partners providing the regulated services.",
-};
+export const metadata = pageMeta(
+  "About | MPE",
+  "Financial infrastructure for a borderless economy. One integration for platforms, people and machines. MPE never holds funds."
+);
 
 const BELIEFS = [
   {
@@ -25,7 +25,7 @@ const BELIEFS = [
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
@@ -33,10 +33,10 @@ export default function AboutPage() {
           <div className="ebTag">ABOUT MPE</div>
           <h1>One integration for every way money moves.</h1>
           <p className="ebSub">
-            MPE is financial infrastructure for a borderless economy: smart
-            routing, payouts, wallets, cards, identity, cross-border and
-            machine payments. For people, platforms and machines. Licensed
-            partners move the money. MPE never holds funds.
+            Financial infrastructure for a borderless economy. Payouts,
+            wallets, cards, identity and cross-border payments. For platforms,
+            people and machines. Licensed partners move the money. MPE never
+            holds funds.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="/about/team">Meet the team</Link>

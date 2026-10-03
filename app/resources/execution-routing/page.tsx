@@ -1,22 +1,23 @@
 import Nav from "../../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Payment Routing & Provider Independence | MPE",
-  description:
-    "How separating decision authority from execution enables partner-level routing without breaking governance, auditability, or control.",
-};
+export const metadata = pageMeta(
+  "Routing | MPE",
+  "Route is the second step. Decision authority stays with MPE. Execution moves across licensed partners without a rebuild."
+);
 
 export default function ExecutionAbstractionResource() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>Provider-independent routing</h1>
-          <p className="ebSub">Most enterprise payment stacks tightly couple{" "} decision authority with{" "} execution mechanics. As a result, changing banks, adding corridors, or introducing new payout partners often requires reworking approvals, controls, and operating workflows.</p>
+          <h1>Route, without a rebuild.</h1>
+          <p className="ebSub">Authority stays in one layer. A better licensed partner is a configuration change, not a new approval model.</p>
         </div>
       </section>
 
@@ -150,29 +151,11 @@ export default function ExecutionAbstractionResource() {
               </div>
 
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Cost & latency optimization</h3>
+                <h3 style={{ marginTop: 0 }}>Timing</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Select execution paths based on settlement speed, cost, or
-                  cutoff windows without fragmenting controls.
+                  Choose the path for settlement speed and cutoff windows
+                  without splitting the controls.
                 </p>
-              </div>
-            </div>
-
-            <div className="panel" style={{ marginTop: 28 }}>
-              <h3 style={{ marginTop: 0 }}>Detailed implementation notes</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                A deeper technical breakdown of provider-independent routing, covering
-                routing logic, fallback strategies, provider interoperability,
-                and audit implications.
-              </p>
-
-              <div style={{ marginTop: 14 }}>
-                <span
-                  className="btnSecondary"
-                  style={{ opacity: 0.7, cursor: "default" }}
-                >
-                  Coming soon
-                </span>
               </div>
             </div>
 
@@ -197,6 +180,7 @@ export default function ExecutionAbstractionResource() {
           </div>
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

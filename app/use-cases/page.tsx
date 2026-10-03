@@ -1,16 +1,16 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Use Cases | MPE",
-  description:
-    "How platforms use MPE for payouts, wallets, cards, identity and machine payments.",
-};
+export const metadata = pageMeta(
+  "Use Cases | MPE",
+  "How platforms use MPE for payouts, wallets, cards, identity and machine payments. One integration for platforms, people and machines."
+);
 
 export default function UseCasesPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
@@ -18,9 +18,9 @@ export default function UseCasesPage() {
           <div className="ebTag">USE CASES</div>
           <h1>Built for every way money moves.</h1>
           <p className="ebSub">
-            One integration for payouts, wallets, cards, identity and machine
-            payments. Platforms keep the relationship. Licensed partners
-            provide the regulated services.
+            One integration for payouts, wallets, cards, identity and
+            cross-border payments. For platforms, people and machines.
+            Licensed partners provide the regulated services.
           </p>
         </div>
       </section>

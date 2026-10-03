@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Our Team | MPE",
-  description:
-    "The people building MPE: leadership, partnerships, finance, and regional operations.",
-};
+export const metadata = pageMeta(
+  "Team | MPE",
+  "The people building MPE. Leadership across payments, telecoms, Gulf banking and Asia-Pacific financial services."
+);
 
 type TeamMember = {
   name: string;
@@ -51,7 +52,7 @@ const team: TeamMember[] = [
 
 export default function TeamPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
@@ -105,24 +106,17 @@ export default function TeamPage() {
             ))}
           </div>
 
-          <div
-            style={{
-              marginTop: 36,
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
+          <div className="btnRow" style={{ marginTop: 36 }}>
             <Link className="btnSecondary" href="/about">
               Back to About
             </Link>
-            <Link className="btnPrimary" href="/#kyc">
+            <Link className="btnPrimary" href="#kyc">
               Request Access
             </Link>
           </div>
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

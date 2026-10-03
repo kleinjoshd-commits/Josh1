@@ -27,7 +27,7 @@ const COLUMNS = [
       { label: "About", href: "/about" },
       { label: "Team", href: "/about/team" },
       { label: "Use cases", href: "/use-cases" },
-      { label: "Talk to us", href: "#kyc" },
+      { label: "Talk to us", href: "/#kyc" },
     ],
   },
 ];

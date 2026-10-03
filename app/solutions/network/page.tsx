@@ -1,46 +1,50 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import KycForm from "@/components/KycForm";
+import { claims } from "@/content/claims";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "MPE Network | MPE",
-  description:
-    "One network of licensed partners: payout and collection in 140+ countries, 200+ direct bank connections, every corridor routed to the best partner for the job.",
-};
+export const metadata = pageMeta(
+  "MPE Network | MPE",
+  "Licensed reach in 140+ countries, 200+ direct bank connections and 130+ payout currencies. MPE never holds funds."
+);
 
 const OUTCOMES = [
   {
-    title: "Coverage without compromise",
-    body: "Payout and collection in 140+ countries through 200+ direct bank connections: bank transfer, mobile money and cash over the counter, provided by licensed partner institutions in each market.",
+    title: "Licensed reach",
+    body: "Money lands in 140+ countries through 200+ direct bank connections and 130+ payout currencies. Licensed partners provide the regulated services.",
   },
   {
-    title: "The best partner, every corridor",
-    body: "No single institution is best everywhere. MPE routes each corridor to the licensed partner best placed to serve it, and can move a corridor to a new provider without a rebuild, without disruption, and without renegotiating the customer relationship.",
+    title: "Best route",
+    body: "Each payment routes to the licensed partner best placed for it. A better provider is a configuration change. The platform keeps the relationship.",
   },
   {
-    title: "Institutional-grade foundations",
-    body: "Client funds within partner programs are safeguarded at globally systemically important banks, under each partner's own license and regulator. MPE holds no funds at any point.",
+    title: "MPE never holds funds",
+    body: "Licensed partners hold and move the money. MPE does not hold or transmit customer funds, and does not store customer identity documents.",
   },
 ];
 
 export default function NetworkPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE NETWORK</div>
-          <h1>Every corridor, the best licensed partner.</h1>
+          <h1>Licensed reach, 140+ countries.</h1>
           <p className="ebSub">
-            One network, many engines: regulatory reach held by MPE&apos;s
-            licensed partners, orchestrated as a single system. Providers can
-            change, the customer relationship and history stay with MPE.
+            One network of licensed partners, orchestrated as one system.
+            Outputs are bank, card, wallet, local account and machine.
+            Providers can change. The relationship stays.
           </p>
           <div className="ebStats">
-            <div className="ebStat"><b>140+</b><span>countries where money lands</span></div>
-            <div className="ebStat"><b>200+</b><span>direct bank connections</span></div>
-            <div className="ebStat"><b>130+</b><span>payout currencies</span></div>
+            {claims.stats.map((stat) => (
+              <div className="ebStat" key={stat.label}>
+                <b>{stat.value}</b>
+                <span>{stat.label}</span>
+              </div>
+            ))}
           </div>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request Access</Link>
@@ -63,13 +67,6 @@ export default function NetworkPage() {
           </section>
 
           <section className="homeBand" data-animate>
-            <div className="gapBanner">
-              Any corridor can move to a new provider seamlessly; the customer
-              relationship and history stay with MPE throughout.
-            </div>
-          </section>
-
-          <section className="homeBand" data-animate>
             <div className="homeSectionHeader homeContextHeader">
               <h2 className="homeSectionTitle">Works with the rest of MPE</h2>
             </div>
@@ -77,8 +74,7 @@ export default function NetworkPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  The control layer above the network: approvals, routing and a
-                  permanent record for every payment.
+                  Authorize, route and sign above the network.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>
@@ -87,8 +83,7 @@ export default function NetworkPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payroll and employer of record in 180 countries, the
-                  employer side of the same relationship.
+                  Payroll coverage in 180 countries, on the same integration.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/workforce">Explore MPE Workforce</Link>
@@ -97,7 +92,7 @@ export default function NetworkPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payouts for people, priced in the open.
+                  Payouts to any account: bank, card, wallet or local account.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>

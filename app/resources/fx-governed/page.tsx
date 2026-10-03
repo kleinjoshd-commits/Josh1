@@ -1,22 +1,23 @@
 import Nav from "../../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "FX as a Governed Decision Point | MPE",
-  description:
-    "Why FX timing matters more than best rate, and how locking and approval checkpoints improve predictability for global payroll and vendor payments.",
-};
+export const metadata = pageMeta(
+  "FX | MPE",
+  "FX is decided inside Route, before Sign. Delivered amounts are known before the payment is released."
+);
 
 export default function FxGovernedResource() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>FX as a governed decision point</h1>
-          <p className="ebSub">In many payment stacks, foreign exchange is treated as an implementation detail, applied late in the payment flow and optimized for headline rate. At scale, this creates volatility, exceptions, and reconciliation risk.</p>
+          <h1>FX is part of Route.</h1>
+          <p className="ebSub">The rate is locked before Sign. Delivered amounts are known before the licensed partner executes.</p>
         </div>
       </section>
 
@@ -111,8 +112,8 @@ export default function FxGovernedResource() {
             <div className="panel" style={{ marginTop: 14 }}>
               <h3 style={{ marginTop: 0 }}>Conceptual model</h3>
               <p className="p" style={{ marginTop: 10, marginBottom: 0 }}>
-                <strong>Approved</strong> → <strong>FX locked</strong> →{" "}
-                <strong>Funded</strong> → <strong>Released</strong>
+                <strong>Authorize</strong>, <strong>Route</strong> (FX locked),{" "}
+                <strong>Sign</strong>
               </p>
             </div>
 
@@ -149,24 +150,6 @@ export default function FxGovernedResource() {
               </div>
             </div>
 
-            <div className="panel" style={{ marginTop: 28 }}>
-              <h3 style={{ marginTop: 0 }}>Detailed implementation notes</h3>
-              <p className="p" style={{ marginTop: 10 }}>
-                A deeper breakdown of FX governance, covering locking
-                strategies, approval flows, exposure management, and
-                corridor-specific considerations.
-              </p>
-
-              <div style={{ marginTop: 14 }}>
-                <span
-                  className="btnSecondary"
-                  style={{ opacity: 0.7, cursor: "default" }}
-                >
-                  Coming soon
-                </span>
-              </div>
-            </div>
-
             <div
               style={{
                 marginTop: 26,
@@ -188,6 +171,7 @@ export default function FxGovernedResource() {
           </div>
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

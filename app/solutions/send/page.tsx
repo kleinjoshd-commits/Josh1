@@ -1,47 +1,50 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import KycForm from "@/components/KycForm";
+import { claims } from "@/content/claims";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "MPE Send | MPE",
-  description:
-    "Payouts for people, priced in the open, with enrollment in their language and licensed partner institutions providing the money transfer services.",
-};
+export const metadata = pageMeta(
+  "MPE Send | MPE",
+  "Payouts to any account. Bank, card, wallet or local account, in 140+ countries, with licensed partners moving the money."
+);
 
 const OUTCOMES = [
   {
-    title: "The rate, in the open",
-    body: "The full cost is shown before anyone signs up for anything: the rate, whole and honest, on the first screen. Opaque pricing is this market's oldest complaint; transparency is the product.",
+    title: "Payouts to any account",
+    body: "Bank, card, wallet or local account. One integration. Licensed partners provide the regulated services in each market.",
   },
   {
-    title: "A human beside them",
-    body: "Enrollment can happen in person: a staffed desk, a trained officer, the first payout walked through together, in the person's own language, with around twenty languages structurally supported.",
+    title: "Authorize, Route, Sign",
+    body: "Every payout follows the same path. Authorize the payment, route it, then sign. Delivered is the record.",
   },
   {
-    title: "Built for their phone",
-    body: "Fast on modest hardware and patchy networks, legible on a small screen, and honest at every step, a transfer never claims more than the licensed partner can confirm.",
+    title: "Platforms keep the relationship",
+    body: "MPE never holds funds, and does not store customer identity documents. The platform keeps the customer.",
   },
 ];
 
 export default function SendPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE SEND</div>
-          <h1>Payouts, priced in the open.</h1>
+          <h1>Payouts to any account.</h1>
           <p className="ebSub">
-            The people side of the platform: a person, a phone, and a payout
-            at an honest rate, enrollment in their own language, in person
-            where it matters. Money transfer services are provided by licensed
-            partner institutions in each market.
+            The payout product on the MPE platform. For platforms, people and
+            machines. {claims.stats[0].value} countries, {claims.stats[2].value}{" "}
+            payout currencies. Licensed partners move the money.
           </p>
           <div className="ebStats">
-            <div className="ebStat"><b>140+</b><span>countries where money lands</span></div>
-            <div className="ebStat"><b>~20</b><span>languages structurally supported</span></div>
-            <div className="ebStat"><b>One</b><span>price, shown before signup</span></div>
+            {claims.stats.map((stat) => (
+              <div className="ebStat" key={stat.label}>
+                <b>{stat.value}</b>
+                <span>{stat.label}</span>
+              </div>
+            ))}
           </div>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request Access</Link>
@@ -63,16 +66,13 @@ export default function SendPage() {
             </div>
           </section>
 
-          {/* Send stands on its own, and compounds with everything else. */}
           <section className="homeBand" data-animate>
             <div className="homeSectionHeader homeContextHeader">
-              <h2 className="homeSectionTitle">Its own product, stronger with the rest</h2>
+              <h2 className="homeSectionTitle">One product, one platform</h2>
               <p className="p homeContextIntro">
-                MPE Send is the payout experience for a person: a phone is
-                enough, and a community desk can help. It also compounds.
-                Workforce can enroll a workforce into it, Network carries the
-                corridors, and OS approves and records every payment beneath
-                it.
+                MPE Send is payouts. Workforce pays a global team on the same
+                integration. Network is the licensed reach. OS is where you
+                authorize, route and sign.
               </p>
             </div>
             <div className="linkRow">

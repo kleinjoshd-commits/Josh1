@@ -1,22 +1,23 @@
 import Nav from "../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Platform Architecture | MPE",
-  description:
-    "One control plane for payments end to end: funding, FX, approvals and release governed centrally, with execution through licensed partners.",
-};
+export const metadata = pageMeta(
+  "Platform Architecture | MPE",
+  "One control plane. Authorize, Route, Sign. Execution through licensed partners. MPE never holds funds."
+);
 
 export default function UnifiedApproachPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">PLATFORM ARCHITECTURE</div>
-          <h1>One control plane. Payments end to end.</h1>
-          <p className="ebSub">MPE governs the decisions that matter: funding, FX decision points, approvals, and payout authorization. Execution routes through trusted local banks and licensed partners. Embed MPE where it adds the most control, or run it as the central operating layer across the stack.</p>
+          <h1>One control plane.</h1>
+          <p className="ebSub">Authorize, Route, Sign. Funding, FX and release stay in one layer. Licensed partners execute. MPE never holds funds.</p>
         </div>
       </section>
 
@@ -31,10 +32,8 @@ export default function UnifiedApproachPage() {
 
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
-                This is a layered architecture: a single governed operating
-                layer above execution, with worker-experience and resilience
-                capabilities available wherever the operating environment
-                demands stronger continuity and assurance.
+                One governed layer above execution. Payouts, wallets, cards,
+                identity and machine payments stay on the same integration.
               </p>
 
               <div className="btnRow" style={{ marginTop: 18 }}>
@@ -61,8 +60,7 @@ export default function UnifiedApproachPage() {
                 <strong>Execution:</strong> local banks + licensed partners
               </p>
               <p className="p" style={{ marginTop: 10 }}>
-                <strong>Worker layer:</strong> the MPE app and assisted
-                enrollment, the owned relationship
+                <strong>Who it serves:</strong> platforms, people and machines
               </p>
               <p className="p" style={{ marginTop: 10 }}>
                 <strong>Resilience layer:</strong> assurance for degraded and
@@ -120,12 +118,11 @@ export default function UnifiedApproachPage() {
             </div>
 
             <div className="panel" style={{ textDecoration: "none" }}>
-              <h3 style={{ marginTop: 0 }}>4) Extend to workers when it drives outcomes</h3>
+              <h3 style={{ marginTop: 0 }}>4) Serve platforms, people and machines</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Extend the program to the workforce itself: corridor-by-corridor
-                rollout with employer-grade controls, with money transfer and
-                payment services provided by licensed partner institutions,
-                without changing the enterprise operating model.
+                The same integration covers payouts, wallets, cards, identity
+                and machine payments. Licensed partners provide the regulated
+                services. The platform keeps the relationship.
               </p>
             </div>
 
@@ -166,10 +163,9 @@ export default function UnifiedApproachPage() {
               Trust & controls
             </Link>
           </div>
-
-          <div style={{ height: 40 }} />
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

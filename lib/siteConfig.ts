@@ -44,22 +44,22 @@ export const siteConfig = {
       {
         label: "MPE Send",
         href: "/solutions/send",
-        description: "Payouts for people, priced in the open.",
+        description: "Payouts to any account.",
       },
       {
         label: "MPE OS",
         href: "/solutions/os",
-        description: "Orchestration and control for global payment operations.",
+        description: "Approve, route and prove.",
       },
       {
         label: "MPE Workforce",
         href: "/solutions/workforce",
-        description: "Global workforce execution coordinated through MPE.",
+        description: "Pay a global workforce.",
       },
       {
         label: "MPE Network",
         href: "/solutions/network",
-        description: "Payout coverage through licensed infrastructure partners.",
+        description: "Licensed reach, 140+ countries.",
       },
     ] satisfies NavItem[],
   },
@@ -69,10 +69,10 @@ export const siteConfig = {
   solutionPages: {
     os: {
       title: "MPE OS",
-      subtext: "Orchestration and control for global payment operations.",
+      subtext: "Approve, route and prove. Authorize, Route, Sign.",
       capabilities: [
         "Approval workflows and separation of duties",
-        "Payment lifecycle states (create → approve → release → settle)",
+        "Authorize, Route, Sign, then Delivered",
         "Routing and execution abstraction across partners and networks",
         "FX control and governed exposure management",
         "Audit trails, reporting, and governance",
@@ -81,7 +81,7 @@ export const siteConfig = {
     },
     workforce: {
       title: "MPE Workforce",
-      subtext: "Global workforce execution, fully controlled through MPE.",
+      subtext: "Pay a global workforce. 180 countries of payroll coverage.",
       capabilities: [
         "Global payroll execution",
         "Employer of Record (EOR)",
@@ -93,7 +93,7 @@ export const siteConfig = {
     },
     network: {
       title: "MPE Network",
-      subtext: "Payout coverage through a growing ecosystem of licensed partners.",
+      subtext: "Licensed reach in 140+ countries. MPE never holds funds.",
       capabilities: [
         "Local payout coverage",
         "FX optimization checkpoints",

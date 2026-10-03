@@ -1,22 +1,23 @@
 import Nav from "../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "Resources | MPE",
-  description:
-    "Infrastructure notes on payment control, provider-independent routing, FX governance, settlement models, and resilience.",
-};
+export const metadata = pageMeta(
+  "Resources | MPE",
+  "How the platform works: lifecycle, routing, FX and settlement. Authorize, Route, Sign. MPE never holds funds."
+);
 
 export default function ResourcesPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">RESOURCES</div>
-          <h1>How modern payment control actually works</h1>
-          <p className="ebSub">Operator-focused explanations of how enterprise payments are governed: lifecycle control, approvals, FX decisioning, provider-independent routing, and resilience. Written for finance, payroll, and payments teams who need predictability across markets without re-platforming their stack.</p>
+          <h1>How the platform works.</h1>
+          <p className="ebSub">Short notes on lifecycle, routing, FX and settlement. One integration. Licensed partners move the money.</p>
         </div>
       </section>
 
@@ -192,11 +193,11 @@ export default function ResourcesPage() {
             </div>
 
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>Worker experience</h3>
+              <h3 style={{ marginTop: 0 }}>Workforce</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                How governed payout experiences extend to workers, while
-                employers retain oversight and licensed partner institutions
-                provide the regulated services.
+                Pay a global workforce, then offer payouts, wallets and cards
+                on the same integration. Licensed partners provide the
+                regulated services.
               </p>
               <div style={{ marginTop: 14 }}>
                 <Link className="btnSecondary" href="/solutions/workforce">
@@ -227,6 +228,7 @@ export default function ResourcesPage() {
           </div>
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

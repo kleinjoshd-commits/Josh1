@@ -1,22 +1,23 @@
 import Nav from "../../../components/Nav";
 import Link from "next/link";
+import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "The Enterprise Payment Lifecycle | MPE",
-  description:
-    "Why explicit, enforceable payment states reduce delays, exceptions, and reconciliation work across global payouts.",
-};
+export const metadata = pageMeta(
+  "Payment lifecycle | MPE",
+  "Every payment follows the same path: Authorize, Route, Sign. Then it is delivered. Licensed partners execute."
+);
 
 export default function PaymentLifecycleResource() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">REFERENCE</div>
-          <h1>The enterprise payment lifecycle</h1>
-          <p className="ebSub">Enterprise payments don’t break because money can’t move. They break because authority is fragmented, timing is unclear, and state lives across payroll systems, ERPs, bank portals, FX providers, and local networks. When lifecycle state is implicit, organizations manage payouts through exceptions, escalations, and manual reconciliation.</p>
+          <h1>Authorize, Route, Sign.</h1>
+          <p className="ebSub">Every payment follows the same path. Authority stays with the platform. Licensed partners execute. Delivered is the record.</p>
         </div>
       </section>
 
@@ -118,9 +119,8 @@ export default function PaymentLifecycleResource() {
             <div className="panel" style={{ marginTop: 14 }}>
               <h3 style={{ marginTop: 0 }}>Canonical lifecycle (illustrative)</h3>
               <p className="p" style={{ marginTop: 10, marginBottom: 0 }}>
-                <strong>Created</strong> → <strong>Approved</strong> →{" "}
-                <strong>Funded</strong> → <strong>Released</strong> →{" "}
-                <strong>Settled</strong>
+                <strong>Authorize</strong>, <strong>Route</strong>,{" "}
+                <strong>Sign</strong>, then <strong>Delivered</strong>
               </p>
             </div>
 
@@ -133,49 +133,41 @@ export default function PaymentLifecycleResource() {
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
               What each state protects
             </h2>
-            <p className="p">You can think of the lifecycle as a set of guardrails:</p>
+            <p className="p">What each step protects:</p>
 
             <div
               className="kycGrid"
               style={{ marginTop: 14, alignItems: "stretch" }}
             >
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Created</h3>
+                <h3 style={{ marginTop: 0 }}>Authorize</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Captures intent (amount, currency, counterparty, purpose, and
-                  timing) before anything is released.
+                  Policy and approval before anything moves. Amount, currency,
+                  counterparty and who is allowed to release it.
                 </p>
               </div>
 
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Approved</h3>
+                <h3 style={{ marginTop: 0 }}>Route</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Ensures policy is satisfied: who authorized the payout, under
-                  what thresholds, with separation of duties where required.
+                  The best licensed path for this payment, including FX timing,
+                  chosen before release.
                 </p>
               </div>
 
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Funded</h3>
+                <h3 style={{ marginTop: 0 }}>Sign</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Confirms funds availability and reservation before release,
-                  reducing failures caused by late funding and cutoff windows.
+                  The release is signed and written down. The instruction goes
+                  to the licensed partner. MPE never holds the funds.
                 </p>
               </div>
 
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Released</h3>
+                <h3 style={{ marginTop: 0 }}>Delivered</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Authorizes dispatch of the execution instruction through the
-                  chosen bank or licensed partner, with full traceability.
-                </p>
-              </div>
-
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Settled</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Confirms completion from the executing institution and anchors
-                  reconciliation and reporting.
+                  Confirmation comes back from the executing institution. That
+                  is the record.
                 </p>
               </div>
             </div>
@@ -255,6 +247,7 @@ export default function PaymentLifecycleResource() {
           </div>
         </div>
       </section>
+      <KycForm />
     </main>
   );
 }

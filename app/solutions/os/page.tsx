@@ -2,46 +2,46 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import KycForm from "@/components/KycForm";
+import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  title: "MPE OS | MPE",
-  description:
-    "The control layer for global payment operations: every payment approved against policy, routed to the right partner, and written to a permanent record.",
-};
+export const metadata = pageMeta(
+  "MPE OS | MPE",
+  "Approve, route and prove. Every payment is authorized, routed and signed, with licensed partners executing in each market."
+);
 
 const OUTCOMES = [
   {
-    title: "Policy before payment",
-    body: "Every payment is approved against your rules before it moves: limits, approvers and controls set once and enforced everywhere. No single person can move money alone.",
+    title: "Authorize",
+    body: "Policy, limits and approvers are set once and enforced before a payment moves. No single person moves money alone.",
   },
   {
-    title: "Routing without lock-in",
-    body: "Payments route to the licensed partner best placed for each corridor. When a better provider exists, the corridor moves by configuration: no rebuild, no disruption, no renegotiation.",
+    title: "Route",
+    body: "The payment takes the best licensed path. A better provider is a configuration change, not a rebuild.",
   },
   {
-    title: "Proof built in",
-    body: "Every approval, release and status change is written to a permanent record as it happens. When an auditor, a regulator or your own board asks what happened, the answer is already on file.",
+    title: "Sign",
+    body: "The release is signed and written to the record. Delivered is what remains when an auditor asks what happened.",
   },
 ];
 
 export default function MpeOsPage() {
   return (
-    <main>
+    <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE OS</div>
-          <h1>Every payment approved, routed and proven.</h1>
+          <h1>Approve, route and prove.</h1>
           <p className="ebSub">
-            The control layer for global payment operations. MPE OS holds the
-            rules, the approvals and the record, licensed partner institutions
-            execute the regulated services in each market.
+            The control layer for the platform. Authorize, Route, Sign.
+            Licensed partner institutions execute the regulated services.
+            MPE never holds funds.
           </p>
           <div className="ebStats">
-            <div className="ebStat"><b>Policy</b><span>enforced before any payment moves</span></div>
-            <div className="ebStat"><b>Partners</b><span>changeable by configuration</span></div>
-            <div className="ebStat"><b>Record</b><span>permanent, complete, on file</span></div>
+            <div className="ebStat"><b>Authorize</b><span>Policy before the payment</span></div>
+            <div className="ebStat"><b>Route</b><span>Best licensed path</span></div>
+            <div className="ebStat"><b>Sign</b><span>Then it is delivered</span></div>
           </div>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request Access</Link>
@@ -66,12 +66,11 @@ export default function MpeOsPage() {
           <section className="homeBand" data-animate>
             <div className="homePlatformGrid">
               <div className="homePlatformCopy">
-                <h2 className="homeSectionTitle">One governed layer, every region</h2>
+                <h2 className="homeSectionTitle">One governed layer</h2>
                 <p className="p homePlatformIntro">
-                  Approvals, funding checks, FX oversight and release timing in
-                  one place, with visibility across partners and regions, and
-                  the regulated services provided by licensed partner
-                  institutions in each market.
+                  Approvals, funding checks and release timing in one place.
+                  Visibility across partners and regions. The regulated
+                  services stay with licensed partners.
                 </p>
               </div>
               <div className="homeVisualShell">
@@ -98,8 +97,7 @@ export default function MpeOsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  One audience: payroll and employer of record in 180
-                  countries, on the same integration.
+                  Payroll coverage in 180 countries, on the same integration.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/workforce">Explore MPE Workforce</Link>
@@ -108,8 +106,7 @@ export default function MpeOsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payout and collection in 140+ countries through licensed
-                  partners, every corridor routed to the best one.
+                  Licensed reach in 140+ countries. 200+ direct bank connections.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/network">Explore MPE Network</Link>
@@ -118,7 +115,7 @@ export default function MpeOsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payouts for people, priced in the open.
+                  Payouts to any account: bank, card, wallet or local account.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>
