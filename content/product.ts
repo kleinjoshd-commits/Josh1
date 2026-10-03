@@ -85,9 +85,9 @@ transfer.updated`,
 export const segments = [
   {
     title: "Platforms",
-    body: "Pay people from your own app.",
+    body: "Pay people from your app, and earn from it.",
     detail:
-      "Workforce, gig, fleet and logistics software embed KYC, payouts and card screens, and keep their own app.",
+      "Pay people from your app, and earn from it. The branded card program is coming soon.",
     href: "/solutions/platforms",
   },
   {
