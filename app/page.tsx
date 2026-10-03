@@ -113,7 +113,7 @@ export default function Home() {
           <p className="hpLede">{mfam.lede}</p>
 
           <div className="hpMfamFilm">
-            <FilmPlayer source={homepageMedia.mfam} lazy preload="metadata" />
+            <FilmPlayer source={homepageMedia.mfam} lazy preload="metadata" repeat={false} />
           </div>
 
           <ul className="hpPoints">

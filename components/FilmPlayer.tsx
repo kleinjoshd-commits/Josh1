@@ -32,6 +32,8 @@ type Props = {
   still?: "loop" | "modal";
   /** Muted loop behind the poster. Off for a poster that only plays the full film. */
   preview?: boolean;
+  /** Seamless clips repeat. Anything else plays once and holds the last frame. */
+  repeat?: boolean;
 };
 
 function subscribeMotion(onChange: () => void) {
@@ -81,11 +83,14 @@ function Poster({
 }
 
 const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
-  { source, lazy = false, preload = "metadata", background = false, framed = false, still = "loop", preview = true },
+  { source, lazy = false, preload = "metadata", background = false, framed = false, still = "loop", preview = true, repeat = true },
   ref
 ) {
   const stageRef = useRef<HTMLDivElement>(null);
   const loopRef = useRef<HTMLVideoElement>(null);
+  const repeatRef = useRef(repeat);
+  const endedRef = useRef(false);
+  repeatRef.current = repeat;
   const idRef = useRef<number | null>(null);
   const allowRef = useRef(false);
   const modalRef = useRef(false);
@@ -134,6 +139,7 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
       play: () => {
         const loop = loopRef.current;
         if (!loop) return;
+        if (!repeatRef.current && (endedRef.current || loop.ended)) return;
         loop.muted = true;
         void loop.play().catch(() => {});
       },
@@ -200,8 +206,11 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             data-loop={heroLoop ? "hero" : "mfam"}
             poster={still === "modal" && "modalPoster" in source ? source.modalPoster : source.loopPoster}
             muted
-            loop
+            loop={repeat}
             playsInline
+            onEnded={() => {
+              if (!repeatRef.current) endedRef.current = true;
+            }}
             autoPlay={heroLoop}
             preload={heroLoop ? "auto" : seen ? "metadata" : preload}
             tabIndex={-1}

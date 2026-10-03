@@ -18,6 +18,7 @@ export const homepageMedia = {
   },
   mfam: {
     title: "MFAM film",
+    // Loop ends before the zoom-out. It does not meet the first frame, so it plays once and holds.
     loopWebm: "/media/mpe-mfam-film-loop.webm",
     loopMp4: "/media/mpe-mfam-film-loop.mp4",
     loopPoster: "/media/mpe-mfam-film-loop-poster.jpg",
