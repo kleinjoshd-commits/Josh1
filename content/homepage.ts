@@ -1,7 +1,6 @@
 /**
- * Homepage copy for the platform-led pass.
- * The only MFAM status line is "Patent pending." under the machines film.
- * No new figures. Bodies under titles stay within 8 words.
+ * Homepage copy. Short on purpose.
+ * The only "Patent pending." line on the site lives on /machines.
  */
 
 export const homepageCopy = {
@@ -48,72 +47,31 @@ export const homepageCopy = {
     ],
   },
 
-  builtFor: {
-    heading: "Built for",
-    cards: [
-      {
-        title: "Workforce platforms",
-        body: "Pay workers inside your app.",
-        href: "#workforce",
-        image: "/media/built-workforce.webp",
-      },
-      {
-        title: "Distributors and partners",
-        body: "A ready-made app with your brand.",
-        href: "#workforce-app",
-        image: "/media/built-distributors.webp",
-      },
-      {
-        title: "Machines and autonomous systems",
-        body: "Machines that pay their own way.",
-        href: "#mfam",
-        image: "/media/built-machines.webp",
-      },
-    ],
-  },
-
-  workforce: {
-    eyebrow: "Workforce",
-    heading: "Pay a workforce from the same integration.",
-    lede: "Connect once. MPE scores every route, picks one, and signs it.",
-    howLabel: "How it works",
-    steps: [
-      { title: "Connect once", body: "API, signed webhooks, or screens in your app." },
-      { title: "Score the route", body: "Every allowed route is scored on success, speed and cost. The best one is picked." },
-      { title: "Workers get paid", body: "Payout status comes back on a signed webhook." },
-    ],
-    workersLabel: "What your workers get",
-    tiles: [
-      { icon: "identity", title: "Checked in your app", body: "Document and selfie ID checks." },
-      { icon: "payout", title: "Paid their way", body: "Bank, card, wallet, or cross-border." },
-      { icon: "wallet", title: "Mobile wallet", body: "A payout to a mobile wallet." },
-      { icon: "card", title: "A card in the app", body: "Spend controls, and a freeze." },
-    ],
-    appTitle: "Your app, or ours",
-    appBody: "Identity, payouts and cards, in your app. Or a branded app in your name.",
-    revenueTitle: "Scores every route",
-    revenueBody: "Every allowed route is scored on success, speed and cost. The best one is picked.",
-    trust: "You keep the worker relationship. MPE handles the technology in between.",
+  who: {
+    heading: "Who it's for",
   },
 
   mfam: {
-    eyebrow: "Next, machines",
+    eyebrow: "Machines",
     heading: "When the payer is a machine.",
     lede: "Machines approve payments within limits the operator sets.",
     points: [
-      "The operator sets the rules, the limits, and who the machine may trust.",
+      "The operator sets the rules, the limits, and who the machine may pay.",
       "Every decision is signed and written to a tamper-evident record.",
     ],
-    places: "On the ground, at sea, in orbit. The altitude changes. The shape does not.",
-    cta: "Talk to us about MFAM",
-    patent: "Patent pending.",
+    cta: "Talk to us about machines",
+  },
+
+  developers: {
+    eyebrow: "Developers",
+    heading: "Request sandbox access.",
+    lede: "Sandbox access and docs come with access.",
+    cta: "Request sandbox access",
   },
 
   closing: {
-    heading: "See how money moves on your platform.",
-    lede: "Tell us what you need to pay out, issue, or check. Book a call and we will show you how MPE fits.",
-    cta: "Book a call",
+    heading: "Request access.",
+    lede: "Tell us what you pay out, issue, or check.",
+    cta: "Request access",
   },
-
-  footerNote: "",
 } as const;

@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
+import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
-  "Team | MPE",
-  "The people building MPE."
+  "Company | MPE",
+  "MPE builds orchestration software. Licensed partners move the money. Meet the people building MPE."
 );
 
 type TeamMember = {
@@ -50,27 +50,24 @@ const team: TeamMember[] = [
   },
 ];
 
-export default function TeamPage() {
+export default function CompanyPage() {
   return (
     <main className="sitePage">
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
-          <div className="ebTag">THE TEAM</div>
-          <h1>The people building MPE.</h1>
+          <div className="ebTag">COMPANY</div>
+          <h1>MPE builds the software. Licensed partners move the money.</h1>
           <p className="ebSub">
-            Talk to us about access.
+            Orchestration for platforms, fintechs, distributors, and operators of machines. {product.funds}
           </p>
-          <div className="btnRow">
-            <Link className="btnPrimary" href="#kyc">Request access</Link>
-          </div>
         </div>
       </section>
 
       <section className="deckLight">
-        <div className="wavesLight" />
         <div className="container deckInner">
+          <h2 className="homeSectionTitle">The people building MPE.</h2>
           <div className="aboutTeamGrid">
             {team.map((m) => (
               <article key={m.name} className="panel aboutTeamCard">
@@ -106,12 +103,9 @@ export default function TeamPage() {
               </article>
             ))}
           </div>
-
-          <p className="p" style={{ marginTop: 28 }}>
-            <Link className="quietLink" href="/about">About the platform</Link>
-          </p>
         </div>
       </section>
+
       <RequestAccess />
     </main>
   );

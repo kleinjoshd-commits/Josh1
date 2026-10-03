@@ -2,41 +2,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<
-    "about" | "platform" | "solutions" | null
-  >(null);
-  const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth > 900) {
-        setOpen(false);
-        setActiveMenu(null);
-      }
+      if (window.innerWidth > 900) setOpen(false);
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const openMenu = (menu: "about" | "platform" | "solutions") => {
-    if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    setActiveMenu(menu);
-  };
-
-  const closeMenu = () => {
-    if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => setActiveMenu(null), 120);
-  };
-
-  const closeAll = () => {
-    setOpen(false);
-    setActiveMenu(null);
-  };
+  const closeAll = () => setOpen(false);
 
   return (
     <header
@@ -52,7 +32,6 @@ export default function Nav() {
       }}
     >
       <div className="container navBar">
-        {/* Logo */}
         <Link href="/" className="navLogo" aria-label="Home">
           <Image
             src="/mpe-logo.png"
@@ -64,240 +43,23 @@ export default function Nav() {
           />
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="navLinks">
-
-          <div
-            style={{ position: "relative" }}
-            onMouseEnter={() => openMenu("about")}
-            onMouseLeave={closeMenu}
-          >
-            <Link
-              href="/about"
-              className="navLink"
-              aria-haspopup="menu"
-              aria-expanded={activeMenu === "about"}
-              onClick={closeAll}
-            >
-              About
-            </Link>
-
-            {activeMenu === "about" && (
-              <div
-                role="menu"
-                aria-label="About"
-                onMouseEnter={() => openMenu("about")}
-                onMouseLeave={closeMenu}
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 14px)",
-                  left: 0,
-                  background: "rgba(14, 18, 18, 0.98)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 16,
-                  padding: 20,
-                  width: 320,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-                }}
-              >
-                <Link
-                  href="/about"
-                  onClick={closeAll}
-                  style={{
-                    display: "block",
-                    padding: "10px 0",
-                    color: "rgba(255,255,255,0.9)",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  <strong>About MPE</strong>
-                  <div style={{ fontSize: 13, opacity: 0.7 }}>
-                    Why MPE exists and what it offers today.
-                  </div>
-                </Link>
-                <div style={{ height: 12 }} />
-                <Link
-                  href="/about/team"
-                  onClick={closeAll}
-                  style={{
-                    display: "block",
-                    padding: "10px 0",
-                    color: "rgba(255,255,255,0.9)",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  <strong>Meet the team</strong>
-                  <div style={{ fontSize: 13, opacity: 0.7 }}>
-                    The people building MPE.
-                  </div>
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <div
-            style={{ position: "relative" }}
-            onMouseEnter={() => openMenu("platform")}
-            onMouseLeave={closeMenu}
-          >
-            <button
-              type="button"
-              className="navLink"
-              aria-haspopup="menu"
-              aria-expanded={activeMenu === "platform"}
-              onClick={() =>
-                setActiveMenu((v) => (v === "platform" ? null : "platform"))
-              }
-              style={{
-                background: "transparent",
-                border: "none",
-                padding: 0,
-                cursor: "pointer",
-              }}
-            >
-              Platform
-            </button>
-
-            {activeMenu === "platform" && (
-              <div
-                role="menu"
-                aria-label="Platform"
-                onMouseEnter={() => openMenu("platform")}
-                onMouseLeave={closeMenu}
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 14px)",
-                  left: 0,
-                  background: "rgba(14, 18, 18, 0.98)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 16,
-                  padding: 20,
-                  width: 380,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-                }}
-              >
-                {siteConfig.nav.platform.map((item, index) => (
-                  <div key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={closeAll}
-                      style={{
-                        display: "block",
-                        padding: "10px 0",
-                        color: "rgba(255,255,255,0.9)",
-                        textDecoration: "none",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <strong>{item.label}</strong>
-                      {item.description ? (
-                        <div style={{ fontSize: 13, opacity: 0.7 }}>
-                          {item.description}
-                        </div>
-                      ) : null}
-                    </Link>
-                    {index < siteConfig.nav.platform.length - 1 ? (
-                      <div style={{ height: 12 }} />
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div
-            style={{ position: "relative" }}
-            onMouseEnter={() => openMenu("solutions")}
-            onMouseLeave={closeMenu}
-          >
-            <button
-              type="button"
-              className="navLink"
-              aria-haspopup="menu"
-              aria-expanded={activeMenu === "solutions"}
-              onClick={() =>
-                setActiveMenu((v) => (v === "solutions" ? null : "solutions"))
-              }
-              style={{
-                background: "transparent",
-                border: "none",
-                padding: 0,
-                cursor: "pointer",
-              }}
-            >
-              Products
-            </button>
-
-            {activeMenu === "solutions" && (
-              <div
-                role="menu"
-                aria-label="Products"
-                onMouseEnter={() => openMenu("solutions")}
-                onMouseLeave={closeMenu}
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 14px)",
-                  left: 0,
-                  background: "rgba(14, 18, 18, 0.98)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 16,
-                  padding: 20,
-                  width: 380,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
-                }}
-              >
-                {siteConfig.nav.solutions.map((item, index) => (
-                  <div key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={closeAll}
-                      style={{
-                        display: "block",
-                        padding: "10px 0",
-                        color: "rgba(255,255,255,0.9)",
-                        textDecoration: "none",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <strong>{item.label}</strong>
-                      {item.description ? (
-                        <div style={{ fontSize: 13, opacity: 0.7 }}>
-                          {item.description}
-                        </div>
-                      ) : null}
-                    </Link>
-                    {index < siteConfig.nav.solutions.length - 1 ? (
-                      <div style={{ height: 12 }} />
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {siteConfig.nav.topLevel.map((item) => (
+          {siteConfig.nav.map((item) => (
             <Link key={item.href} href={item.href} className="navLink">
               {item.label}
             </Link>
           ))}
-
-          <Link className="btnPrimary" href="/#kyc">
-            Request Access
+          <Link className="btnPrimary" href="#kyc">
+            Request access
           </Link>
         </nav>
 
-        {/* Mobile Hamburger */}
         <button
           type="button"
           className="navBurger"
           aria-label="Open menu"
           aria-expanded={open}
-          onClick={() => {
-            setOpen((v) => !v);
-            setActiveMenu(null);
-          }}
+          onClick={() => setOpen((v) => !v)}
         >
           <span />
           <span />
@@ -305,74 +67,10 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {open && (
         <div className="navMobileWrap">
           <div className="container navMobileMenu">
-
-            <Link href="/about" className="navMobileItem" onClick={closeAll}>
-              About
-            </Link>
-
-            <div className="navMobileSubmenu">
-              <Link
-                href="/about/team"
-                className="navMobileSubitem"
-                onClick={closeAll}
-              >
-                Meet the team
-              </Link>
-            </div>
-
-            <div
-              className="navMobileItem"
-              onClick={() =>
-                setActiveMenu((v) => (v === "platform" ? null : "platform"))
-              }
-            >
-              Platform
-            </div>
-
-            {activeMenu === "platform" && (
-              <div className="navMobileSubmenu">
-                {siteConfig.nav.platform.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="navMobileSubitem"
-                    onClick={closeAll}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            <div
-              className="navMobileItem"
-              onClick={() =>
-                setActiveMenu((v) => (v === "solutions" ? null : "solutions"))
-              }
-            >
-              Products
-            </div>
-
-            {activeMenu === "solutions" && (
-              <div className="navMobileSubmenu">
-                {siteConfig.nav.solutions.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="navMobileSubitem"
-                    onClick={closeAll}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {siteConfig.nav.topLevel.map((item) => (
+            {siteConfig.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -382,13 +80,12 @@ export default function Nav() {
                 {item.label}
               </Link>
             ))}
-
             <Link
-              href="/#kyc"
+              href="#kyc"
               className="btnPrimary navMobileCta"
               onClick={closeAll}
             >
-              Request Access
+              Request access
             </Link>
           </div>
         </div>

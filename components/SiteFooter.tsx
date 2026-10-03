@@ -4,30 +4,27 @@ import { claims } from "@/content/claims";
 
 const COLUMNS = [
   {
-    heading: "Products",
+    heading: "Platform",
     links: [
-      { label: "MPE Send", href: "/solutions/send" },
-      { label: "MPE Workforce", href: "/solutions/workforce" },
-      { label: "MPE Network", href: "/solutions/network" },
-      { label: "MPE OS", href: "/solutions/os" },
+      { label: "Platform", href: "/platform" },
+      { label: "Machines", href: "/machines" },
+      { label: "Developers", href: "/developers" },
     ],
   },
   {
-    heading: "Platform",
+    heading: "Solutions",
     links: [
-      { label: "Platform architecture", href: "/unified-approach" },
-      { label: "Trust & controls", href: "/trust-controls" },
-      { label: "Industries", href: "/industries" },
-      { label: "Resources", href: "/resources" },
+      { label: "Overview", href: "/solutions" },
+      { label: "Platforms", href: "/solutions/platforms" },
+      { label: "Fintechs", href: "/solutions/fintechs" },
+      { label: "Distributors", href: "/solutions/distributors" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Team", href: "/about/team" },
-      { label: "Use cases", href: "/use-cases" },
-      { label: "Talk to us", href: "/#kyc" },
+      { label: "Company", href: "/company" },
+      { label: "Request access", href: "/#kyc" },
     ],
   },
 ];
@@ -47,7 +44,7 @@ export default function SiteFooter() {
             <div key={c.heading}>
               <div className="footerHead">{c.heading}</div>
               {c.links.map((l) => (
-                <Link key={l.label} href={l.href} className="footerLink">
+                <Link key={l.href} href={l.href} className="footerLink">
                   {l.label}
                 </Link>
               ))}

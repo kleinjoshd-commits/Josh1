@@ -4306,6 +4306,153 @@ main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
   main.sitePage .ebStatement h2 { font-size: 32px; }
 }
 
+.hpWho,
+.hpDev {
+  background: #07110d;
+  color: #f4f7f5;
+}
+.hpWho h2,
+.hpDev h2 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.08;
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  color: #f7f8f6;
+  text-align: left;
+}
+.hpWho .hpWrap { padding-top: 8px; padding-bottom: 72px; }
+.hpDev .hpWrap { padding-top: 8px; padding-bottom: 24px; }
+.hpDev .hpLede { color: rgba(232, 240, 236, 0.78); }
+.hpDev .btnRow { margin-top: 22px; }
+.whoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+.whoGrid a.whoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 280px;
+  padding: 24px;
+  border-radius: 16px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f7f8f6;
+}
+.whoGrid a.whoText:hover { border-color: rgba(125, 255, 195, 0.45); }
+.whoGrid a.whoText strong {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.whoGrid a.whoText p {
+  margin: 8px 0 0;
+  max-width: 28ch;
+  color: rgba(232, 240, 236, 0.78);
+  font-size: 16px;
+  line-height: 1.45;
+}
+.whoGrid a.hpShot {
+  position: relative;
+  display: block;
+  min-height: 280px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0c1612;
+  color: #f4f7f5;
+  text-decoration: none;
+  isolation: isolate;
+}
+.codePanel {
+  margin: 18px 0 0;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow-x: auto;
+  color: #d7efe4;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.codePanel code {
+  font-family: inherit;
+  white-space: pre;
+}
+.cardGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+main.sitePage a.panel {
+  text-decoration: none;
+  display: block;
+}
+main.sitePage a.panel:hover { border-color: rgba(125, 255, 195, 0.45); }
+main.sitePage a.panel .go {
+  color: #7dffc3;
+  font-weight: 650;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 16px;
+}
+.operatorGrid {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+.operatorGrid li {
+  margin: 0;
+  padding: 22px 16px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.trustList {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.trustList li {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+main.sitePage .flowSteps.flowFour { grid-template-columns: repeat(4, 1fr); }
+main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
+@media (max-width: 1000px) {
+  .operatorGrid { grid-template-columns: 1fr 1fr; }
+  main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .hpWho h2,
+  .hpDev h2 { font-size: 36px; }
+}
+@media (max-width: 700px) {
+  .hpWho h2,
+  .hpDev h2 { font-size: 32px; }
+  .whoGrid,
+  .cardGrid2,
+  .trustList,
+  .operatorGrid,
+  main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr; }
+  .whoGrid a.whoText,
+  .whoGrid a.hpShot { min-height: 220px; }
+}
+
 .payFace:first-child {
   animation-name: payInFirst;
 }

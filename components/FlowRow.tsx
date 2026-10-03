@@ -1,8 +1,14 @@
 type Step = { title: string; body: string };
 
-export default function FlowRow({ steps }: { steps: readonly Step[] }) {
+export default function FlowRow({
+  steps,
+  className,
+}: {
+  steps: readonly Step[];
+  className?: string;
+}) {
   return (
-    <ol className="flowSteps">
+    <ol className={className ? `flowSteps ${className}` : "flowSteps"}>
       {steps.map((step, index) => (
         <li key={step.title}>
           <span className="flowIndex">{index + 1}</span>

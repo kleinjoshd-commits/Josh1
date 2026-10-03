@@ -2,10 +2,10 @@ export const product = {
   oneLiner: "One Platform API in front of many licensed providers.",
   funds: "MPE never holds funds. Licensed partners do.",
   adapter: "Any licensed provider plugs in through one standard adapter.",
+  fallback: "When one degrades, routing picks another eligible one.",
   route:
     "Every allowed route is scored on success, speed and cost. The best one is picked.",
-  machines:
-    "Machines approve payments within limits the operator sets.",
+  machines: "Machines approve payments within limits the operator sets.",
   flow: [
     {
       title: "Authorize",
@@ -20,52 +20,104 @@ export const product = {
       body: "The decision is signed and written to a tamper-evident record.",
     },
   ],
-  integrate: [
-    {
-      title: "Sandbox",
-      body: "Sandbox access, API docs and embeds come with access.",
-    },
-    {
-      title: "Connect",
-      body: "Signed webhooks cover KYC and payout status.",
-    },
-    {
-      title: "Operate",
-      body: "The ops console shows the route chosen and why, and the work operators can do.",
-    },
-  ],
-  outputs: [
+  coverage: [
     { title: "Bank", body: "A payout to a bank account." },
-    { title: "Card", body: "A payout to a card, including a debit card push." },
-    { title: "Wallet", body: "A payout to a mobile wallet." },
-    { title: "Cross-border", body: "A cross-border payout, such as a bank payout in MXN or PHP." },
+    { title: "Debit card", body: "A payout to a debit card." },
+    { title: "Mobile wallet", body: "A payout to a mobile wallet." },
     {
-      title: "Machine",
-      body: "Machines approve payments within limits the operator sets.",
+      title: "Cross-border",
+      body: "A cross-border payout, such as a bank payout in MXN or PHP.",
+    },
+    { title: "Branded cards", body: "Branded cards with spend controls and freeze." },
+    {
+      title: "Identity",
+      body: "Document and selfie checks, embedded in the platform's app.",
     },
   ],
-  cards: "Branded cards with spend controls and freeze.",
-  identity:
-    "Document and selfie ID checks, embedded in the platform's app.",
-  embeds:
-    "Embeds for KYC, payouts and card: a hosted web embed, a JS drop-in, and an iOS wrapper.",
-  webhooks: "Signed events for KYC and payout status.",
   consoleSee:
     "See payouts with the route chosen and why, provider health, KYC, webhooks, reconciliation and the audit trail.",
   consoleDo:
-    "Approve or reject KYC. Cancel or return payouts. Resend webhooks. Resolve reconciliation cases.",
-  audiences: [
+    "Approve or reject KYC. Cancel or return payouts. Resend webhooks. Resolve reconciliation cases. Mark a provider degraded.",
+  trust: [
+    "Signed policy",
+    "Signed decisions",
+    "Tamper-evident audit log",
+    "MPE never holds funds",
+    "No identity documents stored by MPE",
+    "Verification done by licensed providers",
+  ],
+  developerSteps: [
     {
-      title: "Platforms with an app",
-      body: "Embed KYC, payouts and card. Document and selfie checks sit in your app.",
+      title: "Get sandbox access",
+      body: "Sandbox access, API docs and embeds come with access.",
     },
     {
-      title: "Distributors and partners",
-      body: "A ready-made app in your brand comes with access.",
+      title: "Enroll and verify",
+      body: "Document and selfie checks, in the platform's app.",
     },
     {
-      title: "Machines and autonomous systems",
-      body: "Machines approve payments within limits the operator sets.",
+      title: "Pay out",
+      body: "MPE authorizes, routes and signs the payout.",
+    },
+    {
+      title: "Listen for signed webhooks",
+      body: "KYC and transfer updates arrive signed.",
     },
   ],
+  payoutSample: `POST /v1/programs/{programId}/payouts
+Headers: Authorization: Bearer mpe_test_..., Idempotency-Key: <uuid>
+Body: { "enrollmentId": "enr_...", "amountInMinor": 248000, "currency": "CAD", "method": "bank" }
+Response 201: { "transferId": "trf_...", "state": "Sent", ... }`,
+  webhookSample: `X-MPE-Timestamp
+X-MPE-Signature
+X-MPE-Event-Id
+HMAC-SHA256
+
+kyc.updated
+transfer.updated`,
+  embeds: [
+    { title: "Hosted web embed", body: "KYC, payouts and card, hosted by MPE." },
+    { title: "JS drop-in", body: "Mount the same screens with MPE.mount." },
+    { title: "iOS wrapper", body: "The same screens inside an iOS app." },
+  ],
 } as const;
+
+export const segments = [
+  {
+    title: "Platforms",
+    body: "Pay people from your own app.",
+    detail:
+      "Workforce, gig, fleet and logistics software embed KYC, payouts and card screens, and keep their own app.",
+    href: "/solutions/platforms",
+  },
+  {
+    title: "Fintechs",
+    body: "One API for every licensed provider.",
+    detail:
+      "Payment programs that run more than one provider get orchestration, a signed audit trail, and fallback when a provider degrades.",
+    href: "/solutions/fintechs",
+  },
+  {
+    title: "Distributors",
+    body: "A ready-made app in your brand.",
+    detail:
+      "Partner networks with no app of their own take a ready-made app in their brand.",
+    href: "/solutions/distributors",
+  },
+  {
+    title: "Machines",
+    body: "A machine pays within limits you set.",
+    detail:
+      "Operators of drone fleets, autonomous vehicles, robotics, EV charging, and remote or maritime equipment.",
+    href: "/machines",
+    image: "/media/built-machines.webp",
+  },
+] as const;
+
+export const operators = [
+  "Drone fleets",
+  "Autonomous vehicles",
+  "Robotics",
+  "EV charging",
+  "Remote or maritime equipment",
+] as const;

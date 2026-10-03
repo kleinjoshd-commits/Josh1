@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 const description =
-  "One integration for payouts, wallets, cards, identity and machine payments. For platforms, people and machines. MPE never holds funds.";
+  "One API for payouts, cards, identity and machine payments. For platforms, fintechs, distributors and operators of machines. MPE never holds funds.";
 
 export const metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),

@@ -20,8 +20,8 @@ export default function NotFound() {
           <div className="ebTag">404</div>
           <h1>This page is not here.</h1>
           <p className="ebSub">
-            The link may be old. MPE is still one integration for every way
-            money moves, for platforms, people and machines.
+            The link may be old. MPE is still one API for platforms, fintechs,
+            distributors and operators of machines.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="/">Back home</Link>

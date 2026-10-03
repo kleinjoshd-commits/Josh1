@@ -8,12 +8,14 @@ import BuiltPhoto from "../components/BuiltPhoto";
 import FilmPlayer from "../components/FilmPlayer";
 import LineIcon from "../components/LineIcon";
 import RoutingDiagram from "../components/RoutingDiagram";
+import CodeSample from "../components/CodeSample";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
+import { product, segments } from "@/content/product";
 
 export const metadata: Metadata = {
   description:
-    "One integration for payouts, wallets, cards, identity and machine payments. For platforms, people and machines. MPE never holds funds.",
+    "One API for payouts, cards, identity and machine payments. For platforms, fintechs, distributors and operators of machines. MPE never holds funds.",
 };
 
 function LeadCopy({ text }: { text: string }) {
@@ -27,14 +29,10 @@ function LeadCopy({ text }: { text: string }) {
   );
 }
 
-// Homepage leads with the platform. Workforce detail, the map, products,
-// trust, partnership doors, and MFAM follow.
-
 export default function Home() {
   const caps = homepageCopy.capabilities;
-  const built = homepageCopy.builtFor;
-  const work = homepageCopy.workforce;
   const mfam = homepageCopy.mfam;
+  const dev = homepageCopy.developers;
 
   return (
     <main className="home">
@@ -66,169 +64,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="hpBuilt" id="built-for" aria-labelledby="built-title">
+      <section className="hpWho" id="who" aria-labelledby="who-title">
         <div className="hpWrap">
-          <h2 id="built-title" data-reveal>
-            {built.heading}
+          <h2 id="who-title" data-reveal>
+            {homepageCopy.who.heading}
           </h2>
-          <div className="hpBuiltGrid">
-            {built.cards.map((card, index) => (
-              <a key={card.title} href={card.href} className="hpShot" data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
-                <BuiltPhoto
-                  src={card.image}
-                  avif={card.image.endsWith("built-machines.webp") ? "/media/built-machines.avif" : undefined}
-                  className={card.image.endsWith("built-machines.webp") ? "hpShotDrone" : undefined}
-                  width={card.image.endsWith("built-machines.webp") ? 1400 : 1400}
-                  height={card.image.endsWith("built-machines.webp") ? 1708 : 880}
-                />
-                <span className="hpShotShade" aria-hidden="true" />
-                <span className="hpShotCopy">
+          <div className="whoGrid">
+            {segments.map((card) =>
+              "image" in card ? (
+                <Link key={card.href} href={card.href} className="hpShot">
+                  <BuiltPhoto
+                    src={card.image}
+                    avif="/media/built-machines.avif"
+                    className="hpShotDrone"
+                    width={1400}
+                    height={1708}
+                  />
+                  <span className="hpShotShade" aria-hidden="true" />
+                  <span className="hpShotCopy">
+                    <strong>{card.title}</strong>
+                    <p>{card.body}</p>
+                  </span>
+                </Link>
+              ) : (
+                <Link key={card.href} href={card.href} className="whoText">
                   <strong>{card.title}</strong>
                   <p>{card.body}</p>
-                </span>
-              </a>
-            ))}
+                </Link>
+              )
+            )}
           </div>
-        </div>
-      </section>
-
-      <section className="hpOrch" id="workforce" aria-labelledby="work-title">
-        <div className="hpWrap" data-reveal>
-          <p className="hpEyebrow">{work.eyebrow}</p>
-          <h2 id="work-title">{work.heading}</h2>
-          <p className="hpLede">{work.lede}</p>
-
-          <h3 className="hpBlockLabel">{work.howLabel}</h3>
-          <ol className="hpSteps">
-            {work.steps.map((step) => (
-              <li key={step.title}>
-                <strong>{step.title}</strong>
-                {step.body}
-              </li>
-            ))}
-          </ol>
-
-          <h3 className="hpBlockLabel">{work.workersLabel}</h3>
-          <ul className="hpTiles">
-            {work.tiles.map((tile) => (
-              <li key={tile.title}>
-                <LineIcon name={tile.icon} />
-                <strong>{tile.title}</strong>
-                {tile.body}
-              </li>
-            ))}
-          </ul>
-
-          <div className="hpSplit">
-            <article id="workforce-app">
-              <h3>{work.appTitle}</h3>
-              <p>{work.appBody}</p>
-            </article>
-            <article>
-              <h3>{work.revenueTitle}</h3>
-              <p>{work.revenueBody}</p>
-            </article>
-          </div>
-
-          <p className="hpTrust">{work.trust}</p>
         </div>
       </section>
 
       <LicensedMap />
-
-      {/* Products. Four cards, one line each. */}
-      <section className="deckLight">
-        <div className="container deckInner">
-          <section className="homeBand" data-animate>
-            <div className="productTrio">
-              <Link href="/solutions/send" className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Send</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Bank, card, wallet, and cross-border.
-                </p>
-                <span className="go">Explore →</span>
-              </Link>
-              <Link href="/solutions/workforce" className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Pay a global workforce.
-                </p>
-                <span className="go">Explore →</span>
-              </Link>
-              <Link href="/solutions/network" className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE Network</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Reach through licensed partners, 140+ countries.
-                </p>
-                <span className="go">Explore →</span>
-              </Link>
-              <Link href="/solutions/os" className="panel">
-                <h3 style={{ marginTop: 0 }}>MPE OS</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Authorize, route and sign.
-                </p>
-                <span className="go">Explore →</span>
-              </Link>
-            </div>
-          </section>
-
-          {/* Trust, first-class: the category norm is a compliance section
-              on the homepage. Ours states the architecture, not badges. */}
-          <section className="homeBand" data-animate>
-            <div className="homeSectionHeader">
-              <h2 className="homeSectionTitle">Built to be trusted</h2>
-            </div>
-            <div className="outcomeGrid">
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Never holds funds</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Licensed partners hold the funds.
-                </p>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Licensed institutions, every market</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Payment services in each market are provided by licensed partners,
-                  under their own regulators.
-                </p>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Everything on the record</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Every decision is signed and written to a tamper-evident record.
-                </p>
-              </div>
-            </div>
-            <div className="linkRow">
-              <Link className="btnSecondary" href="/trust-controls">How trust works</Link>
-            </div>
-          </section>
-        </div>
-      </section>
-
-      {/* 6, Two doors. Employers and institutions, one paragraph each. */}
-      <section className="emeraldBand" id="partners">
-        <div className="ebWrap">
-          <div className="ebTag">WORKING TOGETHER</div>
-          <div className="ebDoors">
-            <div className="ebDoor">
-              <h3>For employers</h3>
-              <p>
-                One workforce program on the same integration: hire, onboard
-                and pay across borders, with payouts, wallets and cards.
-              </p>
-              <Link className="btnPrimary" href="/#kyc">Request Access</Link>
-            </div>
-            <div className="ebDoor">
-              <h3>For licensed institutions</h3>
-              <p>
-                Deposits and customers on your license, under your regulation.
-              </p>
-              <Link className="btnSecondary" href="/#kyc">Talk to us</Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="hpMfam" id="mfam" aria-labelledby="mfam-title">
         <div className="hpWrap" data-reveal>
@@ -238,7 +107,6 @@ export default function Home() {
 
           <div className="hpMfamFilm">
             <FilmPlayer source={homepageMedia.mfam} lazy preload="metadata" />
-            <p className="hpDisclaimer">{mfam.patent}</p>
           </div>
 
           <ul className="hpPoints">
@@ -249,10 +117,23 @@ export default function Home() {
             ))}
           </ul>
 
-          <p className="hpPlaces">{mfam.places}</p>
           <div className="btnRow">
-            <Link className="btnPrimary" href="/#kyc">
+            <Link className="btnPrimary" href="/machines">
               {mfam.cta}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="hpDev" id="developers" aria-labelledby="dev-title">
+        <div className="hpWrap">
+          <p className="hpEyebrow">{dev.eyebrow}</p>
+          <h2 id="dev-title">{dev.heading}</h2>
+          <p className="hpLede">{dev.lede}</p>
+          <CodeSample code={product.payoutSample} label="Payout request" />
+          <div className="btnRow">
+            <Link className="btnPrimary" href="/developers#kyc">
+              {dev.cta}
             </Link>
           </div>
         </div>

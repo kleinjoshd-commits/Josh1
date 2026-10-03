@@ -99,19 +99,10 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
 
   useEffect(() => {
     if (!heroLoop) return;
-    let timer = 0;
-    const arm = () => {
-      timer = window.setTimeout(() => setArmLoop(true), 1500);
-    };
+    setArmLoop(true);
     const onOpen = () => openModal();
-    if (document.readyState === "complete") arm();
-    else window.addEventListener("load", arm, { once: true });
     window.addEventListener("mpe-open-film", onOpen);
-    return () => {
-      window.removeEventListener("load", arm);
-      window.removeEventListener("mpe-open-film", onOpen);
-      window.clearTimeout(timer);
-    };
+    return () => window.removeEventListener("mpe-open-film", onOpen);
   }, [heroLoop, openModal]);
 
   useEffect(() => {
@@ -187,11 +178,11 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
             ref={loopRef}
             className={shown ? "isOn" : undefined}
             data-loop={heroLoop ? "hero" : "mfam"}
-            poster={framed ? undefined : source.loopPoster}
+            poster={source.loopPoster}
             muted
             loop
             playsInline
-            preload={heroLoop ? "none" : seen ? "metadata" : preload}
+            preload={heroLoop ? "auto" : seen ? "metadata" : preload}
             tabIndex={-1}
             aria-hidden="true"
             onPlaying={() => setShown(true)}

@@ -11,7 +11,7 @@
  * 3. No pricing or fee claims of any kind. Pricing is not public.
  * 4. No partner names anywhere on the public site, capability language
  *    only.
- * 5. The only MFAM status line is "Patent pending." under the homepage machines film.
+ * 5. The only "Patent pending." line is on /machines, under the film.
  * 6. No traction numbers (users, volumes). None are approved.
  * 7. Every statistic on the site must come from this file.
  */

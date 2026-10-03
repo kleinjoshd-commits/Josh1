@@ -37,7 +37,7 @@ export default function HeroFilm() {
                 decoding="sync"
                 fetchPriority="high"
               />
-              <FilmPlayer source={homepageMedia.brand} framed preload="none" />
+              <FilmPlayer source={homepageMedia.brand} framed preload="auto" />
             </div>
             <PaymentPanel />
           </div>

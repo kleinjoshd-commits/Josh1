@@ -1,11 +1,15 @@
 import KycForm from "@/components/KycForm";
 
-export default function RequestAccess() {
-  return (
-    <KycForm
-      title="Request access."
-      lede="Sandbox access, API docs and embeds come with access."
-      submitLabel="Request access"
-    />
-  );
+type Props = {
+  title?: string;
+  lede?: string;
+  submitLabel?: string;
+};
+
+export default function RequestAccess({
+  title = "Request access.",
+  lede = "Sandbox access, API docs and embeds come with access.",
+  submitLabel = "Request access",
+}: Props) {
+  return <KycForm title={title} lede={lede} submitLabel={submitLabel} />;
 }
