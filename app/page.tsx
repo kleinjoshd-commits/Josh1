@@ -1,38 +1,48 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
 import LicensedMap from "../components/LicensedMap";
+import HeroFilm from "../components/HeroFilm";
+import FilmPlayer from "../components/FilmPlayer";
 import { claims } from "@/content/claims";
+import { homepageCopy } from "@/content/homepage";
+import { homepageMedia } from "@/content/media";
+
+export const metadata: Metadata = {
+  description: claims.hero.subheadline,
+};
+
+function LeadCopy({ text }: { text: string }) {
+  const splitAt = text.indexOf(". ");
+  if (splitAt === -1) return <>{text}</>;
+  return (
+    <>
+      <strong>{text.slice(0, splitAt + 1)}</strong>
+      <span>{text.slice(splitAt + 2)}</span>
+    </>
+  );
+}
 
 // =====================================================================
-// Emerald-first homepage. Seven screens, one idea each:
-//
-//   1. Hero       , the claim, the numbers, two doors in.
-//   2. The map    , the strongest piece; the hero flows straight into it.
-//   3. Statement  , the gap, as one sentence with a screen of air.
-//   4. Mission    , the only light band: why this company exists.
-//   5. Products   , three cards, one line each.
-//   6. Two doors  , employers and institutions, one paragraph each.
-//   7. Contact.
-//
-// Everything else this page used to carry lives on the product pages.
+// Homepage. The hero, orchestration, and MFAM sections use the approved
+// Oct 3 copy. The map, products, trust, and partnership doors stay.
 // =====================================================================
 
 export default function Home() {
+  const orch = homepageCopy.orchestration;
+  const mfam = homepageCopy.mfam;
+
   return (
     <main>
       <Nav />
 
-      {/* 1, Hero. Same world as the map: one emerald surface. */}
       <section className="emeraldBand">
-        <div className="ebWrap" style={{ paddingBottom: 28 }}>
-          <div className="ebTag">MPE</div>
+        <div className="ebWrap hpHeroWrap">
+          <p className="hpHeroKicker">{homepageCopy.heroKicker}</p>
           <h1>{claims.hero.headline}</h1>
           <p className="ebSub">{claims.hero.subheadline}</p>
-          <div className="btnRow">
-            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
-            <Link className="btnSecondary" href="/#partners">Partner with MPE</Link>
-          </div>
+          <HeroFilm />
           <div className="ebStats">
             {/* The 140+ countries figure lives with the map just below;
                 showing it here too said the same thing twice. */}
@@ -49,7 +59,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2, The map. No seam: the same emerald, continued. */}
+      <section className="hpOrch" id="orchestration" aria-labelledby="orch-title">
+        <div className="hpWrap">
+          <p className="hpEyebrow">{orch.eyebrow}</p>
+          <h2 id="orch-title">{orch.heading}</h2>
+          <p className="hpLede">{orch.lede}</p>
+
+          <h3 className="hpBlockLabel">{orch.howLabel}</h3>
+          <ol className="hpSteps">
+            {orch.steps.map((step) => (
+              <li key={step}>
+                <LeadCopy text={step} />
+              </li>
+            ))}
+          </ol>
+
+          <h3 className="hpBlockLabel">{orch.workersLabel}</h3>
+          <ul className="hpTiles">
+            {orch.tiles.map((tile) => (
+              <li key={tile}>
+                <LeadCopy text={tile} />
+              </li>
+            ))}
+          </ul>
+
+          <div className="hpSplit">
+            <article>
+              <h3>{orch.appHeading}</h3>
+              <p>{orch.appBody}</p>
+            </article>
+            <article>
+              <h3>{orch.revenueHeading}</h3>
+              <p>{orch.revenueBody}</p>
+            </article>
+          </div>
+
+          <p className="hpTrust">{orch.trust}</p>
+        </div>
+      </section>
+
+      {/* The map. No seam with the sections around it: the same emerald. */}
       <LicensedMap />
 
       {/* 3, The statement. One sentence, a screen of air. */}
@@ -166,8 +215,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7, Contact. */}
-      <KycForm />
+      <section className="hpMfam" id="mfam" aria-labelledby="mfam-title">
+        <div className="hpWrap">
+          <p className="hpEyebrow">{mfam.eyebrow}</p>
+          <h2 id="mfam-title">{mfam.heading}</h2>
+          <p className="hpLede">{mfam.lede}</p>
+
+          <div className="hpMfamFilm">
+            <FilmPlayer source={homepageMedia.mfam} lazy preload="metadata" />
+            <p className="hpDisclaimer">{homepageCopy.filmDisclaimer}</p>
+          </div>
+
+          <ul className="hpPoints">
+            {mfam.points.map((point) => (
+              <li key={point}>
+                <LeadCopy text={point} />
+              </li>
+            ))}
+          </ul>
+
+          <p className="hpPlaces">{mfam.places}</p>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="/#kyc">
+              {mfam.cta}
+            </Link>
+          </div>
+          <p className="hpFine">{mfam.status}</p>
+        </div>
+      </section>
+
+      <KycForm
+        title={homepageCopy.closing.heading}
+        lede={homepageCopy.closing.lede}
+        submitLabel={homepageCopy.closing.cta}
+      />
     </main>
   );
 }

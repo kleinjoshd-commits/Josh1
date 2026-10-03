@@ -11,7 +11,7 @@
  * 3. No pricing or fee claims of any kind. Pricing is not public.
  * 4. No partner names anywhere on the public site, capability language
  *    only.
- * 5. No space/orbital/MFAM content on the corporate site.
+ * 5. MFAM appears only in the approved homepage section, marked in development.
  * 6. No traction numbers (users, volumes). None are approved.
  * 7. Every statistic on the site must come from this file.
  */
@@ -31,11 +31,11 @@ export const claims = {
   noCustody:
     "MPE does not hold or transmit customer funds, and does not store customer identity documents.",
 
-  /** Hero (Tier 2.1). */
+  /** Hero. The kicker above this headline lives in content/homepage.ts. */
   hero: {
-    headline: "Financial infrastructure for a borderless economy.",
+    headline: "Pay every worker, anywhere, right inside your app.",
     subheadline:
-      "MPE connects globally mobile earners and their employers to best-in-class regulated financial infrastructure, and holds the customer relationship at every step. Built for the hard places global finance forgot.",
+      "MPE connects your platform to a network of licensed payment partners. One integration gives your workers payouts in their local currency, a wallet and a card, all under your brand.",
   },
 
   /** Stat strip (Tier 2.2), the only approved figures. */

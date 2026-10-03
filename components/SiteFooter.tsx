@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/siteConfig";
 import { claims } from "@/content/claims";
+import { homepageCopy } from "@/content/homepage";
 
 const COLUMNS = [
   {
@@ -41,6 +42,7 @@ export default function SiteFooter() {
             <div style={{ fontWeight: 700, color: "rgba(255,255,255,0.92)" }}>
               {siteConfig.companyName}
             </div>
+            <div style={{ marginTop: 6 }}>{homepageCopy.heroKicker}</div>
             <div style={{ marginTop: 6 }}>{siteConfig.domain}</div>
           </div>
           {COLUMNS.map((c) => (
@@ -55,6 +57,7 @@ export default function SiteFooter() {
           ))}
         </div>
 
+        <p className="footerNote">{homepageCopy.footerNote}</p>
         {/* Verbatim compliance disclaimer on every page. */}
         <div className="small footerLegal">{claims.footerDisclaimer}</div>
       </div>
