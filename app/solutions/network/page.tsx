@@ -19,7 +19,7 @@ const OUTCOMES = [
   },
   {
     title: "Institutional-grade foundations",
-    body: "Client funds within partner programmes are safeguarded at globally systemically important banks, under each partner's own licence and regulator. MPE holds no funds at any point.",
+    body: "Client funds within partner programs are safeguarded at globally systemically important banks, under each partner's own license and regulator. MPE holds no funds at any point.",
   },
 ];
 
@@ -97,7 +97,7 @@ export default function NetworkPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  The consumer product: money home, honestly priced.
+                  Payouts for people, priced in the open.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>

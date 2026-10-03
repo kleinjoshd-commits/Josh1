@@ -101,13 +101,13 @@ export default function SettlementModelsResource() {
             </p>
 
             <h2 className="h2" style={{ marginTop: 28, marginBottom: 10 }}>
-              Domestic settlement (local rails)
+              Domestic settlement (local networks)
             </h2>
             <p className="p">
               Domestic settlement typically means value moves within a single
               country through local clearing systems and domestic banking
               networks. The executing institution is usually a local bank that
-              holds or receives funds and settles on local rails.
+              holds or receives funds and settles on local networks.
             </p>
 
             <div

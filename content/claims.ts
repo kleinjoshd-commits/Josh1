@@ -11,7 +11,7 @@
  * 3. No pricing or fee claims of any kind. Pricing is not public.
  * 4. No partner names anywhere on the public site, capability language
  *    only.
- * 5. No space/orbital/MFAM content on the corporate site.
+ * 5. MFAM appears only in the approved homepage section, marked in development.
  * 6. No traction numbers (users, volumes). None are approved.
  * 7. Every statistic on the site must come from this file.
  */
@@ -25,25 +25,24 @@ export const claims = {
 
   /** Approved framing wherever the service is described. Use verbatim. */
   serviceAttribution:
-    "Money transfer and payment services within MPE programmes are provided by licensed partner institutions in each market.",
+    "Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market.",
 
   /** Approved reassurance line. Use verbatim. */
   noCustody:
     "MPE does not hold or transmit customer funds, and does not store customer identity documents.",
 
-  /** Hero (Tier 2.1). */
+  /** Homepage hero. Kicker lives in content/homepage.ts. */
   hero: {
-    headline: "Financial infrastructure for a borderless economy.",
+    headline: "One integration for every way money moves.",
     subheadline:
-      "MPE connects globally mobile earners and their employers to best-in-class regulated financial infrastructure, and holds the customer relationship at every step. Built for the hard places global finance forgot.",
+      "Payouts, wallets, cards, identity and cross-border, routed across licensed partners. For people, platforms and machines.",
   },
 
-  /** Stat strip (Tier 2.2), the only approved figures. */
+  /** Hero strip. Same figures as the network map. Not market-size claims. */
   stats: [
-    { value: "$860B", label: "sent home by migrant workers every year" },
-    { value: "280M", label: "people working outside their home country" },
-    { value: "~6%", label: "average cost of sending money home today" },
-    { value: "140+", label: "countries where money lands through our network" },
+    { value: "140+", label: "countries where money lands", strip: true },
+    { value: "200+", label: "direct bank connections", strip: true },
+    { value: "130+", label: "payout currencies", strip: true },
   ] as const,
 
   /** Network stat line (Tier 3.1 / 3.4). */
@@ -69,7 +68,7 @@ export const claims = {
 
   /** Compliance footer (Tier 1.6). Use verbatim on every page. */
   footerDisclaimer:
-    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software and community programmes. Money transfer and payment services within MPE programmes are provided by licensed partner institutions in each market. MPE does not hold or transmit customer funds, and does not store customer identity documents. Market designations describe partner-network capability and programmes in development, and do not constitute an offer of regulated services in any jurisdiction.",
+    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software and community programs. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. MPE does not hold or transmit customer funds, and does not store customer identity documents. Market designations describe partner-network capability and programs in development, and do not constitute an offer of regulated services in any jurisdiction.",
 } as const;
 
 export type Claims = typeof claims;

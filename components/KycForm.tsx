@@ -7,9 +7,19 @@ type KycResponse = {
   error?: string;
 };
 
-const INTERESTS = ["Employer programme", "Licensed institution", "Partner or other"];
+const INTERESTS = ["Platform integration", "Workforce program", "Licensed institution"];
 
-export default function KycForm() {
+type KycFormProps = {
+  title?: string;
+  lede?: string;
+  submitLabel?: string;
+};
+
+export default function KycForm({
+  title = "Start the conversation.",
+  lede = "A platform, a workforce program, or an institutional partnership: share a few details and the right person replies.",
+  submitLabel = "Talk to us",
+}: KycFormProps = {}) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +34,7 @@ export default function KycForm() {
             <h3 style={{ marginTop: 0 }}>Received. A person will reply.</h3>
             <p style={{ opacity: 0.8, marginTop: 10 }}>
               Your note went to the team, not a queue. We will come back to you
-              about your programme and the right way to start.
+              about your program and the right way to start.
             </p>
             <p style={{ opacity: 0.6, marginTop: 12, fontSize: 14 }}>
               No obligation, and nothing is shared beyond MPE.
@@ -83,12 +93,8 @@ export default function KycForm() {
         <div className="kycCenter">
         <div className="ebTag">TALK TO US</div>
         <div className="kycHead">
-          <h2>Start the conversation.</h2>
-          <p>
-            An employer programme, an institutional partnership, or something
-            we have not thought of yet: share a few details and the right
-            person replies.
-          </p>
+          <h2>{title}</h2>
+          <p>{lede}</p>
         </div>
         </div>
 
@@ -168,11 +174,11 @@ export default function KycForm() {
                 style={{ width: "100%", opacity: sending ? 0.85 : 1 }}
                 disabled={sending}
               >
-                {sending ? "Sending..." : "Talk to us"}
+                {sending ? "Sending..." : submitLabel}
               </button>
               <p className="kycFine">
                 No obligation. A person replies, and nothing is shared beyond
-                MPE. Money transfer and payment services within MPE programmes
+                MPE. Money transfer and payment services within MPE programs
                 are provided by licensed partner institutions in each market.
               </p>
             </div>

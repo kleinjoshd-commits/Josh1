@@ -40,13 +40,15 @@ export default function Nav() {
 
   return (
     <header
+      className="siteHeader"
       style={{
         position: "sticky",
         top: 0,
         zIndex: 50,
-        backdropFilter: "blur(10px)",
-        background: "rgba(8, 12, 12, 0.65)",
-        borderBottom: "1px solid rgba(255,255,255,0.10)",
+        backdropFilter: "blur(18px)",
+        WebkitBackdropFilter: "blur(18px)",
+        background: "rgba(5, 8, 10, 0.92)",
+        borderBottom: "1px solid rgba(255,255,255,0.08)",
       }}
     >
       <div className="container navBar">

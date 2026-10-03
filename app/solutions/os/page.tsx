@@ -98,8 +98,8 @@ export default function MpeOsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Payroll and employer of record in 180 countries, from the
-                  payroll file to the family.
+                  One audience: payroll and employer of record in 180
+                  countries, on the same integration.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/workforce">Explore MPE Workforce</Link>
@@ -118,7 +118,7 @@ export default function MpeOsPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  The consumer product: money home, honestly priced.
+                  Payouts for people, priced in the open.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>

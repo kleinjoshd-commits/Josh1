@@ -131,7 +131,7 @@ export async function POST(req: Request) {
     const info = await transporter.sendMail({
       to,
       from,
-      subject: "New KYC Submission – MPE",
+      subject: "New KYC Submission: MPE",
       text:
         `New KYC submission received\n\n` +
         `Submitted at: ${new Date().toISOString()}\n\n` +

@@ -5,21 +5,21 @@ import KycForm from "@/components/KycForm";
 export const metadata = {
   title: "MPE Workforce | MPE",
   description:
-    "Hire, onboard and pay international workforces in 180 countries, then serve those same workers' own financial lives, with licensed partners at every step.",
+    "One audience on the MPE platform: hire, onboard and pay international workforces in 180 countries, then offer those workers payouts, wallets and cards, with licensed partners at every step.",
 };
 
 const OUTCOMES = [
   {
     title: "Hire and pay anywhere",
-    body: "Payroll, employer of record and contractor payments in 180 countries and 130+ payout currencies, delivered under the MPE programme through licensed partner platforms. One system, one contract, every worker.",
+    body: "Payroll, employer of record and contractor payments in 180 countries and 130+ payout currencies, delivered under the MPE program through licensed partner platforms. One system, one contract, every worker.",
   },
   {
     title: "Then serve the worker",
-    body: "Payday is where most platforms stop. MPE continues: the same workers' own paydays, served through MPE Send, in their language, at an honest rate, with licensed partner institutions providing the regulated services.",
+    body: "Payday is where most workforce tools stop. On MPE, the same workers can also use payouts, a wallet and a card through MPE Send, in their language, with licensed partner institutions providing the regulated services.",
   },
   {
     title: "One relationship, end to end",
-    body: "Payroll platforms serve the employer and stop at the wage. MPE pairs the employer's payroll with the worker's own payday and holds the whole relationship, from the payroll file to the family.",
+    body: "Payroll tools serve the employer and stop at the wage. MPE Workforce keeps payroll and the worker's payouts, wallet and card on one integration.",
   },
 ];
 
@@ -31,11 +31,11 @@ export default function WorkforcePage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MPE WORKFORCE</div>
-          <h1>From the payroll file to the family.</h1>
+          <h1>A workforce, on the same integration.</h1>
           <p className="ebSub">
-            Hire, onboard and pay international workforces, then serve those
-            same workers&apos; own financial lives. Money transfer and payment
-            services within MPE programmes are provided by licensed partner
+            Hire, onboard and pay international workforces, then offer those
+            workers payouts, wallets and cards. Money transfer and payment
+            services within MPE programs are provided by licensed partner
             institutions in each market.
           </p>
           <div className="ebStats">
@@ -65,7 +65,7 @@ export default function WorkforcePage() {
 
           <section className="homeBand" data-animate>
             <div className="gapBanner">
-              Enrollment where the workforce lives and works, wages home from
+              Enrollment where the workforce lives and works, payouts from
               the first pay cycle.
             </div>
           </section>
@@ -79,7 +79,7 @@ export default function WorkforcePage() {
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
                 <p className="p" style={{ marginTop: 10 }}>
                   Approvals, routing and a permanent record for every payment
-                  your programme makes.
+                  your program makes.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>
@@ -98,7 +98,7 @@ export default function WorkforcePage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  The consumer product: money home, honestly priced.
+                  Payouts for people, priced in the open.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/send">Explore MPE Send</Link>

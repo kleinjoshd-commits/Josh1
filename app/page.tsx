@@ -1,65 +1,144 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
 import LicensedMap from "../components/LicensedMap";
+import HeroFilm from "../components/HeroFilm";
+import FilmPlayer from "../components/FilmPlayer";
+import LineIcon from "../components/LineIcon";
+import RoutingDiagram from "../components/RoutingDiagram";
 import { claims } from "@/content/claims";
+import { homepageCopy } from "@/content/homepage";
+import { homepageMedia } from "@/content/media";
 
-// =====================================================================
-// Emerald-first homepage. Seven screens, one idea each:
-//
-//   1. Hero       , the claim, the numbers, two doors in.
-//   2. The map    , the strongest piece; the hero flows straight into it.
-//   3. Statement  , the gap, as one sentence with a screen of air.
-//   4. Mission    , the only light band: why this company exists.
-//   5. Products   , three cards, one line each.
-//   6. Two doors  , employers and institutions, one paragraph each.
-//   7. Contact.
-//
-// Everything else this page used to carry lives on the product pages.
-// =====================================================================
+export const metadata: Metadata = {
+  description: claims.hero.subheadline,
+};
+
+function LeadCopy({ text }: { text: string }) {
+  const splitAt = text.indexOf(". ");
+  if (splitAt === -1) return <>{text}</>;
+  return (
+    <>
+      <strong>{text.slice(0, splitAt + 1)}</strong>
+      <span>{text.slice(splitAt + 2)}</span>
+    </>
+  );
+}
+
+// Homepage leads with the platform. Workforce detail, the map, products,
+// trust, partnership doors, and MFAM follow.
 
 export default function Home() {
+  const caps = homepageCopy.capabilities;
+  const built = homepageCopy.builtFor;
+  const work = homepageCopy.workforce;
+  const mfam = homepageCopy.mfam;
+
   return (
     <main>
       <Nav />
+      <HeroFilm />
 
-      {/* 1, Hero. Same world as the map: one emerald surface. */}
-      <section className="emeraldBand">
-        <div className="ebWrap" style={{ paddingBottom: 28 }}>
-          <div className="ebTag">MPE</div>
-          <h1>{claims.hero.headline}</h1>
-          <p className="ebSub">{claims.hero.subheadline}</p>
-          <div className="btnRow">
-            <Link className="btnPrimary" href="/#kyc">Request Access</Link>
-            <Link className="btnSecondary" href="/#partners">Partner with MPE</Link>
+      <section className="hpCaps" id="capabilities" aria-labelledby="caps-title">
+        <div className="hpWrap">
+          <h2 id="caps-title" data-reveal>
+            {caps.heading}
+          </h2>
+          <div data-reveal>
+            <RoutingDiagram />
           </div>
-          <div className="ebStats">
-            {/* The 140+ countries figure lives with the map just below;
-                showing it here too said the same thing twice. */}
-            {claims.stats
-              .filter((s) => !s.label.includes("countries where money lands"))
-              .map((s) => (
-                <div className="ebStat" key={s.label}>
-                  <b>{s.value}</b>
-                  <span>{s.label}</span>
+          <ul className="hpCapGrid">
+            {caps.items.map((item, index) => (
+              <li key={item.title} data-reveal style={{ transitionDelay: `${index * 50}ms` }}>
+                <LineIcon name={item.icon} />
+                <div>
+                  <strong>
+                    {item.title}
+                    {item.title === "Machine payments" ? <span className="hpChip">MFAM</span> : null}
+                  </strong>
+                  <p>{item.body}</p>
                 </div>
-              ))}
-          </div>
-          <p className="ebAttribution">{claims.serviceAttribution}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* 2, The map. No seam: the same emerald, continued. */}
+      <section className="hpBuilt" id="built-for" aria-labelledby="built-title">
+        <div className="hpWrap">
+          <h2 id="built-title" data-reveal>
+            {built.heading}
+          </h2>
+          <div className="hpBuiltGrid">
+            {built.cards.map((card, index) => (
+              <a key={card.title} href={card.href} className="hpShot" data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={card.image} alt="" width={1400} height={880} />
+                <span className="hpShotShade" aria-hidden="true" />
+                <span className="hpShotCopy">
+                  <strong>{card.title}</strong>
+                  <p>{card.body}</p>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="hpOrch" id="workforce" aria-labelledby="work-title">
+        <div className="hpWrap" data-reveal>
+          <p className="hpEyebrow">{work.eyebrow}</p>
+          <h2 id="work-title">{work.heading}</h2>
+          <p className="hpLede">{work.lede}</p>
+
+          <h3 className="hpBlockLabel">{work.howLabel}</h3>
+          <ol className="hpSteps">
+            {work.steps.map((step) => (
+              <li key={step.title}>
+                <strong>{step.title}</strong>
+                {step.body}
+              </li>
+            ))}
+          </ol>
+
+          <h3 className="hpBlockLabel">{work.workersLabel}</h3>
+          <ul className="hpTiles">
+            {work.tiles.map((tile) => (
+              <li key={tile.title}>
+                <LineIcon name={tile.icon} />
+                <strong>{tile.title}</strong>
+                {tile.body}
+              </li>
+            ))}
+          </ul>
+
+          <div className="hpSplit">
+            <article id="workforce-app">
+              <h3>{work.appTitle}</h3>
+              <p>{work.appBody}</p>
+            </article>
+            <article>
+              <h3>{work.revenueTitle}</h3>
+              <p>{work.revenueBody}</p>
+            </article>
+          </div>
+
+          <p className="hpTrust">{work.trust}</p>
+        </div>
+      </section>
+
+      {/* The map. No seam with the sections around it: the same emerald. */}
       <LicensedMap />
 
       {/* 3, The statement. One sentence, a screen of air. */}
       <section className="emeraldBand">
         <div className="ebWrap ebStatement" style={{ paddingTop: 34, paddingBottom: 64 }}>
-          <h2>Everyone holds one piece.<br />Nobody holds the person.</h2>
+          <h2>Every way money moves.<br />One integration.</h2>
           <p>
-            Payroll stops at the wage. Banks hold accounts they cannot fill.
-            Counters see a transaction, never a customer. MPE is the missing
-            layer: the relationship itself.
+            Smart routing, payouts, wallets, cards, identity, cross-border
+            and machine payments. For people, platforms and machines.
+            Licensed partners move the money. MPE never holds funds.
           </p>
         </div>
       </section>
@@ -72,14 +151,14 @@ export default function Home() {
               <Link href="/solutions/send" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Money home, honestly priced.
+                  Payouts for people, priced in the open.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  From the payroll file to the family.
+                  One audience: a global workforce.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
@@ -118,7 +197,7 @@ export default function Home() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Licensed institutions, every market</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Money transfer and payment services within MPE programmes are
+                  Money transfer and payment services within MPE programs are
                   provided by licensed partner institutions in each market,
                   under their own regulators.
                 </p>
@@ -147,9 +226,9 @@ export default function Home() {
             <div className="ebDoor">
               <h3>For employers</h3>
               <p>
-                One programme from payroll to payday: hire, onboard and pay
-                across borders, and your workforce enrolls on site, in their
-                own languages, with licensed partners carrying every wage home.
+                One workforce program on the same integration: hire, onboard
+                and pay across borders, with payouts, wallets and cards for
+                workers, and licensed partners moving the money.
               </p>
               <Link className="btnPrimary" href="/#kyc">Request Access</Link>
             </div>
@@ -157,7 +236,7 @@ export default function Home() {
               <h3>For licensed institutions</h3>
               <p>
                 Deposits, flow and customers you cannot acquire yourself, on
-                your licence, under your regulation. MPE holds no funds and
+                your license, under your regulation. MPE holds no funds and
                 earns only when the partnership does.
               </p>
               <Link className="btnSecondary" href="/#kyc">Talk to us</Link>
@@ -166,8 +245,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7, Contact. */}
-      <KycForm />
+      <section className="hpMfam" id="mfam" aria-labelledby="mfam-title">
+        <div className="hpWrap" data-reveal>
+          <p className="hpEyebrow">{mfam.eyebrow}</p>
+          <h2 id="mfam-title">{mfam.heading}</h2>
+          <p className="hpLede">{mfam.lede}</p>
+
+          <div className="hpMfamFilm">
+            <FilmPlayer source={homepageMedia.mfam} lazy preload="metadata" />
+            <p className="hpDisclaimer">{homepageCopy.filmDisclaimer}</p>
+          </div>
+
+          <ul className="hpPoints">
+            {mfam.points.map((point) => (
+              <li key={point}>
+                <LeadCopy text={point} />
+              </li>
+            ))}
+          </ul>
+
+          <p className="hpPlaces">{mfam.places}</p>
+          <div className="btnRow">
+            <Link className="btnPrimary" href="/#kyc">
+              {mfam.cta}
+            </Link>
+          </div>
+          <p className="hpFine">{mfam.status}</p>
+        </div>
+      </section>
+
+      <KycForm
+        title={homepageCopy.closing.heading}
+        lede={homepageCopy.closing.lede}
+        submitLabel={homepageCopy.closing.cta}
+      />
     </main>
   );
 }

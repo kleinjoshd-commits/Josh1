@@ -30,7 +30,7 @@ export default function ExecutionInfrastructurePage() {
 
               <p className="p" style={{ marginTop: 12, maxWidth: 960 }}>
                 That separation lets finance teams keep one control model even
-                when execution spans local rails, cross-border partners,
+                when execution spans local networks, cross-border partners,
                 banking networks, workforce infrastructure, and future network
                 constructs.
               </p>
@@ -76,7 +76,7 @@ export default function ExecutionInfrastructurePage() {
               <h3 style={{ marginTop: 0 }}>What execution partners do</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Licensed partners provide the regulated execution layer:
-                delivery into rails, jurisdictional coverage, local payment
+                delivery into local networks, jurisdictional coverage, local payment
                 mechanics, and compliance obligations tied to execution.
               </p>
             </div>
@@ -113,7 +113,7 @@ export default function ExecutionInfrastructurePage() {
                 </div>
                 <div className="networkOutcomeCard">
                   <p className="p networkOutcomeCopy">
-                    MPE decides how execution should be governed across rails,
+                    MPE decides how execution should be governed across networks,
                     partners, entities, and payment states, including
                     AI-informed routing guidance within policy boundaries.
                   </p>

@@ -5,17 +5,17 @@ import KycForm from "@/components/KycForm";
 export const metadata = {
   title: "About | MPE",
   description:
-    "Why MPE exists: financial infrastructure for a borderless economy, one relationship, held across every licensed handoff, with partner institutions providing the regulated services.",
+    "Why MPE exists: one integration for every way money moves, for people, platforms and machines, with licensed partners providing the regulated services.",
 };
 
 const BELIEFS = [
   {
-    title: "The person, not the transaction",
-    body: "Every institution in the chain monetizes one transaction, then loses the customer at the handoff. MPE exists to hold the person across every licensed handoff: their enrollment, their history, their trust.",
+    title: "The flow, not a single product",
+    body: "Payouts, wallets, cards, identity and cross-border are one integration. Platforms keep the customer. Licensed partners move the money. MPE never holds funds.",
   },
   {
     title: "Hard places force better systems",
-    body: "Serving people the system forgot, across borders, weak networks and underbanked regions, forces infrastructure that is honest, resilient and simple. Systems built for the hardest places work everywhere.",
+    body: "Serving people, platforms and machines across borders, weak networks and hard operating conditions forces infrastructure that is honest, resilient and simple. Systems built for the hardest places work everywhere.",
   },
   {
     title: "Never hold the money",
@@ -31,13 +31,12 @@ export default function AboutPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">ABOUT MPE</div>
-          <h1>We hold the person.</h1>
+          <h1>One integration for every way money moves.</h1>
           <p className="ebSub">
-            MPE serves globally mobile earners and their employers, across
-            the Gulf, Asia and the West, and the families their wages
-            support. Built on a straightforward belief: workers should not
-            lose a meaningful share of their wages just to support the people
-            who depend on them.
+            MPE is financial infrastructure for a borderless economy: smart
+            routing, payouts, wallets, cards, identity, cross-border and
+            machine payments. For people, platforms and machines. Licensed
+            partners move the money. MPE never holds funds.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="/about/team">Meet the team</Link>
