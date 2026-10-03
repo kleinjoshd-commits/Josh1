@@ -4076,9 +4076,7 @@ html.js .hpShot img.isIn {
   position: relative;
   min-width: 0;
   align-self: center;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0;
+  padding: 0 0 28px 18px;
 }
 .heroFrame {
   position: relative;
@@ -4102,14 +4100,23 @@ html.js .hpShot img.isIn {
   inset: 0;
 }
 .cineHero .cineMedia .payPanel {
-  position: relative;
-  left: auto;
-  bottom: auto;
-  z-index: 1;
-  width: min(440px, 100%);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: min(300px, 84%);
   min-height: 0;
+  padding: 14px 14px 12px;
+  border-radius: 16px;
 }
-.cineHero .cineMedia .payBody { min-height: 220px; }
+.cineHero .cineMedia .payBody { min-height: 0; gap: 10px; }
+.cineHero .cineMedia .payAmount { font-size: 28px; }
+.cineHero .cineMedia .payMeta b { font-size: 13px; }
+.cineHero .cineMedia .payMeta small { font-size: 11px; }
+.cineHero .cineMedia .payMark { width: 28px; height: 28px; border-radius: 8px; }
+.cineHero .cineMedia .payMark svg { width: 15px; height: 15px; }
+.cineHero .cineMedia .paySteps { gap: 6px; }
+.cineHero .cineMedia .paySteps li { font-size: 9px; letter-spacing: 0.02em; gap: 6px; }
 .cineHero .cineStats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4143,15 +4150,30 @@ html.js .hpShot img.isIn {
   }
   .cineHero .cineCopy,
   .cineHero .cineFoot { align-self: stretch; }
-  .cineHero .cineMedia { justify-content: stretch; padding: 4px 0 0; }
-  .cineHero .cineMedia .payPanel { width: 100%; }
+  .cineHero .cineMedia { padding: 4px 0 36px; }
+  .cineHero .cineMedia .payPanel {
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
   .cineHero h1 { max-width: 12em; }
 }
 
 @media (max-width: 700px) {
   .cineHero .cineInner { padding: 96px var(--page-pad) 40px; }
-  .cineHero .cineMedia { padding: 0; }
-  .cineHero .cineMedia .payPanel { width: 100%; margin-top: 0; }
+  .cineHero .cineMedia {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .cineHero .cineMedia .payPanel {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: -10%;
+  }
   .cineHero .cineMedia .payAmount { font-size: 26px; }
   .cineHero .cineStats { gap: 14px 16px; }
   .cineHero .cineStats b { font-size: 28px; }
