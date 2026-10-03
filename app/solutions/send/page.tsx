@@ -68,7 +68,7 @@ export default function SendPage() {
             <div className="homeSectionHeader homeContextHeader">
               <h2 className="homeSectionTitle">Its own product, stronger with the rest</h2>
               <p className="p homeContextIntro">
-                MPE Send needs no employer and no programme: a person, a
+                MPE Send needs no employer and no program: a person, a
                 phone, and a community desk are enough. And it compounds,
                 Workforce enrolls whole workforces into it, Network carries its
                 corridors, and OS approves and records every payment beneath

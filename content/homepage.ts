@@ -11,6 +11,7 @@ export const homepageCopy = {
   playCta: "Play film",
   closeCta: "Close",
   filmDisclaimer: "Demo shown with a fictional brand.",
+  heroFine: "MPE never holds funds. Licensed partners do.",
 
   capabilities: {
     heading: "What MPE does",
@@ -55,16 +56,19 @@ export const homepageCopy = {
         title: "Workforce platforms",
         body: "Pay workers inside your app.",
         href: "#workforce",
+        image: "/media/built-workforce.webp",
       },
       {
         title: "Distributors and partners",
         body: "A ready-made app with your brand.",
         href: "#workforce-app",
+        image: "/media/built-distributors.webp",
       },
       {
         title: "Machines and autonomy",
         body: "Machines that pay their own way.",
         href: "#mfam",
+        image: "/media/built-machines.webp",
       },
     ],
   },

@@ -122,7 +122,7 @@ export default function UnifiedApproachPage() {
             <div className="panel" style={{ textDecoration: "none" }}>
               <h3 style={{ marginTop: 0 }}>4) Extend to workers when it drives outcomes</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Extend the programme to the workforce itself: corridor-by-corridor
+                Extend the program to the workforce itself: corridor-by-corridor
                 rollout with employer-grade controls, with money transfer and
                 payment services provided by licensed partner institutions,
                 without changing the enterprise operating model.

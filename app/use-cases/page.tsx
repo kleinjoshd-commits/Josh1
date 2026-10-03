@@ -9,8 +9,8 @@ export const metadata = {
     "How employers, operators and institutions use MPE, from the payroll file to the family, with licensed partners providing the regulated services.",
 };
 
-// Anonymized composites of real programme shapes. No customer names, no
-// invented metrics, outcomes are stated as what the programme does, not
+// Anonymized composites of real program shapes. No customer names, no
+// invented metrics, outcomes are stated as what the program does, not
 // as numbers we cannot publish.
 const CASES = [
   {
@@ -20,7 +20,7 @@ const CASES = [
     points: [
       "Workers enroll in MPE Send at a staffed desk on site, in their own language, with a trained officer beside them for the first transfer.",
       "The full cost is shown before signup: the rate, in the open, before anyone commits to anything.",
-      "Money transfer services are provided by licensed partner institutions; the employer simply offers the programme as a benefit.",
+      "Money transfer services are provided by licensed partner institutions; the employer simply offers the program as a benefit.",
     ],
     outcome:
       "More of each paycheck reaches the people it was earned for, and the employer offers a benefit workers feel on the first payday.",
@@ -42,7 +42,7 @@ const CASES = [
     problem:
       "A multinational contractor hired across a dozen countries, and ran payroll, contractor payments and compliance on a different system in each one.",
     points: [
-      "Hire, onboard and pay in 180 countries through one programme, payroll, employer of record and contractor payments together.",
+      "Hire, onboard and pay in 180 countries through one program, payroll, employer of record and contractor payments together.",
       "The same workers' own paydays are served next: the wage, the money sent home, the family's collection, with licensed partners providing the regulated services.",
       "One relationship covers the employer's file and the worker's family, in every market the project touches.",
     ],
@@ -62,7 +62,7 @@ export default function UseCasesPage() {
           <h1>Built for the payday that crosses borders.</h1>
           <p className="ebSub">
             How employers, operators and institutions use MPE. Composites of
-            real programme shapes, no customer names, and the regulated
+            real program shapes, no customer names, and the regulated
             services provided by licensed partner institutions throughout.
           </p>
           <div className="ebStats">

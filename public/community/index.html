@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#05060A">
-<title>MPE Community Programme</title>
+<title>MPE Community Program</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <script src="config.js"></script>
@@ -209,21 +209,21 @@
 
   <div class="community-banner hidden" id="commBanner">
     <div><b data-i18n="community_title">Brought to you by Kumar &amp; the Eyota community</b>
-    <span data-i18n="community_sub">Your trusted programme partner in Singapore</span></div>
+    <span data-i18n="community_sub">Your trusted program partner in Singapore</span></div>
     <button type="button" class="commChange" onclick="changeCommunity()" data-i18n="sel_change">Change</button>
   </div>
 
   <!-- COMMUNITY SELECTOR -->
   <section class="screen active" id="s-communities">
-    <h1 data-i18n-html="sel_hero">Your community, <span class="accent">your programme.</span></h1>
-    <p class="lead" data-i18n="sel_sub">MPE Community runs with trusted local community partners. Choose your programme to see rates, register, and share with friends.</p>
+    <h1 data-i18n-html="sel_hero">Your community, <span class="accent">your program.</span></h1>
+    <p class="lead" data-i18n="sel_sub">MPE Community runs with trusted local community partners. Choose your program to see rates, register, and share with friends.</p>
     <button type="button" class="card commCard" onclick="selectCommunity('kumar')">
       <div><b>Kumar &amp; the Eyota community</b>
       <span>Singapore · Tamil &amp; English · SGD → INR</span></div>
       <div class="commGo" aria-hidden="true">→</div>
     </button>
     <div class="card commSoon">
-      <span data-i18n="sel_more">More community programmes are on the way. Ask at your community desk.</span>
+      <span data-i18n="sel_more">More community programs are on the way. Ask at your community desk.</span>
     </div>
   </section>
 
@@ -237,7 +237,7 @@
       <div class="chip" data-i18n="chip3">No cash — ever</div>
       <div class="chip" data-i18n="chip4">Receipts every time</div>
     </div>
-    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Programme</button>
+    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Program</button>
     <button class="btn secondary" onclick="go('s-how')" data-i18n="cta_how">How it works</button>
   </section>
 
@@ -249,7 +249,7 @@
       <div class="step"><div class="step-num">2</div><div><b data-i18n="how2">Send from your own bank account</b><span data-i18n="how2s">You pay by PayNow from your own account. No cash changes hands — that's what keeps it fully legal and fully yours.</span></div></div>
       <div class="step"><div class="step-num">3</div><div><b data-i18n="how3">Family receives — usually same day</b><span data-i18n="how3s">The money arrives in your family's bank account in India, usually the same day, with a receipt you can show anyone.</span></div></div>
     </div>
-    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Programme</button>
+    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Program</button>
     <button class="btn secondary" onclick="go('s-rate')" data-i18n="cta_rate">See today's rate</button>
   </section>
 
@@ -265,13 +265,13 @@
       <b style="font-size:.9rem" data-i18n="rate_promise_t">Our promise on rates</b>
       <p style="font-size:.8rem;color:var(--ink-dim);line-height:1.6;margin-top:8px" data-i18n="rate_promise">You will always see the rate and the full cost before you send. What we show is what your family receives.</p>
     </div>
-    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Programme</button>
+    <button class="btn" onclick="go('s-register')" data-i18n="cta_join">Join the Program</button>
   </section>
 
   <!-- REGISTER -->
   <section class="screen" id="s-register">
     <div id="deskBadge" class="desk-badge hidden">DESK MODE</div>
-    <h2 data-i18n="reg_title">Join the Programme</h2>
+    <h2 data-i18n="reg_title">Join the Program</h2>
     <p class="lead" style="font-size:.85rem" data-i18n="reg_sub">Registration is free. Your welcome credit is applied to your first transfer.</p>
     <form id="regForm" onsubmit="return submitEnrollment(event)">
       <label data-i18n="f_name">Full name (as in your ID)</label>
@@ -288,7 +288,7 @@
         <label>Desk officer initials</label>
         <input id="f_officer" placeholder="e.g. RK">
       </div>
-      <div class="consent"><input type="checkbox" required id="f_consent"><span data-i18n="consent">I agree that MPE Solutions may contact me about the Programme and store these details for enrollment. We never ask for your passport, work permit or bank details in this app — identity checks happen only with our licensed partner when you make your first transfer.</span></div>
+      <div class="consent"><input type="checkbox" required id="f_consent"><span data-i18n="consent">I agree that MPE Solutions may contact me about the Program and store these details for enrollment. We never ask for your passport, work permit or bank details in this app — identity checks happen only with our licensed partner when you make your first transfer.</span></div>
       <button class="btn" type="submit" data-i18n="cta_register">Register</button>
     </form>
   </section>
@@ -296,7 +296,7 @@
   <!-- SUCCESS -->
   <section class="screen" id="s-success">
     <h2 data-i18n="ok_title">You're in.</h2>
-    <p class="lead" data-i18n="ok_sub">Welcome to the programme. Our team will contact you before your first transfer. Show this screen at the community desk.</p>
+    <p class="lead" data-i18n="ok_sub">Welcome to the program. Our team will contact you before your first transfer. Show this screen at the community desk.</p>
     <div class="success-code">
       <span data-i18n="ok_code_label">Your personal referral code</span>
       <div class="code" id="myCode">KUM-XXXX</div>
@@ -312,7 +312,7 @@
     <div class="card" id="faqList"></div>
   </section>
 
-  <footer class="disclosure" data-i18n="disclosure">Money transfer services are provided by our MAS-licensed partner institution. MPE Solutions provides programme enrollment, community support and technology only, and never holds your money.</footer>
+  <footer class="disclosure" data-i18n="disclosure">Money transfer services are provided by our MAS-licensed partner institution. MPE Solutions provides program enrollment, community support and technology only, and never holds your money.</footer>
 </div>
 
 <nav class="hidden">

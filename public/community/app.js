@@ -3,9 +3,9 @@ const CFG = window.MPE_CONFIG, I18N = window.MPE_I18N;
 let lang = localStorage.getItem('mpe_lang') || 'en';
 const $ = id => document.getElementById(id);
 
-// ---------- community programme state ----------
+// ---------- community program state ----------
 // A visitor picks a community on the selector screen, or arrives deep-linked
-// (#kumar from a QR poster / shared referral). All programme branding (banner,
+// (#kumar from a QR poster / shared referral). All program branding (banner,
 // referral prefix, rate, share text) is scoped to the selected community.
 let community = localStorage.getItem('mpe_community');
 if (!(community && CFG.PROGRAMMES[community])) community = null;

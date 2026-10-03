@@ -7,7 +7,7 @@ type KycResponse = {
   error?: string;
 };
 
-const INTERESTS = ["Employer programme", "Licensed institution", "Partner or other"];
+const INTERESTS = ["Employer program", "Licensed institution", "Partner or other"];
 
 type KycFormProps = {
   title?: string;
@@ -17,7 +17,7 @@ type KycFormProps = {
 
 export default function KycForm({
   title = "Start the conversation.",
-  lede = "An employer programme, an institutional partnership, or something we have not thought of yet: share a few details and the right person replies.",
+  lede = "An employer program, an institutional partnership, or something we have not thought of yet: share a few details and the right person replies.",
   submitLabel = "Talk to us",
 }: KycFormProps = {}) {
   const [submitted, setSubmitted] = useState(false);
@@ -34,7 +34,7 @@ export default function KycForm({
             <h3 style={{ marginTop: 0 }}>Received. A person will reply.</h3>
             <p style={{ opacity: 0.8, marginTop: 10 }}>
               Your note went to the team, not a queue. We will come back to you
-              about your programme and the right way to start.
+              about your program and the right way to start.
             </p>
             <p style={{ opacity: 0.6, marginTop: 12, fontSize: 14 }}>
               No obligation, and nothing is shared beyond MPE.
@@ -178,7 +178,7 @@ export default function KycForm({
               </button>
               <p className="kycFine">
                 No obligation. A person replies, and nothing is shared beyond
-                MPE. Money transfer and payment services within MPE programmes
+                MPE. Money transfer and payment services within MPE programs
                 are provided by licensed partner institutions in each market.
               </p>
             </div>

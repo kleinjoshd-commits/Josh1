@@ -72,9 +72,14 @@ export default function Home() {
           </h2>
           <div className="hpBuiltGrid">
             {built.cards.map((card, index) => (
-              <a key={card.title} href={card.href} data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
-                <strong>{card.title}</strong>
-                <p>{card.body}</p>
+              <a key={card.title} href={card.href} className="hpShot" data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={card.image} alt="" width={1400} height={880} />
+                <span className="hpShotShade" aria-hidden="true" />
+                <span className="hpShotCopy">
+                  <strong>{card.title}</strong>
+                  <p>{card.body}</p>
+                </span>
               </a>
             ))}
           </div>
@@ -192,7 +197,7 @@ export default function Home() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Licensed institutions, every market</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Money transfer and payment services within MPE programmes are
+                  Money transfer and payment services within MPE programs are
                   provided by licensed partner institutions in each market,
                   under their own regulators.
                 </p>
@@ -221,7 +226,7 @@ export default function Home() {
             <div className="ebDoor">
               <h3>For employers</h3>
               <p>
-                One programme from payroll to payday: hire, onboard and pay
+                One program from payroll to payday: hire, onboard and pay
                 across borders, and your workforce enrolls on site, in their
                 own languages, with licensed partners carrying every wage home.
               </p>
@@ -231,7 +236,7 @@ export default function Home() {
               <h3>For licensed institutions</h3>
               <p>
                 Deposits, flow and customers you cannot acquire yourself, on
-                your licence, under your regulation. MPE holds no funds and
+                your license, under your regulation. MPE holds no funds and
                 earns only when the partnership does.
               </p>
               <Link className="btnSecondary" href="/#kyc">Talk to us</Link>

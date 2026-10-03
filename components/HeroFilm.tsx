@@ -30,12 +30,11 @@ export default function HeroFilm() {
               {homepageCopy.watchCta}
             </button>
           </div>
-          <p className="cineNote">{homepageCopy.filmDisclaimer}</p>
         </div>
         <div className="cineFoot">
           <div className="cineStats">
             {claims.stats
-              .filter((s) => s.value === "$860B" || s.value === "280M" || s.value === "~6%")
+              .filter((s) => s.strip)
               .map((s) => (
                 <div key={s.value}>
                   <b>{s.value}</b>
@@ -43,7 +42,7 @@ export default function HeroFilm() {
                 </div>
               ))}
           </div>
-          <p className="cineFine">{claims.serviceAttribution}</p>
+          <p className="cineFine">{homepageCopy.heroFine}</p>
         </div>
       </div>
     </section>

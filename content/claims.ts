@@ -25,7 +25,7 @@ export const claims = {
 
   /** Approved framing wherever the service is described. Use verbatim. */
   serviceAttribution:
-    "Money transfer and payment services within MPE programmes are provided by licensed partner institutions in each market.",
+    "Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market.",
 
   /** Approved reassurance line. Use verbatim. */
   noCustody:
@@ -38,12 +38,18 @@ export const claims = {
       "Payouts, wallets, cards, identity and cross-border, routed across licensed partners. For people, platforms and machines.",
   },
 
-  /** Stat strip (Tier 2.2), the only approved figures. */
+  /**
+   * Market context, not MPE volume. Sources:
+   * $860B — World Bank / KNOMAD, Migration and Development Brief 39:
+   *   global remittance flows estimated at $860 billion in 2023.
+   * ~6% — World Bank press release, 26 June 2024 (Brief 40): the global
+   *   average cost of sending $200 was 6.4% in Q4 2023. Remittance Prices
+   *   Worldwide (18 Aug 2025) puts the same average at 6.36%.
+   */
   stats: [
-    { value: "$860B", label: "sent home by migrant workers every year" },
-    { value: "280M", label: "people working outside their home country" },
-    { value: "~6%", label: "average cost of sending money home today" },
-    { value: "140+", label: "countries where money lands through our network" },
+    { value: "$860B", label: "Global remittance flows", strip: true },
+    { value: "~6%", label: "Average cost to send $200", strip: true },
+    { value: "140+", label: "countries where money lands through our network", strip: false },
   ] as const,
 
   /** Network stat line (Tier 3.1 / 3.4). */
@@ -69,7 +75,7 @@ export const claims = {
 
   /** Compliance footer (Tier 1.6). Use verbatim on every page. */
   footerDisclaimer:
-    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software and community programmes. Money transfer and payment services within MPE programmes are provided by licensed partner institutions in each market. MPE does not hold or transmit customer funds, and does not store customer identity documents. Market designations describe partner-network capability and programmes in development, and do not constitute an offer of regulated services in any jurisdiction.",
+    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software and community programs. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. MPE does not hold or transmit customer funds, and does not store customer identity documents. Market designations describe partner-network capability and programs in development, and do not constitute an offer of regulated services in any jurisdiction.",
 } as const;
 
 export type Claims = typeof claims;

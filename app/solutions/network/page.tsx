@@ -19,7 +19,7 @@ const OUTCOMES = [
   },
   {
     title: "Institutional-grade foundations",
-    body: "Client funds within partner programmes are safeguarded at globally systemically important banks, under each partner's own licence and regulator. MPE holds no funds at any point.",
+    body: "Client funds within partner programs are safeguarded at globally systemically important banks, under each partner's own license and regulator. MPE holds no funds at any point.",
   },
 ];
 

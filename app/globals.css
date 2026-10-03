@@ -3507,8 +3507,7 @@ header.siteHeader {
   .hpTiles { grid-template-columns: 1fr; }
   .cineInner { padding: 96px 16px 16px; }
   .cineHero .cineSub { font-size: 15px; }
-  .cineStats { gap: 12px; }
-  .cineStats b { font-size: 20px; }
+  .cineStats { gap: 0; max-width: none; }
   .cineStats span { font-size: 11px; }
   .cineFine { font-size: 11px; }
   .hpBuiltGrid a { min-height: 0; }
@@ -3522,4 +3521,169 @@ header.siteHeader {
     opacity: 1;
   }
   .hpCapGrid li:hover { transform: none; }
+}
+
+/* =====================================================================
+   Dark capabilities, photo use-case cards, refined stat strip.
+   ===================================================================== */
+
+.cineHero h1,
+.hpCaps h2,
+.hpBuilt h2,
+.hpOrch h2,
+.hpMfam h2 {
+  text-wrap: balance;
+}
+.cineSub,
+.hpLede {
+  text-wrap: pretty;
+}
+.cineStats {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 520px;
+}
+.cineStats > div {
+  flex: 1 1 0;
+  margin: 0;
+  padding: 0 28px 0 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+.cineStats > div + div { padding-left: 28px; }
+.cineStats > div:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+.cineStats b {
+  font-size: clamp(32px, 3.4vw, 48px);
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: #f7f8f6;
+}
+.cineStats span {
+  margin-top: 8px;
+  max-width: 26ch;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: rgba(232, 240, 236, 0.78);
+}
+.cineFine {
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: rgba(232, 240, 236, 0.62);
+}
+
+.hpCaps {
+  background: radial-gradient(120% 90% at 15% 0%, #123528 0%, #0b1c14 46%, #07110d 100%);
+  color: #f4f7f5;
+}
+.hpCaps h2 { color: #f7f8f6; }
+.hpCaps .hpCapGrid li {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.hpCaps .hpCapGrid li:hover {
+  border-color: rgba(125, 255, 195, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.hpCaps .hpIcon {
+  color: #7dffc3;
+  background: rgba(23, 201, 127, 0.14);
+}
+.hpCaps .hpCapGrid strong { color: #f7f8f6; }
+.hpCaps .hpCapGrid p { color: rgba(232, 240, 236, 0.76); }
+.hpCaps .hpChip {
+  background: rgba(23, 201, 127, 0.16);
+  color: #c8ffe6;
+}
+
+.routeFlow {
+  stroke-dasharray: 12 88;
+  animation: routeTravel 3s linear infinite;
+}
+@keyframes routeTravel {
+  to { stroke-dashoffset: -100; }
+}
+.hpBuilt { background: #f7f6f3; }
+.hpOrch { background: #fff; }
+.hpMfam { background: #f7f6f3; }
+.hpBuiltGrid { gap: 16px; }
+.hpBuiltGrid a.hpShot {
+  position: relative;
+  display: block;
+  min-height: 440px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 16px;
+  background: #0c1612;
+  color: #f4f7f5;
+  isolation: isolate;
+}
+.hpShot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 0.7s ease;
+}
+.hpShot:hover img { transform: scale(1.1); }
+.hpShotShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 8, 10, 0.08) 18%, rgba(5, 8, 10, 0.28) 48%, rgba(5, 8, 10, 0.88) 100%);
+}
+.hpShotCopy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: block;
+  padding: 24px;
+}
+.hpShotCopy strong {
+  color: #f7f8f6;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+.hpShotCopy p {
+  margin: 8px 0 0;
+  max-width: 28ch;
+  color: rgba(244, 247, 245, 0.88);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.hpBuiltGrid a.hpShot::after { content: none; }
+
+@media (max-width: 860px) {
+  .routeDesktop { display: none; }
+  .routeMobile { display: block; }
+  .cineStats { max-width: none; gap: 0; }
+  .cineStats > div,
+  .cineStats > div + div {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .cineStats > div:first-child { padding-left: 0; }
+  .cineStats b { font-size: 28px; }
+  .cineStats span { font-size: 11px; max-width: 16ch; }
+  .hpBuiltGrid a.hpShot { min-height: 320px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .routeFlow {
+    animation: none;
+    stroke-dasharray: none;
+  }
+  .hpShot img,
+  .hpShot:hover img { transform: none; transition: none; }
 }

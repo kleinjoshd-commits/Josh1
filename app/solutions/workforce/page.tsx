@@ -11,7 +11,7 @@ export const metadata = {
 const OUTCOMES = [
   {
     title: "Hire and pay anywhere",
-    body: "Payroll, employer of record and contractor payments in 180 countries and 130+ payout currencies, delivered under the MPE programme through licensed partner platforms. One system, one contract, every worker.",
+    body: "Payroll, employer of record and contractor payments in 180 countries and 130+ payout currencies, delivered under the MPE program through licensed partner platforms. One system, one contract, every worker.",
   },
   {
     title: "Then serve the worker",
@@ -35,7 +35,7 @@ export default function WorkforcePage() {
           <p className="ebSub">
             Hire, onboard and pay international workforces, then serve those
             same workers&apos; own financial lives. Money transfer and payment
-            services within MPE programmes are provided by licensed partner
+            services within MPE programs are provided by licensed partner
             institutions in each market.
           </p>
           <div className="ebStats">
@@ -79,7 +79,7 @@ export default function WorkforcePage() {
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
                 <p className="p" style={{ marginTop: 10 }}>
                   Approvals, routing and a permanent record for every payment
-                  your programme makes.
+                  your program makes.
                 </p>
                 <div style={{ marginTop: 14 }}>
                   <Link className="btnSecondary" href="/solutions/os">Explore MPE OS</Link>

@@ -22,7 +22,7 @@ export const siteConfig = {
       {
         label: "Industries",
         href: "/industries",
-        description: "Where MPE programmes fit, industry by industry.",
+        description: "Where MPE programs fit, industry by industry.",
       },
       {
         label: "Unified Architecture",
