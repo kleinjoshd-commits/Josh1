@@ -231,7 +231,6 @@ function FilmModal({
   onClose: () => void;
 }) {
   const titleId = useId();
-  const noteId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const onCloseRef = useRef(onClose);
@@ -302,7 +301,6 @@ function FilmModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        aria-describedby={noteId}
         ref={dialogRef}
         onMouseDown={(event) => event.stopPropagation()}
       >
@@ -327,7 +325,6 @@ function FilmModal({
           preload="metadata"
           data-loop="modal"
         />
-        <p id={noteId}>{homepageCopy.filmDisclaimer}</p>
       </div>
     </div>,
     document.body

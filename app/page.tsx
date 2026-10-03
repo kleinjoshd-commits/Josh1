@@ -238,7 +238,7 @@ export default function Home() {
 
           <div className="hpMfamFilm">
             <FilmPlayer source={homepageMedia.mfam} lazy preload="metadata" />
-            <p className="hpDisclaimer">{homepageCopy.filmDisclaimer}</p>
+            <p className="hpDisclaimer">{mfam.patent}</p>
           </div>
 
           <ul className="hpPoints">
@@ -255,7 +255,6 @@ export default function Home() {
               {mfam.cta}
             </Link>
           </div>
-          <p className="hpFine">{mfam.status}</p>
         </div>
       </section>
 

@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Use cases | MPE",
-  "Start with payouts, wallets and cards, a workforce, or the provider adapter. Machine payments are concept stage, patent pending."
+  "Start with payouts, wallets and cards, a workforce, or the provider adapter. Machines approve payments within limits the operator sets."
 );
 
 const STARTS = [
@@ -37,7 +37,7 @@ const STARTS = [
   {
     href: "/industries",
     title: "Machines",
-    body: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
+    body: "Machines approve payments within limits the operator sets.",
   },
 ];
 

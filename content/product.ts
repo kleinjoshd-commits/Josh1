@@ -5,7 +5,7 @@ export const product = {
   route:
     "Every allowed route is scored on success, speed and cost. The best one is picked.",
   machines:
-    "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
+    "Machines approve payments within limits the operator sets.",
   flow: [
     {
       title: "Authorize",
@@ -41,7 +41,7 @@ export const product = {
     { title: "Cross-border", body: "A cross-border payout, such as a bank payout in MXN or PHP." },
     {
       title: "Machine",
-      body: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
+      body: "Machines approve payments within limits the operator sets.",
     },
   ],
   cards: "Branded cards with spend controls and freeze.",
@@ -65,7 +65,7 @@ export const product = {
     },
     {
       title: "Machines and autonomous systems",
-      body: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
+      body: "Machines approve payments within limits the operator sets.",
     },
   ],
 } as const;

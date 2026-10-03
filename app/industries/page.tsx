@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Who it is for | MPE",
-  "Platforms embed KYC, payouts, and card. Distributors get a branded app. MFAM is patent pending, concept stage."
+  "Platforms embed KYC, payouts, and card. Distributors get a branded app. Machines approve payments within limits the operator sets."
 );
 
 export default function IndustriesPage() {
@@ -19,7 +19,7 @@ export default function IndustriesPage() {
           <div className="ebTag">WHO IT IS FOR</div>
           <h1>Embed it, or take the branded app.</h1>
           <p className="ebSub">
-            Two ways in, plus a concept for machines. {product.funds}
+            Platforms, distributors, and machines. {product.funds}
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>

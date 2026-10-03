@@ -1,6 +1,6 @@
 /**
  * Homepage copy for the platform-led pass.
- * Status line on MFAM stays "in development, patent pending".
+ * The only MFAM status line is "Patent pending." under the machines film.
  * No new figures. Bodies under titles stay within 8 words.
  */
 
@@ -10,7 +10,6 @@ export const homepageCopy = {
   watchCta: "Watch the film",
   playCta: "Play film",
   closeCta: "Close",
-  filmDisclaimer: "Demo shown with a fictional brand.",
   heroFine: "MPE never holds funds. Licensed partners do.",
 
   capabilities: {
@@ -44,7 +43,7 @@ export const homepageCopy = {
       {
         icon: "machine",
         title: "Machine payments",
-        body: "Patent pending, concept stage. Machines approve payments within limits the operator sets.",
+        body: "Machines approve payments within limits the operator sets.",
       },
     ],
   },
@@ -100,14 +99,14 @@ export const homepageCopy = {
   mfam: {
     eyebrow: "Next, machines",
     heading: "When the payer is a machine.",
-    lede: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
+    lede: "Machines approve payments within limits the operator sets.",
     points: [
       "The operator sets the rules, the limits, and who the machine may trust.",
       "Every decision is signed and written to a tamper-evident record.",
     ],
     places: "On the ground, at sea, in orbit. The altitude changes. The shape does not.",
     cta: "Talk to us about MFAM",
-    status: "MFAM is patent pending, concept stage.",
+    patent: "Patent pending.",
   },
 
   closing: {
