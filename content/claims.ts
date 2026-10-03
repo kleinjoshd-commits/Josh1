@@ -31,11 +31,11 @@ export const claims = {
   noCustody:
     "MPE does not hold or transmit customer funds, and does not store customer identity documents.",
 
-  /** Hero. The kicker above this headline lives in content/homepage.ts. */
+  /** Homepage hero. Kicker lives in content/homepage.ts. */
   hero: {
-    headline: "Pay every worker, anywhere, right inside your app.",
+    headline: "One integration for every way money moves.",
     subheadline:
-      "MPE connects your platform to a network of licensed payment partners. One integration gives your workers payouts in their local currency, a wallet and a card, all under your brand.",
+      "Payouts, wallets, cards, identity and cross-border, routed across licensed partners. For people, platforms and machines.",
   },
 
   /** Stat strip (Tier 2.2), the only approved figures. */

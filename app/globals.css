@@ -25,7 +25,7 @@ html,body{margin:0;padding:0}
 body{
   background: var(--night);
   color:#fff;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 
 a{color:inherit;text-decoration:none}
@@ -3170,5 +3170,355 @@ img {
   .filmModal { padding: 16px 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hpStage video { display: none; }
+  .hpStage video,
+  .cineFill video,
+  .routePulse { display: none; }
+}
+
+/* =====================================================================
+   Cinematic hero, platform sections, routing diagram.
+   Spacing stays on an 8px scale.
+   ===================================================================== */
+
+header.siteHeader {
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cineHero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin-top: -72px;
+  display: flex;
+  background: #07110d;
+  color: #f4f7f5;
+  overflow: hidden;
+}
+.cineFill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.cineFill picture,
+.hpStage picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  margin: 0;
+}
+.cineFill picture img,
+.hpStage picture img,
+.cineFill video,
+.hpStage video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cineFill picture img,
+.hpStage picture img {
+  position: absolute;
+  inset: 0;
+}
+.cineFill video,
+.hpStage video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.cineFill video.isOn,
+.hpStage video.isOn {
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+.cineScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(5, 8, 10, 0.9) 0%, rgba(5, 8, 10, 0.72) 38%, rgba(5, 8, 10, 0.28) 68%, rgba(5, 8, 10, 0.14) 100%),
+    linear-gradient(180deg, rgba(5, 8, 10, 0.62) 0%, rgba(5, 8, 10, 0.08) 32%, rgba(5, 8, 10, 0.28) 62%, rgba(5, 8, 10, 0.9) 100%);
+}
+.cineInner {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 112px 24px 24px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.cineCopy { max-width: 1072px; }
+.cineHero .hpHeroKicker {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #d5ebe0;
+}
+.cineHero h1 {
+  margin: 16px 0 0;
+  max-width: 12em;
+  font-size: clamp(40px, 4.6vw, 64px);
+  line-height: 0.98;
+  font-weight: 560;
+  letter-spacing: -0.046em;
+  color: #f7f8f6;
+}
+.cineHero .cineSub {
+  margin: 16px 0 0;
+  max-width: none;
+  font-size: 17px;
+  line-height: 1.45;
+  letter-spacing: -0.011em;
+  color: rgba(244, 247, 245, 0.92);
+}
+.cineHero .btnRow {
+  margin-top: 24px;
+  flex-direction: row;
+  align-items: center;
+}
+.cineHero .btnPrimary,
+.cineHero .btnSecondary {
+  width: auto;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.011em;
+  text-align: center;
+}
+.cineHero .btnPrimary {
+  background: #0e7c50 !important;
+  border-color: #0e7c50 !important;
+  color: #fff !important;
+}
+.cineHero .btnSecondary {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid transparent !important;
+  color: #102018 !important;
+  box-shadow: none;
+}
+.cineNote {
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(232, 240, 236, 0.8);
+}
+.cineFoot { margin-top: auto; padding-top: 24px; }
+.cineStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 32px;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.cineStats b {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #f4f7f5;
+}
+.cineStats span {
+  display: block;
+  margin-top: 8px;
+  max-width: 24ch;
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(232, 240, 236, 0.82);
+}
+.cineFine {
+  margin: 16px 0 0;
+  max-width: 68ch;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(232, 240, 236, 0.72);
+}
+
+.hpCaps,
+.hpBuilt,
+.hpOrch,
+.hpMfam { color: var(--ink); }
+.hpCaps,
+.hpOrch { background: #f7f6f3; }
+.hpBuilt,
+.hpMfam { background: #fff; }
+.hpCaps h2,
+.hpBuilt h2,
+.hpOrch h2,
+.hpMfam h2 {
+  margin: 0;
+  max-width: 16em;
+  font-size: clamp(32px, 3.2vw, 44px);
+  line-height: 1.08;
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  color: #14221c;
+}
+.hpLede {
+  max-width: 60ch;
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.hpCaps .hpWrap,
+.hpBuilt .hpWrap { padding-top: 96px; padding-bottom: 96px; }
+.routeDiagram { margin: 48px 0 40px; }
+.routeDesktop { display: block; width: 100%; height: auto; }
+.routeMobile { display: none; width: 100%; height: auto; }
+.routeDiagram text { font-family: inherit; }
+
+.hpCapGrid,
+.hpBuiltGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.hpCapGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.hpBuiltGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 40px; }
+.hpCapGrid li,
+.hpBuiltGrid a {
+  margin: 0;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  color: var(--ink);
+}
+.hpCapGrid li {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  align-items: start;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.hpCapGrid li:hover {
+  transform: translateY(-4px);
+  border-color: rgba(22, 168, 108, 0.35);
+  box-shadow: 0 16px 32px rgba(16, 36, 28, 0.08);
+}
+.hpIcon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 12px;
+  color: #16a86c;
+  background: rgba(22, 168, 108, 0.1);
+}
+.hpCapGrid strong,
+.hpTiles strong,
+.hpBuiltGrid strong,
+.hpSteps strong {
+  color: #14221c;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.hpCapGrid strong,
+.hpBuiltGrid strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+}
+.hpChip {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(22, 168, 108, 0.12);
+  color: #0e7c50;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  vertical-align: 1px;
+}
+.hpCapGrid p,
+.hpBuiltGrid p {
+  margin: 8px 0 0;
+  max-width: 36ch;
+  font-size: 15px;
+  line-height: 1.45;
+  color: rgba(17, 24, 39, 0.72);
+}
+.hpBuiltGrid a {
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+  text-decoration: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.hpBuiltGrid a:hover {
+  border-color: rgba(22, 168, 108, 0.4);
+  box-shadow: 0 12px 28px rgba(16, 36, 28, 0.06);
+}
+.hpBuiltGrid a::after {
+  content: "→";
+  margin-top: auto;
+  padding-top: 24px;
+  color: #0e7c50;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+.hpSteps { gap: 24px; margin-top: 16px; }
+.hpTiles { gap: 16px; margin-top: 16px; }
+.hpTiles li { padding: 24px; }
+.hpBlockLabel { margin-top: 48px; }
+.hpSplit { margin-top: 32px; gap: 16px; }
+.hpTrust { margin-top: 32px; max-width: 60ch; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  html.js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hpCapGrid,
+  .hpBuiltGrid { grid-template-columns: 1fr 1fr; }
+  .cineHero h1 { font-size: clamp(36px, 8vw, 48px); }
+}
+@media (max-width: 700px) {
+  .hpWrap { padding: 64px 16px; }
+  .hpCaps .hpWrap,
+  .hpBuilt .hpWrap { padding-top: 64px; padding-bottom: 64px; }
+  .routeDesktop { display: none; }
+  .routeMobile { display: block; }
+  .routeDiagram { margin: 32px 0 24px; }
+  .hpCapGrid,
+  .hpBuiltGrid,
+  .hpTiles { grid-template-columns: 1fr; }
+  .cineInner { padding: 96px 16px 16px; }
+  .cineHero .cineSub { font-size: 15px; }
+  .cineStats { gap: 12px; }
+  .cineStats b { font-size: 20px; }
+  .cineStats span { font-size: 11px; }
+  .cineFine { font-size: 11px; }
+  .hpBuiltGrid a { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hpCapGrid li,
+  .hpBuiltGrid a,
+  html.js [data-reveal] {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+  .hpCapGrid li:hover { transform: none; }
 }

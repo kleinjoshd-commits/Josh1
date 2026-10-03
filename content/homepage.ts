@@ -1,6 +1,7 @@
 /**
- * Approved homepage copy, Oct 3 2026. Use these strings as written.
- * MFAM status on the page is "in development, patent pending".
+ * Homepage copy for the platform-led pass.
+ * Status line on MFAM stays "in development, patent pending".
+ * No new figures. Bodies under titles stay within 8 words.
  */
 
 export const homepageCopy = {
@@ -9,36 +10,88 @@ export const homepageCopy = {
   watchCta: "Watch the film",
   playCta: "Play film",
   closeCta: "Close",
-  filmHeading: "See how it works",
-  filmCaption:
-    "One integration connects your platform to a network of licensed payment partners. Watch how workers sign up, get paid and use their cards inside your app, and where the same technology goes next.",
-  filmCaptionShort:
-    "How MPE gets workers paid, and what comes next. Sandbox demo, fictional brand and data.",
   filmDisclaimer: "Demo shown with a fictional brand.",
 
-  orchestration: {
-    eyebrow: "For platforms",
+  capabilities: {
+    heading: "What MPE does",
+    items: [
+      {
+        icon: "route",
+        title: "Smart routing",
+        body: "Picks the best licensed partner per payment.",
+      },
+      {
+        icon: "payout",
+        title: "Payouts",
+        body: "Bank, card, wallet or family abroad.",
+      },
+      {
+        icon: "wallet",
+        title: "Wallets",
+        body: "Balances that live inside your app.",
+      },
+      {
+        icon: "card",
+        title: "Cards",
+        body: "Branded cards with one-tap controls.",
+      },
+      {
+        icon: "identity",
+        title: "Identity",
+        body: "Verification built into your flow.",
+      },
+      {
+        icon: "machine",
+        title: "Machine payments",
+        body: "Authority for autonomous machines, in development.",
+      },
+    ],
+  },
+
+  builtFor: {
+    heading: "Built for",
+    cards: [
+      {
+        title: "Workforce platforms",
+        body: "Pay workers inside your app.",
+        href: "#workforce",
+      },
+      {
+        title: "Distributors and partners",
+        body: "A ready-made app with your brand.",
+        href: "#workforce-app",
+      },
+      {
+        title: "Machines and autonomy",
+        body: "Machines that pay their own way.",
+        href: "#mfam",
+      },
+    ],
+  },
+
+  workforce: {
+    eyebrow: "Workforce",
     heading: "Get your workers paid without becoming a payments company.",
-    lede: "Every new market usually means another provider, another contract and another set of rules. MPE replaces that patchwork. You connect once, and we route each payment to the right licensed partner for where it's going and what the worker needs.",
+    lede: "Instead of another provider, contract and rule set for every market, you connect once and we route each payment to the right licensed partner for where it's going and what the worker needs.",
     howLabel: "How it works",
     steps: [
-      "Connect once. Plug in our API and webhooks, or drop our screens straight into your app.",
-      "We find the path. Our AI-powered routing engine picks the best path for every payment, through our network of licensed partners.",
-      "Workers get paid. They follow every payout from sent, to accepted, to deposited. You see every payment in one dashboard.",
+      { title: "Connect once", body: "API, webhooks, or screens in your app." },
+      { title: "We find the path", body: "AI routing picks each payment's best licensed path." },
+      { title: "Workers get paid", body: "Track sent, accepted, deposited in one dashboard." },
     ],
     workersLabel: "What your workers get",
     tiles: [
-      "Verified in your app. A guided selfie and a photo of their ID, with no paperwork and no outside portal.",
-      "Paid their way. To their bank, to their card, or a little to family back home, in their local currency.",
-      "A balance worth keeping. Pay lands in a wallet inside your app, so it doesn't head straight for the exit.",
-      "A card in the app. Ready for fuel, groceries and everything in between. One tap freezes it.",
+      { icon: "identity", title: "Verified in your app", body: "Selfie, ID photo, no paperwork or portal." },
+      { icon: "payout", title: "Paid their way", body: "Bank, card, or family, in local currency." },
+      { icon: "wallet", title: "A balance worth keeping", body: "In-app wallet, so pay does not exit." },
+      { icon: "card", title: "A card in the app", body: "Fuel, groceries, and a one-tap freeze." },
     ],
-    appHeading: "Your app, or ours with your name on it",
+    appTitle: "Your app, or ours",
     appBody:
-      "Already have an app? Drop in our screens for sign-up, identity checks, payouts and cards, in your colors and under your name. No app? We provide a ready-made worker app with your brand on it, built for distributors and partners who serve workers but don't run an app.",
-    revenueHeading: "Turn payday into revenue",
+      "Drop in sign-up, identity, payouts and cards, in your colors and name. No app? A branded worker app for partners who don't run one.",
+    revenueTitle: "Turn payday into revenue",
     revenueBody:
-      "Payday doesn't have to be pure cost. Your platform shares in the revenue from worker wallets, card spending and currency exchange, so you earn when your workers use the money you pay them.",
+      "Payday is not pure cost. You share wallet, card and currency-exchange revenue when workers use their pay.",
     trust:
       "MPE never holds funds. Licensed partners hold the money and move it. You keep the worker relationship. We handle the technology in between.",
   },
@@ -46,7 +99,7 @@ export const homepageCopy = {
   mfam: {
     eyebrow: "Next, machines",
     heading: "What happens when the ones getting paid aren't people?",
-    lede: "Drones, vessels, vehicles and satellites are starting to work on their own, and they'll need to pay their own way. So we're designing the Machine Financial Authority Module (MFAM), our authority core built into a secure chip. It's designed to let a machine approve its own payments within limits set in advance, even when it's out of contact.",
+    lede: "Drones, vessels, vehicles and satellites will need to pay their own way, so we're designing the Machine Financial Authority Module (MFAM), an authority core in a secure chip. It lets a machine approve its own payments within limits set in advance, even when it's out of contact.",
     points: [
       "The operator sets the rules. What's allowed, who to trust, and the limits it must stay within.",
       "Every decision is signed and recorded. Short-lived, signed authorizations and a tamper-evident audit trail.",

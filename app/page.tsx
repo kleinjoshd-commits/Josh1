@@ -5,6 +5,8 @@ import KycForm from "../components/KycForm";
 import LicensedMap from "../components/LicensedMap";
 import HeroFilm from "../components/HeroFilm";
 import FilmPlayer from "../components/FilmPlayer";
+import LineIcon from "../components/LineIcon";
+import RoutingDiagram from "../components/RoutingDiagram";
 import { claims } from "@/content/claims";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
@@ -24,77 +26,100 @@ function LeadCopy({ text }: { text: string }) {
   );
 }
 
-// =====================================================================
-// Homepage. The hero, orchestration, and MFAM sections use the approved
-// Oct 3 copy. The map, products, trust, and partnership doors stay.
-// =====================================================================
+// Homepage leads with the platform. Workforce detail, the map, products,
+// trust, partnership doors, and MFAM follow.
 
 export default function Home() {
-  const orch = homepageCopy.orchestration;
+  const caps = homepageCopy.capabilities;
+  const built = homepageCopy.builtFor;
+  const work = homepageCopy.workforce;
   const mfam = homepageCopy.mfam;
 
   return (
     <main>
       <Nav />
+      <HeroFilm />
 
-      <section className="emeraldBand">
-        <div className="ebWrap hpHeroWrap">
-          <p className="hpHeroKicker">{homepageCopy.heroKicker}</p>
-          <h1>{claims.hero.headline}</h1>
-          <p className="ebSub">{claims.hero.subheadline}</p>
-          <HeroFilm />
-          <div className="ebStats">
-            {/* The 140+ countries figure lives with the map just below;
-                showing it here too said the same thing twice. */}
-            {claims.stats
-              .filter((s) => !s.label.includes("countries where money lands"))
-              .map((s) => (
-                <div className="ebStat" key={s.label}>
-                  <b>{s.value}</b>
-                  <span>{s.label}</span>
-                </div>
-              ))}
+      <section className="hpCaps" id="capabilities" aria-labelledby="caps-title">
+        <div className="hpWrap">
+          <h2 id="caps-title" data-reveal>
+            {caps.heading}
+          </h2>
+          <div data-reveal>
+            <RoutingDiagram />
           </div>
-          <p className="ebAttribution">{claims.serviceAttribution}</p>
+          <ul className="hpCapGrid">
+            {caps.items.map((item, index) => (
+              <li key={item.title} data-reveal style={{ transitionDelay: `${index * 50}ms` }}>
+                <LineIcon name={item.icon} />
+                <div>
+                  <strong>
+                    {item.title}
+                    {item.title === "Machine payments" ? <span className="hpChip">MFAM</span> : null}
+                  </strong>
+                  <p>{item.body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="hpOrch" id="orchestration" aria-labelledby="orch-title">
+      <section className="hpBuilt" id="built-for" aria-labelledby="built-title">
         <div className="hpWrap">
-          <p className="hpEyebrow">{orch.eyebrow}</p>
-          <h2 id="orch-title">{orch.heading}</h2>
-          <p className="hpLede">{orch.lede}</p>
+          <h2 id="built-title" data-reveal>
+            {built.heading}
+          </h2>
+          <div className="hpBuiltGrid">
+            {built.cards.map((card, index) => (
+              <a key={card.title} href={card.href} data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
+                <strong>{card.title}</strong>
+                <p>{card.body}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <h3 className="hpBlockLabel">{orch.howLabel}</h3>
+      <section className="hpOrch" id="workforce" aria-labelledby="work-title">
+        <div className="hpWrap" data-reveal>
+          <p className="hpEyebrow">{work.eyebrow}</p>
+          <h2 id="work-title">{work.heading}</h2>
+          <p className="hpLede">{work.lede}</p>
+
+          <h3 className="hpBlockLabel">{work.howLabel}</h3>
           <ol className="hpSteps">
-            {orch.steps.map((step) => (
-              <li key={step}>
-                <LeadCopy text={step} />
+            {work.steps.map((step) => (
+              <li key={step.title}>
+                <strong>{step.title}</strong>
+                {step.body}
               </li>
             ))}
           </ol>
 
-          <h3 className="hpBlockLabel">{orch.workersLabel}</h3>
+          <h3 className="hpBlockLabel">{work.workersLabel}</h3>
           <ul className="hpTiles">
-            {orch.tiles.map((tile) => (
-              <li key={tile}>
-                <LeadCopy text={tile} />
+            {work.tiles.map((tile) => (
+              <li key={tile.title}>
+                <LineIcon name={tile.icon} />
+                <strong>{tile.title}</strong>
+                {tile.body}
               </li>
             ))}
           </ul>
 
           <div className="hpSplit">
-            <article>
-              <h3>{orch.appHeading}</h3>
-              <p>{orch.appBody}</p>
+            <article id="workforce-app">
+              <h3>{work.appTitle}</h3>
+              <p>{work.appBody}</p>
             </article>
             <article>
-              <h3>{orch.revenueHeading}</h3>
-              <p>{orch.revenueBody}</p>
+              <h3>{work.revenueTitle}</h3>
+              <p>{work.revenueBody}</p>
             </article>
           </div>
 
-          <p className="hpTrust">{orch.trust}</p>
+          <p className="hpTrust">{work.trust}</p>
         </div>
       </section>
 
@@ -216,7 +241,7 @@ export default function Home() {
       </section>
 
       <section className="hpMfam" id="mfam" aria-labelledby="mfam-title">
-        <div className="hpWrap">
+        <div className="hpWrap" data-reveal>
           <p className="hpEyebrow">{mfam.eyebrow}</p>
           <h2 id="mfam-title">{mfam.heading}</h2>
           <p className="hpLede">{mfam.lede}</p>

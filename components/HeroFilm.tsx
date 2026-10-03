@@ -1,36 +1,51 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
-import FilmPlayer, { type FilmPlayerHandle } from "./FilmPlayer";
+import { claims } from "@/content/claims";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
+import FilmPlayer, { type FilmPlayerHandle } from "./FilmPlayer";
 
 export default function HeroFilm() {
   const filmRef = useRef<FilmPlayerHandle>(null);
 
   return (
-    <>
-      <div className="btnRow">
-        <Link className="btnPrimary" href="/#kyc">
-          {homepageCopy.bookCta}
-        </Link>
-        <button
-          type="button"
-          className="btnSecondary"
-          onClick={() => filmRef.current?.open()}
-        >
-          {homepageCopy.watchCta}
-        </button>
+    <section className="cineHero">
+      <FilmPlayer ref={filmRef} source={homepageMedia.brand} background preload="auto" />
+      <div className="cineScrim" aria-hidden="true" />
+      <div className="cineInner">
+        <div className="cineCopy">
+          <p className="hpHeroKicker">{homepageCopy.heroKicker}</p>
+          <h1>{claims.hero.headline}</h1>
+          <p className="cineSub">{claims.hero.subheadline}</p>
+          <div className="btnRow">
+            <a className="btnPrimary" href="#kyc">
+              {homepageCopy.bookCta}
+            </a>
+            <button
+              type="button"
+              className="btnSecondary"
+              onClick={() => filmRef.current?.open()}
+            >
+              {homepageCopy.watchCta}
+            </button>
+          </div>
+          <p className="cineNote">{homepageCopy.filmDisclaimer}</p>
+        </div>
+        <div className="cineFoot">
+          <div className="cineStats">
+            {claims.stats
+              .filter((s) => s.value === "$860B" || s.value === "280M" || s.value === "~6%")
+              .map((s) => (
+                <div key={s.value}>
+                  <b>{s.value}</b>
+                  <span>{s.label}</span>
+                </div>
+              ))}
+          </div>
+          <p className="cineFine">{claims.serviceAttribution}</p>
+        </div>
       </div>
-
-      <div className="hpFilmBlock">
-        <h2>{homepageCopy.filmHeading}</h2>
-        <FilmPlayer ref={filmRef} source={homepageMedia.brand} preload="auto" />
-        <p className="hpCaption hpCaptionLong">{homepageCopy.filmCaption}</p>
-        <p className="hpCaption hpCaptionShort">{homepageCopy.filmCaptionShort}</p>
-        <p className="hpDisclaimer">{homepageCopy.filmDisclaimer}</p>
-      </div>
-    </>
+    </section>
   );
 }

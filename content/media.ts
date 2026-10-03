@@ -8,11 +8,14 @@
 export const homepageMedia = {
   brand: {
     title: "MPE film",
+    // Loop stays on the current cut until the orchestration loop arrives.
     loopWebm: "/media/mpe-brand-film-loop.webm",
     loopMp4: "/media/mpe-brand-film-loop.mp4",
-    loopPoster: "/media/mpe-brand-film-loop-poster.jpg",
+    loopPoster: "/media/mpe-brand-network-poster.jpg",
+    loopPosterWebp: "/media/mpe-brand-network-poster.webp",
     modalSrc: "/media/mpe-brand-film.mp4",
-    modalPoster: "/media/mpe-brand-film-poster.jpg",
+    modalPoster: "/media/mpe-brand-network-poster.jpg",
+    modalPosterWebp: "/media/mpe-brand-network-poster.webp",
   },
   mfam: {
     title: "MFAM film",
