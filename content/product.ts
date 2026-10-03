@@ -1,18 +1,19 @@
 export const product = {
   oneLiner: "One Platform API in front of many licensed providers.",
   funds: "MPE never holds funds. Licensed partners do.",
-  adapter:
-    "Any licensed provider plugs in through one standard adapter. Providers are not named.",
+  adapter: "Any licensed provider plugs in through one standard adapter.",
   route:
-    "MPE scores every allowed route on success, speed and cost, picks one, and signs that decision before anything moves.",
+    "Every allowed route is scored on success, speed and cost. The best one is picked.",
+  machines:
+    "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
   flow: [
     {
       title: "Authorize",
-      body: "The payment is allowed to proceed.",
+      body: "Checked against your rules and limits.",
     },
     {
       title: "Route",
-      body: "Success, speed and cost are scored. One route is picked.",
+      body: "Every allowed route is scored on success, speed and cost. The best one is picked.",
     },
     {
       title: "Sign",
@@ -22,11 +23,11 @@ export const product = {
   integrate: [
     {
       title: "Sandbox",
-      body: "Sandbox access comes with Request access. There is no self-serve signup.",
+      body: "Sandbox access, API docs and embeds come with access.",
     },
     {
       title: "Connect",
-      body: "API docs and embeds come with access. Signed webhooks cover KYC and payout status.",
+      body: "Signed webhooks cover KYC and payout status.",
     },
     {
       title: "Operate",
@@ -36,11 +37,11 @@ export const product = {
   outputs: [
     { title: "Bank", body: "A payout to a bank account." },
     { title: "Card", body: "A payout to a card, including a debit card push." },
-    { title: "Wallet", body: "A payout to a mobile wallet. Not a balance held by MPE." },
+    { title: "Wallet", body: "A payout to a mobile wallet." },
     { title: "Cross-border", body: "A cross-border payout, such as a bank payout in MXN or PHP." },
     {
       title: "Machine",
-      body: "Patent pending, concept stage. A machine can approve a payment within limits the operator sets. It does not move money.",
+      body: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
     },
   ],
   cards: "Branded cards with spend controls and freeze.",
@@ -60,11 +61,11 @@ export const product = {
     },
     {
       title: "Distributors and partners",
-      body: "No app of your own. A ready-made app in your brand comes with access.",
+      body: "A ready-made app in your brand comes with access.",
     },
     {
       title: "Machines and autonomous systems",
-      body: "MFAM is patent pending, concept stage. A machine can approve payments within limits the operator sets. It does not move money.",
+      body: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
     },
   ],
 } as const;

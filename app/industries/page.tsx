@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Who it is for | MPE",
-  "Platforms embed KYC, payouts, and card. Distributors without an app get a branded app. MFAM is concept stage, patent pending."
+  "Platforms embed KYC, payouts, and card. Distributors get a branded app. MFAM is patent pending, concept stage."
 );
 
 export default function IndustriesPage() {
@@ -40,10 +40,10 @@ export default function IndustriesPage() {
               </p>
             </div>
             <div className="panel">
-              <h3 style={{ marginTop: 0 }}>You do not have an app</h3>
+              <h3 style={{ marginTop: 0 }}>A branded app</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Distributors and partners get a ready-made app in their brand:
-                identity, payouts, and cards. There is no self-serve signup.
+                identity, payouts, and cards. Sandbox access, API docs and embeds come with access.
               </p>
               <p className="p" style={{ marginTop: 14 }}>
                 <Link className="quietLink" href="/solutions/workforce">Workforce and branded app</Link>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import FlowRow from "@/components/FlowRow";
 import RequestAccess from "@/components/RequestAccess";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
@@ -31,19 +30,14 @@ export default function SendPage() {
 
       <section className="deckLight">
         <div className="container deckInner">
-          <h2 className="homeSectionTitle">How a payout works</h2>
-          <FlowRow steps={product.flow} />
-
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">Where it can land</h2>
-            <div className="outcomeGrid" style={{ marginTop: 18 }}>
-              {product.outputs.map((item) => (
-                <div className="panel" key={item.title}>
-                  <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-                  <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
-                </div>
-              ))}
-            </div>
+          <h2 className="homeSectionTitle">Where it can land</h2>
+          <div className="outcomeGrid" style={{ marginTop: 18 }}>
+            {product.outputs.map((item) => (
+              <div className="panel" key={item.title}>
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                <p className="p" style={{ marginTop: 10 }}>{item.body}</p>
+              </div>
+            ))}
           </div>
 
           <div className="sectionBlock">
@@ -56,7 +50,7 @@ export default function SendPage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Platform API</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Sandbox access, API docs, and {product.webhooks} {product.route}
+                  Sandbox access, API docs and embeds come with access. {product.route}
                 </p>
               </div>
               <div className="panel">
@@ -68,6 +62,9 @@ export default function SendPage() {
               </div>
             </div>
           </div>
+          <p className="p" style={{ marginTop: 18 }}>
+            <Link className="quietLink" href="/resources/payment-lifecycle">How a payment is decided</Link>
+          </p>
         </div>
       </section>
 

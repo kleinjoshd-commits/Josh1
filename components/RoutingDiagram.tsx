@@ -57,7 +57,10 @@ export default function RoutingDiagram() {
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => setMotion(!media.matches);
+    const apply = () => {
+      const shot = document.documentElement.hasAttribute("data-shot");
+      setMotion(!media.matches && !shot);
+    };
     apply();
     media.addEventListener("change", apply);
     return () => media.removeEventListener("change", apply);

@@ -8,7 +8,6 @@ import BuiltPhoto from "../components/BuiltPhoto";
 import FilmPlayer from "../components/FilmPlayer";
 import LineIcon from "../components/LineIcon";
 import RoutingDiagram from "../components/RoutingDiagram";
-import { claims } from "@/content/claims";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
 
@@ -183,7 +182,7 @@ export default function Home() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Never holds funds</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  {claims.noCustody} Enforced by architecture, not policy.
+                  Licensed partners hold the funds.
                 </p>
               </div>
               <div className="panel">

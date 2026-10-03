@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import FlowRow from "@/components/FlowRow";
 import RequestAccess from "@/components/RequestAccess";
 import { claims } from "@/content/claims";
 import { product } from "@/content/product";
@@ -21,7 +20,7 @@ export default function WorkforcePage() {
           <div className="ebTag">MPE WORKFORCE</div>
           <h1>Pay a workforce from your product.</h1>
           <p className="ebSub">
-            For workforce platforms and for distributors who need an app.
+            For workforce platforms and for distributors who need an app.{" "}
             {claims.stats[3].value} countries of payroll coverage. {product.funds}
           </p>
           <div className="btnRow">
@@ -32,26 +31,21 @@ export default function WorkforcePage() {
 
       <section className="deckLight">
         <div className="container deckInner">
-          <h2 className="homeSectionTitle">How a payment works</h2>
-          <FlowRow steps={product.flow} />
-
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">What people get</h2>
-            <div className="outcomeGrid" style={{ marginTop: 18 }}>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Payouts</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Bank, card, wallet, or cross-border. Wallet means a payout to a mobile wallet.
-                </p>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Cards</h3>
-                <p className="p" style={{ marginTop: 10 }}>{product.cards}</p>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Identity</h3>
-                <p className="p" style={{ marginTop: 10 }}>{product.identity}</p>
-              </div>
+          <h2 className="homeSectionTitle">What people get</h2>
+          <div className="outcomeGrid" style={{ marginTop: 18 }}>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Payouts</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                Bank, card, wallet, or cross-border. A wallet is a payout to a mobile wallet.
+              </p>
+            </div>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Cards</h3>
+              <p className="p" style={{ marginTop: 10 }}>{product.cards}</p>
+            </div>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Identity</h3>
+              <p className="p" style={{ marginTop: 10 }}>{product.identity}</p>
             </div>
           </div>
 
@@ -63,7 +57,7 @@ export default function WorkforcePage() {
                 <p className="p" style={{ marginTop: 10 }}>{product.embeds}</p>
               </div>
               <div className="panel">
-                <h3 style={{ marginTop: 0 }}>You do not</h3>
+                <h3 style={{ marginTop: 0 }}>A branded app</h3>
                 <p className="p" style={{ marginTop: 10 }}>
                   A ready-made app in your brand comes with access: identity, payouts, and cards.
                 </p>
@@ -71,12 +65,15 @@ export default function WorkforcePage() {
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Same API</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Sandbox access and {product.webhooks}{" "}
+                  Sandbox access, API docs and embeds come with access. {product.webhooks}{" "}
                   <Link className="quietLink" href="/solutions/os">The ops console</Link>
                 </p>
               </div>
             </div>
           </div>
+          <p className="p" style={{ marginTop: 18 }}>
+            <Link className="quietLink" href="/resources/payment-lifecycle">How a payment is decided</Link>
+          </p>
         </div>
       </section>
 

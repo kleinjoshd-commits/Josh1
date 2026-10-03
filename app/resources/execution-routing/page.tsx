@@ -6,13 +6,13 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Routing | MPE",
-  "MPE scores every allowed route on success, speed and cost, picks one, and signs that decision before anything moves."
+  "Every allowed route is scored on success, speed and cost. The best one is picked."
 );
 
 const FACTORS = [
   { title: "Success", body: "Likelihood the payout completes." },
-  { title: "Speed", body: "How quickly that route can deliver. No speed figure is published." },
-  { title: "Cost", body: "What that route costs. No price list is published." },
+  { title: "Speed", body: "How quickly that route can deliver." },
+  { title: "Cost", body: "What that route costs." },
 ];
 
 export default function ExecutionAbstractionResource() {
@@ -24,7 +24,7 @@ export default function ExecutionAbstractionResource() {
           <div className="ebTag">ROUTING</div>
           <h1>Scores every route.</h1>
           <p className="ebSub">
-            {product.route} A customer does not pick a route. {product.adapter}
+            {product.route} {product.adapter}
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>

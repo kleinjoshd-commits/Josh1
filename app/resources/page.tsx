@@ -22,7 +22,7 @@ const NOTES = [
   {
     href: "/resources/execution-routing",
     title: "Route choice",
-    body: "Scored on success, speed and cost. One route is signed. No provider names.",
+    body: "Scored on success, speed and cost. The best one is picked.",
   },
   {
     href: "/solutions/send",
@@ -37,7 +37,7 @@ const NOTES = [
   {
     href: "/resources/fx-governed",
     title: "Cross-border payouts",
-    body: "Cross-border is a payout type on the same API. Rates are not published.",
+    body: "Cross-border is a payout type on the same API. A quote can include an expiry.",
   },
 ];
 

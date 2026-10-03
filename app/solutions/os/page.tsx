@@ -11,7 +11,7 @@ export const metadata = pageMeta(
 );
 
 const SURFACE = [
-  { title: "Platform API", body: "One API in front of many licensed providers. Sandbox access comes with Request access." },
+  { title: "Platform API", body: "One API in front of many licensed providers. Sandbox access, API docs and embeds come with access." },
   { title: "Webhooks", body: product.webhooks },
   { title: "Docs and embeds", body: product.embeds + " API docs come with access." },
   { title: "What operators see", body: product.consoleSee },
@@ -43,10 +43,9 @@ export default function MpeOsPage() {
           <h2 className="homeSectionTitle">How you integrate</h2>
           <FlowRow steps={product.integrate} />
 
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">How a payment is decided</h2>
-            <FlowRow steps={product.flow} />
-          </div>
+          <p className="p" style={{ marginTop: 18 }}>
+            <Link className="quietLink" href="/resources/payment-lifecycle">How a payment is decided</Link>
+          </p>
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">What you get</h2>
@@ -65,7 +64,7 @@ export default function MpeOsPage() {
             <div className="outcomeGrid" style={{ marginTop: 18 }}>
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Wallets</h3>
-                <p className="p" style={{ marginTop: 10 }}>Payouts to mobile wallets. MPE does not hold a balance.</p>
+                <p className="p" style={{ marginTop: 10 }}>A payout to a mobile wallet.</p>
               </div>
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Branded cards</h3>

@@ -29,10 +29,6 @@ export default function PaymentLifecycleResource() {
       <section className="deckLight">
         <div className="container deckInner">
           <FlowRow steps={product.flow} />
-          <p className="p" style={{ marginTop: 18 }}>
-            Sign means the decision is written to a tamper-evident record. It
-            does not mean MPE moved the money. Licensed partners do that.
-          </p>
         </div>
       </section>
       <RequestAccess />

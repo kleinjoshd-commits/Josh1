@@ -21,8 +21,8 @@ export default function NetworkPage() {
           <div className="ebTag">MPE NETWORK</div>
           <h1>Many providers. One adapter.</h1>
           <p className="ebSub">
-            For platforms that do not want a new integration every time the
-            provider changes. {product.adapter} {product.funds}
+            For platforms that keep one integration when the provider changes.{" "}
+            {product.adapter} {product.funds}
           </p>
           <div className="ebStats">
             {claims.stats.map((stat) => (
@@ -43,8 +43,7 @@ export default function NetworkPage() {
           <h2 className="homeSectionTitle">How a route is chosen</h2>
           <FlowRow steps={product.flow} />
           <p className="p" style={{ marginTop: 18 }}>
-            {product.adapter} {product.route} The decision is written to a
-            tamper-evident record. A customer does not pick a route.
+            {product.adapter}
           </p>
           <p className="p" style={{ marginTop: 14 }}>
             <Link className="quietLink" href="/#network-map">See where money can land</Link>

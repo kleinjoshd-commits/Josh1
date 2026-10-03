@@ -60,8 +60,7 @@ export default function TeamPage() {
           <div className="ebTag">THE TEAM</div>
           <h1>The people building MPE.</h1>
           <p className="ebSub">
-            Talk to the team about sandbox access. Titles below are the roles
-            on the site. No extra biographies are published here.
+            Talk to us about access.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>

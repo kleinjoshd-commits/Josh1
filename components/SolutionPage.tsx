@@ -40,8 +40,7 @@ export default function SolutionPage({
 
               <p className="p" style={{ marginTop: 14, maxWidth: 860 }}>
                 MPE provides orchestration and control software. Authorize,
-                Route, Sign. Licensed partners execute. MPE does not hold or
-                transmit customer funds.
+                Route, Sign. MPE never holds funds. Licensed partners do.
               </p>
 
               <div className="btnRow">
@@ -123,8 +122,8 @@ export default function SolutionPage({
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>How it works</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Authorize, Route, Sign, then Delivered. Success, speed and
-                cost are scored, and one route is signed. MPE does not move the money.
+                Authorize, Route, Sign, then Delivered. Every allowed route is
+                scored on success, speed and cost. The best one is picked.
               </p>
             </div>
 
@@ -132,8 +131,7 @@ export default function SolutionPage({
               <h3 style={{ marginTop: 0 }}>Operating model</h3>
               <p className="p" style={{ marginTop: 10 }}>
                 Licensed partners provide the money transfer and payment
-                services. MPE does not hold or transmit customer funds, and
-                does not store customer identity documents.
+                services.
               </p>
             </div>
           </div>

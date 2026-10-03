@@ -12,7 +12,7 @@ const STARTS = [
   {
     href: "/solutions/send",
     title: "Payouts",
-    body: "Bank, card, wallet, and cross-border. Wallet means a mobile wallet payout.",
+    body: "Bank, card, wallet, and cross-border. A wallet is a payout to a mobile wallet.",
   },
   {
     href: "/solutions/os",
@@ -27,17 +27,17 @@ const STARTS = [
   {
     href: "/solutions/network",
     title: "Many providers, one adapter",
-    body: "Every allowed route is scored on success, speed and cost. Providers are not named.",
+    body: "Every allowed route is scored on success, speed and cost. The best one is picked.",
   },
   {
     href: "/industries",
-    title: "No app yet",
-    body: "A ready-made app in your brand, instead of an embed.",
+    title: "A branded app",
+    body: "A ready-made app in your brand comes with access.",
   },
   {
     href: "/industries",
     title: "Machines",
-    body: "MFAM is patent pending, concept stage. A machine can approve payments within limits you set.",
+    body: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function UseCasesPage() {
           <div className="ebTag">USE CASES</div>
           <h1>Start with the job.</h1>
           <p className="ebSub">
-            One Platform API. Pick the job you need to ship. MPE never holds funds.
+            One Platform API. Pick the job you need to ship. MPE never holds funds. Licensed partners do.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>

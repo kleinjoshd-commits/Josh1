@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Cross-border payouts | MPE",
-  "Cross-border payouts use the same Platform API. A quote can include an expiry. There is no rate lock. MPE never holds funds."
+  "Cross-border payouts use the same Platform API. A quote can include an expiry. MPE never holds funds. Licensed partners do."
 );
 
 export default function FxGovernedResource() {
@@ -19,7 +19,7 @@ export default function FxGovernedResource() {
           <p className="ebSub">
             Same API as a domestic bank payout. 130+ payout currencies. The
             route is scored on success, speed and cost. A quote can include an
-            expiry. There is no rate lock. MPE never holds funds.
+            expiry. MPE never holds funds. Licensed partners do.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>
@@ -29,10 +29,9 @@ export default function FxGovernedResource() {
       <section className="deckLight">
         <div className="container deckInner">
           <div className="panel">
-            <h3 style={{ marginTop: 0 }}>What you do not get from this page</h3>
+            <h3 style={{ marginTop: 0 }}>A quote with an expiry</h3>
             <p className="p" style={{ marginTop: 10 }}>
-              A quote can carry an expiry. There is no rate lock, and no
-              published price list. Licensed partners execute the payout.
+              A quote can include an expiry. Licensed partners execute the payout.
             </p>
             <p className="p" style={{ marginTop: 14 }}>
               <Link className="quietLink" href="/solutions/send">Payout types</Link>

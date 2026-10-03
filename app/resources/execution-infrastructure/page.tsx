@@ -36,7 +36,7 @@ export default function ExecutionInfrastructurePage() {
               <p className="p" style={{ marginTop: 10 }}>{product.embeds}</p>
               <p className="p" style={{ marginTop: 10 }}>
                 Platforms that already have an app use these. Distributors
-                without an app get a ready-made branded app instead.
+                get a ready-made branded app.
               </p>
             </div>
           </div>

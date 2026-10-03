@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import FlowRow from "@/components/FlowRow";
 import RequestAccess from "@/components/RequestAccess";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
@@ -35,13 +34,13 @@ export default function UnifiedApproachPage() {
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>Your platform</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                Sandbox access, API docs, and embeds. Or a branded app if you do not have one.
+                Sandbox access, API docs and embeds come with access. Or a branded app in your name.
               </p>
             </div>
             <div className="panel">
               <h3 style={{ marginTop: 0 }}>MPE</h3>
               <p className="p" style={{ marginTop: 10 }}>
-                {product.route} MPE does not move the money.
+                {product.route}
               </p>
             </div>
             <div className="panel">
@@ -52,13 +51,9 @@ export default function UnifiedApproachPage() {
             </div>
           </div>
 
-          <div className="sectionBlock">
-            <h2 className="homeSectionTitle">The order</h2>
-            <FlowRow steps={product.flow} />
-            <p className="p" style={{ marginTop: 18 }}>
-              <Link className="quietLink" href="/solutions/os">What you integrate</Link>
-            </p>
-          </div>
+          <p className="p" style={{ marginTop: 18 }}>
+            <Link className="quietLink" href="/resources/payment-lifecycle">How a payment is decided</Link>
+          </p>
         </div>
       </section>
 

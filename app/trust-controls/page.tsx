@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import FlowRow from "@/components/FlowRow";
 import RequestAccess from "@/components/RequestAccess";
-import { claims } from "@/content/claims";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -22,7 +20,7 @@ export default function TrustControlsPage() {
           <h1>The decision is signed.</h1>
           <p className="ebSub">
             For a buyer who needs to know who moved the money, and what MPE
-            decided. {product.funds}
+            decided.
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>
@@ -33,32 +31,24 @@ export default function TrustControlsPage() {
       <section className="deckLight">
         <div className="container deckInner">
           <h2 className="homeSectionTitle">What is recorded</h2>
-          <FlowRow steps={product.flow} />
-
-          <div className="sectionBlock">
-            <div className="outcomeGrid">
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Audit record</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  Every decision is signed and written to a tamper-evident record.
-                  Operators can see the route chosen and why, and can approve or
-                  reject KYC, cancel or return a payout, resend a webhook, and
-                  resolve a reconciliation case.
-                </p>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>Who holds the funds</h3>
-                <p className="p" style={{ marginTop: 10 }}>{claims.noCustody}</p>
-              </div>
-              <div className="panel">
-                <h3 style={{ marginTop: 0 }}>What this page does not claim</h3>
-                <p className="p" style={{ marginTop: 10 }}>
-                  No SOC, PCI, or ISO badge. No uptime figure. MPE is not a bank
-                  and is not a money transmitter.
-                </p>
-              </div>
+          <div className="outcomeGrid" style={{ marginTop: 18 }}>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Audit record</h3>
+              <p className="p" style={{ marginTop: 10 }}>
+                Every decision is signed and written to a tamper-evident record.
+                Operators can see the route chosen and why, and can approve or
+                reject KYC, cancel or return a payout, resend a webhook, and
+                resolve a reconciliation case.
+              </p>
+            </div>
+            <div className="panel">
+              <h3 style={{ marginTop: 0 }}>Who holds the funds</h3>
+              <p className="p" style={{ marginTop: 10 }}>{product.funds}</p>
             </div>
           </div>
+          <p className="p" style={{ marginTop: 18 }}>
+            <Link className="quietLink" href="/resources/payment-lifecycle">How a payment is decided</Link>
+          </p>
         </div>
       </section>
 

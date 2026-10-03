@@ -19,8 +19,7 @@ export default function SettlementModelsResource() {
           <div className="ebTag">COVERAGE</div>
           <h1>Where money can land.</h1>
           <p className="ebSub">
-            These are the only coverage figures. Licensed providers execute.
-            MPE never holds funds.
+            Licensed providers execute. MPE never holds funds. Licensed partners do.
           </p>
           <div className="ebStats">
             {claims.stats.map((stat) => (

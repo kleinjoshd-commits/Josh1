@@ -44,7 +44,7 @@ export const homepageCopy = {
       {
         icon: "machine",
         title: "Machine payments",
-        body: "Patent pending, concept stage.",
+        body: "Patent pending, concept stage. Machines approve payments within limits the operator sets.",
       },
     ],
   },
@@ -80,7 +80,7 @@ export const homepageCopy = {
     howLabel: "How it works",
     steps: [
       { title: "Connect once", body: "API, signed webhooks, or screens in your app." },
-      { title: "Score the route", body: "Success, speed and cost. One route is signed." },
+      { title: "Score the route", body: "Every allowed route is scored on success, speed and cost. The best one is picked." },
       { title: "Workers get paid", body: "Payout status comes back on a signed webhook." },
     ],
     workersLabel: "What your workers get",
@@ -91,20 +91,19 @@ export const homepageCopy = {
       { icon: "card", title: "A card in the app", body: "Spend controls, and a freeze." },
     ],
     appTitle: "Your app, or ours",
-    appBody: "Identity, payouts and cards, in your name. Or a branded app if you do not run one.",
+    appBody: "Identity, payouts and cards, in your app. Or a branded app in your name.",
     revenueTitle: "Scores every route",
-    revenueBody: "Success, speed and cost. One route is signed before anything moves.",
+    revenueBody: "Every allowed route is scored on success, speed and cost. The best one is picked.",
     trust: "You keep the worker relationship. MPE handles the technology in between.",
   },
 
   mfam: {
     eyebrow: "Next, machines",
     heading: "When the payer is a machine.",
-    lede: "MFAM is patent pending, concept stage. A machine can approve its own payments within limits set in advance.",
+    lede: "MFAM is patent pending, concept stage. Machines approve payments within limits the operator sets.",
     points: [
       "The operator sets the rules, the limits, and who the machine may trust.",
       "Every decision is signed and written to a tamper-evident record.",
-      "MFAM decides whether a machine may pay. It does not move the money.",
     ],
     places: "On the ground, at sea, in orbit. The altitude changes. The shape does not.",
     cta: "Talk to us about MFAM",
