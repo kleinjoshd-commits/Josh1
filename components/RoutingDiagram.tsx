@@ -28,11 +28,7 @@ type Box = { x: number; y: number; w: number; h: number };
 const platform: Box = { x: 8, y: 138, w: 132, h: 56 };
 const verify: Box = { x: 164, y: 24, w: 128, h: 48 };
 const mpe: Box = { x: 324, y: 126, w: 128, h: 80 };
-const routeBoxes: Box[] = [
-  { x: 516, y: 20, w: 158, h: 48 },
-  { x: 516, y: 142, w: 158, h: 48 },
-  { x: 516, y: 264, w: 158, h: 48 },
-];
+const score: Box = { x: 508, y: 72, w: 196, h: 188 };
 const destBoxes: Box[] = DESTS.map((_, index) => ({
   x: 832,
   y: 8 + index * 64,
@@ -86,6 +82,7 @@ export default function RoutingDiagram() {
   const platformToMpe = link(right(platform), midY(platform), mpe.x, midY(mpe));
   const platformToVerify = drop(midX(platform), platform.y, midX(verify), verify.y + verify.h);
   const verifyToMpe = drop(midX(verify), verify.y + verify.h, midX(mpe), mpe.y);
+  const mpeToScore = link(right(mpe), midY(mpe), score.x, midY(score));
 
   return (
     <div className="routeBoard">
@@ -120,28 +117,17 @@ export default function RoutingDiagram() {
         <Connector d={platformToMpe} on={!identity} />
         <Connector d={platformToVerify} on={identity} />
         <Connector d={verifyToMpe} on={identity} />
-        {routeBoxes.map((box, index) => (
+        <Connector d={mpeToScore} on={!identity} />
+        {!identity && destIndex >= 0 ? (
           <Connector
-            key={FACTORS[index]}
-            d={link(right(mpe), midY(mpe), box.x, midY(box))}
-            on={!identity}
+            d={link(right(score), midY(score), destBoxes[destIndex].x, midY(destBoxes[destIndex]))}
+            on
           />
-        ))}
-        {!identity
-          ? destBoxes.map((box, index) => (
-              <Connector
-                key={DESTS[index]}
-                d={link(right(routeBoxes[1]), midY(routeBoxes[1]), box.x, midY(box))}
-                on={index === destIndex}
-              />
-            ))
-          : null}
+        ) : null}
         <Node box={platform} label="Platform" on />
         <Node box={verify} label="Verify" on={identity} />
         <Node box={mpe} label="MPE" on hub />
-        {FACTORS.map((factor, index) => (
-          <Node key={factor} box={routeBoxes[index]} label={factor} on={!identity} />
-        ))}
+        <ScoreNode on={!identity} />
         {DESTS.map((dest, index) => (
           <Node key={dest} box={destBoxes[index]} label={dest} on={!identity && dest === active.dest} />
         ))}
@@ -193,6 +179,64 @@ function Connector({ d, on }: { d: string; on: boolean }) {
           pathLength={100}
         />
       ) : null}
+    </g>
+  );
+}
+
+function ScoreNode({ on }: { on: boolean }) {
+  const chipW = score.w - 28;
+  const chipH = 32;
+  const chipX = score.x + 14;
+  const firstY = score.y + 46;
+  return (
+    <g opacity={on ? 1 : 0.38}>
+      <rect
+        x={score.x}
+        y={score.y}
+        width={score.w}
+        height={score.h}
+        rx={14}
+        fill="rgba(255,255,255,0.06)"
+        stroke={on ? "rgba(125,255,195,0.75)" : "rgba(255,255,255,0.14)"}
+      />
+      <text
+        x={score.x + score.w / 2}
+        y={score.y + 28}
+        textAnchor="middle"
+        fill="#f7f8f6"
+        fontSize={15}
+        fontFamily="inherit"
+        fontWeight={600}
+      >
+        Score
+      </text>
+      {FACTORS.map((factor, index) => {
+        const y = firstY + index * (chipH + 8);
+        return (
+          <g key={factor}>
+            <rect
+              x={chipX}
+              y={y}
+              width={chipW}
+              height={chipH}
+              rx={8}
+              fill="rgba(125,255,195,0.12)"
+              stroke="rgba(125,255,195,0.45)"
+            />
+            <text
+              x={chipX + chipW / 2}
+              y={y + chipH / 2 + 4}
+              textAnchor="middle"
+              fill="#f7f8f6"
+              fontSize={13}
+              fontFamily="inherit"
+              fontWeight={600}
+            >
+              {factor}
+            </text>
+          </g>
+        );
+      })}
     </g>
   );
 }

@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "About | MPE",
-  "One Platform API in front of many licensed providers. Authorize, Route, Sign. MPE never holds funds."
+  "For platforms that already have an app, and distributors who need one. MPE never holds funds. Licensed partners do."
 );
 
 export default function AboutPage() {
@@ -18,10 +18,9 @@ export default function AboutPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">ABOUT MPE</div>
-          <h1>One Platform API.</h1>
+          <h1>One API. Every licensed provider behind it.</h1>
           <p className="ebSub">
-            {product.oneLiner} For platforms that already have an app, and for
-            distributors who need one. {product.funds}
+            For platforms that already have an app, and distributors who need one. {product.funds}
           </p>
           <div className="btnRow">
             <Link className="btnPrimary" href="#kyc">Request access</Link>
