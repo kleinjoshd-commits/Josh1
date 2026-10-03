@@ -12,7 +12,8 @@ import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
 
 export const metadata: Metadata = {
-  description: claims.hero.subheadline,
+  description:
+    "One integration for payouts, wallets, cards, identity and machine payments. For platforms, people and machines. MPE never holds funds.",
 };
 
 function LeadCopy({ text }: { text: string }) {
@@ -36,7 +37,7 @@ export default function Home() {
   const mfam = homepageCopy.mfam;
 
   return (
-    <main>
+    <main className="home">
       <Nav />
       <HeroFilm />
 
@@ -73,8 +74,16 @@ export default function Home() {
           <div className="hpBuiltGrid">
             {built.cards.map((card, index) => (
               <a key={card.title} href={card.href} className="hpShot" data-reveal style={{ transitionDelay: `${index * 60}ms` }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={card.image} alt="" width={1400} height={880} />
+                {card.image.endsWith("built-machines.webp") ? (
+                  <picture>
+                    <source srcSet="/media/built-machines.avif" type="image/avif" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="hpShotDrone" src={card.image} alt="" width={1400} height={1708} />
+                  </picture>
+                ) : (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img src={card.image} alt="" width={1400} height={880} />
+                )}
                 <span className="hpShotShade" aria-hidden="true" />
                 <span className="hpShotCopy">
                   <strong>{card.title}</strong>
@@ -128,22 +137,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The map. No seam with the sections around it: the same emerald. */}
       <LicensedMap />
 
-      {/* 3, The statement. One sentence, a screen of air. */}
-      <section className="emeraldBand">
-        <div className="ebWrap ebStatement" style={{ paddingTop: 34, paddingBottom: 64 }}>
-          <h2>Every way money moves.<br />One integration.</h2>
-          <p>
-            Smart routing, payouts, wallets, cards, identity, cross-border
-            and machine payments. For people, platforms and machines.
-            Licensed partners move the money. MPE never holds funds.
-          </p>
-        </div>
-      </section>
-
-      {/* 4, Products. Four cards, one line each. */}
+      {/* Products. Four cards, one line each. */}
       <section className="deckLight">
         <div className="container deckInner">
           <section className="homeBand" data-animate>
@@ -165,7 +161,7 @@ export default function Home() {
               <Link href="/solutions/network" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Every corridor, the best licensed partner.
+                  Every corridor, the best path.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
@@ -182,23 +178,20 @@ export default function Home() {
           {/* Trust, first-class: the category norm is a compliance section
               on the homepage. Ours states the architecture, not badges. */}
           <section className="homeBand" data-animate>
-            <div className="homeSectionHeader homeContextHeader">
+            <div className="homeSectionHeader">
               <h2 className="homeSectionTitle">Built to be trusted</h2>
             </div>
             <div className="outcomeGrid">
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Never holds funds</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  MPE does not hold or transmit customer funds, and does not
-                  store customer identity documents. Enforced by architecture,
-                  not policy.
+                  {claims.noCustody} Enforced by architecture, not policy.
                 </p>
               </div>
               <div className="panel">
                 <h3 style={{ marginTop: 0 }}>Licensed institutions, every market</h3>
                 <p className="p" style={{ marginTop: 10 }}>
-                  Money transfer and payment services within MPE programs are
-                  provided by licensed partner institutions in each market,
+                  Payment services in each market are provided by licensed partners,
                   under their own regulators.
                 </p>
               </div>
@@ -220,24 +213,21 @@ export default function Home() {
 
       {/* 6, Two doors. Employers and institutions, one paragraph each. */}
       <section className="emeraldBand" id="partners">
-        <div className="ebWrap" style={{ paddingTop: 56, paddingBottom: 64 }}>
+        <div className="ebWrap">
           <div className="ebTag">WORKING TOGETHER</div>
           <div className="ebDoors">
             <div className="ebDoor">
               <h3>For employers</h3>
               <p>
                 One workforce program on the same integration: hire, onboard
-                and pay across borders, with payouts, wallets and cards for
-                workers, and licensed partners moving the money.
+                and pay across borders, with payouts, wallets and cards.
               </p>
               <Link className="btnPrimary" href="/#kyc">Request Access</Link>
             </div>
             <div className="ebDoor">
               <h3>For licensed institutions</h3>
               <p>
-                Deposits, flow and customers you cannot acquire yourself, on
-                your license, under your regulation. MPE holds no funds and
-                earns only when the partnership does.
+                Deposits and customers on your license, under your regulation.
               </p>
               <Link className="btnSecondary" href="/#kyc">Talk to us</Link>
             </div>

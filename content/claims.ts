@@ -35,7 +35,7 @@ export const claims = {
   hero: {
     headline: "One integration for every way money moves.",
     subheadline:
-      "Payouts, wallets, cards, identity and cross-border, routed across licensed partners. For people, platforms and machines.",
+      "Payouts, wallets, cards, identity and machine payments. For platforms, people and machines.",
   },
 
   /** Hero strip. Same figures as the network map. Not market-size claims. */
@@ -43,6 +43,7 @@ export const claims = {
     { value: "140+", label: "countries where money lands", strip: true },
     { value: "200+", label: "direct bank connections", strip: true },
     { value: "130+", label: "payout currencies", strip: true },
+    { value: "180", label: "countries of payroll coverage", strip: true },
   ] as const,
 
   /** Network stat line (Tier 3.1 / 3.4). */
@@ -68,7 +69,7 @@ export const claims = {
 
   /** Compliance footer (Tier 1.6). Use verbatim on every page. */
   footerDisclaimer:
-    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software and community programs. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. MPE does not hold or transmit customer funds, and does not store customer identity documents. Market designations describe partner-network capability and programs in development, and do not constitute an offer of regulated services in any jurisdiction.",
+    "© 2026 MPE Solutions Inc. All rights reserved. MPE provides orchestration and control software. MPE does not hold or transmit customer funds, and does not store customer identity documents. Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. Payout options, wallets, cards and currencies vary by platform and country. Market designations describe partner-network capability and programs in development, and do not constitute an offer of regulated services in any jurisdiction. MFAM is in development, patent pending.",
 } as const;
 
 export type Claims = typeof claims;

@@ -58,7 +58,7 @@ export default function Nav() {
             src="/mpe-logo.png"
             alt="MPE"
             width={176}
-            height={48}
+            height={40}
             priority
             style={{ width: 176, height: "auto" }}
           />
