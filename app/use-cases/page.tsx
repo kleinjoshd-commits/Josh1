@@ -34,22 +34,22 @@ export default function UseCasesPage() {
             <div className="productTrio">
               <Link href="/solutions/send" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>Payouts for people, priced in the open.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Payouts to any account.</p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>One audience: a global workforce.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Pay a global workforce.</p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/network" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>Every corridor, the best licensed partner.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Licensed reach, 140+ countries.</p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/os" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
-                <p className="p" style={{ margin: "10px 0 18px" }}>Every payment approved, routed and proven.</p>
+                <p className="p" style={{ margin: "10px 0 18px" }}>Approve, route and prove.</p>
                 <span className="go">Explore →</span>
               </Link>
             </div>

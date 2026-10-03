@@ -35,7 +35,7 @@ export const claims = {
   hero: {
     headline: "One integration for every way money moves.",
     subheadline:
-      "Payouts, wallets, cards, identity and machine payments. For platforms, people and machines.",
+      "Payouts, wallets, cards, identity and cross-border payments. For platforms, people and machines.",
   },
 
   /** Hero strip. Same figures as the network map. Not market-size claims. */

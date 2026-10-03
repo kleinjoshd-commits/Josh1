@@ -40,11 +40,10 @@ function motionNow() {
 
 function Poster({
   source,
-  eager,
   priority = "auto",
 }: {
   source: HomepageFilm;
-  eager: boolean;
+  eager?: boolean;
   priority?: "high" | "low" | "auto";
 }) {
   const webp = "loopPosterWebp" in source ? source.loopPosterWebp : undefined;
@@ -58,7 +57,7 @@ function Poster({
         width={1920}
         height={1080}
         decoding="async"
-        loading={eager ? "eager" : "lazy"}
+        loading="eager"
         fetchPriority={priority}
       />
     </picture>

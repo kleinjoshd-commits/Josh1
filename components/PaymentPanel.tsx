@@ -1,17 +1,25 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 /**
- * Illustrative payment on the film. One step is visible at a time.
- * Reduced motion shows a settled payment and does not animate.
+ * One payment stays fully visible. Steps fill, Delivered holds, then the
+ * next payment slides in. Reduced motion, and screenshot captures, stay
+ * on a settled Delivered payment.
  */
 
 const STEPS = ["Authorize", "Route", "Sign", "Delivered"] as const;
 
 const PAYMENTS = [
-  { amount: "$2,480.00", place: "Bank deposit", code: "US", icon: "bank" },
-  { amount: "€860.00", place: "Debit card push", code: "DE", icon: "card" },
-  { amount: "£420.00", place: "Wallet payout", code: "GB", icon: "wallet" },
-  { amount: "MXN 12,400", place: "Local account", code: "MX", icon: "account" },
-  { amount: "$12.40", place: "Machine payment", code: "SG", icon: "machine" },
+  { amount: "$2,480.00", place: "Bank deposit", country: "United States", icon: "bank" },
+  { amount: "€860.00", place: "Debit card push", country: "Germany", icon: "card" },
+  { amount: "£420.00", place: "Wallet payout", country: "United Kingdom", icon: "wallet" },
+  { amount: "MXN 12,400", place: "Local account", country: "Mexico", icon: "account" },
+  { amount: "$12.40", place: "Machine payment", country: "Singapore", icon: "machine" },
 ] as const;
+
+const STEP_MS = 700;
+const SETTLED_MS = 1500;
 
 function Mark({ name }: { name: (typeof PAYMENTS)[number]["icon"] }) {
   const common = {
@@ -62,56 +70,67 @@ function Mark({ name }: { name: (typeof PAYMENTS)[number]["icon"] }) {
   );
 }
 
-function Face({
-  step,
-  amount,
-  place,
-  code,
-  icon,
-  index,
-}: {
-  step: string;
-  amount: string;
-  place: string;
-  code: string;
-  icon: (typeof PAYMENTS)[number]["icon"];
-  index: number;
-}) {
-  const stepIndex = STEPS.indexOf(step as (typeof STEPS)[number]);
-  return (
-    <div className="payFace" style={{ animationDelay: `${index * 1.15}s` }}>
-      <div className="payStep">
-        <span>{step}</span>
-        <i aria-hidden="true">
-          {STEPS.map((name, i) => (
-            <b key={name} className={i <= stepIndex ? "isOn" : undefined} />
-          ))}
-        </i>
-      </div>
-      <p className="payAmount">{amount}</p>
-      <div className="payDest">
-        <span className="payMark">
-          <Mark name={icon} />
-        </span>
-        <span>{place}</span>
-        <span className="payCode">{code}</span>
-      </div>
-    </div>
-  );
-}
-
 export default function PaymentPanel() {
-  const faces = PAYMENTS.flatMap((payment) => STEPS.map((step) => ({ ...payment, step })));
+  const [index, setIndex] = useState(0);
+  const [step, setStep] = useState(STEPS.length - 1);
+  const [live, setLive] = useState(false);
+  const [leaving, setLeaving] = useState(false);
+  const payment = PAYMENTS[index];
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const shot = document.documentElement.hasAttribute("data-shot");
+    const apply = () => setLive(!media.matches && !shot);
+    apply();
+    media.addEventListener("change", apply);
+    return () => media.removeEventListener("change", apply);
+  }, []);
+
+  useEffect(() => {
+    if (!live) return;
+    const wait = step === STEPS.length - 1 ? SETTLED_MS : STEP_MS;
+    const id = window.setTimeout(() => {
+      if (step < STEPS.length - 1) {
+        setStep((n) => n + 1);
+        return;
+      }
+      setLeaving(true);
+      window.setTimeout(() => {
+        setIndex((n) => (n + 1) % PAYMENTS.length);
+        setStep(0);
+        setLeaving(false);
+      }, 340);
+    }, wait);
+    return () => window.clearTimeout(id);
+  }, [live, step, index]);
+
+  const settled = step === STEPS.length - 1 && !leaving;
 
   return (
-    <aside className="payPanel" aria-label="Example payment moving through MPE">
-      <div className="payStill" aria-hidden="true">
-        <Face step="Delivered" {...PAYMENTS[0]} index={0} />
-      </div>
-      <div className="payStage">
-        {faces.map((face, index) => (
-          <Face key={`${face.place}-${face.step}`} {...face} index={index} />
-        ))}
+    <aside
+      className="payPanel"
+      data-settled={settled ? "true" : "false"}
+      aria-label={`${payment.place} to ${payment.country}, ${STEPS[step]}`}
+    >
+      <div className={leaving ? "payBody isLeaving" : "payBody"}>
+        <p className="payAmount">{payment.amount}</p>
+        <div className="payDest">
+          <span className="payMark">
+            <Mark name={payment.icon} />
+          </span>
+          <span className="payMeta">
+            <b>{payment.place}</b>
+            <small>{payment.country}</small>
+          </span>
+        </div>
+        <ol className="paySteps">
+          {STEPS.map((name, i) => (
+            <li key={name} className={i <= step ? "isOn" : undefined} aria-current={i === step ? "step" : undefined}>
+              <i />
+              <span>{name}</span>
+            </li>
+          ))}
+        </ol>
       </div>
     </aside>
   );

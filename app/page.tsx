@@ -147,28 +147,28 @@ export default function Home() {
               <Link href="/solutions/send" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Send</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Payouts for people, priced in the open.
+                  Payouts to any account.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/workforce" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Workforce</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  One audience: a global workforce.
+                  Pay a global workforce.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/network" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE Network</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Every corridor, the best path.
+                  Licensed reach, 140+ countries.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
               <Link href="/solutions/os" className="panel">
                 <h3 style={{ marginTop: 0 }}>MPE OS</h3>
                 <p className="p" style={{ margin: "10px 0 18px" }}>
-                  Every payment approved, routed and proven.
+                  Approve, route and prove.
                 </p>
                 <span className="go">Explore →</span>
               </Link>
@@ -204,7 +204,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="linkRow" style={{ marginTop: 20 }}>
+            <div className="linkRow">
               <Link className="btnSecondary" href="/trust-controls">How trust works</Link>
             </div>
           </section>

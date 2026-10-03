@@ -136,9 +136,8 @@ export default function LicensedMap() {
           color:var(--mInk);
         }
         .mpeMap .wrap{width:min(var(--page),100%);max-width:var(--page);margin:0 auto;padding:96px var(--page-pad);box-sizing:border-box}
-        .mpeMap .tag{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:999px;
-          border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.06);
-          color:var(--mSub);font-size:12px;font-weight:650;letter-spacing:0.14em}
+        .mpeMap .tag{display:block;padding:0;border:0;background:none;border-radius:0;
+          color:#16A86C;font-size:12px;font-weight:700;letter-spacing:0.12em}
         .mpeMap h2{font-size:44px;line-height:1.08;font-weight:560;letter-spacing:-0.035em;margin:14px 0 10px;color:var(--mInk);text-align:left}
         .mpeMap .sub{color:var(--mSub);font-size:15.5px;line-height:1.7;max-width:760px}
         .mpeMap .maprow{display:grid;grid-template-columns:1fr 250px;gap:34px;align-items:start;margin-top:38px}
