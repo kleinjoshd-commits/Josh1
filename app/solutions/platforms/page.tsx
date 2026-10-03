@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Platforms | MPE",
-  "Pay your people, and earn from it. Branded cards for the people you pay are coming soon. Embed KYC and payouts in your app."
+  "Pay your people, and earn from it. Branded cards for the people you pay, issued by a partner bank. Embed KYC and payouts in your app."
 );
 
 export default function PlatformsPage() {
@@ -35,12 +35,9 @@ export default function PlatformsPage() {
           </p>
 
           <div className="sectionBlock">
-            <h2 className="homeSectionTitle">
-              Card program{" "}
-              <span className="soonPill">Coming soon</span>
-            </h2>
+            <h2 className="homeSectionTitle">Card program</h2>
             <p className="p">
-              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. Coming soon.
+              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement.
             </p>
             <p className="p">
               {product.funds} The card account sits with the issuing partner.

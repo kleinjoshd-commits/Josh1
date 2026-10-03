@@ -3468,20 +3468,6 @@ header.siteHeader {
   letter-spacing: 0.06em;
   vertical-align: 1px;
 }
-.soonPill {
-  display: inline-block;
-  margin-left: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(125, 255, 195, 0.45);
-  background: rgba(23, 201, 127, 0.16);
-  color: #c8ffe6;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  vertical-align: middle;
-}
 .hpCapGrid p,
 .hpBuiltGrid p {
   margin: 8px 0 0;

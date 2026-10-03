@@ -87,7 +87,7 @@ export const segments = [
     title: "Platforms",
     body: "Pay people from your app, and earn from it.",
     detail:
-      "Pay people from your app, and earn from it. The branded card program is coming soon.",
+      "Pay people from your app, and earn from it.",
     href: "/solutions/platforms",
   },
   {
@@ -101,7 +101,7 @@ export const segments = [
     title: "Businesses without an app",
     body: "No app? Get one in your brand. Pay your people, let them spend, and earn from it.",
     detail:
-      "No app? Get one in your brand. Pay your people, let them spend, and earn from it. Spend and earn are coming soon.",
+      "No app? Get one in your brand. Pay your people, let them spend, and earn from it.",
     href: "/solutions/businesses",
   },
   {

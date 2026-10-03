@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Businesses without an app | MPE",
-  "Pay your people, let them spend, and earn from it. A ready-made app in your brand. Spend and earn are coming soon."
+  "Pay your people, let them spend, and earn from it. A ready-made app in your brand."
 );
 
 export default function BusinessesPage() {
@@ -52,12 +52,9 @@ export default function BusinessesPage() {
           </div>
 
           <div className="sectionBlock">
-            <h2 className="homeSectionTitle">
-              Spend and earn{" "}
-              <span className="soonPill">Coming soon</span>
-            </h2>
+            <h2 className="homeSectionTitle">Spend and earn</h2>
             <p className="p">
-              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. Coming soon.
+              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement.
             </p>
             <p className="p">
               {product.funds} The card account sits with the issuing partner.
