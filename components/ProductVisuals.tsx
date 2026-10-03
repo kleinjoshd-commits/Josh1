@@ -198,7 +198,16 @@ export function SegmentVisual({
   if (kind === "machines") {
     return (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src="/media/built-machines.webp" alt="" className="whoDrone" />
+      <img
+        src="/media/built-machines-card.webp"
+        alt=""
+        className="whoDrone"
+        width={1400}
+        height={784}
+        decoding="sync"
+        loading="eager"
+        fetchPriority="high"
+      />
     );
   }
   if (kind === "platforms") return <HostApp screen="payout" />;

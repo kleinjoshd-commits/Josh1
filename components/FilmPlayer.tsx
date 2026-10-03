@@ -59,22 +59,32 @@ function Poster({
   const modal = still === "modal" && "modalPoster" in source;
   const src = modal ? source.modalPoster : source.loopPoster;
   const webp = modal
-    ? "modalPosterWebp" in source
-      ? source.modalPosterWebp
-      : undefined
+    ? undefined
     : "loopPosterWebp" in source
       ? source.loopPosterWebp
       : undefined;
-  return (
-    <picture>
-      {webp ? <source srcSet={webp} type="image/webp" /> : null}
-      {/* Plain img so the jpg fallback is what non-webp browsers serve. */}
+  if (!webp) {
+    return (
       <img
         src={src}
         alt=""
         width={1920}
         height={1080}
-        decoding="async"
+        decoding="sync"
+        loading="eager"
+        fetchPriority={priority === "low" ? "high" : priority}
+      />
+    );
+  }
+  return (
+    <picture>
+      <source srcSet={webp} type="image/webp" />
+      <img
+        src={src}
+        alt=""
+        width={1920}
+        height={1080}
+        decoding="sync"
         loading="eager"
         fetchPriority={priority}
       />
@@ -187,10 +197,24 @@ const FilmPlayer = forwardRef<FilmPlayerHandle, Props>(function FilmPlayer(
 
   const mountVideo = preview && allowMotion && (heroLoop ? armLoop : seen);
   const stageClass = background ? "cineFill" : framed ? "heroLoop" : "hpStage";
+  const stillPoster =
+    still === "modal" && "modalPoster" in source ? source.modalPoster : source.loopPoster;
 
   return (
     <>
-      <div className={stageClass} ref={stageRef}>
+      <div
+        className={stageClass}
+        ref={stageRef}
+        style={
+          framed
+            ? undefined
+            : {
+                backgroundImage: `url(${stillPoster})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
+        }
+      >
         {framed ? null : (
           <Poster
             source={source}

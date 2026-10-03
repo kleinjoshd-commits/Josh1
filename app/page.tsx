@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { preload } from "react-dom";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
@@ -30,6 +31,7 @@ function LeadCopy({ text }: { text: string }) {
 }
 
 export default function Home() {
+  preload(homepageMedia.brand.modalPoster, { as: "image", fetchPriority: "high" });
   const caps = homepageCopy.capabilities;
   const mfam = homepageCopy.mfam;
   const dev = homepageCopy.developers;

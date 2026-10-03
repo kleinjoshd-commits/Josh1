@@ -4283,6 +4283,7 @@ main.sitePage .flowSteps b {
   color: #f7f8f6;
 }
 main.sitePage .flowSteps p { margin: 0; }
+.flowOps { margin-top: 18px; }
 main.sitePage .sectionBlock { margin-top: 36px; }
 main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
 @media (max-width: 800px) {
@@ -4367,7 +4368,7 @@ main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
   width: 100%;
   height: calc(100% + 78px);
   object-fit: cover;
-  object-position: center 42%;
+  object-position: center center;
 }
 .whoCopy {
   position: absolute;
@@ -4729,9 +4730,9 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
 .codeWindow .codePanel { margin: 0; border: 0; border-radius: 0; background: transparent; }
 .solArt {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  height: 168px;
+  height: 210px;
   margin: -4px -4px 14px;
   border-radius: 12px;
   overflow: hidden;
@@ -4742,10 +4743,11 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
 .solArt .vizWorker,
 .solArt .vizMini { transform: scale(0.62); transform-origin: top center; }
 .solArt .whoDrone {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
 }
 .solArt .vizHost { min-height: 168px; height: 168px; border: 0; }
 .machinesPage .ebWrap { padding-bottom: 28px; }

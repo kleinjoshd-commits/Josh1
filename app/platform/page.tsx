@@ -32,10 +32,11 @@ export default function PlatformPage() {
 
       <section className="deckLight">
         <div className="container deckInner">
-          <SplitStory visual={<OpsConsole />}>
-            <h2 className="homeSectionTitle">How a payment moves</h2>
-            <FlowRow steps={product.flow} />
-          </SplitStory>
+          <h2 className="homeSectionTitle">How a payment moves</h2>
+          <FlowRow steps={product.flow} />
+          <div className="flowOps">
+            <OpsConsole />
+          </div>
 
           <div className="sectionBlock">
             <SplitStory
