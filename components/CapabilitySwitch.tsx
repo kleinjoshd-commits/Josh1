@@ -100,12 +100,39 @@ function CardStage() {
         <div className="capHandsetTop">Card</div>
         <div className="capHandsetScreen">
           <strong>$2,480.00</strong>
-          <span>Freeze</span>
+          <span className="capHeld">Held at the issuing bank</span>
+          <div className="capControls">
+            <span>Freeze</span>
+            <span>Limits</span>
+          </div>
         </div>
       </div>
-      <div className="capPlastic">
-        <span>MPE</span>
-        <b>Spend controls</b>
+      <div className="capCardFloat">
+        <i className="capCardGlow" aria-hidden="true" />
+        <div className="capPlastic">
+          <span className="capSheen" aria-hidden="true" />
+          <span className="capBrand">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/mpe-logo.png" alt="" width={1035} height={238} />
+          </span>
+          <svg className="capWave" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M9 12.5c2.2 2 2.2 5 0 7" />
+            <path d="M14 8.5c4.2 3.6 4.2 11.4 0 15" />
+            <path d="M19 5c6 5.2 6 16.8 0 22" />
+          </svg>
+          <svg className="capEmv" viewBox="0 0 46 34" aria-hidden="true">
+            <defs>
+              <linearGradient id="capChipGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#f3e2b0" />
+                <stop offset="0.45" stopColor="#c9a15a" />
+                <stop offset="1" stopColor="#8c6a32" />
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="44" height="32" rx="5" fill="url(#capChipGold)" />
+            <path d="M1 12h44M1 22h44M16 1v32M31 1v32" />
+          </svg>
+          <b className="capPan">•••• 4821</b>
+        </div>
       </div>
     </div>
   );
