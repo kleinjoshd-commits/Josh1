@@ -76,6 +76,7 @@ export default function Home() {
               <Link key={card.href} href={card.href} className="whoCard">
                 <span className="whoVisual" aria-hidden="true">
                   <SegmentVisual
+                    frame="card"
                     kind={
                       card.href.endsWith("/platforms")
                         ? "platforms"

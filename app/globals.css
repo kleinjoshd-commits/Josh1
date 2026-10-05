@@ -4340,58 +4340,74 @@ main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
 .whoGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 18px;
+  gap: 16px;
+  margin-top: 28px;
+  align-items: stretch;
 }
 .whoCard {
   position: relative;
-  display: block;
-  height: 280px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: auto;
   overflow: hidden;
-  border-radius: 16px;
-  background: #10241c;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: #0e1c16;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
   color: #f7f8f6;
   text-decoration: none;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
 }
-.whoCard:hover { border-color: rgba(125, 255, 195, 0.45); }
+.whoCard:focus-visible {
+  outline: 2px solid #7dffc3;
+  outline-offset: 3px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .whoCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(125, 255, 195, 0.5);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+}
 .whoVisual {
-  position: absolute;
-  inset: 0 0 78px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 16px 0;
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 80% at 50% 0%, rgba(36, 184, 122, 0.26), transparent 62%),
+    linear-gradient(180deg, #17352a 0%, #0c1a15 100%);
 }
 .whoVisual .whoDrone {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: calc(100% + 78px);
+  height: 100%;
+  max-width: none;
   object-fit: cover;
   object-position: center center;
 }
 .whoCopy {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  flex: 1 1 auto;
   z-index: 1;
-  padding: 28px 16px 14px;
-  background: linear-gradient(180deg, rgba(7, 17, 13, 0) 0%, rgba(7, 17, 13, 0.92) 42%, #07110d 100%);
+  padding: 16px 18px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 32%), #0c1914;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .whoCopy strong {
   display: block;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 620;
   letter-spacing: -0.03em;
 }
 .whoCopy p {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   max-width: 36ch;
   color: rgba(232, 240, 236, 0.82);
-  font-size: 14px;
-  line-height: 1.35;
+  font-size: 15px;
+  line-height: 1.4;
 }
 .codePanel {
   margin: 18px 0 0;
@@ -4476,7 +4492,9 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   .trustList,
   .operatorGrid,
   main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr; }
-  .whoCard { height: 280px; }
+  .whoVisual { aspect-ratio: 4 / 3; }
+  .whoCopy { padding: 14px 16px 16px; }
+  .whoCopy strong { font-size: 20px; }
 }
 .vizRow {
   display: grid;
@@ -4580,10 +4598,57 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   text-transform: uppercase;
 }
 .vizHostPhones { display: flex; gap: 12px; justify-content: center; }
-.whoCard .vizHost { min-height: 0; height: 100%; border: 0; background: transparent; }
-.whoCard .vizPhone { width: 132px; }
-.whoCard .vizPhoneBody { min-height: 108px; padding: 10px; }
-.whoCard .vizPay strong { font-size: 16px; }
+.whoCard .whoPhone {
+  position: absolute;
+  left: 50%;
+  top: 7%;
+  width: 80%;
+  transform: translateX(-50%);
+}
+.whoCard .whoPhone.is-pay {
+  top: 5%;
+  width: 68%;
+  transform: translateX(-50%) scale(1.18);
+  transform-origin: top center;
+}
+@media (min-width: 701px) {
+  .whoCard .whoPhone.is-pay {
+    top: 7%;
+    width: 56%;
+    transform: translateX(-50%) scale(1.42);
+    transform-origin: top center;
+  }
+}
+.whoCard .whoPhone .vizPhone {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 28px 28px 22px 22px;
+  padding: 12px 12px 18px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
+}
+.whoCard .vizPhoneTop {
+  margin: 2px 8px 10px;
+  font-size: 12px;
+}
+.whoCard .vizPhoneBody {
+  min-height: 0;
+  border-radius: 18px;
+  padding: 16px 16px 18px;
+}
+.whoCard .vizPay strong {
+  margin: 6px 0 8px;
+  font-size: clamp(26px, 4.6vw, 36px);
+  letter-spacing: -0.04em;
+}
+.whoCard .vizPay p { font-size: 12px; }
+.whoCard .vizPay span { font-size: 14px; line-height: 1.35; }
+.whoCard .vizPay em { margin-top: 14px; font-size: 12px; }
+.whoCard .vizWorkerList li {
+  padding: 10px 0;
+  font-size: 16px;
+  line-height: 1.2;
+}
 .vizWorker { display: flex; justify-content: center; }
 .vizWorkerList {
   list-style: none;
@@ -4658,55 +4723,100 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
 .vizRoutes .isPicked em { color: #0d8a58; }
 .vizMini {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 10px;
-  align-items: center;
-  width: min(100%, 420px);
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1.08fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: stretch;
+  width: min(100%, 520px);
+  min-height: 168px;
 }
-.vizMiniProviders,
-.vizMiniScore {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.vizMiniProviders { display: contents; }
 .vizMiniProviders span,
 .vizMiniScore span,
 .vizMiniScore b {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   text-align: center;
+  line-height: 1.2;
+}
+.vizMiniProviders span { align-self: center; margin: 0 0 0 2px; }
+.whoCard .vizMiniProviders span,
+.whoCard .vizMiniScore span {
+  min-height: 40px;
+  padding: 10px 12px;
+  font-size: 15px;
+}
+.whoCard .vizMiniScore {
+  align-self: center;
+  height: auto;
+}
+.whoCard .vizMiniScore b { font-size: 13px; }
+.vizMiniWires {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+.vizMiniWires path {
+  fill: none;
+  stroke: #7dffc3;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 .vizMiniScore {
-  background: rgba(22, 168, 108, 0.16);
-  border: 1px solid rgba(125, 255, 195, 0.35);
-  border-radius: 14px;
-  padding: 8px;
-}
-.vizMiniScore b { background: transparent; border: 0; color: #7dffc3; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; }
-.vizMiniLines {
-  width: 28px;
-  height: 72px;
-  background:
-    linear-gradient(#7dffc3, #7dffc3) center/2px 100% no-repeat;
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
   position: relative;
+  background: rgba(22, 168, 108, 0.16);
+  border: 1px solid rgba(125, 255, 195, 0.4);
+  border-radius: 16px;
+  padding: 12px;
 }
-.vizMiniLines::before,
-.vizMiniLines::after {
+.vizMiniScore::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
+  left: -5px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
   background: #7dffc3;
+  box-shadow: 0 0 0 4px rgba(125, 255, 195, 0.16);
 }
-.vizMiniLines::before { top: 8px; }
-.vizMiniLines::after { bottom: 8px; }
-.whoCard .vizMini { width: 100%; }
+.vizMiniScore b {
+  background: transparent;
+  border: 0;
+  color: #7dffc3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.whoCard .vizMini {
+  position: absolute;
+  inset: 8% 6%;
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  height: auto;
+}
 .codePair {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4741,13 +4851,15 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   position: relative;
 }
 .solArt .vizHost,
-.solArt .vizWorker,
-.solArt .vizMini { transform: scale(0.62); transform-origin: top center; }
+.solArt .vizWorker { transform: scale(0.78); transform-origin: center center; }
+.solArt .vizMini { transform: none; width: calc(100% - 8px); height: calc(100% - 12px); min-height: 0; }
 .solArt .whoDrone {
-  width: auto;
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+  max-width: none;
+  object-fit: cover;
   object-position: center center;
 }
 .solArt .vizHost { min-height: 168px; height: 168px; border: 0; }
@@ -4760,6 +4872,61 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   .vizRow,
   .codePair { grid-template-columns: 1fr; }
   .vizHost { grid-template-columns: 72px 1fr; }
+}
+
+.codePanel { max-width: 100%; box-sizing: border-box; }
+.home .hpDev,
+.home .hpDev .hpWrap { min-width: 0; }
+
+.home .hpCaps .hpWrap,
+.home .hpWho .hpWrap,
+.home .hpFilm .hpWrap,
+.home .hpMfam .hpWrap,
+.home .hpDev .hpWrap,
+.home .mpeMap .wrap,
+.home #kyc .ebWrap {
+  padding-top: 64px;
+  padding-bottom: 8px;
+}
+.home #kyc .ebWrap { padding-bottom: 72px; }
+.home .routeBoard { margin-top: 24px; margin-bottom: 36px; }
+.home .hpMfamFilm { margin-top: 28px; }
+.home .hpPoints { margin-top: 32px; gap: 24px; }
+
+@media (max-width: 700px) {
+  .home .hpCaps .hpWrap,
+  .home .hpWho .hpWrap,
+  .home .hpFilm .hpWrap,
+  .home .hpMfam .hpWrap,
+  .home .hpDev .hpWrap,
+  .home .mpeMap .wrap,
+  .home #kyc .ebWrap {
+    padding-top: 40px;
+    padding-bottom: 4px;
+  }
+  .home #kyc .ebWrap { padding-bottom: 40px; }
+  .home .routeBoard { margin-top: 18px; margin-bottom: 22px; }
+  .home .hpMfamFilm { margin-top: 18px; }
+  .home .hpPoints { margin-top: 22px; gap: 16px; }
+  .home .hpCapGrid { gap: 10px; }
+  .home .hpCapGrid li { padding: 16px; gap: 12px; }
+  .home .hpCapGrid p { font-size: 14.5px; }
+  .home .whoGrid { gap: 12px; margin-top: 18px; }
+  .home .codePanel { font-size: 12px; line-height: 1.5; padding: 14px 12px; }
+  .home .codePanel code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .home .mpeMap .maprow { margin-top: 18px; gap: 16px; }
+  .home .mpeMap .statsline { margin-top: 18px; padding-top: 16px; gap: 14px 20px; }
+  .home .mpeMap .foot-quote { margin-top: 16px; }
+  .home .mpeMap h2 { margin: 10px 0 8px; }
+  .home .kycHead h2 { font-size: 28px; }
+  .home .routeFeed li { min-width: 0; }
+  .home .routeFeed b { min-width: 0; }
+  .home .routeStop { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whoCard,
+  .whoCard:hover { transform: none; transition: none; }
 }
 
 .payFace:first-child {
