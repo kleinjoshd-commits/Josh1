@@ -97,8 +97,11 @@ function CardStage() {
   return (
     <div className="capCardScene">
       <div className="capHandset" aria-hidden="true">
-        <i />
-        <b />
+        <div className="capHandsetTop">Card</div>
+        <div className="capHandsetScreen">
+          <strong>$2,480.00</strong>
+          <span>Freeze</span>
+        </div>
       </div>
       <div className="capPlastic">
         <span>MPE</span>

@@ -82,7 +82,7 @@ export function WorkerPhone() {
         <ul className="vizWorkerList">
           <li>Verified</li>
           <li>Paid</li>
-          <li>Send money home</li>
+          <li>Card ready</li>
         </ul>
         <CardScreen />
       </Phone>
@@ -245,7 +245,7 @@ export function SegmentVisual({
         <ul className="vizWorkerList">
           <li>Verified</li>
           <li>Paid</li>
-          <li>Send money home</li>
+          <li>Card ready</li>
         </ul>
         <CardScreen />
       </CardPhone>

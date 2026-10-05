@@ -3829,45 +3829,69 @@ header.siteHeader {
   font-weight: 650;
 }
 .capDeviceBody em { font-style: normal; color: #0d8a58; }
-.capCardScene { position: absolute; inset: 8% 6%; }
+.capCardScene { position: absolute; inset: 0; }
 .capHandset {
   position: absolute;
   left: 50%;
-  bottom: 0;
-  width: min(54%, 280px);
-  height: 78%;
+  top: 7%;
+  width: 70%;
+  height: 118%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 12px 12px 0;
   border-radius: 28px 28px 0 0;
   background: #0b1a14;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
 }
-.capHandset i {
+.capHandsetTop {
+  margin: 2px 8px 8px;
+  color: #d7efe4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.capHandsetScreen {
+  flex: 1;
+  border-radius: 18px 18px 0 0;
+  padding: 16px 16px 12px;
+  background:
+    radial-gradient(90% 50% at 50% 0%, rgba(36, 184, 122, 0.22), transparent 70%),
+    #07140f;
+  color: #f4f7f5;
+}
+.capHandsetScreen strong {
   display: block;
-  width: 42%;
-  height: 8px;
-  margin: 10px auto 0;
+  font-size: clamp(26px, 5.4vw, 36px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.capHandsetScreen span {
+  display: inline-flex;
+  margin-top: 12px;
+  padding: 5px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-}
-.capHandset b {
-  display: block;
-  height: calc(100% - 28px);
-  margin: 10px 10px 0;
-  border-radius: 16px 16px 0 0;
-  background: linear-gradient(180deg, #16382c, #0e241c);
+  border: 1px solid rgba(125, 255, 195, 0.55);
+  color: #7dffc3;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .capPlastic {
   position: absolute;
   z-index: 1;
   left: 50%;
-  top: 8%;
-  width: min(72%, 380px);
-  height: 46%;
+  top: 54%;
+  width: min(78%, 420px);
+  height: 36%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 8% 8%;
+  padding: 7% 8%;
   border-radius: 16px;
   color: #f4f7f5;
   background: linear-gradient(145deg, #1c9a68, #0c3d2c 55%, #08261b);
@@ -3944,6 +3968,8 @@ header.siteHeader {
   .capPills button { width: 100%; text-align: left; }
   .capStage { margin-top: 0; aspect-ratio: auto; min-height: 460px; height: 100%; }
   .capDevice { width: min(46%, 340px); }
+  .capHandset { width: min(42%, 320px); }
+  .capPlastic { top: 42%; width: min(50%, 460px); height: 42%; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .capStageIn { animation: capIn 0.4s ease; }
