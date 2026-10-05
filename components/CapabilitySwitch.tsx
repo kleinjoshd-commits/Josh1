@@ -54,13 +54,61 @@ function RoutingStage() {
 function PayoutStage() {
   return (
     <div className="capPayout">
-      <span className="capKicker">Payout</span>
-      <div className="capDests">
-        <b>Bank</b>
-        <b>Debit card</b>
-        <b>Wallet</b>
+      <div className="capPaySource">
+        <span>Your platform</span>
+        <strong>$2,480.00</strong>
       </div>
-      <em className="capDelivered">Delivered</em>
+      <div className="capPayLink" aria-hidden="true">
+        <i />
+        <b className="capPayBead" />
+      </div>
+      <div className="capPayCore">
+        <strong className="capPayBrand">MPE</strong>
+        <ol className="capPaySteps">
+          <li>
+            <i>1</i>
+            <span>Authorize</span>
+          </li>
+          <li>
+            <i>2</i>
+            <span>Route</span>
+          </li>
+          <li>
+            <i>3</i>
+            <span>Sign</span>
+          </li>
+        </ol>
+      </div>
+      <div className="capPayFan" aria-hidden="true">
+        <svg className="isWide" viewBox="0 0 48 200" preserveAspectRatio="none">
+          <path className="isOn" d="M0 100 C 30 100, 30 32, 48 32" />
+          <path d="M0 100 H 48" />
+          <path d="M0 100 C 30 100, 30 168, 48 168" />
+        </svg>
+        <svg className="isNarrow" viewBox="0 0 300 36" preserveAspectRatio="none">
+          <path className="isOn" d="M150 0 C 150 18, 50 16, 50 36" />
+          <path d="M150 0 V 36" />
+          <path d="M150 0 C 150 18, 250 16, 250 36" />
+        </svg>
+      </div>
+      <div className="capPayTiles">
+        <div className="capPayTile isLanded">
+          <b>Bank account</b>
+          <span className="capPayDone">
+            <svg className="capPayCheck" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M7.5 12.5 10.5 15.5 16.5 9" />
+            </svg>
+            Delivered
+          </span>
+        </div>
+        <div className="capPayTile">
+          <b>Debit card</b>
+        </div>
+        <div className="capPayTile">
+          <b>Wallet</b>
+        </div>
+      </div>
     </div>
   );
 }
