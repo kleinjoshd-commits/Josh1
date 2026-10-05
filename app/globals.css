@@ -4705,6 +4705,74 @@ main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
 .hpDev .hpWrap { padding-top: 8px; padding-bottom: 24px; }
 .hpDev .hpLede { color: rgba(232, 240, 236, 0.78); }
 .hpDev .btnRow { margin-top: 22px; }
+.hpDev .devSteps { display: none; list-style: none; margin: 18px 0 0; padding: 0; }
+.hpDev .devWindow {
+  margin-top: 18px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0b1a14;
+}
+.hpDev .devChrome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #10241c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hpDev .devDots { display: flex; gap: 6px; }
+.hpDev .devDots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+}
+.hpDev .devChrome b {
+  color: #9dcfb6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.hpDev .devCopy {
+  margin-left: auto;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: #f7f8f6;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.hpDev .devCopy:hover { border-color: rgba(125, 255, 195, 0.55); }
+.hpDev .devCopy:focus-visible { outline: 2px solid #7dffc3; outline-offset: 2px; }
+.hpDev .devCode {
+  margin: 0;
+  padding: 16px 18px 18px;
+  overflow-x: auto;
+  color: #e7f6ef;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+.hpDev .devCode code { font-family: inherit; white-space: pre; }
+.hpDev .tokVerb { color: #7dffc3; font-weight: 700; }
+.hpDev .tokPath { color: #f7f8f6; }
+.hpDev .tokLabel { color: #9dcfb6; }
+.hpDev .tokKey { color: #c8ffe6; }
+.hpDev .tokStr { color: #f3d38a; }
+.hpDev .tokNum { color: #ffffff; }
+.home .devMore { margin: 18px 0 0; }
+.home .textLink {
+  color: #7dffc3;
+  font-weight: 650;
+  font-size: 15px;
+  text-decoration: none;
+}
+.home .textLink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .whoGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -5272,7 +5340,50 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
     padding-top: 40px;
     padding-bottom: 4px;
   }
-  .home #kyc .ebWrap { padding-bottom: 40px; }
+  .home .hpMfam .hpWrap { padding-bottom: 28px; }
+  .home .hpDev .hpWrap { padding-top: 56px; padding-bottom: 20px; }
+  .home #kyc .ebWrap { padding-top: 48px; padding-bottom: 40px; }
+  .home .hpMfam .btnRow { margin-top: 28px; }
+  .hpDev .devWindow { display: none; }
+  .hpDev .devSteps {
+    display: grid;
+    gap: 10px;
+  }
+  .hpDev .devSteps li {
+    margin: 0;
+    padding: 14px 14px 12px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .hpDev .devSteps b {
+    display: block;
+    color: #f7f8f6;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hpDev .devSteps span {
+    display: block;
+    margin-top: 3px;
+    color: #9dcfb6;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .hpDev .devSteps code {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    color: #d7efe4;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.45;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
   .home .routeBoard { margin-top: 18px; margin-bottom: 22px; }
   .home .hpMfamFilm { margin-top: 18px; }
   .home .hpPoints { margin-top: 22px; gap: 16px; }

@@ -8,7 +8,7 @@ import HeroFilm from "../components/HeroFilm";
 import FilmPlayer from "../components/FilmPlayer";
 import { SegmentVisual } from "../components/ProductVisuals";
 import CapabilitySwitch from "../components/CapabilitySwitch";
-import CodeSample from "../components/CodeSample";
+import HomeDev from "../components/HomeDev";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
 import { product, segments } from "@/content/product";
@@ -123,12 +123,12 @@ export default function Home() {
           <p className="hpEyebrow">{dev.eyebrow}</p>
           <h2 id="dev-title">{dev.heading}</h2>
           <p className="hpLede">{dev.lede}</p>
-          <CodeSample code={product.payoutSample} label="Payout request" />
-          <div className="btnRow">
-            <Link className="btnPrimary" href="/developers#kyc">
+          <HomeDev code={product.payoutSample} />
+          <p className="devMore">
+            <Link className="textLink" href="#kyc">
               {dev.cta}
             </Link>
-          </div>
+          </p>
         </div>
       </section>
 
