@@ -659,6 +659,7 @@ a:hover {
 /* Force the onboarding section to have correct readable text colors */
 #kyc {
   color: rgba(255, 255, 255, 0.92);
+  scroll-margin-top: 76px;
 }
 
 #kyc p,
@@ -3829,6 +3830,93 @@ header.siteHeader {
   font-weight: 650;
 }
 .capDeviceBody em { font-style: normal; color: #0d8a58; }
+.capStage[data-cap="wallet"] { aspect-ratio: 5 / 7; }
+.capWallet .capDevice {
+  height: auto;
+  top: 16px;
+  width: min(88%, 340px);
+  transform: translateX(-50%);
+  border-radius: 32px;
+  padding: 12px 12px 14px;
+}
+.capWallet .capDeviceBody {
+  border-radius: 20px;
+  padding: 14px 14px 6px;
+}
+.capPassStack {
+  position: relative;
+  height: auto;
+  margin-top: 14px;
+  padding-top: 28px;
+}
+.capPass {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 74px;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.capPassFar {
+  top: 0;
+  background: linear-gradient(160deg, #e7f0ea, #c5d8ce);
+  color: #3d5c4e;
+  border: 1px solid rgba(16, 36, 28, 0.08);
+}
+.capPassNear {
+  top: 16px;
+  left: 5%;
+  right: 5%;
+  background: linear-gradient(160deg, #1e4636, #0c241c);
+  color: #d7efe4;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.capPassFront {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.586;
+}
+.capPassFront .capPlastic { border-radius: 12px; }
+.capTap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.capTap b {
+  color: #10241c;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.capPulse {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+}
+.capPulse i,
+.capPulse svg {
+  position: absolute;
+  inset: 8px;
+}
+.capPulse i {
+  border: 1.5px solid rgba(13, 138, 88, 0.55);
+  border-radius: 50%;
+}
+.capPulse i:first-child { inset: 2px; }
+.capPulse svg {
+  fill: none;
+  stroke: #0d8a58;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
 .capStage[data-cap="card"] { aspect-ratio: 4 / 5; }
 .capCardScene {
   position: absolute;
@@ -4045,7 +4133,10 @@ header.siteHeader {
   .capStage[data-cap="card"] { aspect-ratio: auto; min-height: 600px; }
   .capDevice { width: min(46%, 340px); }
   .capHandset { width: min(52%, 420px); }
-  .capCardFloat { width: min(64%, 580px); margin-top: -16px; }
+  .capCardFloat { width: 55%; margin-top: 22px; }
+  .capWallet .capDevice { width: min(52%, 460px); top: 50%; transform: translate(-50%, -50%); }
+  .capWallet .capDeviceBody { border-radius: 22px; }
+  .capStage[data-cap="wallet"] { aspect-ratio: auto; min-height: 700px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .capStageIn { animation: capIn 0.4s ease; }
@@ -4067,6 +4158,8 @@ header.siteHeader {
       capCardIdle 3.6s ease-in-out 0.95s infinite;
   }
   .capSheen { animation: capSheen 1.05s ease 0.28s both; }
+  .capPulse i { animation: capPulse 1.8s ease-out infinite; }
+  .capPulse i:first-child { animation-delay: 0.45s; }
   .capIdSteps span { animation: capRise 0.4s ease both; }
   .capIdSteps span:nth-child(2) { animation-delay: 0.18s; }
   .capCheck path { animation: capDraw 0.5s ease 0.55s both; }
@@ -4106,6 +4199,10 @@ header.siteHeader {
 @keyframes capSheen {
   from { transform: translateX(-70%); }
   to { transform: translateX(70%); }
+}
+@keyframes capPulse {
+  from { transform: scale(0.72); opacity: 0.75; }
+  to { transform: scale(1.35); opacity: 0; }
 }
 @keyframes capDraw {
   from { stroke-dashoffset: 48; }
@@ -5024,11 +5121,55 @@ main.sitePage a.panel .go {
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
-main.sitePage .flowSteps.flowFour { grid-template-columns: repeat(4, 1fr); }
+main.sitePage .deckLight .flowSteps.flowFour {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 8px;
+}
+main.sitePage .deckLight .flowSteps.flowFour li {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  min-width: 0;
+  position: relative;
+}
+main.sitePage .deckLight .flowSteps.flowFour li::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  right: -22px;
+  height: 2px;
+  background: #c5d8ce;
+}
+main.sitePage .deckLight .flowSteps.flowFour li:last-child::before { display: none; }
+main.sitePage .deckLight .flowSteps.flowFour .flowIndex {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0e7c50;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+main.sitePage .deckLight .flowSteps.flowFour b {
+  color: #10241c;
+  font-size: 18px;
+  margin: 14px 0 6px;
+}
+main.sitePage .deckLight .flowSteps.flowFour p {
+  color: #3d5c4e;
+  font-size: 15px;
+  line-height: 1.45;
+}
 main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
 @media (max-width: 1000px) {
   .operatorGrid { grid-template-columns: 1fr 1fr; }
-  main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
   .hpWho h2,
@@ -5042,8 +5183,29 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   .whoGrid,
   .cardGrid2,
   .trustList,
-  .operatorGrid,
-  main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr; }
+  .operatorGrid { grid-template-columns: 1fr; }
+  main.sitePage .deckLight .flowSteps.flowFour {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  main.sitePage .deckLight .flowSteps.flowFour li {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 14px;
+    align-items: start;
+    padding: 0 0 22px;
+  }
+  main.sitePage .deckLight .flowSteps.flowFour li::before {
+    top: 32px;
+    bottom: 0;
+    left: 15px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  main.sitePage .deckLight .flowSteps.flowFour .flowIndex { grid-row: 1 / span 2; }
+  main.sitePage .deckLight .flowSteps.flowFour b { margin: 4px 0 4px; }
+  main.sitePage .deckLight .flowSteps.flowFour p { grid-column: 2; }
   .whoVisual { aspect-ratio: 4 / 3; }
   .whoCopy { padding: 14px 16px 16px; }
   .whoCopy strong { font-size: 20px; }

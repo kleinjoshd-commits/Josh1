@@ -49,7 +49,7 @@ export const product = {
   developerSteps: [
     {
       title: "Get access",
-      body: "API docs and embeds come with access.",
+      body: "Request access. Keys, docs and embeds follow.",
     },
     {
       title: "Enroll and verify",

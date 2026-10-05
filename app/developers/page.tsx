@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Nav from "@/components/Nav";
 import FlowRow from "@/components/FlowRow";
 import CodeSample from "@/components/CodeSample";
@@ -24,7 +23,7 @@ export default function DevelopersPage() {
             API docs and embeds come with access.
           </p>
           <div className="btnRow">
-            <Link className="btnPrimary" href="#kyc">Request access</Link>
+            <a className="btnPrimary" href="#kyc">Request access</a>
           </div>
         </div>
       </section>
