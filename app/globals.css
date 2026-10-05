@@ -3668,32 +3668,341 @@ header.siteHeader {
   outline: 2px solid #7dffc3;
   outline-offset: 2px;
 }
-.capPanel {
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  gap: 14px;
-  align-items: start;
+.capSwitch { min-width: 0; }
+.capStage {
+  position: relative;
   margin-top: 14px;
-  padding: 16px 18px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.045);
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(90% 80% at 50% 0%, rgba(36, 184, 122, 0.26), transparent 62%),
+    linear-gradient(180deg, #17352a 0%, #0c1a15 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.capStageIn { position: absolute; inset: 0; }
+.capKicker,
+.capRouteTop b,
+.capMeter,
+.capHeld,
+.capDeviceTop,
+.capIdSteps span {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.capRoutes,
+.capPayout,
+.capId {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 8% 7%;
+}
+.capRoute {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-height: 0;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
-.capPanel strong {
+.capRoute.isPicked {
+  background: rgba(22, 168, 108, 0.16);
+  border-color: rgba(125, 255, 195, 0.7);
+  box-shadow: 0 0 0 1px rgba(125, 255, 195, 0.35), 0 0 28px rgba(125, 255, 195, 0.22);
+}
+.capRouteTop { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.capRouteTop b { color: #f7f8f6; font-size: 13px; }
+.capPick {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #0e7c50;
+  color: #fff;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.capMeters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.capMeter { color: rgba(232, 240, 236, 0.72); font-size: 10px; }
+.capMeter.isLead { color: #7dffc3; }
+.capMeter i {
   display: block;
-  color: #f7f8f6;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
+  height: 4px;
+  margin-bottom: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
 }
-.capPanel p {
-  margin: 6px 0 0;
-  max-width: 42ch;
-  color: rgba(232, 240, 236, 0.78);
+.capMeter i::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 48%;
+  border-radius: inherit;
+  background: #9dcfb6;
+  transform-origin: left center;
+}
+.capMeter.isLow i::after { width: 34%; }
+.capMeter.isMid i::after { width: 62%; }
+.capMeter.isHigh i::after,
+.capMeter.isFull i::after { width: 100%; background: #7dffc3; }
+.capMeter.isLead i::after { background: #7dffc3; }
+.capPayout { align-items: center; text-align: center; gap: 18px; }
+.capKicker { color: #9dcfb6; font-size: 12px; }
+.capDests { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.capDests b {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(125, 255, 195, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f7f8f6;
   font-size: 15px;
-  line-height: 1.45;
+}
+.capDelivered {
+  font-style: normal;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 640;
+  letter-spacing: -0.04em;
+  color: #7dffc3;
+}
+.capWallet { position: absolute; inset: 0; }
+.capDevice {
+  position: absolute;
+  left: 50%;
+  top: 7%;
+  width: 78%;
+  height: 118%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 12px 12px 0;
+  border-radius: 28px 28px 0 0;
+  background: #0b1a14;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
+}
+.capDeviceTop {
+  margin: 2px 8px 8px;
+  color: #d7efe4;
+  font-size: 12px;
+}
+.capDeviceBody {
+  flex: 1;
+  border-radius: 18px 18px 0 0;
+  padding: 16px 16px 12px;
+  background: #f6f8f7;
+  color: #10241c;
+}
+.capDeviceBody strong {
+  display: block;
+  font-size: clamp(28px, 6vw, 40px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.capHeld {
+  display: block;
+  margin-top: 8px;
+  color: #3d5c4e;
+  font-size: 11px;
+}
+.capDeviceBody ul { list-style: none; margin: 14px 0 0; padding: 0; }
+.capDeviceBody li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 10px 0;
+  border-top: 1px solid #e2ebe6;
+  font-size: 15px;
+  font-weight: 650;
+}
+.capDeviceBody em { font-style: normal; color: #0d8a58; }
+.capCardScene { position: absolute; inset: 8% 6%; }
+.capHandset {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(54%, 280px);
+  height: 78%;
+  transform: translateX(-50%);
+  border-radius: 28px 28px 0 0;
+  background: #0b1a14;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+.capHandset i {
+  display: block;
+  width: 42%;
+  height: 8px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+.capHandset b {
+  display: block;
+  height: calc(100% - 28px);
+  margin: 10px 10px 0;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(180deg, #16382c, #0e241c);
+}
+.capPlastic {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  width: min(78%, 420px);
+  height: 46%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8% 8%;
+  border-radius: 16px;
+  color: #f4f7f5;
+  background: linear-gradient(145deg, #1c9a68, #0c3d2c 55%, #08261b);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  transform: perspective(900px) rotateX(12deg) rotateY(-16deg);
+  transform-origin: center bottom;
+}
+.capPlastic span { font-size: 13px; font-weight: 750; letter-spacing: 0.14em; }
+.capPlastic b { font-size: clamp(16px, 2.4vw, 22px); font-weight: 640; letter-spacing: -0.03em; }
+.capId { align-items: center; text-align: center; }
+.capIdSteps { display: flex; gap: 8px; }
+.capIdSteps span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #d7efe4;
+  font-size: 12px;
+}
+.capVerified { display: grid; justify-items: center; gap: 8px; }
+.capCheck { width: min(42%, 168px); height: auto; }
+.capCheck circle,
+.capCheck path { fill: none; stroke: #7dffc3; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.capVerified b {
+  color: #f7f8f6;
+  font-size: clamp(22px, 4vw, 32px);
+  letter-spacing: -0.03em;
+}
+.capMachine { position: absolute; inset: 0; }
+.capMachine img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+}
+.capMachineChip {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(7, 17, 13, 0.82);
+  border: 1px solid rgba(125, 255, 195, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+.capMachineChip b { color: #f7f8f6; font-size: 20px; letter-spacing: -0.03em; }
+.capMachineChip em {
+  font-style: normal;
+  color: #7dffc3;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@media (min-width: 900px) {
+  .capSwitch {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 18px;
+    align-items: stretch;
+  }
+  .capPills {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .capPills button { width: 100%; text-align: left; }
+  .capStage { margin-top: 0; aspect-ratio: auto; min-height: 460px; height: 100%; }
+  .capDevice { width: min(46%, 340px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .capStageIn { animation: capIn 0.4s ease; }
+  .capRoute { animation: capRise 0.45s ease both; }
+  .capRoute:nth-child(2) { animation-delay: 0.1s; }
+  .capRoute:nth-child(3) { animation-delay: 0.2s; }
+  .capMeter i::after { animation: capFill 0.45s ease 0.28s both; }
+  .capPick { animation: capPop 0.4s ease 0.75s both; }
+  .capDests b { animation: capLand 1.15s ease both; }
+  .capDests b:nth-child(2) { animation-delay: 0.28s; }
+  .capDests b:nth-child(3) { animation-delay: 0.56s; }
+  .capDelivered { animation: capPop 0.45s ease 1s both; }
+  .capDeviceBody li { animation: capRise 0.4s ease both; }
+  .capDeviceBody li:nth-child(2) { animation-delay: 0.12s; }
+  .capDeviceBody li:nth-child(3) { animation-delay: 0.24s; }
+  .capPlastic { animation: capCardUp 0.9s cubic-bezier(0.16, 0.8, 0.2, 1) both; }
+  .capIdSteps span { animation: capRise 0.4s ease both; }
+  .capIdSteps span:nth-child(2) { animation-delay: 0.18s; }
+  .capCheck path { animation: capDraw 0.5s ease 0.55s both; }
+  .capVerified b { animation: capPop 0.4s ease 0.85s both; }
+  .capMachineChip b { animation: capRise 0.4s ease 0.25s both; }
+  .capMachineChip em { animation: capPop 0.4s ease 0.7s both; }
+}
+@keyframes capIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes capRise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes capPop {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes capFill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes capLand {
+  0% { opacity: 0.4; transform: translateY(8px); }
+  40% { opacity: 1; transform: none; box-shadow: 0 0 0 1px rgba(125, 255, 195, 0.8); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes capCardUp {
+  from { transform: perspective(900px) rotateX(18deg) rotateY(-8deg) translateY(58%); }
+  to { transform: perspective(900px) rotateX(12deg) rotateY(-16deg) translateY(0); }
+}
+@keyframes capDraw {
+  from { stroke-dashoffset: 48; }
+  to { stroke-dashoffset: 0; }
+}
+.capCheck path { stroke-dasharray: 48; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .capPills button,
+  .capStage,
+  .capStageIn,
+  .capRoute,
+  .capPlastic,
+  .capMachineChip { transition: none; }
 }
 
 .routeFlow {
