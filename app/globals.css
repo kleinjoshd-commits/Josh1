@@ -3829,19 +3829,25 @@ header.siteHeader {
   font-weight: 650;
 }
 .capDeviceBody em { font-style: normal; color: #0d8a58; }
-.capCardScene { position: absolute; inset: 0; }
-.capHandset {
+.capStage[data-cap="card"] { aspect-ratio: 4 / 5; }
+.capCardScene {
   position: absolute;
-  left: 50%;
-  top: 7%;
-  width: 70%;
-  height: 118%;
-  transform: translateX(-50%);
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 14px 18px;
+}
+.capHandset {
+  position: relative;
+  width: min(78%, 400px);
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 12px 12px 0;
-  border-radius: 28px 28px 0 0;
+  padding: 12px 12px 10px;
+  border-radius: 28px;
   background: #0b1a14;
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
@@ -3855,52 +3861,121 @@ header.siteHeader {
   text-transform: uppercase;
 }
 .capHandsetScreen {
-  flex: 1;
-  border-radius: 18px 18px 0 0;
-  padding: 16px 16px 12px;
-  background:
-    radial-gradient(90% 50% at 50% 0%, rgba(36, 184, 122, 0.22), transparent 70%),
-    #07140f;
-  color: #f4f7f5;
+  border-radius: 18px;
+  padding: 16px 16px 34px;
+  background: #f6f8f7;
+  color: #10241c;
 }
 .capHandsetScreen strong {
   display: block;
-  font-size: clamp(26px, 5.4vw, 36px);
+  font-size: clamp(26px, 5.2vw, 36px);
   letter-spacing: -0.04em;
   line-height: 1;
+  color: #10241c;
 }
-.capHandsetScreen span {
-  display: inline-flex;
+.capControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 12px;
+}
+.capControls span {
+  display: inline-flex;
   padding: 5px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(125, 255, 195, 0.55);
-  color: #7dffc3;
+  border: 1px solid #c9ddd4;
+  background: #fff;
+  color: #10241c;
   font-size: 11px;
   font-weight: 750;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+.capCardFloat {
+  position: relative;
+  z-index: 1;
+  width: min(94%, 620px);
+  aspect-ratio: 1.586;
+  flex: 0 0 auto;
+  margin-top: -26px;
+  transform: perspective(1200px) rotateX(10deg) rotateY(-16deg);
+  transform-origin: center center;
+}
+.capCardGlow {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 2%;
+  height: 22%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(125, 255, 195, 0.72), rgba(22, 168, 108, 0.22) 46%, transparent 72%);
+  filter: blur(8px);
 }
 .capPlastic {
   position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: 54%;
-  width: min(78%, 420px);
-  height: 36%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 7% 8%;
-  border-radius: 16px;
-  color: #f4f7f5;
-  background: linear-gradient(145deg, #1c9a68, #0c3d2c 55%, #08261b);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-  transform: perspective(900px) rotateX(12deg) rotateY(-14deg) translateX(-50%);
-  transform-origin: center bottom;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #f7f8f6;
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.28), transparent 34%),
+    repeating-linear-gradient(96deg, rgba(255, 255, 255, 0.045) 0 1px, rgba(0, 0, 0, 0.05) 1px 3px),
+    linear-gradient(145deg, #3e8f6c 0%, #14553c 36%, #071910 68%, #1c6b4c 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 18px 28px rgba(0, 0, 0, 0.38);
 }
-.capPlastic span { font-size: 13px; font-weight: 750; letter-spacing: 0.14em; }
-.capPlastic b { font-size: clamp(16px, 2.4vw, 22px); font-weight: 640; letter-spacing: -0.03em; }
+.capSheen {
+  position: absolute;
+  inset: -30% -50%;
+  background: linear-gradient(102deg, transparent 42%, rgba(255, 255, 255, 0.62) 50%, transparent 58%);
+  transform: translateX(-70%);
+  pointer-events: none;
+}
+.capBrand {
+  position: absolute;
+  top: 11%;
+  left: 7%;
+}
+.capBrand img {
+  display: block;
+  height: 13cqh;
+  width: auto;
+}
+.capPlastic { container-type: size; }
+.capWave {
+  position: absolute;
+  top: 12%;
+  right: 7%;
+  width: 13%;
+  height: auto;
+  fill: none;
+  stroke: #e7f6ee;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+.capEmv {
+  position: absolute;
+  top: 40%;
+  left: 7%;
+  width: 16%;
+  height: auto;
+}
+.capEmv path {
+  fill: none;
+  stroke: rgba(92, 64, 24, 0.45);
+  stroke-width: 1;
+}
+.capPan {
+  position: absolute;
+  left: 7%;
+  bottom: 12%;
+  color: #f7f8f6;
+  font-size: 11cqh;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+}
 .capId { align-items: center; text-align: center; }
 .capIdSteps { display: flex; gap: 8px; }
 .capIdSteps span {
@@ -3967,9 +4042,10 @@ header.siteHeader {
   }
   .capPills button { width: 100%; text-align: left; }
   .capStage { margin-top: 0; aspect-ratio: auto; min-height: 460px; height: 100%; }
+  .capStage[data-cap="card"] { aspect-ratio: auto; min-height: 600px; }
   .capDevice { width: min(46%, 340px); }
-  .capHandset { width: min(42%, 320px); }
-  .capPlastic { top: 42%; width: min(50%, 460px); height: 42%; }
+  .capHandset { width: min(52%, 420px); }
+  .capCardFloat { width: min(64%, 580px); margin-top: -16px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .capStageIn { animation: capIn 0.4s ease; }
@@ -3985,7 +4061,12 @@ header.siteHeader {
   .capDeviceBody li { animation: capRise 0.4s ease both; }
   .capDeviceBody li:nth-child(2) { animation-delay: 0.12s; }
   .capDeviceBody li:nth-child(3) { animation-delay: 0.24s; }
-  .capPlastic { animation: capCardUp 0.9s cubic-bezier(0.16, 0.8, 0.2, 1) both; }
+  .capCardFloat {
+    animation:
+      capCardUp 0.95s cubic-bezier(0.16, 0.84, 0.22, 1) both,
+      capCardIdle 3.6s ease-in-out 0.95s infinite;
+  }
+  .capSheen { animation: capSheen 1.05s ease 0.28s both; }
   .capIdSteps span { animation: capRise 0.4s ease both; }
   .capIdSteps span:nth-child(2) { animation-delay: 0.18s; }
   .capCheck path { animation: capDraw 0.5s ease 0.55s both; }
@@ -4015,8 +4096,16 @@ header.siteHeader {
   100% { opacity: 1; transform: none; }
 }
 @keyframes capCardUp {
-  from { transform: perspective(900px) rotateX(18deg) rotateY(-8deg) translateX(-50%) translateY(58%); }
-  to { transform: perspective(900px) rotateX(12deg) rotateY(-14deg) translateX(-50%) translateY(0); }
+  from { opacity: 0.2; transform: perspective(1200px) rotateX(28deg) rotateY(-6deg) translateY(48%); }
+  to { opacity: 1; transform: perspective(1200px) rotateX(10deg) rotateY(-16deg) translateY(0); }
+}
+@keyframes capCardIdle {
+  0%, 100% { transform: perspective(1200px) rotateX(10deg) rotateY(-16deg) translateY(0); }
+  50% { transform: perspective(1200px) rotateX(8deg) rotateY(-14deg) translateY(-7px); }
+}
+@keyframes capSheen {
+  from { transform: translateX(-70%); }
+  to { transform: translateX(70%); }
 }
 @keyframes capDraw {
   from { stroke-dashoffset: 48; }
