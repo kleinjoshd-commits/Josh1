@@ -7,9 +7,8 @@ import LicensedMap from "../components/LicensedMap";
 import HeroFilm from "../components/HeroFilm";
 import FilmPlayer from "../components/FilmPlayer";
 import { SegmentVisual } from "../components/ProductVisuals";
-import LineIcon from "../components/LineIcon";
-import RoutingDiagram from "../components/RoutingDiagram";
-import CodeSample from "../components/CodeSample";
+import CapabilitySwitch from "../components/CapabilitySwitch";
+import HomeDev from "../components/HomeDev";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
 import { product, segments } from "@/content/product";
@@ -47,22 +46,8 @@ export default function Home() {
             {caps.heading}
           </h2>
           <div data-reveal>
-            <RoutingDiagram />
+            <CapabilitySwitch items={caps.items} />
           </div>
-          <ul className="hpCapGrid">
-            {caps.items.map((item, index) => (
-              <li key={item.title} data-reveal style={{ transitionDelay: `${index * 50}ms` }}>
-                <LineIcon name={item.icon} />
-                <div>
-                  <strong>
-                    {item.title}
-                    {item.title === "Machine payments" ? <span className="hpChip">MFAM</span> : null}
-                  </strong>
-                  <p>{item.body}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -76,6 +61,7 @@ export default function Home() {
               <Link key={card.href} href={card.href} className="whoCard">
                 <span className="whoVisual" aria-hidden="true">
                   <SegmentVisual
+                    frame="card"
                     kind={
                       card.href.endsWith("/platforms")
                         ? "platforms"
@@ -137,12 +123,12 @@ export default function Home() {
           <p className="hpEyebrow">{dev.eyebrow}</p>
           <h2 id="dev-title">{dev.heading}</h2>
           <p className="hpLede">{dev.lede}</p>
-          <CodeSample code={product.payoutSample} label="Payout request" />
-          <div className="btnRow">
-            <Link className="btnPrimary" href="/developers#kyc">
+          <HomeDev code={product.payoutSample} />
+          <p className="devMore">
+            <Link className="textLink" href="#kyc">
               {dev.cta}
             </Link>
-          </div>
+          </p>
         </div>
       </section>
 

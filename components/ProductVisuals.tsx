@@ -82,7 +82,7 @@ export function WorkerPhone() {
         <ul className="vizWorkerList">
           <li>Verified</li>
           <li>Paid</li>
-          <li>Send money home</li>
+          <li>Card ready</li>
         </ul>
         <CardScreen />
       </Phone>
@@ -179,7 +179,11 @@ export function MiniRoute() {
         <span>Provider 2</span>
         <span>Provider 3</span>
       </div>
-      <div className="vizMiniLines" />
+      <svg className="vizMiniWires" viewBox="0 0 100 300" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 50 C 62 50, 62 150, 100 150" />
+        <path d="M0 150 H 100" />
+        <path d="M0 250 C 62 250, 62 150, 100 150" />
+      </svg>
       <div className="vizMiniScore">
         <b>Score</b>
         <span>Success</span>
@@ -190,10 +194,28 @@ export function MiniRoute() {
   );
 }
 
+function CardPhone({
+  label,
+  tone,
+  children,
+}: {
+  label: string;
+  tone: "pay" | "work";
+  children: ReactNode;
+}) {
+  return (
+    <div className={`whoPhone is-${tone}`}>
+      <Phone label={label}>{children}</Phone>
+    </div>
+  );
+}
+
 export function SegmentVisual({
   kind,
+  frame = "inline",
 }: {
   kind: "platforms" | "fintechs" | "businesses" | "machines";
+  frame?: "card" | "inline";
 }) {
   if (kind === "machines") {
     return (
@@ -208,6 +230,25 @@ export function SegmentVisual({
         loading="eager"
         fetchPriority="high"
       />
+    );
+  }
+  if (frame === "card" && kind === "platforms") {
+    return (
+      <CardPhone label="Your app" tone="pay">
+        <PayoutScreen />
+      </CardPhone>
+    );
+  }
+  if (frame === "card" && kind === "businesses") {
+    return (
+      <CardPhone label="Your brand" tone="work">
+        <ul className="vizWorkerList">
+          <li>Verified</li>
+          <li>Paid</li>
+          <li>Card ready</li>
+        </ul>
+        <CardScreen />
+      </CardPhone>
     );
   }
   if (kind === "platforms") return <HostApp screen="payout" />;
