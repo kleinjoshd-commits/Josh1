@@ -7,8 +7,7 @@ import LicensedMap from "../components/LicensedMap";
 import HeroFilm from "../components/HeroFilm";
 import FilmPlayer from "../components/FilmPlayer";
 import { SegmentVisual } from "../components/ProductVisuals";
-import LineIcon from "../components/LineIcon";
-import RoutingDiagram from "../components/RoutingDiagram";
+import CapabilitySwitch from "../components/CapabilitySwitch";
 import CodeSample from "../components/CodeSample";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
@@ -47,22 +46,8 @@ export default function Home() {
             {caps.heading}
           </h2>
           <div data-reveal>
-            <RoutingDiagram />
+            <CapabilitySwitch items={caps.items} />
           </div>
-          <ul className="hpCapGrid">
-            {caps.items.map((item, index) => (
-              <li key={item.title} data-reveal style={{ transitionDelay: `${index * 50}ms` }}>
-                <LineIcon name={item.icon} />
-                <div>
-                  <strong>
-                    {item.title}
-                    {item.title === "Machine payments" ? <span className="hpChip">MFAM</span> : null}
-                  </strong>
-                  <p>{item.body}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
