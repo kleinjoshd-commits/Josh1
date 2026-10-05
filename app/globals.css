@@ -3859,9 +3859,10 @@ header.siteHeader {
 }
 .capPlastic {
   position: absolute;
+  z-index: 1;
   left: 50%;
   top: 8%;
-  width: min(78%, 420px);
+  width: min(72%, 380px);
   height: 46%;
   display: flex;
   flex-direction: column;
@@ -3871,7 +3872,7 @@ header.siteHeader {
   color: #f4f7f5;
   background: linear-gradient(145deg, #1c9a68, #0c3d2c 55%, #08261b);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-  transform: perspective(900px) rotateX(12deg) rotateY(-16deg);
+  transform: perspective(900px) rotateX(12deg) rotateY(-14deg) translateX(-50%);
   transform-origin: center bottom;
 }
 .capPlastic span { font-size: 13px; font-weight: 750; letter-spacing: 0.14em; }
@@ -3988,8 +3989,8 @@ header.siteHeader {
   100% { opacity: 1; transform: none; }
 }
 @keyframes capCardUp {
-  from { transform: perspective(900px) rotateX(18deg) rotateY(-8deg) translateY(58%); }
-  to { transform: perspective(900px) rotateX(12deg) rotateY(-16deg) translateY(0); }
+  from { transform: perspective(900px) rotateX(18deg) rotateY(-8deg) translateX(-50%) translateY(58%); }
+  to { transform: perspective(900px) rotateX(12deg) rotateY(-14deg) translateX(-50%) translateY(0); }
 }
 @keyframes capDraw {
   from { stroke-dashoffset: 48; }
