@@ -40,7 +40,7 @@ export default function BusinessesPage() {
           >
             <h2 className="homeSectionTitle">The job</h2>
             <p className="p">
-              Your people get verified, get paid, and send money home, from an app branded as yours.
+              Your people get verified, get paid, and spend, from an app branded as yours.
             </p>
             <p className="p">
               Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. {product.funds} The card account sits with the issuing partner.
@@ -51,7 +51,7 @@ export default function BusinessesPage() {
             <ul className="trustList">
               <li>Your people get verified</li>
               <li>Your people get paid</li>
-              <li>Your people send money home</li>
+              <li>Your people spend</li>
               <li>You see payouts and verification in one console</li>
             </ul>
           </SplitStory>
