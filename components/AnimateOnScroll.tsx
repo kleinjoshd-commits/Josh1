@@ -50,7 +50,16 @@ export default function AnimateOnScroll() {
       animateObserver.observe(el);
     });
 
+    const revealAll = () => {
+      document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+        el.classList.add("is-visible");
+        el.classList.remove("is-pending");
+      });
+    };
+    const fallback = window.setTimeout(revealAll, 1000);
+
     return () => {
+      window.clearTimeout(fallback);
       revealObserver.disconnect();
       animateObserver.disconnect();
     };
