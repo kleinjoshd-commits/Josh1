@@ -102,19 +102,15 @@ function WalletStage() {
       <div className="capDevice">
         <div className="capDeviceTop">Wallet</div>
         <div className="capDeviceBody">
-          <strong>$2,480.00</strong>
-          <span className="capHeld">Held at the issuing bank</span>
           <div className="capPassStack" aria-hidden="true">
-            <div className="capPass capPassFar">
-              <span>Pass</span>
-            </div>
-            <div className="capPass capPassNear">
-              <span>Pass</span>
-            </div>
+            <div className="capPass capPassFar" />
+            <div className="capPass capPassNear" />
             <div className="capPassFront">
               <MetalCard />
             </div>
           </div>
+          <strong>$2,480.00</strong>
+          <span className="capHeld">Held at the issuing bank</span>
           <div className="capTap">
             <span className="capPulse" aria-hidden="true">
               <i />

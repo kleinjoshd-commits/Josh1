@@ -3830,7 +3830,7 @@ header.siteHeader {
   font-weight: 650;
 }
 .capDeviceBody em { font-style: normal; color: #0d8a58; }
-.capStage[data-cap="wallet"] { aspect-ratio: 5 / 7; }
+.capStage[data-cap="wallet"] { aspect-ratio: 20 / 29; }
 .capWallet .capDevice {
   height: auto;
   top: 16px;
@@ -3841,41 +3841,40 @@ header.siteHeader {
 }
 .capWallet .capDeviceBody {
   border-radius: 20px;
-  padding: 14px 14px 6px;
+  padding: 16px 14px 8px;
+  background: #07140f;
+  color: #f4f7f5;
 }
+.capWallet .capDeviceBody strong { color: #f7f8f6; }
+.capWallet .capHeld { color: #9dcfb6; }
+.capWallet .capTap b { color: #f7f8f6; }
+.capWallet .capDeviceBody li {
+  color: #f4f7f5;
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+.capWallet .capDeviceBody em { color: #7dffc3; }
 .capPassStack {
   position: relative;
   height: auto;
-  margin-top: 14px;
+  margin: 2px 0 16px;
   padding-top: 28px;
 }
 .capPass {
   position: absolute;
   left: 8%;
   right: 8%;
-  height: 74px;
-  display: flex;
-  align-items: flex-start;
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  height: 56px;
+  border-radius: 14px;
 }
 .capPassFar {
   top: 0;
-  background: linear-gradient(160deg, #e7f0ea, #c5d8ce);
-  color: #3d5c4e;
-  border: 1px solid rgba(16, 36, 28, 0.08);
+  background: #6d7c8a;
 }
 .capPassNear {
-  top: 16px;
-  left: 5%;
-  right: 5%;
-  background: linear-gradient(160deg, #1e4636, #0c241c);
-  color: #d7efe4;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  top: 14px;
+  left: 4%;
+  right: 4%;
+  background: #c6efd8;
 }
 .capPassFront {
   position: relative;
@@ -4122,18 +4121,20 @@ header.siteHeader {
     gap: 18px;
     align-items: stretch;
   }
+  .capSwitch { align-items: start; }
   .capPills {
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
   }
   .capPills button { width: 100%; text-align: left; }
   .capStage { margin-top: 0; aspect-ratio: auto; min-height: 460px; height: 100%; }
   .capStage[data-cap="card"] { aspect-ratio: auto; min-height: 600px; }
   .capDevice { width: min(46%, 340px); }
   .capHandset { width: min(52%, 420px); }
-  .capCardFloat { width: 55%; margin-top: 22px; }
+  .capCardFloat { width: 47.5%; margin-top: 22px; }
   .capWallet .capDevice { width: min(52%, 460px); top: 50%; transform: translate(-50%, -50%); }
   .capWallet .capDeviceBody { border-radius: 22px; }
   .capStage[data-cap="wallet"] { aspect-ratio: auto; min-height: 700px; }
@@ -5141,7 +5142,7 @@ main.sitePage .deckLight .flowSteps.flowFour li::before {
   left: 40px;
   right: -22px;
   height: 2px;
-  background: #c5d8ce;
+  background: rgba(125, 255, 195, 0.35);
 }
 main.sitePage .deckLight .flowSteps.flowFour li:last-child::before { display: none; }
 main.sitePage .deckLight .flowSteps.flowFour .flowIndex {
@@ -5158,12 +5159,13 @@ main.sitePage .deckLight .flowSteps.flowFour .flowIndex {
   letter-spacing: 0;
 }
 main.sitePage .deckLight .flowSteps.flowFour b {
-  color: #10241c;
+  color: #f7f8f6;
   font-size: 18px;
+  font-weight: 650;
   margin: 14px 0 6px;
 }
 main.sitePage .deckLight .flowSteps.flowFour p {
-  color: #3d5c4e;
+  color: rgba(232, 240, 236, 0.78);
   font-size: 15px;
   line-height: 1.45;
 }
