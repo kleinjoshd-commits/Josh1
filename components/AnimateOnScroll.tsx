@@ -7,17 +7,36 @@ export default function AnimateOnScroll() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const elements = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-animate]")
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || typeof IntersectionObserver === "undefined") return;
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          el.classList.add("is-visible");
+          el.classList.remove("is-pending");
+          revealObserver.unobserve(el);
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px 12% 0px" }
     );
 
-    // If no elements, nothing to do
-    if (!elements.length) return;
+    // Content stays visible unless this script marks it pending. Anything
+    // already on screen is shown immediately so a missed observer cannot blank it.
+    document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const inView = rect.bottom > 0 && rect.top < window.innerHeight * 0.92;
+      if (inView) {
+        el.classList.add("is-visible");
+        return;
+      }
+      el.classList.add("is-pending");
+      revealObserver.observe(el);
+    });
 
-    // Ensure they start hidden until observed (prevents “stuck invisible”)
-    elements.forEach((el) => el.classList.remove("is-visible"));
-
-    const observer = new IntersectionObserver(
+    const animateObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const el = entry.target as HTMLElement;
@@ -27,28 +46,22 @@ export default function AnimateOnScroll() {
       },
       { threshold: 0.25 }
     );
+    document.querySelectorAll<HTMLElement>("[data-animate]").forEach((el) => {
+      animateObserver.observe(el);
+    });
 
-    elements.forEach((el) => observer.observe(el));
-
-    const reveals = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-reveal]")
-    );
-    reveals.forEach((el) => el.classList.remove("is-visible"));
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px 12% 0px" }
-    );
-    reveals.forEach((el) => revealObserver.observe(el));
+    const revealAll = () => {
+      document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+        el.classList.add("is-visible");
+        el.classList.remove("is-pending");
+      });
+    };
+    const fallback = window.setTimeout(revealAll, 1000);
 
     return () => {
-      observer.disconnect();
+      window.clearTimeout(fallback);
       revealObserver.disconnect();
+      animateObserver.disconnect();
     };
   }, [pathname]);
 
