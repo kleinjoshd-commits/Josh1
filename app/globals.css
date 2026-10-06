@@ -659,6 +659,7 @@ a:hover {
 /* Force the onboarding section to have correct readable text colors */
 #kyc {
   color: rgba(255, 255, 255, 0.92);
+  scroll-margin-top: 76px;
 }
 
 #kyc p,
@@ -3758,24 +3759,224 @@ header.siteHeader {
 .capMeter.isHigh i::after,
 .capMeter.isFull i::after { width: 100%; background: #7dffc3; }
 .capMeter.isLead i::after { background: #7dffc3; }
-.capPayout { align-items: center; text-align: center; gap: 18px; }
 .capKicker { color: #9dcfb6; font-size: 12px; }
-.capDests { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.capDests b {
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(125, 255, 195, 0.45);
-  background: rgba(255, 255, 255, 0.06);
+.capStage[data-cap="payout"] { aspect-ratio: 1 / 1; }
+.capPayout {
+  display: grid;
+  grid-template-areas:
+    "source"
+    "link"
+    "core"
+    "fan"
+    "tiles";
+  grid-template-rows: auto 12px auto 28px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  align-content: stretch;
+  justify-items: stretch;
+  gap: 0;
+  padding: 14px;
+  text-align: left;
+}
+.capPaySource,
+.capPayCore {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02) 42%),
+    linear-gradient(180deg, rgba(18, 46, 36, 0.92), rgba(7, 16, 13, 0.94));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 16px 32px rgba(0, 0, 0, 0.28);
+}
+.capPaySource {
+  grid-area: source;
+  padding: 12px 14px 14px;
+  border-top-color: rgba(157, 255, 210, 0.72);
+}
+.capPaySource span {
+  display: block;
+  color: #9dcfb6;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.capPaySource strong {
+  display: block;
+  margin-top: 6px;
   color: #f7f8f6;
-  font-size: 15px;
+  font-size: clamp(28px, 7vw, 36px);
+  font-weight: 560;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
-.capDelivered {
+.capPayLink {
+  grid-area: link;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  container-type: size;
+}
+.capPayLink i {
+  width: 2px;
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(180deg, rgba(125, 255, 195, 0.15), rgba(125, 255, 195, 0.9));
+}
+.capPayBead {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: #f7f8f6;
+  box-shadow: 0 0 0 4px rgba(125, 255, 195, 0.28), 0 0 14px #7dffc3;
+  opacity: 0;
+}
+.capPayCore {
+  grid-area: core;
+  padding: 12px;
+}
+.capPayBrand {
+  display: block;
+  color: #d7efe4;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+}
+.capPaySteps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+}
+.capPaySteps li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  margin: 0;
+  padding: 8px 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(125, 255, 195, 0.55);
+  background: rgba(14, 124, 80, 0.38);
+  box-shadow: 0 0 16px rgba(125, 255, 195, 0.18);
+  color: #f7f8f6;
+  font-size: 11px;
+  font-weight: 650;
+  text-align: center;
+}
+.capPaySteps li i {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0e7c50;
+  color: #fff;
   font-style: normal;
-  font-size: clamp(32px, 6vw, 56px);
-  font-weight: 640;
-  letter-spacing: -0.04em;
-  color: #7dffc3;
+  font-size: 10px;
+  font-weight: 750;
 }
+.capPayFan {
+  grid-area: fan;
+  min-width: 0;
+  min-height: 0;
+}
+.capPayFan svg { display: block; width: 100%; height: 100%; }
+.capPayFan .isWide { display: none; }
+.capPayFan path {
+  fill: none;
+  stroke: rgba(157, 207, 182, 0.55);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.capPayFan path.isOn {
+  stroke: #7dffc3;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(125, 255, 195, 0.85));
+}
+.capPayTiles {
+  grid-area: tiles;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
+  gap: 8px;
+  min-height: 0;
+}
+.capPayTile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+  padding: 12px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  color: #f7f8f6;
+}
+.capPayTile b {
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.capPayTile.isLanded {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(125, 255, 195, 0.72);
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.28), transparent 38%),
+    repeating-linear-gradient(96deg, rgba(255, 255, 255, 0.05) 0 1px, rgba(0, 0, 0, 0.05) 1px 3px),
+    linear-gradient(145deg, #3e8f6c 0%, #14553c 46%, #0c241c 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 0 0 1px rgba(125, 255, 195, 0.35),
+    0 0 28px rgba(125, 255, 195, 0.28),
+    0 12px 24px rgba(0, 0, 0, 0.32);
+}
+.capPayTile.isLanded::after {
+  content: "";
+  position: absolute;
+  inset: -20% -40%;
+  background: linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.45) 50%, transparent 58%);
+  transform: translateX(-70%);
+  pointer-events: none;
+}
+.capPayDone {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  color: #e9fff5;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.capPayCheck { width: 16px; height: 16px; flex: none; }
+.capPayCheck circle,
+.capPayCheck path {
+  fill: none;
+  stroke: #e9fff5;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.capPayCheck path { stroke-dasharray: 20; stroke-dashoffset: 0; }
 .capWallet { position: absolute; inset: 0; }
 .capDevice {
   position: absolute;
@@ -3829,6 +4030,92 @@ header.siteHeader {
   font-weight: 650;
 }
 .capDeviceBody em { font-style: normal; color: #0d8a58; }
+.capStage[data-cap="wallet"] { aspect-ratio: 20 / 29; }
+.capWallet .capDevice {
+  height: auto;
+  top: 16px;
+  width: min(88%, 340px);
+  transform: translateX(-50%);
+  border-radius: 32px;
+  padding: 12px 12px 14px;
+}
+.capWallet .capDeviceBody {
+  border-radius: 20px;
+  padding: 16px 14px 8px;
+  background: #07140f;
+  color: #f4f7f5;
+}
+.capWallet .capDeviceBody strong { color: #f7f8f6; }
+.capWallet .capHeld { color: #9dcfb6; }
+.capWallet .capTap b { color: #f7f8f6; }
+.capWallet .capDeviceBody li {
+  color: #f4f7f5;
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+.capWallet .capDeviceBody em { color: #7dffc3; }
+.capPassStack {
+  position: relative;
+  height: auto;
+  margin: 2px 0 16px;
+  padding-top: 28px;
+}
+.capPass {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 56px;
+  border-radius: 14px;
+}
+.capPassFar {
+  top: 0;
+  background: #6d7c8a;
+}
+.capPassNear {
+  top: 14px;
+  left: 4%;
+  right: 4%;
+  background: #c6efd8;
+}
+.capPassFront {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.586;
+}
+.capPassFront .capPlastic { border-radius: 12px; }
+.capTap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.capTap b {
+  color: #10241c;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.capPulse {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+}
+.capPulse i,
+.capPulse svg {
+  position: absolute;
+  inset: 8px;
+}
+.capPulse i {
+  border: 1.5px solid rgba(13, 138, 88, 0.55);
+  border-radius: 50%;
+}
+.capPulse i:first-child { inset: 2px; }
+.capPulse svg {
+  fill: none;
+  stroke: #0d8a58;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
 .capStage[data-cap="card"] { aspect-ratio: 4 / 5; }
 .capCardScene {
   position: absolute;
@@ -4034,18 +4321,77 @@ header.siteHeader {
     gap: 18px;
     align-items: stretch;
   }
+  .capSwitch { align-items: start; }
   .capPills {
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
   }
   .capPills button { width: 100%; text-align: left; }
   .capStage { margin-top: 0; aspect-ratio: auto; min-height: 460px; height: 100%; }
   .capStage[data-cap="card"] { aspect-ratio: auto; min-height: 600px; }
   .capDevice { width: min(46%, 340px); }
   .capHandset { width: min(52%, 420px); }
-  .capCardFloat { width: min(64%, 580px); margin-top: -16px; }
+  .capCardFloat,
+  .capCardFloat:hover,
+  .capCardFloat:active,
+  .capStage:hover .capCardFloat,
+  .capStage:active .capCardFloat {
+    width: 47.5%;
+    margin-top: 22px;
+  }
+  .capWallet .capDevice { width: min(52%, 460px); top: 50%; transform: translate(-50%, -50%); }
+  .capWallet .capDeviceBody { border-radius: 22px; }
+  .capStage[data-cap="wallet"] { aspect-ratio: auto; min-height: 700px; }
+  .capStage[data-cap="payout"] { aspect-ratio: auto; min-height: 460px; }
+  .capPayout {
+    grid-template-areas: "source link core fan tiles";
+    grid-template-columns: minmax(0, 1.05fr) 52px minmax(0, 1fr) 72px minmax(0, 1.2fr);
+    grid-template-rows: minmax(0, 1fr);
+    padding: 22px 24px;
+  }
+  .capPaySource,
+  .capPayCore {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .capPaySource { padding: 22px 20px; }
+  .capPaySource strong { font-size: 40px; }
+  .capPayCore { padding: 18px 16px; }
+  .capPayLink { align-items: center; }
+  .capPayLink i {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(125, 255, 195, 0.15), rgba(125, 255, 195, 0.95));
+  }
+  .capPayBead { left: 0; top: 50%; margin-left: 0; margin-top: -4px; }
+  .capPaySteps { grid-template-columns: 1fr; gap: 10px; margin-top: 16px; }
+  .capPaySteps li {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 15px;
+    text-align: left;
+  }
+  .capPayFan .isNarrow { display: none; }
+  .capPayFan .isWide { display: block; width: 100%; height: 100%; }
+  .capPayTiles {
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .capPayTile {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+  .capPayTile b { font-size: 16px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .capStageIn { animation: capIn 0.4s ease; }
@@ -4054,10 +4400,20 @@ header.siteHeader {
   .capRoute:nth-child(3) { animation-delay: 0.2s; }
   .capMeter i::after { animation: capFill 0.45s ease 0.28s both; }
   .capPick { animation: capPop 0.4s ease 0.75s both; }
-  .capDests b { animation: capLand 1.15s ease both; }
-  .capDests b:nth-child(2) { animation-delay: 0.28s; }
-  .capDests b:nth-child(3) { animation-delay: 0.56s; }
-  .capDelivered { animation: capPop 0.45s ease 1s both; }
+  .capPayBead { animation: capPayDrop 0.45s ease 0.15s both; }
+  .capPaySteps li { animation: capPayLight 0.4s ease both; }
+  .capPaySteps li i { animation: capPayDot 0.4s ease both; }
+  .capPaySteps li:nth-child(1),
+  .capPaySteps li:nth-child(1) i { animation-delay: 0.55s; }
+  .capPaySteps li:nth-child(2),
+  .capPaySteps li:nth-child(2) i { animation-delay: 0.9s; }
+  .capPaySteps li:nth-child(3),
+  .capPaySteps li:nth-child(3) i { animation-delay: 1.25s; }
+  .capPayFan path { animation: capPayDraw 0.5s ease 1.55s both; }
+  .capPayTile.isLanded { animation: capPayLand 0.55s ease 1.95s both; }
+  .capPayTile.isLanded::after { animation: capSheen 0.9s ease 2.15s both; }
+  .capPayDone { animation: capPop 0.4s ease 2.25s both; }
+  .capPayCheck path { animation: capPayTick 0.4s ease 2.25s both; }
   .capDeviceBody li { animation: capRise 0.4s ease both; }
   .capDeviceBody li:nth-child(2) { animation-delay: 0.12s; }
   .capDeviceBody li:nth-child(3) { animation-delay: 0.24s; }
@@ -4067,6 +4423,8 @@ header.siteHeader {
       capCardIdle 3.6s ease-in-out 0.95s infinite;
   }
   .capSheen { animation: capSheen 1.05s ease 0.28s both; }
+  .capPulse i { animation: capPulse 1.8s ease-out infinite; }
+  .capPulse i:first-child { animation-delay: 0.45s; }
   .capIdSteps span { animation: capRise 0.4s ease both; }
   .capIdSteps span:nth-child(2) { animation-delay: 0.18s; }
   .capCheck path { animation: capDraw 0.5s ease 0.55s both; }
@@ -4096,7 +4454,7 @@ header.siteHeader {
   100% { opacity: 1; transform: none; }
 }
 @keyframes capCardUp {
-  from { opacity: 0.2; transform: perspective(1200px) rotateX(28deg) rotateY(-6deg) translateY(48%); }
+  from { opacity: 0.2; transform: perspective(1200px) rotateX(10deg) rotateY(-16deg) translateY(28px); }
   to { opacity: 1; transform: perspective(1200px) rotateX(10deg) rotateY(-16deg) translateY(0); }
 }
 @keyframes capCardIdle {
@@ -4107,9 +4465,71 @@ header.siteHeader {
   from { transform: translateX(-70%); }
   to { transform: translateX(70%); }
 }
+@keyframes capPulse {
+  from { transform: scale(0.72); opacity: 0.75; }
+  to { transform: scale(1.35); opacity: 0; }
+}
 @keyframes capDraw {
   from { stroke-dashoffset: 48; }
   to { stroke-dashoffset: 0; }
+}
+@keyframes capPayDrop {
+  0% { opacity: 0; transform: translateY(0); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(calc(100cqb - 8px)); }
+}
+@keyframes capPayAcross {
+  0% { opacity: 0; transform: translateX(0); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(calc(100cqi - 8px)); }
+}
+@keyframes capPayLight {
+  from {
+    color: rgba(232, 240, 236, 0.5);
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: none;
+  }
+  to {
+    color: #f7f8f6;
+    border-color: rgba(125, 255, 195, 0.55);
+    background: rgba(14, 124, 80, 0.38);
+    box-shadow: 0 0 16px rgba(125, 255, 195, 0.18);
+  }
+}
+@keyframes capPayDot {
+  from { background: rgba(255, 255, 255, 0.08); color: rgba(232, 240, 236, 0.55); }
+  to { background: #0e7c50; color: #fff; }
+}
+@keyframes capPayDraw {
+  from { stroke-dasharray: 180; stroke-dashoffset: 180; }
+  to { stroke-dasharray: 180; stroke-dashoffset: 0; }
+}
+@keyframes capPayLand {
+  from {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+  }
+  to {
+    background:
+      linear-gradient(165deg, rgba(255, 255, 255, 0.28), transparent 38%),
+      repeating-linear-gradient(96deg, rgba(255, 255, 255, 0.05) 0 1px, rgba(0, 0, 0, 0.05) 1px 3px),
+      linear-gradient(145deg, #3e8f6c 0%, #14553c 46%, #0c241c 100%);
+    border-color: rgba(125, 255, 195, 0.72);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      0 0 0 1px rgba(125, 255, 195, 0.35),
+      0 0 28px rgba(125, 255, 195, 0.28),
+      0 12px 24px rgba(0, 0, 0, 0.32);
+  }
+}
+@keyframes capPayTick {
+  from { stroke-dashoffset: 20; }
+  to { stroke-dashoffset: 0; }
+}
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .capPayBead { animation: capPayAcross 0.5s ease 0.15s both; }
 }
 .capCheck path { stroke-dasharray: 48; stroke-dashoffset: 0; }
 @media (prefers-reduced-motion: reduce) {
@@ -5024,11 +5444,56 @@ main.sitePage a.panel .go {
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
-main.sitePage .flowSteps.flowFour { grid-template-columns: repeat(4, 1fr); }
+main.sitePage .deckLight .flowSteps.flowFour {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 8px;
+}
+main.sitePage .deckLight .flowSteps.flowFour li {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  min-width: 0;
+  position: relative;
+}
+main.sitePage .deckLight .flowSteps.flowFour li::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  right: -22px;
+  height: 2px;
+  background: rgba(125, 255, 195, 0.35);
+}
+main.sitePage .deckLight .flowSteps.flowFour li:last-child::before { display: none; }
+main.sitePage .deckLight .flowSteps.flowFour .flowIndex {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0e7c50;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+main.sitePage .deckLight .flowSteps.flowFour b {
+  color: #f7f8f6;
+  font-size: 18px;
+  font-weight: 650;
+  margin: 14px 0 6px;
+}
+main.sitePage .deckLight .flowSteps.flowFour p {
+  color: rgba(232, 240, 236, 0.78);
+  font-size: 15px;
+  line-height: 1.45;
+}
 main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
 @media (max-width: 1000px) {
   .operatorGrid { grid-template-columns: 1fr 1fr; }
-  main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
   .hpWho h2,
@@ -5042,8 +5507,29 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   .whoGrid,
   .cardGrid2,
   .trustList,
-  .operatorGrid,
-  main.sitePage .flowSteps.flowFour { grid-template-columns: 1fr; }
+  .operatorGrid { grid-template-columns: 1fr; }
+  main.sitePage .deckLight .flowSteps.flowFour {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  main.sitePage .deckLight .flowSteps.flowFour li {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 14px;
+    align-items: start;
+    padding: 0 0 22px;
+  }
+  main.sitePage .deckLight .flowSteps.flowFour li::before {
+    top: 32px;
+    bottom: 0;
+    left: 15px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  main.sitePage .deckLight .flowSteps.flowFour .flowIndex { grid-row: 1 / span 2; }
+  main.sitePage .deckLight .flowSteps.flowFour b { margin: 4px 0 4px; }
+  main.sitePage .deckLight .flowSteps.flowFour p { grid-column: 2; }
   .whoVisual { aspect-ratio: 4 / 3; }
   .whoCopy { padding: 14px 16px 16px; }
   .whoCopy strong { font-size: 20px; }

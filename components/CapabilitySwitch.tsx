@@ -54,13 +54,92 @@ function RoutingStage() {
 function PayoutStage() {
   return (
     <div className="capPayout">
-      <span className="capKicker">Payout</span>
-      <div className="capDests">
-        <b>Bank</b>
-        <b>Debit card</b>
-        <b>Wallet</b>
+      <div className="capPaySource">
+        <span>Your platform</span>
+        <strong>$2,480.00</strong>
       </div>
-      <em className="capDelivered">Delivered</em>
+      <div className="capPayLink" aria-hidden="true">
+        <i />
+        <b className="capPayBead" />
+      </div>
+      <div className="capPayCore">
+        <strong className="capPayBrand">MPE</strong>
+        <ol className="capPaySteps">
+          <li>
+            <i>1</i>
+            <span>Authorize</span>
+          </li>
+          <li>
+            <i>2</i>
+            <span>Route</span>
+          </li>
+          <li>
+            <i>3</i>
+            <span>Sign</span>
+          </li>
+        </ol>
+      </div>
+      <div className="capPayFan" aria-hidden="true">
+        <svg className="isWide" viewBox="0 0 48 200" preserveAspectRatio="none">
+          <path className="isOn" d="M0 100 C 30 100, 30 32, 48 32" />
+          <path d="M0 100 H 48" />
+          <path d="M0 100 C 30 100, 30 168, 48 168" />
+        </svg>
+        <svg className="isNarrow" viewBox="0 0 300 36" preserveAspectRatio="none">
+          <path className="isOn" d="M150 0 C 150 18, 50 16, 50 36" />
+          <path d="M150 0 V 36" />
+          <path d="M150 0 C 150 18, 250 16, 250 36" />
+        </svg>
+      </div>
+      <div className="capPayTiles">
+        <div className="capPayTile isLanded">
+          <b>Bank account</b>
+          <span className="capPayDone">
+            <svg className="capPayCheck" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M7.5 12.5 10.5 15.5 16.5 9" />
+            </svg>
+            Delivered
+          </span>
+        </div>
+        <div className="capPayTile">
+          <b>Debit card</b>
+        </div>
+        <div className="capPayTile">
+          <b>Wallet</b>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MetalCard() {
+  const raw = useId();
+  const id = `chip${raw.replace(/:/g, "")}`;
+  return (
+    <div className="capPlastic">
+      <span className="capSheen" aria-hidden="true" />
+      <span className="capBrand">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/mpe-logo.png" alt="" width={1035} height={238} />
+      </span>
+      <svg className="capWave" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M9 12.5c2.2 2 2.2 5 0 7" />
+        <path d="M14 8.5c4.2 3.6 4.2 11.4 0 15" />
+        <path d="M19 5c6 5.2 6 16.8 0 22" />
+      </svg>
+      <svg className="capEmv" viewBox="0 0 46 34" aria-hidden="true">
+        <defs>
+          <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#f3e2b0" />
+            <stop offset="0.45" stopColor="#c9a15a" />
+            <stop offset="1" stopColor="#8c6a32" />
+          </linearGradient>
+        </defs>
+        <rect x="1" y="1" width="44" height="32" rx="5" fill={`url(#${id})`} />
+        <path d="M1 12h44M1 22h44M16 1v32M31 1v32" />
+      </svg>
+      <b className="capPan">•••• 4821</b>
     </div>
   );
 }
@@ -71,8 +150,27 @@ function WalletStage() {
       <div className="capDevice">
         <div className="capDeviceTop">Wallet</div>
         <div className="capDeviceBody">
+          <div className="capPassStack" aria-hidden="true">
+            <div className="capPass capPassFar" />
+            <div className="capPass capPassNear" />
+            <div className="capPassFront">
+              <MetalCard />
+            </div>
+          </div>
           <strong>$2,480.00</strong>
           <span className="capHeld">Held at the issuing bank</span>
+          <div className="capTap">
+            <span className="capPulse" aria-hidden="true">
+              <i />
+              <i />
+              <svg viewBox="0 0 32 32">
+                <path d="M9 12.5c2.2 2 2.2 5 0 7" />
+                <path d="M14 8.5c4.2 3.6 4.2 11.4 0 15" />
+                <path d="M19 5c6 5.2 6 16.8 0 22" />
+              </svg>
+            </span>
+            <b>Hold near reader</b>
+          </div>
           <ul>
             <li>
               <span>Paid</span>
@@ -81,10 +179,6 @@ function WalletStage() {
             <li>
               <span>Paid</span>
               <em>$18.00</em>
-            </li>
-            <li>
-              <span>Paid</span>
-              <em>$6.00</em>
             </li>
           </ul>
         </div>
@@ -109,30 +203,7 @@ function CardStage() {
       </div>
       <div className="capCardFloat">
         <i className="capCardGlow" aria-hidden="true" />
-        <div className="capPlastic">
-          <span className="capSheen" aria-hidden="true" />
-          <span className="capBrand">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/mpe-logo.png" alt="" width={1035} height={238} />
-          </span>
-          <svg className="capWave" viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M9 12.5c2.2 2 2.2 5 0 7" />
-            <path d="M14 8.5c4.2 3.6 4.2 11.4 0 15" />
-            <path d="M19 5c6 5.2 6 16.8 0 22" />
-          </svg>
-          <svg className="capEmv" viewBox="0 0 46 34" aria-hidden="true">
-            <defs>
-              <linearGradient id="capChipGold" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stopColor="#f3e2b0" />
-                <stop offset="0.45" stopColor="#c9a15a" />
-                <stop offset="1" stopColor="#8c6a32" />
-              </linearGradient>
-            </defs>
-            <rect x="1" y="1" width="44" height="32" rx="5" fill="url(#capChipGold)" />
-            <path d="M1 12h44M1 22h44M16 1v32M31 1v32" />
-          </svg>
-          <b className="capPan">•••• 4821</b>
-        </div>
+        <MetalCard />
       </div>
     </div>
   );
