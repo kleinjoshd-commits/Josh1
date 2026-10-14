@@ -27,12 +27,12 @@ export const homepageCopy = {
       {
         icon: "wallet",
         title: "Wallets",
-        body: "Payouts to mobile wallets.",
+        body: "Your branded wallet and card for the people you pay. Balances are held by a licensed partner, never by MPE.",
       },
       {
         icon: "card",
         title: "Cards",
-        body: "Spend controls, and a freeze.",
+        body: "Your branded card, with spend controls. You can earn a share of card spend.",
       },
       {
         icon: "identity",

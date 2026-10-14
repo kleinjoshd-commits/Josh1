@@ -254,9 +254,6 @@ export default function CapabilitySwitch({ items }: { items: readonly Item[] }) 
   const [active, setActive] = useState(0);
   const [fine, setFine] = useState(false);
   const base = useId();
-  const current = items[active] ?? items[0];
-  const Stage = STAGES[current.icon] ?? RoutingStage;
-
   useEffect(() => {
     const media = window.matchMedia("(hover: hover) and (pointer: fine)");
     const apply = () => setFine(media.matches);
@@ -278,7 +275,7 @@ export default function CapabilitySwitch({ items }: { items: readonly Item[] }) 
               role="tab"
               id={`${base}-tab-${index}`}
               aria-selected={on}
-              aria-controls={`${base}-panel`}
+              aria-controls={`${base}-panel-${index}`}
               className={on ? "isOn" : undefined}
               onMouseEnter={() => {
                 if (fine) setActive(index);
@@ -293,16 +290,29 @@ export default function CapabilitySwitch({ items }: { items: readonly Item[] }) 
           );
         })}
       </div>
-      <div
-        className="capStage"
-        role="tabpanel"
-        id={`${base}-panel`}
-        aria-labelledby={`${base}-tab-${active}`}
-        data-cap={current.icon}
-      >
-        <div className="capStageIn" key={current.icon}>
-          <Stage />
-        </div>
+      <div className="capPanels">
+        {items.map((item, index) => {
+          const on = index === active;
+          const StageFor = STAGES[item.icon] ?? RoutingStage;
+          return (
+            <div
+              key={item.icon}
+              className={on ? "capPanel isOn" : "capPanel"}
+              role="tabpanel"
+              id={`${base}-panel-${index}`}
+              aria-labelledby={`${base}-tab-${index}`}
+            >
+              <div className="capStage" data-cap={item.icon}>
+                <div className="capStageIn">
+                  <StageFor />
+                </div>
+              </div>
+              {item.icon === "wallet" || item.icon === "card" ? (
+                <p className="capPanelBody">{item.body}</p>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

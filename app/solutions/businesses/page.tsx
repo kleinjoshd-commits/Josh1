@@ -2,12 +2,11 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
 import { OpsConsole, SplitStory, WorkerPhone } from "@/components/ProductVisuals";
-import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Businesses without an app | MPE",
-  "Pay your people, let them spend, and earn from it. A ready-made app in your brand."
+  "Pay your people, let them spend on your branded card, and earn a share of their card spend. A branded app if you have none of your own. No new licenses needed."
 );
 
 export default function BusinessesPage() {
@@ -43,7 +42,7 @@ export default function BusinessesPage() {
               Your people get verified, get paid, and spend, from an app branded as yours.
             </p>
             <p className="p">
-              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. {product.funds} The card account sits with the issuing partner.
+              Your branded wallet and card for the people you pay. You can earn a share of their card spend. No new licenses needed. Licensed partners handle the regulated parts. Cards are issued by a licensed bank partner. MPE never holds funds.
             </p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Take the ready-made app. It carries your brand. You do not build one.</p>
@@ -51,7 +50,7 @@ export default function BusinessesPage() {
             <ul className="trustList">
               <li>Your people get verified</li>
               <li>Your people get paid</li>
-              <li>Your people spend</li>
+              <li>Your people spend on your branded card</li>
               <li>You see payouts and verification in one console</li>
             </ul>
           </SplitStory>

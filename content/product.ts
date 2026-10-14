@@ -28,7 +28,7 @@ export const product = {
       title: "Cross-border",
       body: "A cross-border payout, such as a bank payout in MXN or PHP.",
     },
-    { title: "Branded cards", body: "Branded cards with spend controls and freeze." },
+    { title: "Branded cards", body: "Branded cards with spend controls and freeze. The platform can earn a share of card spend." },
     {
       title: "Identity",
       body: "Document and selfie checks, embedded in the platform's app.",
@@ -85,9 +85,9 @@ transfer.updated`,
 export const segments = [
   {
     title: "Platforms",
-    body: "Pay people from your app, and earn from it.",
+    body: "Pay people from your app. Give them your branded card and earn a share of their card spend.",
     detail:
-      "Pay people from your app, and earn from it.",
+      "Pay people from your app. Give them your branded card and earn a share of their card spend.",
     href: "/solutions/platforms",
   },
   {
@@ -99,9 +99,9 @@ export const segments = [
   },
   {
     title: "Businesses without an app",
-    body: "No app? Get one in your brand. Pay your people, let them spend, and earn from it.",
+    body: "No app of your own? We can provide a branded app with wallet and card. Pay your people and earn a share of their card spend.",
     detail:
-      "No app? Get one in your brand. Pay your people, let them spend, and earn from it.",
+      "No app of your own? We can provide a branded app with wallet and card. Pay your people and earn a share of their card spend.",
     href: "/solutions/businesses",
   },
   {

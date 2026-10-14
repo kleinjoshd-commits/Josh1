@@ -2,12 +2,11 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
 import { HostApp, SplitStory } from "@/components/ProductVisuals";
-import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Platforms | MPE",
-  "Pay your people, and earn from it. Workforce, gig, fleet and logistics software embed MPE and keep their app."
+  "Pay your people, give them your branded wallet and card, and earn a share of their card spend. No new licenses needed."
 );
 
 export default function PlatformsPage() {
@@ -36,7 +35,7 @@ export default function PlatformsPage() {
               Your people get paid from the app they already use.
             </p>
             <p className="p">
-              Branded cards for the people you pay, issued by a partner bank. Earn a share of card revenue under the program agreement. {product.funds} The card account sits with the issuing partner.
+              Your branded wallet and card for the people you pay. You can earn a share of their card spend. No new licenses needed. Licensed partners handle the regulated parts. Cards are issued by a licensed bank partner. MPE never holds funds.
             </p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Embed the screens and keep your app.</p>
