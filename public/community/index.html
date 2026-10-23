@@ -25,9 +25,19 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{font-size:16px}
+  @font-face{
+    font-family:Satoshi;
+    src:url('/fonts/Satoshi-Medium.woff2') format('woff2');
+    font-weight:500;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:Satoshi;
+    src:url('/fonts/Satoshi-Bold.woff2') format('woff2');
+    font-weight:700;font-style:normal;font-display:swap;
+  }
   body{
     background:var(--paper);color:var(--ink);
-    font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,'Noto Sans Tamil',sans-serif;
+    font-family:Satoshi,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
     min-height:100vh;display:flex;flex-direction:column;align-items:center;
   }
   /* site wavesLight wash */
@@ -47,17 +57,16 @@
     max-width:var(--max);margin:0 auto;padding:12px 20px;
     display:flex;align-items:center;justify-content:space-between;gap:12px;
   }
-  .brand-logo{display:flex;align-items:center;min-width:0}
-  .brand-logo img{width:104px;height:auto;display:block}
+  .brand-logo{display:flex;align-items:center;gap:10px;min-width:0}
+  .brand-logo img{height:auto;display:block}
+  .brand-logo img.brand-mark{width:32px;height:32px;border-radius:8px;flex:none}
+  .brand-logo img.brand-word{width:104px}
   .brand-tag{
     font-size:.62rem;color:rgba(255,255,255,0.60);letter-spacing:.10em;
     text-transform:uppercase;font-weight:650;margin-top:2px;
   }
-  .lang-toggle{
-    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);
-    border-radius:999px;padding:8px 14px;color:rgba(255,255,255,0.90);
-    font-weight:700;font-size:.82rem;cursor:pointer;flex-shrink:0;
-  }
+  h1,h2,.rate-value{font-weight:500;letter-spacing:-0.03em}
+  .rate-value{font-weight:700}
   /* ===== app column ===== */
   #app{
     position:relative;z-index:1;width:100%;max-width:var(--max);flex:1;
@@ -195,9 +204,9 @@
 <header class="topbar">
   <div class="topbarInner">
     <div class="brand-logo">
-      <img src="assets/mpe-logo.png" alt="MPE" width="512" height="143">
+      <img class="brand-mark" src="/favicon.png" alt="" width="32" height="32">
+      <img class="brand-word" src="assets/mpe-logo.png" alt="MPE" width="512" height="143">
     </div>
-    <button class="lang-toggle" id="langBtn" onclick="toggleLang()">தமிழ்</button>
   </div>
 </header>
 
@@ -219,7 +228,7 @@
     <p class="lead" data-i18n="sel_sub">MPE Community runs with trusted local community partners. Choose your program to see rates, register, and share with friends.</p>
     <button type="button" class="card commCard" onclick="selectCommunity('kumar')">
       <div><b>Singapore community program</b>
-      <span>Singapore · Tamil &amp; English · SGD → INR</span></div>
+      <span>Singapore · SGD → INR</span></div>
       <div class="commGo" aria-hidden="true">→</div>
     </button>
     <div class="card commSoon">
@@ -245,7 +254,7 @@
   <section class="screen" id="s-how">
     <h2 data-i18n="how_title">How it works</h2>
     <div class="card">
-      <div class="step"><div class="step-num">1</div><div><b data-i18n="how1">Register</b><span data-i18n="how1s">Sign up here, or at the community desk. Our officer will help you in Tamil or English. It takes a few minutes.</span></div></div>
+      <div class="step"><div class="step-num">1</div><div><b data-i18n="how1">Register</b><span data-i18n="how1s">Sign up here, or at the community desk. Our officer will help you. It takes a few minutes.</span></div></div>
       <div class="step"><div class="step-num">2</div><div><b data-i18n="how2">Pay from your own bank account</b><span data-i18n="how2s">You pay by PayNow from your own account. No cash changes hands. That is what keeps it fully legal and fully yours.</span></div></div>
       <div class="step"><div class="step-num">3</div><div><b data-i18n="how3">The payout arrives, usually same day</b><span data-i18n="how3s">The money arrives in the recipient's bank account, usually the same day, with a receipt you can show anyone.</span></div></div>
     </div>
@@ -280,8 +289,6 @@
       <input id="f_phone" required type="tel" inputmode="tel" placeholder="+65">
       <label data-i18n="f_employer">Employer / company</label>
       <input id="f_employer" required>
-      <label data-i18n="f_lang">Preferred language</label>
-      <select id="f_lang"><option value="ta">தமிழ் (Tamil)</option><option value="en">English</option></select>
       <label data-i18n="f_ref">Referral code (optional)</label>
       <input id="f_ref" placeholder="KUM-XXXX" style="text-transform:uppercase">
       <div id="deskOfficerWrap" class="hidden">
@@ -312,7 +319,7 @@
     <div class="card" id="faqList"></div>
   </section>
 
-  <footer class="disclosure" data-i18n="disclosure">Money transfer services are provided by our MAS-licensed partner institution. MPE Solutions provides program enrollment, community support and technology only, and never holds your money.</footer>
+  <footer class="disclosure" data-i18n="disclosure">Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market. MPE Solutions provides program enrollment, community support and technology only, and never holds your money.</footer>
 </div>
 
 <nav class="hidden">

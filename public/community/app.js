@@ -1,6 +1,6 @@
 // ===== MPE Community Shell — app logic (no money-state code, attribution only) =====
 const CFG = window.MPE_CONFIG, I18N = window.MPE_I18N;
-let lang = localStorage.getItem('mpe_lang') || 'en';
+const lang = 'en';
 const $ = id => document.getElementById(id);
 
 // ---------- community program state ----------
@@ -39,14 +39,12 @@ function applyCommunity(){
 
 // ---------- i18n ----------
 function applyLang(){
-  const t = I18N[lang];
+  const t = I18N.en;
   document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if(t[k]) el.textContent = t[k]; });
   document.querySelectorAll('[data-i18n-html]').forEach(el => { const k = el.dataset.i18nHtml; if(t[k]) el.innerHTML = t[k]; });
-  $('langBtn').textContent = lang === 'en' ? 'தமிழ்' : 'English';
-  document.documentElement.lang = lang === 'en' ? 'en' : 'ta';
+  document.documentElement.lang = 'en';
   renderFAQ();
 }
-function toggleLang(){ lang = lang === 'en' ? 'ta' : 'en'; localStorage.setItem('mpe_lang', lang); applyLang(); }
 
 // ---------- navigation ----------
 function go(id){
@@ -92,7 +90,7 @@ async function submitEnrollment(e){
     name: $('f_name').value.trim(),
     phone: $('f_phone').value.trim(),
     employer: $('f_employer').value.trim(),
-    lang: $('f_lang').value,
+    lang: 'en',
     referral_code_used: ($('f_ref').value || '').trim().toUpperCase() || null,
     referral_code_issued: makeCode(),
     desk_officer: deskMode ? ($('f_officer').value || '').trim() : null,
@@ -123,7 +121,7 @@ async function submitEnrollment(e){
 function shareWhatsApp(){
   const code = $('myCode').textContent;
   const p = PROG();
-  const tmpl = lang === 'ta' ? p.WHATSAPP_SHARE_TEXT_TA : p.WHATSAPP_SHARE_TEXT_EN;
+  const tmpl = p.WHATSAPP_SHARE_TEXT_EN;
   // Deep-link the share URL to this community so referred friends land scoped.
   const url = location.origin + location.pathname + '#' + community;
   const msg = tmpl.replace('{CODE}', code).replace('{URL}', url);

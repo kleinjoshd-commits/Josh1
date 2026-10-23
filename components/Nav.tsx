@@ -34,12 +34,20 @@ export default function Nav() {
       <div className="container navBar">
         <Link href="/" className="navLogo" aria-label="Home">
           <Image
+            src="/favicon.png"
+            alt=""
+            width={36}
+            height={36}
+            priority
+            className="navMark"
+          />
+          <Image
             src="/mpe-logo.png"
             alt="MPE"
-            width={176}
-            height={40}
+            width={148}
+            height={34}
             priority
-            style={{ width: 176, height: "auto" }}
+            className="navWord"
           />
         </Link>
 

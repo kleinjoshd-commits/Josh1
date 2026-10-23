@@ -121,7 +121,7 @@ function MetalCard() {
       <span className="capSheen" aria-hidden="true" />
       <span className="capBrand">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/mpe-logo.png" alt="" width={1035} height={238} />
+        <img src="/favicon.png" alt="" width={64} height={64} />
       </span>
       <svg className="capWave" viewBox="0 0 32 32" aria-hidden="true">
         <path d="M9 12.5c2.2 2 2.2 5 0 7" />

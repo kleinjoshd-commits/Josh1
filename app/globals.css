@@ -808,7 +808,18 @@ img {
 .navLogo {
   display: flex;
   align-items: center;
-  min-width: 188px;
+  gap: 10px;
+  min-width: 0;
+}
+.navMark {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  flex: none;
+}
+.navWord {
+  width: 148px;
+  height: auto;
 }
 
 .navLinks {
@@ -973,10 +984,14 @@ img {
     flex: 1 1 auto;
   }
 
-  .navLogo img {
-    width: 135px !important;
+  .navWord {
+    width: 118px !important;
     max-width: 100%;
     height: auto !important;
+  }
+  .navMark {
+    width: 32px !important;
+    height: 32px !important;
   }
 
   .pageHeaderGrid .card,
@@ -6028,3 +6043,197 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   5.2% { opacity: 0; transform: translateY(-6px); }
   100% { opacity: 0; }
 }
+
+/* App shell from the 1-2 Oct 2026 redesign.
+   Display face is Satoshi. Hierarchy is size and weight.
+   Surfaces stay quiet: no neon glow on cards or routes. */
+:root {
+  --font-display: var(--font-satoshi), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --swoosh: #1BC47D;
+}
+
+h1, h2, .h1, .h2,
+.cineHero h1,
+.homeSectionTitle,
+.ebStatement h2,
+main.sitePage h1,
+main.sitePage h2,
+.whoCopy strong,
+.capPayBrand,
+.capVerified b,
+.capMachineChip b,
+.hpDev .devSteps b {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.cineStats b,
+.capDeviceBody strong,
+.capPaySource strong,
+.capHandsetScreen strong,
+.payAmount,
+.vizPay strong,
+.capPan,
+.capMachineChip b {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.capBrand img {
+  width: 22cqh;
+  height: 22cqh;
+  border-radius: 22%;
+  object-fit: cover;
+}
+
+.capPayFan path.isOn {
+  filter: none;
+  stroke: var(--swoosh);
+}
+.capPayTile.isLanded {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 12px 24px rgba(0, 0, 0, 0.28);
+}
+.capCardGlow { display: none; }
+.vizMiniScore::before { box-shadow: none; }
+
+.whoVisual:has(.whoPhone) {
+  aspect-ratio: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  padding: 18px 14px 0;
+}
+.whoCard .whoPhone,
+.whoCard .whoPhone.is-pay {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: min(100%, 300px);
+  transform: none;
+}
+.whoCard .whoPhone .vizPhone {
+  width: 100%;
+  border-radius: 28px 28px 0 0;
+}
+
+@media (max-width: 899px) {
+  .capStage[data-cap="wallet"],
+  .capStage[data-cap="card"] {
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+  .capStage[data-cap="wallet"] .capStageIn,
+  .capStage[data-cap="card"] .capStageIn {
+    position: relative;
+    inset: auto;
+  }
+  .capWallet {
+    position: relative;
+    inset: auto;
+    padding: 10px;
+  }
+  .capWallet .capDevice {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    transform: none;
+    margin: 0;
+  }
+  .capCardScene {
+    position: relative;
+    inset: auto;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px;
+  }
+  .capHandset { width: 100%; }
+  .capCardFloat,
+  .capCardFloat:hover,
+  .capCardFloat:active,
+  .capStage:hover .capCardFloat,
+  .capStage:active .capCardFloat {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    transform: none;
+    animation: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .capStage[data-cap="wallet"],
+  .capStage[data-cap="card"] {
+    min-height: 620px;
+  }
+  .capWallet .capDevice {
+    top: 16px;
+    bottom: 16px;
+    height: auto;
+    width: min(440px, 70%);
+  }
+  .capCardScene {
+    justify-content: stretch;
+    gap: 14px;
+    padding: 18px;
+  }
+  .capHandset {
+    flex: 1 1 auto;
+    width: min(500px, 82%);
+    min-height: 240px;
+  }
+  .capHandsetScreen {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .capCardFloat,
+  .capCardFloat:hover,
+  .capCardFloat:active,
+  .capStage:hover .capCardFloat,
+  .capStage:active .capCardFloat {
+    width: min(540px, 90%);
+    margin-top: 0;
+    transform: none;
+    animation: none;
+  }
+  .whoCard .whoPhone,
+  .whoCard .whoPhone.is-pay {
+    width: min(86%, 320px);
+  }
+}
+
+/* Solution tiles: the mock fills the tile instead of sitting scaled inside it. */
+.solArt {
+  height: auto;
+  min-height: 210px;
+  align-items: stretch;
+  padding: 0;
+}
+.solArt .vizHost,
+.solArt .vizWorker {
+  transform: none;
+  width: 100%;
+  height: auto;
+  min-height: 210px;
+}
+.solArt .vizHost { border: 0; border-radius: 0; }
+.solArt .vizHostPhones { width: 100%; align-items: stretch; }
+.solArt .vizPhone {
+  width: auto;
+  flex: 1 1 0;
+  min-width: 0;
+}
+.solArt .vizWorker { width: 100%; }
+.solArt .vizWorker .vizPhone { width: 86%; margin: 16px auto 0; }
+.solArt .vizMini {
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  min-height: 180px;
+}
+.solArt .whoDrone { height: 100%; }

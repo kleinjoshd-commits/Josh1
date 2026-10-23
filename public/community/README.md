@@ -19,10 +19,9 @@ Open `index.html` in a browser. Done — no build step, no dependencies. (For se
 Open `yourdomain.com/#desk` on the desk tablet: shows DESK MODE badge + officer-initials field. Long-press the logo for 3 seconds in desk mode to export the device's enrollments as CSV.
 
 ## Language
-EN/தமிழ் toggle top-right. **Every Tamil string is machine-drafted — Kok Rie (or a native speaker) MUST review `i18n/strings.js` before any worker sees this.** Search the file for `ta:` — all strings in that block.
+English only. There is no language toggle.
 
 ## Before workers use it (launch checklist)
-- [ ] Tamil native review complete
 - [ ] Real MPE logo into `assets/` (replace the placeholder "M" mark + icon-512.png export)
 - [ ] Programme name + Kumar name treatment confirmed (config + banner)
 - [ ] Rate updated + daily update owner named
