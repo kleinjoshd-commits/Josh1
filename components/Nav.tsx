@@ -25,29 +25,21 @@ export default function Nav() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
-        background: "rgba(5, 8, 10, 0.92)",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        background: "rgba(8, 12, 12, 0.88)",
+        borderBottom: "1px solid rgba(255,255,255,0.10)",
       }}
     >
       <div className="container navBar">
         <Link href="/" className="navLogo" aria-label="Home">
           <Image
-            src="/favicon.png"
-            alt=""
-            width={36}
-            height={36}
-            priority
-            className="navMark"
-          />
-          <Image
             src="/mpe-logo.png"
             alt="MPE"
-            width={148}
-            height={34}
+            width={176}
+            height={40}
             priority
-            className="navWord"
+            style={{ width: 176, height: "auto" }}
           />
         </Link>
 

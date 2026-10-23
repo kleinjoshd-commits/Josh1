@@ -1,5 +1,4 @@
 import { Inter } from "next/font/google";
-import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import AnimateOnScroll from "../components/AnimateOnScroll";
@@ -11,19 +10,6 @@ const inter = Inter({
   display: "optional",
   adjustFontFallback: true,
   variable: "--font-inter",
-  preload: true,
-});
-
-const satoshi = localFont({
-  src: [
-    { path: "../public/fonts/Satoshi-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/Satoshi-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../public/fonts/Satoshi-Bold.woff2", weight: "700", style: "normal" },
-    { path: "../public/fonts/Satoshi-Black.woff2", weight: "900", style: "normal" },
-  ],
-  variable: "--font-satoshi",
-  display: "swap",
-  adjustFontFallback: false,
   preload: true,
 });
 
@@ -61,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${satoshi.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body>
         <Script id="mpe-js" strategy="beforeInteractive">
           {`document.documentElement.classList.add("js")`}
