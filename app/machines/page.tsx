@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta(
   "Machines | MPE",
-  "Set the rules, limits and counterparties a machine may pay. MPE authorizes, routes and signs the request."
+  "MFAM is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account."
 );
 
 export default function MachinesPage() {
@@ -20,7 +20,7 @@ export default function MachinesPage() {
           <div className="ebTag">MFAM</div>
           <h1>Set the rules. The machine requests payment.</h1>
           <p className="ebSub">
-            The operator sets the rules, the limits, and the counterparties a machine may pay. The machine requests payment and MPE authorizes, routes and signs it. Every decision lands in a tamper-evident record.
+            MFAM is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account. Each payment is designed to be signed by the machine's chip and kept in one tamper-evident record.
           </p>
         </div>
       </section>

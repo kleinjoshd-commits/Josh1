@@ -42,7 +42,7 @@ export const homepageCopy = {
       {
         icon: "machine",
         title: "Machine payments",
-        body: "Machines approve payments within limits the operator sets.",
+        body: "MFAM is identity and authority.",
       },
     ],
   },
@@ -54,10 +54,10 @@ export const homepageCopy = {
   mfam: {
     eyebrow: "Machines",
     heading: "When the payer is a machine.",
-    lede: "Machines approve payments within limits the operator sets.",
+    lede: "MFAM is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account.",
     points: [
       "The operator sets the rules, the limits, and who the machine may pay.",
-      "Every decision is signed and written to a tamper-evident record.",
+      "Each payment is designed to be signed by the machine's chip and kept in one tamper-evident record.",
     ],
     cta: "Talk to us about machines",
   },
