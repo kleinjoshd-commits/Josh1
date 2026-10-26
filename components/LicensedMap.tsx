@@ -17,7 +17,7 @@ import { MAP_SVG } from "@/content/licensedMapSvg";
 const LABEL: Record<string, [string, string, string]> = {
   licensed: ["Licensed network", "a full program can run here", "#17C97F"],
   payout: ["Payout and collection", "money lands here", "#57A87C"],
-  motion: ["License in motion", "Payouts run through our payment partners.", "#E0A82E"],
+  motion: ["Where payouts run", "Payouts run through our payment partners.", "#E0A82E"],
   extended: ["Extended access", "beyond the core licensed markets", "#2BA6B6"],
 };
 
@@ -109,7 +109,7 @@ export default function LicensedMap() {
               <p>Payout and collection across the partner network.</p>
             </div>
             <div className="lg motion" data-f="motion">
-              <div className="row"><div className="sw" /><b>License in motion</b></div>
+              <div className="row"><div className="sw" /><b>Where payouts run</b></div>
               <p>Payouts run through our payment partners.</p>
             </div>
             <div className="lg extended" data-f="extended">
