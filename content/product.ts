@@ -5,7 +5,7 @@ export const product = {
   fallback: "When one degrades, routing picks another eligible one.",
   route:
     "Every allowed route is scored on success, speed and cost. The best one is picked.",
-  machines: "Machines approve payments within limits the operator sets.",
+  machines: "MFAM is identity and authority.",
   flow: [
     {
       title: "Authorize",
@@ -106,7 +106,7 @@ export const segments = [
   },
   {
     title: "Machines",
-    body: "A machine pays within limits you set.",
+    body: "MFAM is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account.",
     detail:
       "Operators of drone fleets, autonomous vehicles, robotics, EV charging, and remote or maritime equipment.",
     href: "/machines",
