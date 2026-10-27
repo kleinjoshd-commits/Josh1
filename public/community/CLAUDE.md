@@ -7,9 +7,9 @@ A branded Progressive Web App ("the Shell") for MPE Solutions' community remitta
 ## Hard rules (never violate)
 1. **No money-state code.** No balances, no transactions, no payment initiation. Rate display is config-driven informational content.
 2. **Attribution-only data.** Collect ONLY: full name, mobile number, employer name, preferred language, referral code (optional). NEVER passport/FIN/work-permit numbers, NEVER bank details, NEVER photos of documents. Add a short PDPA consent line at the form.
-3. **Mandatory disclosure line** on every screen footer where the programme is described: "Money transfer services are provided by our MAS-licensed partner institution." (Exact partner name inserted at config when signed: `LICENSED_PARTNER_NAME`.)
+3. **Mandatory disclosure line** on every screen footer where the programme is described: "Money transfer and payment services within MPE programs are provided by licensed partner institutions in each market." (Partner name inserted at config when signed: `LICENSED_PARTNER_NAME`.)
 4. Mobile-first, low-end-Android-first: fast on cheap devices and 3G. No heavy frameworks — vanilla or Preact-class only. Total JS < 150KB. Works offline after first load (service worker).
-5. Bilingual EN/TA from day one via a strings file (`/i18n/en.json`, `/i18n/ta.json`). Tamil is machine-drafted — mark every string `"needs_native_review": true` until cleared.
+5. English copy lives in `i18n/strings.js`. Do not add a language toggle.
 
 ## Screens (v0 scope — nothing more)
 1. **Welcome/Splash** — Kumar community branding ("Brought to you by Kumar & the Eyota community" — placeholder assets) inside MPE brand frame. Big single CTA: "Join the Programme".
@@ -34,7 +34,7 @@ A branded Progressive Web App ("the Shell") for MPE Solutions' community remitta
 6. (Night 2) Supabase project URL + anon key as env vars; Vercel account connected to the repo.
 
 ## First prompt to Claude Code (copy-paste)
-"Read CLAUDE.md and the /reference files. Scaffold the complete v0 PWA per the spec — all 5 screens, i18n structure with EN strings final and TA machine-drafted, PWA manifest + service worker, tokens.css from the brand reference, mobile-first. Stub the Supabase call behind a `submitEnrollment()` function with a local fallback. Then give me a checklist of every decision you made that I should review."
+"Read CLAUDE.md and the /reference files. Scaffold the complete v0 PWA per the spec. All 5 screens, English strings in i18n/strings.js, PWA manifest + service worker, tokens.css from the brand reference, mobile-first. Stub the Supabase call behind a `submitEnrollment()` function with a local fallback. Then give me a checklist of every decision you made that I should review."
 
 ## Definition of done (night 1)
-Deployed URL on Vercel · installs to Android home screen · all 5 screens work offline · form saves (Supabase or local fallback) · referral code issues + shares to WhatsApp · EN complete, TA drafted · disclosure line everywhere · Lighthouse mobile ≥ 90.
+Deployed URL on Vercel. Installs to Android home screen. All 5 screens work offline. Form saves (Supabase or local fallback). Referral code issues and shares to WhatsApp. English copy is complete. Disclosure line everywhere. Lighthouse mobile at least 90.

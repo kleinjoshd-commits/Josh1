@@ -25,10 +25,10 @@ export default function Nav() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
-        background: "rgba(5, 8, 10, 0.92)",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        background: "rgba(8, 12, 12, 0.88)",
+        borderBottom: "1px solid rgba(255,255,255,0.10)",
       }}
     >
       <div className="container navBar">
