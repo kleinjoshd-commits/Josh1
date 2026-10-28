@@ -16,9 +16,6 @@ export const HSTS_VALUE = "max-age=63072000";
 const PAGE_CSP =
   "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests";
 
-const COMMUNITY_CSP =
-  "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests";
-
 const CANONICAL_HOST = "modernpayengine.com";
 const CANONICAL_ORIGIN = `https://${CANONICAL_HOST}`;
 
@@ -34,7 +31,6 @@ const REDIRECT_FLAG = "MPE_HOST_REDIRECT";
 const PERMANENT_FLAG = "MPE_HOST_REDIRECT_PERMANENT";
 
 const EXACT_PATH_REDIRECTS: Record<string, { pathname: string; status: 301 | 307 }> = {
-  "/community": { pathname: "/community/index.html", status: 307 },
   "/about/team": { pathname: "/company", status: 301 },
   "/about": { pathname: "/company", status: 301 },
   "/industries": { pathname: "/solutions", status: 301 },
@@ -93,10 +89,12 @@ function normalizePath(pathname: string): string {
 }
 
 export function headersForPath(pathname: string): Array<[string, string]> {
-  const csp = pathname === "/community" || pathname.startsWith("/community/") ? COMMUNITY_CSP : PAGE_CSP;
+  if (!pathname.startsWith("/")) {
+    throw new Error("pathname must start with /");
+  }
   return [
     ["Strict-Transport-Security", HSTS_VALUE],
-    ["Content-Security-Policy", csp],
+    ["Content-Security-Policy", PAGE_CSP],
     ["X-Content-Type-Options", "nosniff"],
     ["X-Frame-Options", "DENY"],
     ["Referrer-Policy", "strict-origin-when-cross-origin"],

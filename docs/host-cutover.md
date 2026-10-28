@@ -19,7 +19,7 @@ Code does not change Vercel domain settings or DNS. Those steps are below. Do no
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
 
-Legacy path aliases (for example `/about` to `/company`) stay 301. The community folder redirect stays temporary.
+Legacy path aliases (for example `/about` to `/company`) stay 301.
 
 Host redirects read two env vars at request time. Any value other than `1`, including unset, is off.
 

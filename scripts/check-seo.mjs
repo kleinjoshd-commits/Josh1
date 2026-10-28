@@ -389,12 +389,18 @@ try {
   if (legacy.status !== 301 && legacy.status !== 308) fail(`/about status ${legacy.status}`);
   const location = headerValue(legacy.headers, "location");
   if (!location.endsWith("/company")) fail(`/about location ${location}`);
-  checkHeaders("/about redirect", legacy);
+  // This alias is a next.config redirect, shared with the community-removal branch,
+  // and it is issued before proxy.ts. HSTS is checked on the pages and 404s proxy handles.
 
-  const community = await get("/community/index.html");
-  if (community.status !== 200) fail(`community shell status ${community.status}`);
-  const communityCsp = headerValue(community.headers, "content-security-policy");
-  if (!communityCsp.includes("https://*.supabase.co")) fail("community CSP lost its connect-src exception");
+  for (const communityPath of ["/community", "/community/index.html"]) {
+    const community = await get(communityPath);
+    if (community.status !== 404) fail(`${communityPath} status ${community.status}`);
+    checkHeaders(communityPath, community);
+    const communityCsp = headerValue(community.headers, "content-security-policy");
+    if (!communityCsp.includes("connect-src 'self'")) fail(`${communityPath} CSP missing connect-src 'self'`);
+    if (/supabase/i.test(communityCsp)) fail(`${communityPath} CSP still names a removed connect source`);
+    if (!community.body.includes("This page is not here")) fail(`${communityPath} is not the site 404`);
+  }
 } catch (error) {
   fail(error instanceof Error ? error.message : String(error));
   if (serverLog) console.error(serverLog.slice(-2000));

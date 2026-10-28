@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {
   HSTS_VALUE,
   decideHostRedirect,
+  decidePathRedirect,
   headersForPath,
   resolveRedirect,
   type RedirectInput,
@@ -161,16 +162,16 @@ check("security headers omit HSTS includeSubDomains and preload", () => {
     assert.equal(hsts, "max-age=63072000");
     assert.doesNotMatch(hsts ?? "", /includeSubDomains|preload/i);
     const csp = headers.find(([name]) => name === "Content-Security-Policy")?.[1] ?? "";
+    assert.match(csp, /connect-src 'self'/);
+    assert.doesNotMatch(csp, /supabase/);
     assert.match(csp, /frame-ancestors 'none'/);
     assert.equal(headers.find(([name]) => name === "X-Frame-Options")?.[1], "DENY");
     assert.equal(headers.find(([name]) => name === "X-Content-Type-Options")?.[1], "nosniff");
     assert.equal(headers.find(([name]) => name === "Referrer-Policy")?.[1], "strict-origin-when-cross-origin");
     assert.equal(headers.find(([name]) => name === "Permissions-Policy")?.[1], "camera=(), microphone=(), geolocation=()");
   }
-  const pageCsp = headersForPath("/platform").find(([name]) => name === "Content-Security-Policy")?.[1] ?? "";
-  const communityCsp = headersForPath("/community/index.html").find(([name]) => name === "Content-Security-Policy")?.[1] ?? "";
-  assert.doesNotMatch(pageCsp, /supabase/);
-  assert.match(communityCsp, /https:\/\/\*\.supabase\.co/);
+  assert.equal(decidePathRedirect("/community", ""), null);
+  assert.equal(decidePathRedirect("/community/index.html", ""), null);
 });
 
 if (failed > 0) {
