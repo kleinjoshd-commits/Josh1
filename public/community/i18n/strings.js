@@ -5,7 +5,7 @@ window.MPE_I18N = {
     community_title:"An MPE community program",
     community_sub:"A local program in Singapore, on the MPE platform",
     hero:'Payouts, <span class="accent">the proper way.</span>',
-    hero_sub:"A legal, digital payout from your own bank account. Tracked every step. Receipts for every transfer. Licensed partners move the money. MPE never holds funds.",
+    hero_sub:"A legal, digital payout from your own bank account. Tracked every step. Receipts for every transfer. MPE never holds funds.",
     chip1:"✓ 100% legal", chip2:"Same-day payout", chip3:"No cash, ever", chip4:"Receipts every time",
     cta_join:"Join the Program", cta_how:"How it works", cta_rate:"See today's rate", cta_register:"Register",
     cta_share:"Share on WhatsApp", cta_done:"Done",
@@ -21,7 +21,7 @@ window.MPE_I18N = {
     reg_sub:"Registration is free. Your welcome credit is applied to your first transfer.",
     f_name:"Full name (as in your ID)", f_phone:"Singapore mobile number", f_employer:"Employer / company",
     f_lang:"Preferred language", f_ref:"Referral code (optional)",
-    consent:"I agree that MPE Solutions may contact me about the Program and store these details for enrollment. We never ask for your passport, work permit or bank details in this app. Identity checks happen only with our licensed partner when you make your first payout.",
+    consent:"I agree that MPE Solutions may contact me about the Program and store these details for enrollment. We never ask for your passport, work permit or bank details in this app.",
     ok_title:"You're in.",
     sel_hero:'Your community, <span class="accent">your program.</span>',
     sel_sub:"MPE Community runs with trusted local community partners. Choose your program to see rates, register, and share with friends.",
@@ -31,13 +31,12 @@ window.MPE_I18N = {
     ok_code_label:"Your personal referral code", ok_code_sub:"Friends who join with your code, and you, both receive a credit.",
     faq_title:"Questions",
     nav_home:"Home", nav_how:"How", nav_rate:"Rate", nav_join:"Join", nav_faq:"FAQ",
-    disclosure:"Money transfer services are provided by our MAS-licensed partner institution. MPE Solutions provides program enrollment, community support and technology only, and never holds your money.",
+    disclosure:"MPE Solutions provides program enrollment, community support and technology only, and never holds your money.",
     faq:[
-      {q:"Is this legal?", a:"Yes, completely. Every payout runs through a licensed institution regulated by the Monetary Authority of Singapore (MAS). You pay from your own bank account, the recipient is paid to theirs, and every payout has a receipt. That is exactly what Singapore law requires."},
-      {q:"Where does my money actually go?", a:"From your own Singapore bank account, by PayNow, directly to our licensed partner institution. Never to any person, and never in cash. The licensed partner pays the recipient's bank account."},
+      {q:"Where does my money actually go?", a:"From your own Singapore bank account, by PayNow. Never to any person, and never in cash."},
       {q:"What does it cost?", a:"You see the rate and the full cost on screen before you confirm. Nothing hidden, no deductions on the recipient's side. New members receive a welcome credit on their first payout."},
       {q:"How fast does the payout arrive?", a:"Usually the same day, often within hours. You receive a confirmation you can share the moment it is delivered."},
-      {q:"Who runs the community desk?", a:"A local community program in Singapore hosts the desk, the events and the in-person support. The technology is MPE's, and the money always moves through the licensed institution."},
+      {q:"Who runs the community desk?", a:"A local community program in Singapore hosts the desk, the events and the in-person support. The technology is MPE's."},
       {q:"Who do I talk to if I need help?", a:"The officer at the community desk speaks Tamil and English and can help with registration, your first payout, or a question about a receipt. You will never be left without a person to talk to."}
     ]
   },
@@ -72,13 +71,12 @@ window.MPE_I18N = {
     ok_code_label:"உங்கள் தனிப்பட்ட பரிந்துரை குறியீடு", ok_code_sub:"உங்கள் குறியீட்டுடன் சேரும் நண்பர்கள். இருவருக்கும் கிரெடிட்.",
     faq_title:"கேள்விகள்",
     nav_home:"முகப்பு", nav_how:"எப்படி", nav_rate:"விகிதம்", nav_join:"சேர", nav_faq:"கேள்வி",
-    disclosure:"பண பரிமாற்ற சேவைகள் எங்கள் MAS-உரிமம் பெற்ற பங்காளர் நிறுவனத்தால் வழங்கப்படுகின்றன. MPE Solutions பதிவு, சமூக ஆதரவு மற்றும் தொழில்நுட்பம் மட்டுமே வழங்குகிறது. உங்கள் பணத்தை ஒருபோதும் வைத்திருக்காது.",
+    disclosure:"MPE Solutions பதிவு, சமூக ஆதரவு மற்றும் தொழில்நுட்பம் மட்டுமே வழங்குகிறது. உங்கள் பணத்தை ஒருபோதும் வைத்திருக்காது.",
     faq:[
-      {q:"இது சட்டப்பூர்வமா?", a:"ஆம். முழுமையாக. ஒவ்வொரு பரிமாற்றமும் MAS-ஆல் கட்டுப்படுத்தப்படும் உரிமம் பெற்ற நிறுவனம் மூலம் நடைபெறுகிறது. உங்கள் கணக்கிலிருந்து அனுப்புகிறீர்கள், குடும்பம் அவர்கள் கணக்கில் பெறுகிறது, ஒவ்வொரு முறையும் ரசீது."},
-      {q:"என் பணம் எங்கே போகிறது?", a:"உங்கள் சிங்கப்பூர் வங்கிக் கணக்கிலிருந்து PayNow மூலம் நேரடியாக உரிமம் பெற்ற நிறுவனத்திற்கு. ஒருபோதும் நபருக்கோ, பணமாகவோ இல்லை. அவர்கள் அதை உங்கள் குடும்பத்தின் இந்திய வங்கிக் கணக்கிற்கு அனுப்புகிறார்கள்."},
+      {q:"என் பணம் எங்கே போகிறது?", a:"உங்கள் சிங்கப்பூர் வங்கிக் கணக்கிலிருந்து PayNow மூலம். ஒருபோதும் நபருக்கோ, பணமாகவோ இல்லை."},
       {q:"என்ன செலவு?", a:"உறுதிப்படுத்தும் முன் விகிதமும் முழு செலவும் திரையில் தெரியும். மறைவான கட்டணங்கள் இல்லை. புதிய உறுப்பினர்களுக்கு முதல் பரிமாற்றத்தில் வரவேற்பு கிரெடிட்."},
       {q:"எவ்வளவு விரைவாக குடும்பம் பெறும்?", a:"வழக்கமாக அன்றே, பெரும்பாலும் சில மணி நேரங்களில். பணம் சேர்ந்தவுடன் உறுதிப்படுத்தல் கிடைக்கும்."},
-      {q:"சமூக மேசையை யார் நடத்துகிறார்கள்?", a:"சிங்கப்பூரில் ஒரு உள்ளூர் சமூக திட்டம் மேசையையும் நிகழ்வுகளையும் நேரடி ஆதரவையும் நடத்துகிறது. தொழில்நுட்பம் MPE-இன். பணம் எப்போதும் உரிமம் பெற்ற நிறுவனம் மூலமே செல்கிறது."},
+      {q:"சமூக மேசையை யார் நடத்துகிறார்கள்?", a:"சிங்கப்பூரில் ஒரு உள்ளூர் சமூக திட்டம் மேசையையும் நிகழ்வுகளையும் நேரடி ஆதரவையும் நடத்துகிறது. தொழில்நுட்பம் MPE-இன்."},
       {q:"உதவி வேண்டுமெனில் யாரிடம் பேசுவது?", a:"சமூக மேசையில் உள்ள அதிகாரி தமிழிலும் ஆங்கிலத்திலும் பேசுவார். பதிவு, முதல் பரிமாற்றம், அல்லது எந்த கேள்விக்கும். நீங்கள் தனியாக விடப்பட மாட்டீர்கள்."}
     ]
   }

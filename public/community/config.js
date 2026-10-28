@@ -4,8 +4,8 @@
 // community selector until one is chosen (or deep-linked via #slug).
 window.MPE_CONFIG = {
   PROGRAMME_NAME: "MPE Community",
-  LICENSED_PARTNER_NAME: "our MAS-licensed partner institution", // replace with the legal name once the agreement is signed
-  RAIL_HANDOFF_URL: "",          // paste the licensed partner's transfer-flow URL when available; empty = handoff button hidden
+  LICENSED_PARTNER_NAME: "",
+  RAIL_HANDOFF_URL: "",          // paste the transfer-flow URL when available; empty = handoff button hidden
   WELCOME_CREDIT_SGD: 10,
   SUPABASE_URL: "",              // night 2: fill both and enrollments sync to Supabase (falls back to on-device storage when empty)
   SUPABASE_ANON_KEY: "",
