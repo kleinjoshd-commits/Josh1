@@ -5,7 +5,7 @@ export type NavItem = {
 
 export const siteConfig = {
   productName: "MPE",
-  companyName: "MPE Solutions Inc.",
+  companyName: "MPE Solutions, Inc",
   domain: "modernpayengine.com",
   nav: [
     { label: "Platform", href: "/platform" },

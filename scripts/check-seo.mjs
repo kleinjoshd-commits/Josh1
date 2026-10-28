@@ -7,9 +7,9 @@
  * Requires `npm run build` first. Starts `next start` itself.
  * Does not call IndexNow or any external host.
  *
- * Official contact email: UNCONFIRMED. The live site published no email
- * address on Oct 28, 2026. OFFICIAL_EMAILS stays empty until Josh confirms one.
- * Any email address in the rendered HTML of the nine URLs fails this check.
+ * Official contact email: josh@modernpayengine.com.
+ * This allowlist is for the copy check only. Do not add the address to site copy.
+ * Any other email address in the rendered HTML of the nine URLs fails this check.
  */
 
 import { spawn } from "node:child_process";
@@ -38,8 +38,8 @@ const PATHS = [
 const SERVICE_PATHS = new Set(["/platform", "/solutions/platforms"]);
 const INDEXNOW_KEY = "f6172fe5482ee6b83488836f445c9d94";
 
-// Empty until the official address is confirmed. See the file header.
-const OFFICIAL_EMAILS = new Set();
+// Copy-check allowlist only. Do not render this address on the site.
+const OFFICIAL_EMAILS = new Set(["josh@modernpayengine.com"]);
 
 const failures = [];
 
