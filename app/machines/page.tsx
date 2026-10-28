@@ -1,18 +1,18 @@
 import Nav from "@/components/Nav";
 import FilmPlayer from "@/components/FilmPlayer";
 import RequestAccess from "@/components/RequestAccess";
+import { mfamProduct } from "@/content/schema";
 import { operators, product } from "@/content/product";
 import { homepageMedia } from "@/content/media";
+import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Machines | MPE",
-  "MFAM is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account."
-);
+export const metadata = pageMeta("/machines");
 
 export default function MachinesPage() {
   return (
     <main className="sitePage machinesPage">
+      <JsonLd data={mfamProduct} />
       <Nav />
 
       <section className="emeraldBand">

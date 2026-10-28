@@ -1,7 +1,7 @@
 export const product = {
-  oneLiner: "One Platform API in front of many licensed providers.",
+  oneLiner: "One Platform API in front of many providers.",
   funds: "MPE never holds funds. Licensed partners do.",
-  adapter: "Any licensed provider plugs in through one standard adapter.",
+  adapter: "Any provider plugs in through one standard adapter.",
   fallback: "When one degrades, routing picks another eligible one.",
   route:
     "Every allowed route is scored on success, speed and cost. The best one is picked.",
@@ -44,7 +44,7 @@ export const product = {
     "Tamper-evident audit log",
     "MPE never holds funds",
     "No identity documents stored by MPE",
-    "Verification done by licensed providers",
+    "Verification done by licensed partner institutions",
   ],
   developerSteps: [
     {
@@ -60,7 +60,7 @@ export const product = {
       body: "MPE authorizes, routes and signs the payout.",
     },
     {
-      title: "Listen for signed webhooks",
+      title: "Listen for webhooks",
       body: "KYC and transfer updates arrive signed.",
     },
   ],
@@ -92,7 +92,7 @@ export const segments = [
   },
   {
     title: "Fintechs",
-    body: "One API for every licensed provider.",
+    body: "One API across providers.",
     detail:
       "Payment programs that run more than one provider get orchestration, a signed audit trail, and fallback when a provider degrades.",
     href: "/solutions/fintechs",

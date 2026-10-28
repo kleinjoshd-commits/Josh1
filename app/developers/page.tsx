@@ -5,10 +5,7 @@ import RequestAccess from "@/components/RequestAccess";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Developers | MPE",
-  "API docs and embeds come with access. Pay out, then listen for signed webhooks."
-);
+export const metadata = pageMeta("/developers");
 
 export default function DevelopersPage() {
   return (
@@ -38,7 +35,7 @@ export default function DevelopersPage() {
               <CodeSample code={product.payoutSample} label="Payout request and response" />
             </div>
             <div className="codeWindow">
-              <p>Signed webhooks</p>
+              <p>Webhooks</p>
               <CodeSample code={product.webhookSample} label="Webhook headers and events" />
             </div>
           </div>

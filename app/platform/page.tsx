@@ -4,17 +4,17 @@ import FlowRow from "@/components/FlowRow";
 import RoutingDiagram from "@/components/RoutingDiagram";
 import RequestAccess from "@/components/RequestAccess";
 import { OpsConsole, SplitStory } from "@/components/ProductVisuals";
+import { payoutService } from "@/content/schema";
 import { product } from "@/content/product";
+import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Platform | MPE",
-  "One API. Authorize, route and sign. Every allowed route is scored on success, speed and cost."
-);
+export const metadata = pageMeta("/platform");
 
 export default function PlatformPage() {
   return (
     <main className="sitePage">
+      <JsonLd data={payoutService} />
       <Nav />
 
       <section className="emeraldBand">

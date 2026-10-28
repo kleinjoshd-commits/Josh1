@@ -114,9 +114,6 @@ export default function RoutingDiagram() {
             : `${active.label}: platform to MPE, scores every route, then ${active.dest}.`
         }
       >
-        <title>
-          {identity ? "Identity. Verify. MPE." : `${active.label}. Scores every route. ${active.dest}.`}
-        </title>
         <Connector d={platformToMpe} on={!identity} />
         <Connector d={platformToVerify} on={identity} />
         <Connector d={verifyToMpe} on={identity} />

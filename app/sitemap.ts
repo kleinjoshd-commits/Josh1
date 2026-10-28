@@ -1,21 +1,9 @@
 import { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/siteConfig";
-
-const PATHS = [
-  "",
-  "/platform",
-  "/machines",
-  "/solutions",
-  "/solutions/platforms",
-  "/solutions/fintechs",
-  "/solutions/businesses",
-  "/developers",
-  "/company",
-];
+import { CANONICAL_ORIGIN, SITEMAP_PATHS } from "@/content/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return PATHS.map((path) => ({
-    url: `https://${siteConfig.domain}${path}`,
+  return SITEMAP_PATHS.map((path) => ({
+    url: path === "/" ? CANONICAL_ORIGIN : `${CANONICAL_ORIGIN}${path}`,
     lastModified: new Date(),
   }));
 }

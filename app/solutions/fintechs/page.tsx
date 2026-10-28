@@ -4,10 +4,7 @@ import RequestAccess from "@/components/RequestAccess";
 import { MiniRoute, OpsRouting, SplitStory } from "@/components/ProductVisuals";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Fintechs | MPE",
-  "One API and one adapter for every licensed provider. Routing scored on success, speed and cost, with fallback when a provider degrades."
-);
+export const metadata = pageMeta("/solutions/fintechs");
 
 export default function FintechsPage() {
   return (
@@ -38,9 +35,9 @@ export default function FintechsPage() {
             }
           >
             <h2 className="homeSectionTitle">The job</h2>
-            <p className="p">Add a licensed provider without a new integration for each one.</p>
+            <p className="p">Add a provider without a new integration for each one.</p>
             <h2 className="homeSectionTitle">How you integrate</h2>
-            <p className="p">One API. One adapter for every licensed provider.</p>
+            <p className="p">One API. One adapter across providers.</p>
             <h2 className="homeSectionTitle">What you get</h2>
             <ul className="trustList">
               <li>Routing scored on success, speed and cost</li>

@@ -4,10 +4,7 @@ import RequestAccess from "@/components/RequestAccess";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Company | MPE",
-  "MPE builds orchestration software. Licensed partners move the money. For platforms, fintechs, businesses without an app, and operators of machines."
-);
+export const metadata = pageMeta("/company");
 
 type TeamMember = {
   name: string;
@@ -19,13 +16,13 @@ type TeamMember = {
 const team: TeamMember[] = [
   {
     name: "Cliff Beek",
-    title: "CEO & Co-Founder",
+    title: "Co-Founder and CEO",
     photo: "/CliffBeekMPE.png",
     linkedin: "https://www.linkedin.com/in/cliff-beek-b2163/",
   },
   {
     name: "Josh Klein",
-    title: "COO & Co-Founder",
+    title: "Co-Founder and COO",
     photo: "/JoshKleinMPE.png",
     linkedin: "https://www.linkedin.com/in/kleinjoshd/",
   },

@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/siteConfig";
+import { CANONICAL_ORIGIN } from "@/content/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `https://${siteConfig.domain}/sitemap.xml`,
+    sitemap: `${CANONICAL_ORIGIN}/sitemap.xml`,
   };
 }

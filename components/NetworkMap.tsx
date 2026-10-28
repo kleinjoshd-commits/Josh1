@@ -1,7 +1,7 @@
 "use client";
 
 // =====================================================================
-// "Licensed access across the world", the flagship map section
+// Network map section. Full-program countries use the fullprog class.
 // (MPE_Website_Changes_1.md §3.4).
 //
 // This is the ONE section on the site that uses the dark emerald band:
@@ -12,16 +12,16 @@
 // Josh's instruction.
 // =====================================================================
 import { useEffect, useRef } from "react";
-import { MAP_SVG } from "@/content/licensedMapSvg";
+import { MAP_SVG } from "@/content/networkMapSvg";
 
 const LABEL: Record<string, [string, string, string]> = {
-  licensed: ["Licensed network", "a full program can run here", "#17C97F"],
+  fullprog: ["Full program", "a full program can run here", "#17C97F"],
   payout: ["Payout and collection", "money lands here", "#57A87C"],
   motion: ["Where payouts run", "Payouts run through our payment partners.", "#E0A82E"],
-  extended: ["Extended access", "beyond the core licensed markets", "#2BA6B6"],
+  extended: ["Extended access", "beyond the core markets", "#2BA6B6"],
 };
 
-export default function LicensedMap() {
+export default function NetworkMap() {
   const boxRef = useRef<HTMLDivElement>(null);
   const tipRef = useRef<HTMLDivElement>(null);
 
@@ -39,7 +39,7 @@ export default function LicensedMap() {
       if (!p?.classList || !p.classList.contains("c")) { tip.style.opacity = "0"; return; }
       // Only countries served with at least payout answer on hover or click.
       // Countries outside the network stay quiet.
-      const cls = ["licensed", "payout", "motion", "extended"].find(k => p.classList.contains(k));
+      const cls = ["fullprog", "payout", "motion", "extended"].find(k => p.classList.contains(k));
       if (!cls) { tip.style.opacity = "0"; return; }
       const [t, d, col] = LABEL[cls];
       const name = p.dataset.n ?? "";
@@ -88,10 +88,10 @@ export default function LicensedMap() {
   }, []);
 
   return (
-    <section className="mpeMap" id="network-map" aria-label="Licensed access across the world">
+    <section className="mpeMap" id="network-map" aria-label="Access across the world">
       <div className="wrap">
         <div className="tag">THE NETWORK</div>
-        <h2>Licensed access across the world</h2>
+        <h2>Access across the world</h2>
         <p className="sub">
           Where money can land, and where a full program can run. Tap or hover
           the map, or a legend entry, to explore.
@@ -100,9 +100,9 @@ export default function LicensedMap() {
         <div className="maprow">
           <div className="mapbox" ref={boxRef} dangerouslySetInnerHTML={{ __html: MAP_SVG }} />
           <div className="legend">
-            <div className="lg licensed" data-f="licensed">
-              <div className="row"><div className="sw" /><b>Licensed network</b></div>
-              <p>Full programs in licensed markets.</p>
+            <div className="lg fullprog" data-f="fullprog">
+              <div className="row"><div className="sw" /><b>Full program</b></div>
+              <p>A full program can run here.</p>
             </div>
             <div className="lg payout" data-f="payout">
               <div className="row"><div className="sw" /><b>Payout &amp; collection</b></div>
@@ -114,14 +114,14 @@ export default function LicensedMap() {
             </div>
             <div className="lg extended" data-f="extended">
               <div className="row"><div className="sw" /><b>Extended access</b></div>
-              <p>Reach beyond the core licensed markets.</p>
+              <p>Reach beyond the core markets.</p>
             </div>
             <div className="note">Access shown is the combined contracted and in-process partner network.</div>
           </div>
         </div>
 
         <p className="foot-quote">
-          One network. Each payment is routed to an eligible licensed partner.
+          One network. Each payment is routed to an eligible partner.
         </p>
       </div>
 
@@ -145,17 +145,17 @@ export default function LicensedMap() {
         .mpeMap #worldmap{width:100%;height:auto;display:block;filter:drop-shadow(0 20px 60px rgba(0,0,0,.45))}
         .mpeMap .c{fill:var(--mBase);stroke:#0E3B2A;stroke-width:1.1;transition:fill .25s,opacity .3s;cursor:default}
         .mpeMap .c.payout{fill:var(--mPayout);cursor:pointer}
-        .mpeMap .c.licensed{fill:var(--mEmerald);cursor:pointer}
+        .mpeMap .c.fullprog{fill:var(--mEmerald);cursor:pointer}
         .mpeMap .c.marker{stroke:#F2F7F4;stroke-width:2.5}
         .mpeMap .c.extended{fill:var(--mTeal);cursor:pointer}
         .mpeMap .c.motion{fill:var(--mGold);cursor:pointer;animation:mpeBreathe 3.2s ease-in-out infinite}
         @keyframes mpeBreathe{0%,100%{fill:var(--mGold)}50%{fill:var(--mGoldHi)}}
         @media (prefers-reduced-motion: reduce){.mpeMap .c.motion{animation:none}}
         .mpeMap .c.payout:hover{fill:var(--mPayoutHi)}
-        .mpeMap .c.licensed:hover{fill:var(--mEmeraldHi)}
+        .mpeMap .c.fullprog:hover{fill:var(--mEmeraldHi)}
         .mpeMap .c.extended:hover{fill:var(--mTealHi)}
         .mpeMap .c.motion:hover{fill:var(--mGoldHi);animation:none}
-        .mpeMap svg.f-licensed .c:not(.licensed),.mpeMap svg.f-payout .c:not(.payout),
+        .mpeMap svg.f-fullprog .c:not(.fullprog),.mpeMap svg.f-payout .c:not(.payout),
         .mpeMap svg.f-motion .c:not(.motion),.mpeMap svg.f-extended .c:not(.extended){opacity:.18}
         .mpeMap .legend{display:flex;flex-direction:column;gap:10px;position:sticky;top:30px}
         .mpeMap .lg{background:rgba(18,41,29,.75);border:1px solid var(--mLine);border-radius:16px;padding:14px 16px;transition:border-color .2s,transform .15s;cursor:pointer}
@@ -164,7 +164,7 @@ export default function LicensedMap() {
         .mpeMap .lg .sw{width:16px;height:16px;border-radius:5px;flex:none}
         .mpeMap .lg b{font-size:14px}
         .mpeMap .lg p{font-size:11.5px;color:var(--mSub);margin-top:5px;line-height:1.5}
-        .mpeMap .lg.licensed .sw{background:var(--mEmerald);box-shadow:0 0 12px rgba(23,201,127,.6)}
+        .mpeMap .lg.fullprog .sw{background:var(--mEmerald);box-shadow:0 0 12px rgba(23,201,127,.6)}
         .mpeMap .lg.payout .sw{background:var(--mPayout)}
         .mpeMap .lg.motion .sw{background:var(--mGold);box-shadow:0 0 12px rgba(224,168,46,.5)}
         .mpeMap .lg.extended .sw{background:var(--mTeal)}
