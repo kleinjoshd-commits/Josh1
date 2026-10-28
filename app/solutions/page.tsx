@@ -5,10 +5,7 @@ import { SegmentVisual } from "@/components/ProductVisuals";
 import { segments } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Solutions | MPE",
-  "Platforms, fintechs, businesses without an app, and operators of machines. Four ways to use the same API."
-);
+export const metadata = pageMeta("/solutions");
 
 export default function SolutionsPage() {
   return (

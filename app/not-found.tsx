@@ -1,14 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
-import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = {
-  ...pageMeta(
-    "Page not found | MPE",
-    "That page is not on modernpayengine.com. One integration for every way money moves."
-  ),
-  alternates: { canonical: "/" },
-  robots: { index: false, follow: true },
+export const metadata: Metadata = {
+  title: "Page not found | MPE",
+  description:
+    "That page is not on modernpayengine.com. One integration for every way money moves.",
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {

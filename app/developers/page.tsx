@@ -5,10 +5,7 @@ import RequestAccess from "@/components/RequestAccess";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Developers | MPE",
-  "API docs and embeds come with access. Pay out, then listen for signed webhooks."
-);
+export const metadata = pageMeta("/developers");
 
 export default function DevelopersPage() {
   return (
@@ -38,13 +35,10 @@ export default function DevelopersPage() {
               <CodeSample code={product.payoutSample} label="Payout request and response" />
             </div>
             <div className="codeWindow">
-              <p>Signed webhooks</p>
-              <CodeSample code={product.webhookSample} label="Webhook headers and events" />
+              <p>Webhooks</p>
+              <CodeSample code={product.webhookSample} label="Webhook payload" />
             </div>
           </div>
-          <p className="p" style={{ marginTop: 12 }}>
-            Each event carries X-MPE-Timestamp, X-MPE-Signature and X-MPE-Event-Id, signed with HMAC-SHA256.
-          </p>
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Embeds</h2>

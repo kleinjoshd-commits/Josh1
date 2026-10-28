@@ -1,22 +1,19 @@
-import type { Metadata } from "next";
 import { preload } from "react-dom";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import KycForm from "../components/KycForm";
-import LicensedMap from "../components/LicensedMap";
+import NetworkMap from "../components/NetworkMap";
 import HeroFilm from "../components/HeroFilm";
 import FilmPlayer from "../components/FilmPlayer";
 import { SegmentVisual } from "../components/ProductVisuals";
 import CapabilitySwitch from "../components/CapabilitySwitch";
 import HomeDev from "../components/HomeDev";
+import HomeFaq from "../components/HomeFaq";
+import JsonLd from "../components/JsonLd";
+import { faqPageSchema } from "@/content/faq";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
 import { product, segments } from "@/content/product";
-
-export const metadata: Metadata = {
-  description:
-    "One API for payouts, branded wallets and cards, identity and machine payments. Platforms that pay people can earn a share of card spend. No new licenses needed. MPE never holds funds.",
-};
 
 function LeadCopy({ text }: { text: string }) {
   const splitAt = text.indexOf(". ");
@@ -90,7 +87,7 @@ export default function Home() {
         </div>
       </section>
 
-      <LicensedMap />
+      <NetworkMap />
 
       <section className="hpMfam" id="mfam" aria-labelledby="mfam-title">
         <div className="hpWrap" data-reveal>
@@ -137,6 +134,8 @@ export default function Home() {
         lede={homepageCopy.closing.lede}
         submitLabel={homepageCopy.closing.cta}
       />
+      <JsonLd data={faqPageSchema()} />
+      <HomeFaq />
     </main>
   );
 }

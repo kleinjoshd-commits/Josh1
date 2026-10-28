@@ -27,7 +27,7 @@ export const homepageCopy = {
       {
         icon: "wallet",
         title: "Wallets",
-        body: "Your branded wallet and card for the people you pay. Balances are held by a licensed partner, never by MPE.",
+        body: "Your branded wallet and card for the people you pay. Balances are held by licensed partner institutions, never by MPE.",
       },
       {
         icon: "card",
@@ -64,7 +64,7 @@ export const homepageCopy = {
 
   developers: {
     eyebrow: "Developers",
-    heading: "Pay out, then listen for signed webhooks.",
+    heading: "Pay out, then listen for webhooks.",
     lede: "API docs and embeds come with access.",
     cta: "Request access",
   },

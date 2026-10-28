@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import AnimateOnScroll from "../components/AnimateOnScroll";
 import SiteFooter from "../components/SiteFooter";
-import { siteConfig } from "@/lib/siteConfig";
+import { organizationGraph } from "@/content/schema";
+import { CANONICAL_ORIGIN } from "@/content/seo";
+import { serializeJsonLd } from "@/lib/jsonLd";
+import { pageMeta } from "@/lib/pageMeta";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,28 +17,9 @@ const inter = Inter({
   preload: true,
 });
 
-const description =
-  "One API for payouts, branded wallets and cards, identity and machine payments. Platforms that pay people can earn a share of card spend. No new licenses needed. MPE never holds funds.";
-
-export const metadata = {
-  metadataBase: new URL(`https://${siteConfig.domain}`),
-  title: "MPE | Financial infrastructure for a borderless economy",
-  description,
-  alternates: { canonical: "./" },
-  openGraph: {
-    title: "MPE | Financial infrastructure for a borderless economy",
-    description,
-    url: "./",
-    siteName: "MPE",
-    type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "One integration for every way money moves." }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "MPE | Financial infrastructure for a borderless economy",
-    description,
-    images: ["/og.png"],
-  },
+export const metadata: Metadata = {
+  ...pageMeta("/"),
+  metadataBase: new URL(CANONICAL_ORIGIN),
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
@@ -54,16 +39,7 @@ export default function RootLayout({
         </Script>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: siteConfig.companyName,
-              url: `https://${siteConfig.domain}`,
-              logo: `https://${siteConfig.domain}/mpe-logo.png`,
-              description,
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationGraph) }}
         />
         {children}
         <SiteFooter />

@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { CANONICAL_ORIGIN, pageSeo, type SeoPath } from "@/content/seo";
 
 /** Per-page title, description, canonical and social tags. */
-export function pageMeta(title: string, description: string): Metadata {
+export function pageMeta(path: SeoPath): Metadata {
+  const { title, description } = pageSeo[path];
+  const url = path === "/" ? CANONICAL_ORIGIN : `${CANONICAL_ORIGIN}${path}`;
   return {
     title,
     description,
-    alternates: { canonical: "./" },
+    alternates: { canonical: url },
     openGraph: {
       title,
       description,
-      url: "./",
+      url,
       siteName: "MPE",
       type: "website",
       images: [

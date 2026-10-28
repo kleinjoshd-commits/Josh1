@@ -4,10 +4,7 @@ import RequestAccess from "@/components/RequestAccess";
 import { OpsConsole, SplitStory, WorkerPhone } from "@/components/ProductVisuals";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Businesses without an app | MPE",
-  "Pay your people, let them spend on your branded card, and earn a share of their card spend. A branded app if you have none of your own. No new licenses needed."
-);
+export const metadata = pageMeta("/solutions/businesses");
 
 export default function BusinessesPage() {
   return (
@@ -42,7 +39,7 @@ export default function BusinessesPage() {
               Your people get verified, get paid, and spend, from an app branded as yours.
             </p>
             <p className="p">
-              Your branded wallet and card for the people you pay. You can earn a share of their card spend. No new licenses needed. Licensed partners handle the regulated parts. Cards are issued by a licensed bank partner. MPE never holds funds.
+              Your branded wallet and card for the people you pay. You can earn a share of their card spend. Launch without building your own payments stack. Money movement is provided by licensed partner institutions. MPE never holds funds.
             </p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Take the ready-made app. It carries your brand. You do not build one.</p>

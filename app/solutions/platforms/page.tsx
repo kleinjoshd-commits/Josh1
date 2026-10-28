@@ -2,16 +2,16 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
 import { HostApp, SplitStory } from "@/components/ProductVisuals";
+import JsonLd from "@/components/JsonLd";
+import { payoutService } from "@/content/schema";
 import { pageMeta } from "@/lib/pageMeta";
 
-export const metadata = pageMeta(
-  "Platforms | MPE",
-  "Pay your people, give them your branded wallet and card, and earn a share of their card spend. No new licenses needed."
-);
+export const metadata = pageMeta("/solutions/platforms");
 
 export default function PlatformsPage() {
   return (
     <main className="sitePage">
+      <JsonLd data={payoutService} />
       <Nav />
 
       <section className="emeraldBand">
@@ -35,7 +35,7 @@ export default function PlatformsPage() {
               Your people get paid from the app they already use.
             </p>
             <p className="p">
-              Your branded wallet and card for the people you pay. You can earn a share of their card spend. No new licenses needed. Licensed partners handle the regulated parts. Cards are issued by a licensed bank partner. MPE never holds funds.
+              Your branded wallet and card for the people you pay. You can earn a share of their card spend. Launch without building your own payments stack. Money movement is provided by licensed partner institutions. MPE never holds funds.
             </p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Embed the screens and keep your app.</p>
@@ -43,7 +43,7 @@ export default function PlatformsPage() {
             <ul className="trustList">
               <li>KYC, with document and selfie checks in your app</li>
               <li>Payouts to bank, debit card and mobile wallet</li>
-              <li>Payout status on a signed webhook</li>
+              <li>Payout status on a webhook</li>
             </ul>
           </SplitStory>
         </div>
