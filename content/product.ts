@@ -61,20 +61,18 @@ export const product = {
     },
     {
       title: "Listen for webhooks",
-      body: "KYC and transfer updates arrive signed.",
+      body: "KYC and transfer updates arrive on a webhook.",
     },
   ],
   payoutSample: `POST /v1/programs/{programId}/payouts
 Headers: Authorization: Bearer mpe_test_..., Idempotency-Key: <uuid>
 Body: { "enrollmentId": "enr_...", "amountInMinor": 248000, "currency": "CAD", "method": "bank" }
 Response 201: { "transferId": "trf_...", "state": "Sent", ... }`,
-  webhookSample: `X-MPE-Timestamp
-X-MPE-Signature
-X-MPE-Event-Id
-HMAC-SHA256
-
-kyc.updated
-transfer.updated`,
+  webhookSample: `{
+  "event": "transfer.updated",
+  "transferId": "trf_...",
+  "state": "Sent"
+}`,
   embeds: [
     { title: "Hosted web embed", body: "KYC, payouts and card, hosted by MPE." },
     { title: "JS drop-in", body: "Mount the same screens with MPE.mount." },

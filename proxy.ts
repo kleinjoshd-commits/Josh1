@@ -9,7 +9,6 @@ export function proxy(request: NextRequest) {
     protocol: forwarded ?? request.nextUrl.protocol,
     pathname: request.nextUrl.pathname,
     search: request.nextUrl.search,
-    origin: request.nextUrl.origin,
   });
 
   const response = decision

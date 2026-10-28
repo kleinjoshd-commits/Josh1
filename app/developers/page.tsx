@@ -36,12 +36,9 @@ export default function DevelopersPage() {
             </div>
             <div className="codeWindow">
               <p>Webhooks</p>
-              <CodeSample code={product.webhookSample} label="Webhook headers and events" />
+              <CodeSample code={product.webhookSample} label="Webhook payload" />
             </div>
           </div>
-          <p className="p" style={{ marginTop: 12 }}>
-            Each event carries X-MPE-Timestamp, X-MPE-Signature and X-MPE-Event-Id, signed with HMAC-SHA256.
-          </p>
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Embeds</h2>

@@ -5,7 +5,7 @@ import { useState } from "react";
 const STEPS = [
   { title: "Authorize", note: "", code: "Authorization: Bearer mpe_..." },
   { title: "Route", note: "", code: '"method": "bank"' },
-  { title: "Sign", note: "Signed webhook", code: "X-MPE-Signature" },
+  { title: "Webhook", note: "", code: "webhook" },
 ] as const;
 
 export default function HomeDev({ code }: { code: string }) {

@@ -65,7 +65,6 @@ export type RedirectInput = {
   protocol: string;
   pathname: string;
   search: string;
-  origin: string;
 };
 
 function flagOn(name: string): boolean {
@@ -127,16 +126,16 @@ export function decideHostRedirect(input: RedirectInput): RedirectDecision | nul
   };
 }
 
-export function decidePathRedirect(pathname: string, search: string, origin: string): RedirectDecision | null {
+/** Legacy aliases always target the fixed apex. Do not use the request Host or origin. */
+export function decidePathRedirect(pathname: string, search: string): RedirectDecision | null {
   const path = normalizePath(pathname);
   const exact = EXACT_PATH_REDIRECTS[path];
   const target = exact ?? (path.startsWith("/resources/") ? { pathname: "/platform", status: 301 as const } : null);
   if (!target) return null;
-  const location = new URL(`${target.pathname}${search}`, origin).toString();
-  return { location, status: target.status };
+  return { location: `${CANONICAL_ORIGIN}${target.pathname}${search}`, status: target.status };
 }
 
 /** Host cutover first (path preserved), then legacy path aliases. */
 export function resolveRedirect(input: RedirectInput): RedirectDecision | null {
-  return decideHostRedirect(input) ?? decidePathRedirect(input.pathname, input.search, input.origin);
+  return decideHostRedirect(input) ?? decidePathRedirect(input.pathname, input.search);
 }

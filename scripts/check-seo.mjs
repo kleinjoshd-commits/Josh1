@@ -155,6 +155,9 @@ function copyViolations(html) {
     ["No new licenses needed", /no new licenses needed/i],
     ["signed webhooks", /signed webhooks/i],
     ["in each market", /in each market/i],
+    ["X-MPE-Signature", /X-MPE-Signature/],
+    ["HMAC-SHA256", /HMAC-SHA256/],
+    ["arrive signed", /arrive signed/i],
   ];
   for (const [name, pattern] of checks) {
     const match = pattern.exec(html);
@@ -274,15 +277,20 @@ function checkHeaders(label, response) {
 async function waitForServer() {
   const started = Date.now();
   while (Date.now() - started < 40000) {
-    try {
-      const response = await get("/");
-      if (response.status === 200) return;
-    } catch {
-      // server still booting
+    if (server.exitCode != null) {
+      throw new Error(`next start exited ${server.exitCode}: ${serverLog.slice(-800)}`);
+    }
+    if (/Ready|Local:/i.test(serverLog)) {
+      try {
+        const response = await get("/");
+        if (response.status === 200) return;
+      } catch {
+        // server still booting
+      }
     }
     await new Promise((resolve) => setTimeout(resolve, 300));
   }
-  throw new Error("next start did not become ready");
+  throw new Error(`next start did not become ready: ${serverLog.slice(-800)}`);
 }
 
 if (!existsSync(path.join(root, ".next", "BUILD_ID"))) {
@@ -319,7 +327,7 @@ function finish(code) {
   setTimeout(() => {
     if (server.exitCode == null) server.kill("SIGKILL");
     process.exit(code);
-  }, 300).unref();
+  }, 300);
 }
 
 try {

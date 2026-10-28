@@ -42,7 +42,6 @@ const base: RedirectInput = {
   protocol: "https",
   pathname: "/platform",
   search: "?a=1",
-  origin: "https://www.modernpayengine.com",
 };
 
 check("flags default off", () => {
@@ -73,7 +72,6 @@ check("enabled flag is temporary 307 and preserves path and query", () => {
         protocol: "http,https",
         pathname: "/",
         search: "",
-        origin: "http://www.mpesolutions.ai",
       }),
       { location: "https://modernpayengine.com/", status: 307 },
     );
@@ -83,7 +81,6 @@ check("enabled flag is temporary 307 and preserves path and query", () => {
         protocol: "http",
         pathname: "/company",
         search: "?x=1",
-        origin: "http://modernpayengine.com",
       }),
       { location: "https://modernpayengine.com/company?x=1", status: 307 },
     );
@@ -104,7 +101,6 @@ check("other hosts are not redirected", () => {
         protocol: "http",
         pathname: "/",
         search: "",
-        origin: "http://localhost:3456",
       }),
       null,
     );
@@ -114,7 +110,6 @@ check("other hosts are not redirected", () => {
         protocol: "https",
         pathname: "/platform",
         search: "",
-        origin: "https://preview.example.com",
       }),
       null,
     );
@@ -129,7 +124,6 @@ check("https apex is not redirected", () => {
         protocol: "https",
         pathname: "/",
         search: "",
-        origin: "https://modernpayengine.com",
       }),
       null,
     );
@@ -143,10 +137,9 @@ check("legacy path redirect keeps query and does not run when a host redirect ma
       protocol: "http",
       pathname: "/about",
       search: "?from=old",
-      origin: "http://127.0.0.1:3456",
     });
     assert.equal(path?.status, 301);
-    assert.equal(path?.location, "http://127.0.0.1:3456/company?from=old");
+    assert.equal(path?.location, "https://modernpayengine.com/company?from=old");
   });
   withFlags({ redirect: "1" }, () => {
     const hostFirst = resolveRedirect({
@@ -154,7 +147,6 @@ check("legacy path redirect keeps query and does not run when a host redirect ma
       protocol: "https",
       pathname: "/about",
       search: "",
-      origin: "https://www.modernpayengine.com",
     });
     assert.equal(hostFirst?.location, "https://modernpayengine.com/about");
     assert.equal(hostFirst?.status, 307);
