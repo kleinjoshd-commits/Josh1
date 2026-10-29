@@ -2,8 +2,34 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { applySecurityHeaders, resolveRedirect } from "./lib/requestPolicy";
 
-// Host cutover and legacy path aliases both return from here so every
-// redirect gets the same security headers as a normal response.
+const CANONICAL_ORIGIN = "https://modernpayengine.com";
+
+// NextResponse.redirect requires an absolute URL. A relative decision is
+// resolved with the standard URL parser against the URL Next already built
+// for this request. Cloning that URL and editing pathname keeps the old
+// trailing-slash flag and puts the slash back. Next then rewrites a same-host
+// Location to a relative path. Do not read the Host header to build that URL.
+function redirectResponse(request: NextRequest, location: string, status: number) {
+  if (isRelativeOnSiteLocation(location)) {
+    return NextResponse.redirect(new URL(location, request.nextUrl), status);
+  }
+  if (location === CANONICAL_ORIGIN || location.startsWith(`${CANONICAL_ORIGIN}/`)) {
+    return NextResponse.redirect(location, status);
+  }
+  return NextResponse.next();
+}
+
+function isRelativeOnSiteLocation(location: string): boolean {
+  if (!location.startsWith("/") || location.startsWith("//") || /[\u0000\r\n]/.test(location)) return false;
+  const queryAt = location.indexOf("?");
+  const path = queryAt === -1 ? location : location.slice(0, queryAt);
+  if (path.includes("\\")) return false;
+  if (/%(?:2f|5c)/i.test(path) || /%25(?:2f|5c)/i.test(path)) return false;
+  return true;
+}
+
+// Host cutover, legacy path aliases, and trailing-slash normalization all
+// return from here so every redirect gets the same security headers.
 export function proxy(request: NextRequest) {
   const forwarded = request.headers.get("x-forwarded-proto");
   const decision = resolveRedirect({
@@ -14,7 +40,7 @@ export function proxy(request: NextRequest) {
   });
 
   const response = decision
-    ? NextResponse.redirect(decision.location, decision.status)
+    ? redirectResponse(request, decision.location, decision.status)
     : NextResponse.next();
 
   applySecurityHeaders(response, request.nextUrl.pathname);

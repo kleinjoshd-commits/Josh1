@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
-// Path aliases are issued by proxy.ts so the redirect carries the security
-// headers. Redirects configured here run first and leave those headers off.
+// Path aliases and trailing-slash normalization are issued by proxy.ts so the
+// redirect carries the security headers. Redirects configured here run first
+// and leave those headers off. skipTrailingSlashRedirect stops Next.js from
+// sending its own trailing-slash 308 before the proxy runs.
 const nextConfig: NextConfig = {
+  skipTrailingSlashRedirect: true,
   async headers() {
     return [
       {
