@@ -9,6 +9,10 @@
  * stay off unless MPE_HOST_REDIRECT=1. They start as 307. Set
  * MPE_HOST_REDIRECT_PERMANENT=1 as well to send 308. The permanent flag does
  * nothing on its own. Any other value, including unset, is off.
+ *
+ * Legacy path aliases are decided here and issued by proxy.ts. Keep them out
+ * of next.config redirects: those run before proxy and finish the response
+ * with no security headers.
  */
 
 export const HSTS_VALUE = "max-age=63072000";
