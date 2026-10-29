@@ -58,10 +58,16 @@ function runHostPolicy() {
   });
 }
 
-function get(urlPath) {
+function requestPath(urlPath, extraHeaders = {}) {
   return new Promise((resolve, reject) => {
-    const req = http.get(
-      { hostname: "127.0.0.1", port: PORT, path: urlPath, headers: { accept: "text/html" } },
+    const req = http.request(
+      {
+        hostname: "127.0.0.1",
+        port: PORT,
+        path: urlPath,
+        method: "GET",
+        headers: { accept: "text/html", ...extraHeaders },
+      },
       (res) => {
         const chunks = [];
         res.on("data", (chunk) => chunks.push(chunk));
@@ -75,7 +81,74 @@ function get(urlPath) {
       },
     );
     req.on("error", reject);
+    req.end();
   });
+}
+
+function get(urlPath) {
+  return requestPath(urlPath);
+}
+
+function locationUrl(location) {
+  if (typeof location !== "string" || location.length === 0) return null;
+  if (location.startsWith("/") && !location.startsWith("//")) return new URL(location, ORIGIN);
+  return new URL(location);
+}
+
+function assertApexRedirect(label, location, pathname, search) {
+  let url;
+  try {
+    url = locationUrl(location);
+  } catch {
+    fail(`${label} location ${location}`);
+    return;
+  }
+  if (!url || !String(location).startsWith("https://")) {
+    fail(`${label} location ${location}`);
+    return;
+  }
+  if (url.origin !== ORIGIN) fail(`${label} location origin ${url.origin}`);
+  if (url.pathname !== pathname) fail(`${label} location path ${url.pathname}`);
+  if (url.search !== search) fail(`${label} location search ${url.search}`);
+}
+
+function assertStaysOnThisHost(label, location, pathname, search) {
+  if (typeof location !== "string" || location.length === 0) {
+    fail(`${label} missing location`);
+    return;
+  }
+  if (location.startsWith("//") || location.includes("\\") || /[\r\n]/.test(location)) {
+    fail(`${label} unsafe location ${location}`);
+    return;
+  }
+  let url;
+  try {
+    url = locationUrl(location);
+  } catch {
+    fail(`${label} location ${location}`);
+    return;
+  }
+  if (!url) {
+    fail(`${label} location ${location}`);
+    return;
+  }
+  const local = url.hostname === "127.0.0.1" || url.hostname === "localhost";
+  const relative = location.startsWith("/") && !location.startsWith("//");
+  if (!relative && !local) fail(`${label} location origin ${url.origin}`);
+  if (url.pathname !== pathname) fail(`${label} location path ${url.pathname}`);
+  if (url.search !== search) fail(`${label} location search ${url.search}`);
+}
+
+function locationStaysOnSite(location) {
+  if (!location) return true;
+  if (location.startsWith("//") || location.includes("\\") || /[\r\n]/.test(location)) return false;
+  try {
+    const url = locationUrl(location);
+    if (!url) return false;
+    return url.hostname === "modernpayengine.com" || url.hostname === "127.0.0.1" || url.hostname === "localhost";
+  } catch {
+    return false;
+  }
 }
 
 function headerValue(headers, name) {
@@ -308,6 +381,7 @@ const server = spawn("npx", ["next", "start", "-H", "127.0.0.1", "-p", String(PO
     ...process.env,
     MPE_HOST_REDIRECT: "",
     MPE_HOST_REDIRECT_PERMANENT: "",
+    VERCEL_ENV: "",
   },
 });
 let serverLog = "";
@@ -395,22 +469,72 @@ try {
     ["/solutions/balance", "/", ""],
     ["/future-commerce", "/", ""],
     ["/press", "/", ""],
+    ["/About", "/company", ""],
+    ["/About?from=old", "/company", "?from=old"],
+    ["/About/", "/company", ""],
+    ["/ABOUT/team", "/company", ""],
+    ["/Resources/Retired-Guide", "/platform", ""],
+    ["/SOLUTIONS/WORKFORCE", "/solutions/platforms", ""],
+    ["/FUTURE-COMMERCE", "/", ""],
   ];
   for (const [from, pathname, search] of aliases) {
     const legacy = await get(from);
     if (legacy.status !== 301) fail(`${from} status ${legacy.status}`);
     const location = headerValue(legacy.headers, "location");
-    let actual;
-    try {
-      actual = new URL(location);
-    } catch {
-      fail(`${from} location ${location}`);
-      continue;
-    }
-    if (actual.origin !== ORIGIN) fail(`${from} location origin ${actual.origin}`);
-    if (actual.pathname !== pathname) fail(`${from} location path ${actual.pathname}`);
-    if (actual.search !== search) fail(`${from} location search ${actual.search}`);
+    assertApexRedirect(`${from} redirect`, location, pathname, search);
+    if (String(location).includes("evil.example")) fail(`${from} location used a foreign host`);
     checkHeaders(`${from} redirect`, legacy);
+  }
+
+  const spoofedAlias = await requestPath("/About?from=old", { host: "evil.example" });
+  if (spoofedAlias.status !== 301) fail(`/About with a foreign Host status ${spoofedAlias.status}`);
+  const spoofedAliasLocation = headerValue(spoofedAlias.headers, "location");
+  assertApexRedirect("/About with a foreign Host", spoofedAliasLocation, "/company", "?from=old");
+  if (spoofedAliasLocation.includes("evil.example")) fail("/About with a foreign Host left the site");
+  checkHeaders("/About with a foreign Host", spoofedAlias);
+
+  const trailing = [
+    ["/company/", "/company", ""],
+    ["/company/?from=old", "/company", "?from=old"],
+    ["/solutions/platforms/?q=1", "/solutions/platforms", "?q=1"],
+    ["/Company/", "/Company", ""],
+  ];
+  for (const [from, pathname, search] of trailing) {
+    const response = await get(from);
+    if (response.status !== 308) fail(`${from} status ${response.status}`);
+    const location = headerValue(response.headers, "location");
+    assertStaysOnThisHost(`${from} redirect`, location, pathname, search);
+    checkHeaders(`${from} redirect`, response);
+  }
+
+  const spoofedSlash = await requestPath("/company/?from=old", { host: "evil.example" });
+  if (spoofedSlash.status !== 308) fail(`/company/ with a foreign Host status ${spoofedSlash.status}`);
+  const spoofedSlashLocation = headerValue(spoofedSlash.headers, "location");
+  assertStaysOnThisHost("/company/ with a foreign Host", spoofedSlashLocation, "/company", "?from=old");
+  if (spoofedSlashLocation.includes("evil.example")) fail("/company/ with a foreign Host left the site");
+  checkHeaders("/company/ with a foreign Host", spoofedSlash);
+
+  const attacks = [
+    "//evil.example/phish",
+    "/\\evil.example",
+    "/%2f%2fevil.example",
+    "/%2F%2Fevil.example/",
+    "/%5c%5cevil.example",
+    "/%5C%5Cevil.example/",
+    "/%252f%252fevil.example",
+    "/%255c%255cevil.example/",
+    "/%2f%5cevil.example/a",
+  ];
+  for (const attack of attacks) {
+    try {
+      const response = await requestPath(attack, { host: "evil.example" });
+      const location = headerValue(response.headers, "location");
+      if (!locationStaysOnSite(location)) {
+        fail(`${attack} location left the site: ${location || "(none)"} status ${response.status}`);
+      }
+    } catch (error) {
+      fail(`${attack} request failed: ${error instanceof Error ? error.message : String(error)}`);
+    }
   }
 
   for (const communityPath of ["/community", "/community/index.html"]) {
