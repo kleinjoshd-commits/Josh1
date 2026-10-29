@@ -385,12 +385,33 @@ try {
   const keyType = headerValue(key.headers, "content-type");
   if (!keyType.includes("text/plain")) fail(`IndexNow key content-type ${keyType}`);
 
-  const legacy = await get("/about");
-  if (legacy.status !== 301 && legacy.status !== 308) fail(`/about status ${legacy.status}`);
-  const location = headerValue(legacy.headers, "location");
-  if (!location.endsWith("/company")) fail(`/about location ${location}`);
-  // This alias is a next.config redirect, shared with the community-removal branch,
-  // and it is issued before proxy.ts. HSTS is checked on the pages and 404s proxy handles.
+  const aliases = [
+    ["/about", "/company", ""],
+    ["/about?from=old", "/company", "?from=old"],
+    ["/about/team", "/company", ""],
+    ["/resources/execution-infrastructure", "/developers", ""],
+    ["/resources/retired-guide", "/platform", ""],
+    ["/solutions/workforce", "/solutions/platforms", ""],
+    ["/solutions/balance", "/", ""],
+    ["/future-commerce", "/", ""],
+    ["/press", "/", ""],
+  ];
+  for (const [from, pathname, search] of aliases) {
+    const legacy = await get(from);
+    if (legacy.status !== 301) fail(`${from} status ${legacy.status}`);
+    const location = headerValue(legacy.headers, "location");
+    let actual;
+    try {
+      actual = new URL(location);
+    } catch {
+      fail(`${from} location ${location}`);
+      continue;
+    }
+    if (actual.origin !== ORIGIN) fail(`${from} location origin ${actual.origin}`);
+    if (actual.pathname !== pathname) fail(`${from} location path ${actual.pathname}`);
+    if (actual.search !== search) fail(`${from} location search ${actual.search}`);
+    checkHeaders(`${from} redirect`, legacy);
+  }
 
   for (const communityPath of ["/community", "/community/index.html"]) {
     const community = await get(communityPath);

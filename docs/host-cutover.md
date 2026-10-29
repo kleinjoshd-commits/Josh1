@@ -19,7 +19,7 @@ Code does not change Vercel domain settings or DNS. Those steps are below. Do no
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
 
-Legacy path aliases (for example `/about` to `/company`) stay 301.
+Legacy path aliases (for example `/about` to `/company`) stay 301. `proxy.ts` sends them to `https://modernpayengine.com`. They are not listed in `next.config.ts`, because config redirects run before the proxy and omit the security headers. A matching host redirect still runs first and keeps the original path and query.
 
 Host redirects read two env vars at request time. Any value other than `1`, including unset, is off.
 

@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { applySecurityHeaders, resolveRedirect } from "./lib/requestPolicy";
 
+// Host cutover and legacy path aliases both return from here so every
+// redirect gets the same security headers as a normal response.
 export function proxy(request: NextRequest) {
   const forwarded = request.headers.get("x-forwarded-proto");
   const decision = resolveRedirect({
