@@ -15,9 +15,19 @@ export const pageSeo = {
       "MPE | One API to authorize, route and sign payouts, branded wallets, cards and identity. Licensed partners move the money. MPE never holds funds.",
   },
   "/machines": {
-    title: "MFAM: identity and authority for machines",
+    title: "MFAM (Machine Financial Authority Module) by Modern Pay Engine",
     description:
-      "MPE | MFAM is designed to give each machine an identity and the authority to sign payments within rules the owner sets. Patent pending, prototype working.",
+      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed for identity and owner-set payment authority. Patent pending, prototype working.",
+  },
+  "/machines/ships-and-satellites": {
+    title: "How can a ship or satellite pay for services? | MFAM by Modern Pay Engine",
+    description:
+      "A ship or satellite can pay for services when it has an identity that can't be copied and authority its owner sets. MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to do both.",
+  },
+  "/machines/hardware-identity": {
+    title: "Hardware identity for machine payments | MFAM by Modern Pay Engine",
+    description:
+      "Why machine payments need an identity that lives in hardware, and how MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to provide it.",
   },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",

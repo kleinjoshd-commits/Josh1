@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { mfamByMpe } from "@/content/mfam";
 
 export function SplitStory({
   visual,
@@ -222,7 +223,7 @@ export function SegmentVisual({
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src="/media/built-machines-card.webp"
-        alt=""
+        alt={mfamByMpe}
         className="whoDrone"
         width={1400}
         height={784}

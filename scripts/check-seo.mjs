@@ -9,7 +9,7 @@
  *
  * Official contact email: josh@modernpayengine.com.
  * This allowlist is for the copy check only. Do not add the address to site copy.
- * Any other email address in the rendered HTML of the nine URLs fails this check.
+ * Any other email address in the rendered HTML of the listed URLs fails this check.
  */
 
 import { spawn } from "node:child_process";
@@ -27,6 +27,8 @@ const PATHS = [
   "/",
   "/platform",
   "/machines",
+  "/machines/ships-and-satellites",
+  "/machines/hardware-identity",
   "/solutions",
   "/solutions/platforms",
   "/solutions/fintechs",
@@ -36,6 +38,31 @@ const PATHS = [
 ];
 
 const SERVICE_PATHS = new Set(["/platform", "/solutions/platforms"]);
+const FAQ_PATHS = new Set([
+  "/",
+  "/machines",
+  "/machines/ships-and-satellites",
+  "/machines/hardware-identity",
+]);
+// Approved spec descriptions are longer than the usual snippet cap.
+const LONG_META_OK = new Set([
+  "/machines/ships-and-satellites",
+  "/machines/hardware-identity",
+]);
+const VERBATIM = [
+  [
+    "/company",
+    "Cliff Beek is Co-Founder and CEO of Modern Pay Engine, the company behind MFAM, the Machine Financial Authority Module. He has spent years leading space and satellite communications companies, including SpaceChain and Cloud Constellation.",
+  ],
+  [
+    "/machines",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+  ],
+  [
+    "/machines/ships-and-satellites",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+  ],
+];
 const INDEXNOW_KEY = "f6172fe5482ee6b83488836f445c9d94";
 
 // Copy-check allowlist only. Do not render this address on the site.
@@ -207,10 +234,54 @@ function snippet(html, index) {
   return html.slice(Math.max(0, index - 50), index + 70).replace(/\s+/g, " ");
 }
 
+function visibleFaq(html) {
+  const section = html.match(/<section\b[^>]*class="[^"]*\bhpFaq\b[^"]*"[\s\S]*?<\/section>/i);
+  if (!section) return [];
+  const pairs = [];
+  const re = /<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>/gi;
+  let match;
+  while ((match = re.exec(section[0]))) {
+    pairs.push({
+      question: decodeAttr(match[1].trim()),
+      answer: decodeAttr(match[2].trim()),
+    });
+  }
+  return pairs;
+}
+
+function schemaFaq(blocks) {
+  const pairs = [];
+  for (const block of blocks) {
+    let data;
+    try {
+      data = JSON.parse(block);
+    } catch {
+      continue;
+    }
+    const nodes = Array.isArray(data) ? data : data["@graph"] ? data["@graph"] : [data];
+    for (const node of nodes) {
+      if (!node || node["@type"] !== "FAQPage") continue;
+      const entities = Array.isArray(node.mainEntity)
+        ? node.mainEntity
+        : node.mainEntity
+          ? [node.mainEntity]
+          : [];
+      for (const entity of entities) {
+        pairs.push({
+          question: entity?.name,
+          answer: entity?.acceptedAnswer?.text,
+        });
+      }
+    }
+  }
+  return pairs;
+}
+
 function copyViolations(html) {
   const hits = [];
   const checks = [
     ["em dash", /\u2014/],
+    ["en dash", /\u2013/],
     ["SOC 2", /SOC\s*2/i],
     ["compliant", /compliant/i],
     ["certified", /certified/i],
@@ -249,6 +320,27 @@ function copyViolations(html) {
       hits.push(`email not on the official allowlist: ${email}`);
     }
   }
+
+  const withoutOwnDomain = html.replace(/modernpayengine\.com/gi, "");
+  const payEngine = /payengine/i.exec(withoutOwnDomain);
+  if (payEngine) hits.push(`PayEngine: ${snippet(withoutOwnDomain, payEngine.index)}`);
+  const modernPay = /modernpay/i.exec(withoutOwnDomain);
+  if (modernPay) hits.push(`ModernPay: ${snippet(withoutOwnDomain, modernPay.index)}`);
+  const bannedNames = [
+    ["J.P. Morgan", /J\.?\s*P\.?\s*Morgan|JPMorgan|JP Morgan/i],
+    ["Kinexys", /Kinexys/i],
+    ["Onyx", /\bOnyx\b/i],
+    ["GomSpace", /GomSpace/i],
+    ["Velas", /\bVelas\b/i],
+    ["ISS", /\bISS\b/],
+  ];
+  for (const [name, pattern] of bannedNames) {
+    const match = pattern.exec(html);
+    if (match) hits.push(`${name}: ${snippet(html, match.index)}`);
+  }
+  if (/spacechain/i.test(html) && /\b(formerly|currently)\b/i.test(html)) {
+    hits.push("SpaceChain alongside formerly or currently");
+  }
   return hits;
 }
 
@@ -266,7 +358,9 @@ function checkPage(urlPath, html) {
     .filter((value) => value != null);
   if (descriptions.length !== 1) fail(`${urlPath} has ${descriptions.length} meta descriptions`);
   const description = descriptions[0] ?? "";
-  if (description.length > 155) fail(`${urlPath} meta description is ${description.length} characters`);
+  if (description.length > 155 && !LONG_META_OK.has(urlPath)) {
+    fail(`${urlPath} meta description is ${description.length} characters`);
+  }
 
   const canonicals = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter((match) => (attr(match[0], "rel") ?? "").toLowerCase() === "canonical")
@@ -312,11 +406,24 @@ function checkPage(urlPath, html) {
   } else if (types.includes("Product")) {
     fail(`${urlPath} JSON-LD has Product outside /machines`);
   }
-  if (urlPath === "/") {
+  if (FAQ_PATHS.has(urlPath)) {
     if (!types.includes("FAQPage")) fail(`${urlPath} JSON-LD missing FAQPage`);
-    if (!html.includes("Does MPE hold funds")) fail(`${urlPath} FAQ text is missing from raw HTML`);
+    const visible = visibleFaq(html);
+    const fromSchema = schemaFaq(blocks);
+    if (JSON.stringify(visible) !== JSON.stringify(fromSchema)) {
+      fail(
+        `${urlPath} FAQPage schema does not match visible FAQ text\nvisible: ${JSON.stringify(visible)}\nschema: ${JSON.stringify(fromSchema)}`,
+      );
+    }
   } else if (types.includes("FAQPage")) {
-    fail(`${urlPath} JSON-LD has FAQPage outside the home page`);
+    fail(`${urlPath} JSON-LD has FAQPage outside the home page and machine pages`);
+  }
+  if (urlPath === "/" && !html.includes("Does MPE hold funds")) {
+    fail(`${urlPath} FAQ text is missing from raw HTML`);
+  }
+  const decoded = decodeAttr(html);
+  for (const [path, text] of VERBATIM) {
+    if (urlPath === path && !decoded.includes(text)) fail(`${urlPath} missing required verbatim copy`);
   }
 
   for (const hit of copyViolations(html)) fail(`${urlPath} copy: ${hit}`);

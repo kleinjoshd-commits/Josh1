@@ -1,12 +1,14 @@
+import { cliffLinkedIn } from "@/content/mfam";
 import { CANONICAL_ORIGIN } from "@/content/seo";
 
-const organizationId = `${CANONICAL_ORIGIN}/#organization`;
+const organizationId = `${CANONICAL_ORIGIN}/#org`;
 
 /**
  * Sitewide Organization + WebSite graph. Static constants only.
- * sameAs is LinkedIn only. MPE has no X account.
- * TODO: D&B business directory URL for D-U-N-S 150001614, once Josh confirms the live URL.
- * TODO: Crunchbase organization URL, once Josh confirms a profile exists.
+ * sameAs is the LinkedIn company page already on the site, plus the D&B profile.
+ * Crunchbase stays off sameAs until a profile exists.
+ * Cliff's sameAs is the LinkedIn URL already published on /company.
+ * No other profile, and no claim that a person originated MFAM.
  */
 export const organizationGraph = {
   "@context": "https://schema.org",
@@ -15,9 +17,11 @@ export const organizationGraph = {
       "@type": "Organization",
       "@id": organizationId,
       name: "Modern Pay Engine",
-      alternateName: ["MPE", "MPE | Modern Pay Engine"],
+      alternateName: ["MPE", "mpesolutions.ai"],
       legalName: "MPE Solutions, Inc",
       url: CANONICAL_ORIGIN,
+      foundingDate: "2025",
+      email: "josh@modernpayengine.com",
       logo: {
         "@type": "ImageObject",
         url: `${CANONICAL_ORIGIN}/mpe-logo.png`,
@@ -43,10 +47,23 @@ export const organizationGraph = {
       },
       duns: "150001614",
       founder: [
-        { "@type": "Person", name: "Cliff Beek", jobTitle: "Co-Founder and CEO" },
+        {
+          "@type": "Person",
+          name: "Cliff Beek",
+          jobTitle: "Co-Founder and CEO",
+          worksFor: {
+            "@type": "Organization",
+            name: "MPE Solutions, Inc (Modern Pay Engine)",
+          },
+          knowsAbout: ["machine payments", "satellite communications"],
+          sameAs: [cliffLinkedIn],
+        },
         { "@type": "Person", name: "Josh Klein", jobTitle: "Co-Founder and COO" },
       ],
-      sameAs: ["https://www.linkedin.com/company/mpesolutions"],
+      sameAs: [
+        "https://www.linkedin.com/company/mpesolutions",
+        "https://www.dnb.com/business-directory/company-profiles/mpe-solutions-inc.a4123cb022e628ffa031ffa1aa478643",
+      ],
     },
     {
       "@type": "WebSite",
@@ -82,12 +99,12 @@ export const mfamProduct = {
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": `${CANONICAL_ORIGIN}/machines#mfam`,
-  name: "MFAM (Machine Financial Authority Module)",
+  name: "MFAM (Machine Financial Authority Module) by Modern Pay Engine",
   alternateName: "MFAM",
   category: "Identity and authority for machines",
   brand: { "@id": organizationId },
   manufacturer: { "@id": organizationId },
   url: `${CANONICAL_ORIGIN}/machines`,
   description:
-    "Identity and authority for machines. MFAM is designed to give each machine an identity that cannot be copied and the authority to check and sign payments within rules the owner signs. Patent pending, prototype working.",
+    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. It is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. Patent pending, prototype working.",
 } as const;

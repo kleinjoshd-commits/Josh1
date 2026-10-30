@@ -1,7 +1,8 @@
 /**
  * Homepage copy. Short on purpose.
- * The only "Patent pending." line on the site lives on /machines.
  */
+
+import { mfamByMpe } from "@/content/mfam";
 
 export const homepageCopy = {
   heroKicker: "Financial infrastructure for a borderless economy",
@@ -54,7 +55,7 @@ export const homepageCopy = {
   mfam: {
     eyebrow: "Machines",
     heading: "When the payer is a machine.",
-    lede: "MFAM is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account.",
+    lede: `${mfamByMpe} is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account.`,
     points: [
       "The operator sets the rules, the limits, and who the machine may pay.",
       "Each payment is designed to be signed by the machine's chip and kept in one tamper-evident record.",

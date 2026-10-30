@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState, type ReactElement } from "react";
+import { mfamByMpe } from "@/content/mfam";
 
 const PILL_LABEL: Record<string, string> = {
   route: "Smart Routing",
@@ -231,7 +232,7 @@ function MachineStage() {
   return (
     <div className="capMachine">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/media/built-machines-card.webp" alt="" width={1400} height={784} />
+      <img src="/media/built-machines-card.webp" alt={mfamByMpe} width={1400} height={784} />
       <div className="capMachineChip">
         <span className="hpChip">MFAM</span>
         <b>$12.40</b>
