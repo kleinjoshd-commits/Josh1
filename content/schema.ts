@@ -5,10 +5,12 @@ const organizationId = `${CANONICAL_ORIGIN}/#org`;
 
 /**
  * Sitewide Organization + WebSite graph. Static constants only.
- * sameAs is the LinkedIn company page already on the site, plus the D&B profile.
+ * sameAs is the LinkedIn company page already on the site.
+ * The D&B directory URL stays off until that profile can be confirmed.
  * Crunchbase stays off sameAs until a profile exists.
  * Cliff's sameAs is the LinkedIn URL already published on /company.
- * No other profile, and no claim that a person originated MFAM.
+ * No public email. No claim that a person originated MFAM.
+ * publisher, provider, brand, manufacturer, and worksFor all use organizationId.
  */
 export const organizationGraph = {
   "@context": "https://schema.org",
@@ -17,11 +19,9 @@ export const organizationGraph = {
       "@type": "Organization",
       "@id": organizationId,
       name: "Modern Pay Engine",
-      alternateName: ["MPE", "mpesolutions.ai"],
+      alternateName: ["MPE", "MPE Solutions, Inc"],
       legalName: "MPE Solutions, Inc",
       url: CANONICAL_ORIGIN,
-      foundingDate: "2025",
-      email: "josh@modernpayengine.com",
       logo: {
         "@type": "ImageObject",
         url: `${CANONICAL_ORIGIN}/mpe-logo.png`,
@@ -51,19 +51,13 @@ export const organizationGraph = {
           "@type": "Person",
           name: "Cliff Beek",
           jobTitle: "Co-Founder and CEO",
-          worksFor: {
-            "@type": "Organization",
-            name: "MPE Solutions, Inc (Modern Pay Engine)",
-          },
+          worksFor: { "@id": organizationId },
           knowsAbout: ["machine payments", "satellite communications"],
           sameAs: [cliffLinkedIn],
         },
         { "@type": "Person", name: "Josh Klein", jobTitle: "Co-Founder and COO" },
       ],
-      sameAs: [
-        "https://www.linkedin.com/company/mpesolutions",
-        "https://www.dnb.com/business-directory/company-profiles/mpe-solutions-inc.a4123cb022e628ffa031ffa1aa478643",
-      ],
+      sameAs: ["https://www.linkedin.com/company/mpesolutions"],
     },
     {
       "@type": "WebSite",

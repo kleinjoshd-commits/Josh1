@@ -12,7 +12,7 @@ export const metadata = pageMeta("/machines/ships-and-satellites");
 const sections = [
   {
     title: "Why a machine needs a hardware identity",
-    body: "The identity and signing key are designed to live on the MFAM chip and never leave the hardware, so the machine can't be spoofed or copied.",
+    body: "The identity and signing key are designed to live on the MFAM chip and never leave the hardware, so the machine's identity is designed to resist spoofing and copying.",
   },
   {
     title: "How a payment works",

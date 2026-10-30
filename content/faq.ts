@@ -51,7 +51,7 @@ export const shipsFaq = [
   {
     question: "How can a ship pay for port services on its own?",
     answer:
-      "With MFAM, the ship's systems request the payment, MFAM checks it against rules the owner signed and signs it, and the payment is made from the owner's own account. MFAM is designed for this. Patent pending, prototype working.",
+      "With MFAM, the ship's systems request the payment, MFAM is designed to check it against rules the owner signed and sign it, and payment is designed to be made from the owner's own account through licensed partner institutions. Patent pending, prototype working.",
   },
   {
     question: "Can a satellite pay for services?",
@@ -69,7 +69,7 @@ export const hardwareFaq = [
   {
     question: "What is hardware identity for machine payments?",
     answer:
-      "It means the machine's identity and signing key are held in a chip and never leave it, so the machine can prove who it is and can't be copied.",
+      "It means the machine's identity and signing key are designed to be held in a chip and never leave it, so the machine can prove who it is and its identity is designed not to be copied.",
   },
   {
     question: "What is MFAM?",
