@@ -1,3 +1,15 @@
+export type FaqEntry = {
+  question: string;
+  answer: string;
+};
+
+/** Shown on the homepage and, with the same words, on /machines. */
+export const whatIsMfam = {
+  question: "What is MFAM?",
+  answer:
+    "MFAM is the Machine Financial Authority Module: identity and authority for machines. It is designed to let a machine check and sign payments within rules its owner sets. Patent pending, prototype working.",
+} as const satisfies FaqEntry;
+
 export const homeFaq = [
   {
     question: "What is MPE?",
@@ -28,23 +40,50 @@ export const homeFaq = [
     answer:
       "Yes. MPE works with trucking platforms that give their clients fuel benefits alongside payouts.",
   },
-  {
-    question: "What is MFAM?",
-    answer:
-      "MFAM is the Machine Financial Authority Module: identity and authority for machines. It is designed to let a machine check and sign payments within rules its owner sets. Patent pending, prototype working.",
-  },
+  whatIsMfam,
   {
     question: "How do we get started?",
     answer: "Request access on modernpayengine.com. API docs and embeds come with access.",
   },
-] as const;
+] as const satisfies readonly FaqEntry[];
+
+export const shipsFaq = [
+  {
+    question: "How can a ship pay for port services on its own?",
+    answer:
+      "With MFAM, the ship's systems request the payment, MFAM is designed to check it against rules the owner signed and sign it, and payment is designed to be made from the owner's own account through licensed partner institutions. Patent pending, prototype working.",
+  },
+  {
+    question: "Can a satellite pay for services?",
+    answer:
+      "MFAM is designed to give each satellite its own hardware identity and owner-set payment authority, so it can pay for services such as ground station time within its owner's rules.",
+  },
+  {
+    question: "Does MPE hold the money?",
+    answer:
+      "No. MPE never holds funds. Payments are made from the owner's own account through licensed partner institutions.",
+  },
+] as const satisfies readonly FaqEntry[];
+
+export const hardwareFaq = [
+  {
+    question: "What is hardware identity for machine payments?",
+    answer:
+      "It means the machine's identity and signing key are designed to be held in a chip and never leave it, so the machine can prove who it is and its identity is designed not to be copied.",
+  },
+  {
+    question: "What is MFAM?",
+    answer:
+      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. It is designed to let a machine check and sign payments within rules its owner sets. Patent pending, prototype working.",
+  },
+] as const satisfies readonly FaqEntry[];
 
 /** FAQPage JSON-LD from the same array the visible section renders. */
-export function faqPageSchema() {
+export function faqPageSchema(items: readonly FaqEntry[] = homeFaq) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: homeFaq.map((item) => ({
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {

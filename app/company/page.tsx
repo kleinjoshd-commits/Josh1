@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
+import { cliffBio, cliffLinkedIn } from "@/content/mfam";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -11,6 +12,7 @@ type TeamMember = {
   title: string;
   photo: string;
   linkedin: string;
+  bio?: string;
 };
 
 const team: TeamMember[] = [
@@ -18,7 +20,8 @@ const team: TeamMember[] = [
     name: "Cliff Beek",
     title: "Co-Founder and CEO",
     photo: "/CliffBeekMPE.png",
-    linkedin: "https://www.linkedin.com/in/cliff-beek-b2163/",
+    linkedin: cliffLinkedIn,
+    bio: cliffBio,
   },
   {
     name: "Josh Klein",
@@ -67,7 +70,10 @@ export default function CompanyPage() {
           <h2 className="homeSectionTitle">The people building MPE.</h2>
           <div className="aboutTeamGrid">
             {team.map((m) => (
-              <article key={m.name} className="panel aboutTeamCard">
+              <article
+                key={m.name}
+                className={m.bio ? "panel aboutTeamCard aboutTeamCardBio" : "panel aboutTeamCard"}
+              >
                 <div className="aboutTeamPhotoFrame">
                   <Image
                     src={m.photo}
@@ -79,6 +85,7 @@ export default function CompanyPage() {
                 </div>
                 <h3 className="aboutTeamName">{m.name}</h3>
                 <p className="p aboutTeamRole">{m.title}</p>
+                {m.bio ? <p className="aboutTeamBio">{m.bio}</p> : null}
                 <a
                   href={m.linkedin}
                   target="_blank"

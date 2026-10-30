@@ -1,26 +1,45 @@
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import FilmPlayer from "@/components/FilmPlayer";
+import HomeFaq from "@/components/HomeFaq";
 import RequestAccess from "@/components/RequestAccess";
-import { mfamProduct } from "@/content/schema";
-import { operators, product } from "@/content/product";
+import { faqPageSchema, whatIsMfam } from "@/content/faq";
+import { mfamVisibleLine } from "@/content/mfam";
 import { homepageMedia } from "@/content/media";
+import { operators, product } from "@/content/product";
+import { mfamProduct } from "@/content/schema";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta("/machines");
 
+const machineGuides = [
+  {
+    href: "/machines/ships-and-satellites",
+    title: "How can a ship or satellite pay for services?",
+    body: "A ship or satellite needs an identity that can't be copied and authority its owner sets.",
+  },
+  {
+    href: "/machines/hardware-identity",
+    title: "Hardware identity for machine payments",
+    body: "Why the identity and signing key are designed to live in the chip.",
+  },
+] as const;
+
 export default function MachinesPage() {
   return (
     <main className="sitePage machinesPage">
       <JsonLd data={mfamProduct} />
+      <JsonLd data={faqPageSchema([whatIsMfam])} />
       <Nav />
 
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">MFAM</div>
           <h1>Set the rules. The machine requests payment.</h1>
+          <p className="ebSub">{mfamVisibleLine}</p>
           <p className="ebSub">
-            MFAM is designed to give each machine an identity that can&apos;t be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner&apos;s own account. Each payment is designed to be signed by the machine&apos;s chip and kept in one tamper-evident record.
+            Each payment is designed to be signed by the machine&apos;s chip and kept in one tamper-evident record.
           </p>
         </div>
       </section>
@@ -41,8 +60,23 @@ export default function MachinesPage() {
             <p className="hpDisclaimer">Patent pending, prototype working.</p>
             <p className="p" style={{ marginTop: 18 }}>{product.machines}</p>
           </div>
+
+          <div className="sectionBlock">
+            <h2 className="homeSectionTitle">Ships, satellites and hardware</h2>
+            <div className="cardGrid2">
+              {machineGuides.map((guide) => (
+                <Link className="panel" href={guide.href} key={guide.href}>
+                  <h3 style={{ marginTop: 0 }}>{guide.title}</h3>
+                  <p className="p" style={{ marginTop: 10 }}>{guide.body}</p>
+                  <span className="go">Open</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
+
+      <HomeFaq items={[whatIsMfam]} />
 
       <RequestAccess
         title="Talk to us about machines."

@@ -5,6 +5,8 @@
  * Swap an encode by replacing the file at that path, or by editing the
  * path here.
  */
+import { mfamByMpe } from "@/content/mfam";
+
 export const homepageMedia = {
   brand: {
     title: "MPE film",
@@ -19,6 +21,7 @@ export const homepageMedia = {
   },
   mfam: {
     title: "MFAM film",
+    posterAlt: mfamByMpe,
     // Loop ends before the zoom-out. It does not meet the first frame, so it plays once and holds.
     loopWebm: "/media/mpe-mfam-film-loop.webm",
     loopMp4: "/media/mpe-mfam-film-loop.mp4",

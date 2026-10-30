@@ -2426,6 +2426,38 @@ img {
   color: var(--ink);
 }
 
+.aboutTeamCardBio {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  column-gap: 22px;
+  row-gap: 2px;
+  align-items: start;
+  justify-items: start;
+  text-align: left;
+}
+.aboutTeamCardBio .aboutTeamPhotoFrame {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  width: 148px;
+  height: 148px;
+}
+.aboutTeamCardBio .aboutTeamName,
+.aboutTeamCardBio .aboutTeamRole,
+.aboutTeamCardBio .aboutTeamBio,
+.aboutTeamCardBio .aboutTeamLinkedin {
+  grid-column: 2;
+}
+.aboutTeamCardBio .aboutTeamName { margin-top: 0; }
+.aboutTeamCardBio .aboutTeamRole { max-width: none; }
+.aboutTeamCardBio .aboutTeamLinkedin { margin-top: 10px; }
+.aboutTeamBio {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 68ch;
+}
+
 @media (max-width: 900px) {
   .aboutTeamGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2442,6 +2474,25 @@ img {
     width: 120px;
     height: 120px;
   }
+
+  .aboutTeamCardBio {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .aboutTeamCardBio .aboutTeamPhotoFrame,
+  .aboutTeamCardBio .aboutTeamName,
+  .aboutTeamCardBio .aboutTeamRole,
+  .aboutTeamCardBio .aboutTeamBio,
+  .aboutTeamCardBio .aboutTeamLinkedin {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .aboutTeamCardBio .aboutTeamPhotoFrame {
+    width: 120px;
+    height: 120px;
+  }
+  .aboutTeamCardBio .aboutTeamBio { text-align: left; }
 }
 
 /* =========================
@@ -6059,4 +6110,53 @@ main.sitePage .hpDisclaimer { color: rgba(232, 240, 236, 0.62); }
   4% { opacity: 1; transform: none; }
   5.2% { opacity: 0; transform: translateY(-6px); }
   100% { opacity: 0; }
+}
+
+.machineBack { margin-top: 28px; }
+.approachTableWrap {
+  margin-top: 18px;
+  overflow-x: auto;
+}
+.approachTable {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.approachTable th,
+.approachTable td {
+  text-align: left;
+  vertical-align: top;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(232, 240, 236, 0.78);
+}
+.approachTable th {
+  color: #f7f8f6;
+  font-weight: 650;
+}
+.approachTable th[scope="row"] { width: 24%; }
+@media (max-width: 700px) {
+  .approachTable { min-width: 0; }
+  .approachTable thead { display: none; }
+  .approachTable tr {
+    display: block;
+    margin: 0 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+  }
+  .approachTable th[scope="row"],
+  .approachTable td {
+    display: block;
+    width: auto;
+    border: 0;
+  }
+  .approachTable td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    color: #f7f8f6;
+    font-weight: 650;
+  }
 }

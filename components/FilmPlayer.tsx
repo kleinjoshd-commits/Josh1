@@ -58,6 +58,7 @@ function Poster({
 }) {
   const modal = still === "modal" && "modalPoster" in source;
   const src = modal ? source.modalPoster : source.loopPoster;
+  const posterAlt = "posterAlt" in source ? source.posterAlt : "";
   const webp = modal
     ? undefined
     : "loopPosterWebp" in source
@@ -67,7 +68,7 @@ function Poster({
     return (
       <img
         src={src}
-        alt=""
+        alt={posterAlt}
         width={1920}
         height={1080}
         decoding="sync"
@@ -81,7 +82,7 @@ function Poster({
       <source srcSet={webp} type="image/webp" />
       <img
         src={src}
-        alt=""
+        alt={posterAlt}
         width={1920}
         height={1080}
         decoding="sync"
