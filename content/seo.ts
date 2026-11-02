@@ -39,6 +39,11 @@ export const pageSeo = {
     description:
       "MFAM is identity and authority for machines by MPE. Payments are designed to come from the owner's own account. Patent pending, prototype working.",
   },
+  "/machines/mfam/status": {
+    title: "MFAM status | Modern Pay Engine",
+    description:
+      "MFAM status. Patent pending, prototype working. What the prototype does today, and what it is designed to do.",
+  },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",
     description:
