@@ -32,7 +32,7 @@ const workingToday = [
 ] as const;
 
 const designedTo = [
-  "Keep the signing key inside a certified secure chip on the machine.",
+  "Keep the signing key inside a secure chip on the machine.",
   "Sign each payment in hardware, so the key never leaves the chip.",
   "Settle real money through our payment partners.",
   "Pay from the owner's own funded account. MPE never holds the funds.",

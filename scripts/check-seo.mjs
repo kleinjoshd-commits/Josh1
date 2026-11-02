@@ -313,6 +313,7 @@ function copyViolations(html) {
     ["en dash", /\u2013/],
     ["SOC 2", /SOC\s*2/i],
     ["compliant", /compliant/i],
+    ["certified", /certified/i],
     ["PCI", /\bPCI\b/i],
     ["bank-grade", /bank-grade/i],
     ["regulated", /regulated/i],
@@ -339,11 +340,6 @@ function copyViolations(html) {
     const match = pattern.exec(html);
     if (match) hits.push(`${name}: ${snippet(html, match.index)}`);
   }
-
-  // The status page may name a certified secure chip only under "Designed to".
-  const withoutPlannedChip = html.replace(/certified secure chip/gi, "");
-  const certified = /certified/i.exec(withoutPlannedChip);
-  if (certified) hits.push(`certified: ${snippet(withoutPlannedChip, certified.index)}`);
 
   const licensed = /licensed/i.exec(html);
   if (licensed) hits.push(`licensed: ${snippet(html, licensed.index)}`);
