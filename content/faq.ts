@@ -113,7 +113,8 @@ export const homeFaq = [
   },
   {
     question: "Can each worker get their own account and routing number?",
-    answer: "Yes. Each worker wallet can have its own account and routing number.",
+    answer:
+      "That's planned. Each worker wallet is designed to get its own account and routing number when a program launches.",
   },
   {
     question: "Does MPE work for trucking platforms?",

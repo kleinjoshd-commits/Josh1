@@ -48,9 +48,9 @@ export const pageSeo = {
     title: "Embedded payouts, branded wallet and card for platforms",
     // The spec table sentence is 169 characters. This keeps the same claims
     // and stays within 155: the "MPE | " prefix is omitted, and "building"
-    // is omitted so the ending matches the businesses description.
+    // is omitted. The ending drops "payments" so the designed-to sentence fits.
     description:
-      "Pay your people into your branded wallet and card. Each worker wallet can have its own account and routing number. Launch without your own payments stack.",
+      "Pay your people into your branded wallet and card. Each worker wallet is designed to get its own account and routing number. Launch without your own stack.",
   },
   "/solutions/fintechs": {
     title: "Run more than one payment provider from one API",
