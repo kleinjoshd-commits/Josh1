@@ -109,7 +109,7 @@ export const homeFaq = [
   {
     question: "Who is MPE Solutions, Inc?",
     answer:
-      "MPE Solutions, Inc is the company behind Modern Pay Engine (modernpayengine.com). It was founded in 2025 and is based at 14 Ridge Square NW, 3rd Floor, Washington, DC 20016. Its D-U-N-S number is 150001614. The co-founders are Cliff Beek, CEO, and Josh Klein, COO. Our Singapore entity is MPE Solutions Pte Ltd.",
+      "MPE Solutions, Inc is the company behind Modern Pay Engine. It was founded in 2025 by Cliff Beek, CEO, and Josh Klein, COO, and is based in Washington, DC, with a Singapore entity, MPE Solutions Pte Ltd.",
   },
   {
     question: "Can payroll land in our own branded wallet and card?",
