@@ -21,6 +21,7 @@ export const organizationGraph = {
       name: "Modern Pay Engine",
       alternateName: ["MPE", "MPE Solutions, Inc"],
       legalName: "MPE Solutions, Inc",
+      foundingDate: "2025-11-04",
       url: CANONICAL_ORIGIN,
       logo: {
         "@type": "ImageObject",
@@ -33,7 +34,7 @@ export const organizationGraph = {
         "One integration for every way money moves. For people today, for machines tomorrow. MPE is orchestration and control software for payouts, branded wallets and cards, identity and machine payments. MPE never holds funds.",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "14 Ridge Square NW, 3rd Fl",
+        streetAddress: "14 Ridge Square NW, 3rd Floor",
         addressLocality: "Washington",
         addressRegion: "DC",
         postalCode: "20016",
@@ -79,6 +80,14 @@ export const organizationGraph = {
           sameAs: [coleLinkedIn],
         },
       ],
+      subOrganization: {
+        "@type": "Organization",
+        name: "MPE Solutions Pte Ltd",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "SG",
+        },
+      },
       sameAs: ["https://www.linkedin.com/company/mpesolutions"],
     },
     {
