@@ -107,7 +107,7 @@ export const payoutService = {
     audienceType: "Platforms, fintechs and businesses that pay people",
   },
   description:
-    "One API to pay your people, put payroll into your branded wallet and card, and give each worker wallet its own account and routing number. Money movement is provided by licensed partner institutions. MPE never holds funds.",
+    "One API to pay your people, put payroll into your branded wallet and card, and give each worker wallet its own account and routing number. MPE never holds funds.",
 } as const;
 
 /** Product block on /machines. No offers, aggregateRating, or review. */

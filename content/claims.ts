@@ -4,8 +4,8 @@
  * propagate site-wide.
  *
  * HARD RULES (MPE_Website_Changes_1.md, 11 Aug 2026, apply to every edit):
- * 1. MPE is never the provider of remittance/money-transfer services,
- *    licensed partners are. MPE is never the subject of those verbs.
+ * 1. MPE is never the provider of remittance/money-transfer services.
+ *    MPE is never the subject of those verbs. MPE never holds funds.
  * 2. No custody language. No wallets, balances, or stored value
  *    attributed to MPE.
  * 3. No pricing or fee claims of any kind. Pricing is not public.
@@ -20,12 +20,12 @@ export const claims = {
   /** Headline wage-loss range workers face on cross-border payments. */
   wageLossRange: "4-10%",
 
-  /** Countries where money lands through the licensed partner network. */
+  /** Countries where money lands. */
   countryCount: "140+",
 
   /** Approved framing wherever the service is described. Use verbatim. */
   serviceAttribution:
-    "Money transfer and payment services within MPE programs are provided by licensed partner institutions.",
+    "MPE provides orchestration and control software and never holds funds.",
 
   /** Approved reassurance line. Use verbatim. */
   noCustody:
@@ -69,7 +69,7 @@ export const claims = {
 
   /** Compliance footer (Tier 1.6). Use verbatim on every page. */
   footerDisclaimer:
-    "© 2026 MPE Solutions, Inc. All rights reserved. MPE provides orchestration and control software. MPE never holds funds, and does not store customer identity documents. Money transfer and payment services within MPE programs are provided by licensed partner institutions. Payout options, wallets, cards and currencies vary by platform and country. Market designations describe partner-network capability, and do not constitute an offer of those services in any jurisdiction.",
+    "© 2026 MPE Solutions, Inc. All rights reserved. MPE provides orchestration and control software. MPE never holds funds, and does not store customer identity documents. Payout options, wallets, cards and currencies vary by platform and country. Market designations describe where payouts can land, and do not constitute an offer of those services in any jurisdiction.",
 } as const;
 
 export type Claims = typeof claims;

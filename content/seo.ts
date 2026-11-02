@@ -12,7 +12,7 @@ export const pageSeo = {
   "/platform": {
     title: "Platform: payouts, wallets, cards and identity in one API",
     description:
-      "MPE | One API to authorize, route and sign payouts, branded wallets, cards and identity. Licensed partners move the money. MPE never holds funds.",
+      "MPE | One API to authorize, route and sign payouts, branded wallets, cards and identity. MPE never holds funds.",
   },
   "/machines": {
     title: "MFAM (Machine Financial Authority Module) by Modern Pay Engine",
@@ -28,6 +28,16 @@ export const pageSeo = {
     title: "Hardware identity for machine payments | MFAM by Modern Pay Engine",
     description:
       "Why machine payments need an identity that lives in hardware, and how MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to provide it.",
+  },
+  "/machines/charging": {
+    title: "How can an EV, robot or drone pay for charging on its own? | MFAM by Modern Pay Engine",
+    description:
+      "An EV, robot or drone can pay for its own charging with a hardware identity and owner-set authority. MFAM by Modern Pay Engine is designed to give it both.",
+  },
+  "/machines/mfam": {
+    title: "What is MFAM? Machine Financial Authority Module by Modern Pay Engine",
+    description:
+      "MFAM is identity and authority for machines, made by Modern Pay Engine (MPE). It pays from the owner's own account. Patent pending, prototype working.",
   },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",
@@ -60,7 +70,7 @@ export const pageSeo = {
   "/company": {
     title: "About Modern Pay Engine (MPE Solutions, Inc)",
     description:
-      "MPE | MPE builds orchestration and control software. Licensed partners move the money. Based in Washington, DC. MPE never holds funds and is not a bank.",
+      "MPE | MPE builds orchestration and control software. Based in Washington, DC. MPE never holds funds and is not a bank.",
   },
 } as const;
 

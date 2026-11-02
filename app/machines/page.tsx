@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import FilmPlayer from "@/components/FilmPlayer";
 import HomeFaq from "@/components/HomeFaq";
 import RequestAccess from "@/components/RequestAccess";
-import { faqPageSchema, whatIsMfam } from "@/content/faq";
+import { faqPageSchema, whatIsMfam, whoMakesMfam } from "@/content/faq";
 import { mfamVisibleLine } from "@/content/mfam";
 import { homepageMedia } from "@/content/media";
 import { operators, product } from "@/content/product";
@@ -24,13 +24,23 @@ const machineGuides = [
     title: "Hardware identity for machine payments",
     body: "Why the identity and signing key are designed to live in the chip.",
   },
+  {
+    href: "/machines/charging",
+    title: "How can an EV, robot or drone pay for charging?",
+    body: "A machine needs a hardware identity and authority its owner sets to pay for its own charging.",
+  },
+  {
+    href: "/machines/mfam",
+    title: "What is MFAM?",
+    body: "MFAM is the Machine Financial Authority Module by Modern Pay Engine: identity and authority for machines.",
+  },
 ] as const;
 
 export default function MachinesPage() {
   return (
     <main className="sitePage machinesPage">
       <JsonLd data={mfamProduct} />
-      <JsonLd data={faqPageSchema([whatIsMfam])} />
+      <JsonLd data={faqPageSchema([whatIsMfam, whoMakesMfam])} />
       <Nav />
 
       <section className="emeraldBand">
@@ -62,7 +72,7 @@ export default function MachinesPage() {
           </div>
 
           <div className="sectionBlock">
-            <h2 className="homeSectionTitle">Ships, satellites and hardware</h2>
+            <h2 className="homeSectionTitle">Machine payment guides</h2>
             <div className="cardGrid2">
               {machineGuides.map((guide) => (
                 <Link className="panel" href={guide.href} key={guide.href}>
@@ -76,7 +86,7 @@ export default function MachinesPage() {
         </div>
       </section>
 
-      <HomeFaq items={[whatIsMfam]} />
+      <HomeFaq items={[whatIsMfam, whoMakesMfam]} />
 
       <RequestAccess
         title="Talk to us about machines."

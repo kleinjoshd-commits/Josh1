@@ -56,6 +56,14 @@ export default function ShipsAndSatellitesPage() {
             </div>
           ))}
           <p className="p machineBack">
+            <Link className="quietLink" href="/machines/mfam">
+              What is MFAM?
+            </Link>
+            {" · "}
+            <Link className="quietLink" href="/machines/charging">
+              How can an EV, robot or drone pay for charging?
+            </Link>
+            {" · "}
             <Link className="quietLink" href="/machines/hardware-identity">
               Hardware identity for machine payments
             </Link>

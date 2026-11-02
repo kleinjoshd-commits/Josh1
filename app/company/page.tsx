@@ -69,7 +69,7 @@ export default function CompanyPage() {
       <section className="emeraldBand">
         <div className="ebWrap">
           <div className="ebTag">COMPANY</div>
-          <h1>MPE builds the software. Licensed partners move the money.</h1>
+          <h1>MPE builds the software and never holds funds.</h1>
           <p className="ebSub">
             Orchestration for platforms, fintechs, businesses without an app, and operators of machines. {product.funds}
           </p>

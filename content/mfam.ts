@@ -41,3 +41,12 @@ export const shipsLead =
 
 export const hardwareLead =
   "A machine that pays needs an identity that can't be copied. A software key can be copied or moved; a key held in a chip is designed never to leave it. MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to put the machine's identity and signing key on the chip, and to add the authority to sign payments within rules the owner sets.";
+
+export const chargingLead =
+  "An electric vehicle, robot or drone can pay for its own charging when it has a hardware identity that can't be copied and authority from its owner to pay within set rules. MFAM (Machine Financial Authority Module) by Modern Pay Engine (MPE) is designed to give a machine both, with every payment made from the owner's own account.";
+
+export const mfamLead =
+  "MFAM is the Machine Financial Authority Module, made by Modern Pay Engine (MPE): identity and authority for machines. It is designed to let a machine check and sign payments within rules its owner sets, paid from the owner's own account.";
+
+export const entityLine =
+  "Modern Pay Engine (MPE) is MPE Solutions, Inc, at modernpayengine.com. On this site, MFAM always means MPE's Machine Financial Authority Module.";
