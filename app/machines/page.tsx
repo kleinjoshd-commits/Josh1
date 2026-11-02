@@ -7,7 +7,7 @@ import { faqPageSchema, whatIsMfam, whoMakesMfam } from "@/content/faq";
 import { mfamVisibleLine } from "@/content/mfam";
 import { homepageMedia } from "@/content/media";
 import { operators, product } from "@/content/product";
-import { mfamProduct } from "@/content/schema";
+import { mfamEntity } from "@/content/schema";
 import JsonLd from "@/components/JsonLd";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -39,7 +39,7 @@ const machineGuides = [
 export default function MachinesPage() {
   return (
     <main className="sitePage machinesPage">
-      <JsonLd data={mfamProduct} />
+      <JsonLd data={mfamEntity} />
       <JsonLd data={faqPageSchema([whatIsMfam, whoMakesMfam])} />
       <Nav />
 

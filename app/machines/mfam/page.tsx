@@ -5,7 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import RequestAccess from "@/components/RequestAccess";
 import { faqPageSchema, mfamFaq } from "@/content/faq";
 import { entityLine, mfamLead, mfamVisibleLine } from "@/content/mfam";
-import { mfamProduct } from "@/content/schema";
+import { mfamEntity } from "@/content/schema";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta("/machines/mfam");
@@ -26,7 +26,7 @@ const nameParts = [
 export default function MfamPage() {
   return (
     <main className="sitePage">
-      <JsonLd data={mfamProduct} />
+      <JsonLd data={mfamEntity} />
       <JsonLd data={faqPageSchema(mfamFaq)} />
       <Nav />
 

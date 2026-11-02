@@ -119,16 +119,12 @@ export const payoutService = {
     "One API to pay your people, put payroll into your branded wallet and card. MPE never holds funds.",
 } as const;
 
-/** Product block on /machines. No offers, aggregateRating, or review. */
-export const mfamProduct = {
+/** MFAM description on /machines. Not a priced product, so this is not a Product. */
+export const mfamEntity = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "Thing",
   "@id": `${CANONICAL_ORIGIN}/machines#mfam`,
   name: "MFAM (Machine Financial Authority Module) by Modern Pay Engine",
-  alternateName: "MFAM",
-  category: "Identity and authority for machines",
-  brand: { "@id": organizationId },
-  manufacturer: { "@id": organizationId },
   url: `${CANONICAL_ORIGIN}/machines`,
   description:
     "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, prototype working.",
