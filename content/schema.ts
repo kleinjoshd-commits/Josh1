@@ -1,4 +1,4 @@
-import { cliffLinkedIn } from "@/content/mfam";
+import { cliffLinkedIn, coleLinkedIn, joshLinkedIn, kokRieLinkedIn } from "@/content/mfam";
 import { CANONICAL_ORIGIN } from "@/content/seo";
 
 const organizationId = `${CANONICAL_ORIGIN}/#org`;
@@ -8,7 +8,7 @@ const organizationId = `${CANONICAL_ORIGIN}/#org`;
  * sameAs is the LinkedIn company page already on the site.
  * The D&B directory URL stays off until that profile can be confirmed.
  * Crunchbase stays off sameAs until a profile exists.
- * Cliff's sameAs is the LinkedIn URL already published on /company.
+ * Person sameAs values are the LinkedIn URLs already published on /company.
  * No public email. No claim that a person originated MFAM.
  * publisher, provider, brand, manufacturer, and worksFor all use organizationId.
  */
@@ -55,7 +55,29 @@ export const organizationGraph = {
           knowsAbout: ["machine payments", "satellite communications"],
           sameAs: [cliffLinkedIn],
         },
-        { "@type": "Person", name: "Josh Klein", jobTitle: "Co-Founder and COO" },
+        {
+          "@type": "Person",
+          name: "Josh Klein",
+          jobTitle: "Co-Founder and COO",
+          worksFor: { "@id": organizationId },
+          sameAs: [joshLinkedIn],
+        },
+      ],
+      employee: [
+        {
+          "@type": "Person",
+          name: "Kok Rie Ooi",
+          jobTitle: "Managing Director, APAC",
+          worksFor: { "@id": organizationId },
+          sameAs: [kokRieLinkedIn],
+        },
+        {
+          "@type": "Person",
+          name: "Cole Mahoney",
+          jobTitle: "Business Development and Strategic Partnerships",
+          worksFor: { "@id": organizationId },
+          sameAs: [coleLinkedIn],
+        },
       ],
       sameAs: ["https://www.linkedin.com/company/mpesolutions"],
     },

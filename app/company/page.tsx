@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
-import { cliffBio, cliffLinkedIn } from "@/content/mfam";
+import {
+  cliffBio,
+  cliffLinkedIn,
+  coleBio,
+  coleLinkedIn,
+  joshBio,
+  joshLinkedIn,
+  kokRieBio,
+  kokRieLinkedIn,
+} from "@/content/mfam";
 import { product } from "@/content/product";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -27,26 +36,28 @@ const team: TeamMember[] = [
     name: "Josh Klein",
     title: "Co-Founder and COO",
     photo: "/JoshKleinMPE.png",
-    linkedin: "https://www.linkedin.com/in/kleinjoshd/",
+    linkedin: joshLinkedIn,
+    bio: joshBio,
+  },
+  {
+    name: "Kok Rie Ooi",
+    title: "Managing Director, APAC",
+    photo: "/KokRieOoiMPE.png",
+    linkedin: kokRieLinkedIn,
+    bio: kokRieBio,
   },
   {
     name: "Cole Mahoney",
-    title: "Business Development & Strategic Partnerships",
+    title: "Business Development and Strategic Partnerships",
     photo: "/ColeMahoneyMPE.png",
-    linkedin: "https://www.linkedin.com/in/cole-mahoney-67978b144/",
+    linkedin: coleLinkedIn,
+    bio: coleBio,
   },
   {
     name: "Naulissa Tuza",
     title: "Financial Analyst & Investor Relations",
     photo: "/NaulissaTuzaMPE.png",
     linkedin: "https://www.linkedin.com/in/naulissatuza/",
-  },
-  {
-    name: "Kok Rie Ooi",
-    title: "Managing Director, APAC",
-    photo: "/KokRieOoiMPE.png",
-    linkedin:
-      "https://www.linkedin.com/in/kok-rie-ooi-%E7%8E%8B%E5%9B%BD%E7%A4%BC-mba-bsc-computing-1a3a551/",
   },
 ];
 
