@@ -431,10 +431,8 @@ function checkPage(urlPath, html) {
   } else if (types.includes("Service")) {
     fail(`${urlPath} JSON-LD has Service outside /platform and /solutions/platforms`);
   }
-  if (urlPath === "/machines" || urlPath === "/machines/mfam") {
-    if (!types.includes("Product")) fail(`${urlPath} JSON-LD missing Product`);
-  } else if (types.includes("Product")) {
-    fail(`${urlPath} JSON-LD has Product outside /machines and /machines/mfam`);
+  if (types.includes("Product") || types.includes("Offer")) {
+    fail(`${urlPath} JSON-LD has Product or Offer without a merchant offer`);
   }
   if (FAQ_PATHS.has(urlPath)) {
     if (!types.includes("FAQPage")) fail(`${urlPath} JSON-LD missing FAQPage`);
