@@ -55,7 +55,7 @@ export const homepageCopy = {
   mfam: {
     eyebrow: "Machines",
     heading: "When the payer is a machine.",
-    lede: `${mfamByMpe} is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account.`,
+    lede: `${mfamByMpe} is designed to give each machine a hardware identity. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Payment is designed to be made from the owner's own account.`,
     points: [
       "The operator sets the rules, the limits, and who the machine may pay.",
       "Each payment is designed to be signed by the machine's chip and kept in one tamper-evident record.",

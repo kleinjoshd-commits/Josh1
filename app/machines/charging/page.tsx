@@ -16,18 +16,17 @@ const sections = [
   },
   {
     title: "Identity: the machine proves who it is",
-    body: "The machine's identity and signing key live on the MFAM chip and are designed never to leave the hardware. A charger can check that the request comes from that exact machine, not a copy.",
+    body: "The machine's identity and signing key are designed to live on the MFAM chip and are designed never to leave the hardware. A charger can check that the request comes from that exact machine, not a copy.",
   },
   {
     title: "Authority: the owner sets the limits",
-    body: "The owner signs the rules: how much the machine may spend, which payees it may pay, and for what. MFAM is designed to check each charging request against those rules and sign it only if it fits. A request outside the rules is not signed.",
+    body: "The owner signs the rules: how much the machine may spend, which payees it may pay, and for what. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules.",
   },
 ] as const;
 
 const paymentSteps = [
   "The machine's systems request payment for a charging session.",
-  "MFAM is designed to check the request against the owner's signed rules (limits, payees, categories).",
-  "If it fits, MFAM signs the request on the chip.",
+  "MFAM is designed to initiate and sign only the payments that fit the owner's signed rules.",
   "Payment is designed to be made from the owner's own account. MPE never holds funds.",
   "Each payment is designed to be kept in one tamper-evident record the owner can review.",
 ] as const;

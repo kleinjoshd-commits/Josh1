@@ -107,7 +107,7 @@ export const payoutService = {
     audienceType: "Platforms, fintechs and businesses that pay people",
   },
   description:
-    "One API to pay your people, put payroll into your branded wallet and card, and give each worker wallet its own account and routing number. MPE never holds funds.",
+    "One API to pay your people, put payroll into your branded wallet and card. MPE never holds funds.",
 } as const;
 
 /** Product block on /machines. No offers, aggregateRating, or review. */
@@ -122,5 +122,5 @@ export const mfamProduct = {
   manufacturer: { "@id": organizationId },
   url: `${CANONICAL_ORIGIN}/machines`,
   description:
-    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. It is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. Patent pending, prototype working.",
+    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, prototype working.",
 } as const;

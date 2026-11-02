@@ -17,7 +17,7 @@ const machineGuides = [
   {
     href: "/machines/ships-and-satellites",
     title: "How can a ship or satellite pay for services?",
-    body: "A ship or satellite needs an identity that can't be copied and authority its owner sets.",
+    body: "A ship or satellite needs a hardware identity and authority its owner sets.",
   },
   {
     href: "/machines/hardware-identity",

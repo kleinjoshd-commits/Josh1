@@ -22,12 +22,12 @@ export const pageSeo = {
   "/machines/ships-and-satellites": {
     title: "How can a ship or satellite pay for services? | MFAM by Modern Pay Engine",
     description:
-      "A ship or satellite can pay for services when it has an identity that can't be copied and authority its owner sets. MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to do both.",
+      "A ship or satellite can pay for services when it has a hardware identity and authority its owner sets. MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to do both.",
   },
   "/machines/hardware-identity": {
     title: "Hardware identity for machine payments | MFAM by Modern Pay Engine",
     description:
-      "Why machine payments need an identity that lives in hardware, and how MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to provide it.",
+      "Why machine payments need an identity designed to live in hardware, and how MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed to provide it.",
   },
   "/machines/charging": {
     title: "How can an EV, robot or drone pay for charging on its own? | MFAM by Modern Pay Engine",
@@ -37,7 +37,7 @@ export const pageSeo = {
   "/machines/mfam": {
     title: "What is MFAM? Machine Financial Authority Module by Modern Pay Engine",
     description:
-      "MFAM is identity and authority for machines made by Modern Pay Engine (MPE). Payments come from the owner's own account. Patent pending, prototype working.",
+      "MFAM is identity and authority for machines by MPE. Payments are designed to come from the owner's own account. Patent pending, prototype working.",
   },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",

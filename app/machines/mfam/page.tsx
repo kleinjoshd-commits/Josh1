@@ -11,16 +11,16 @@ import { pageMeta } from "@/lib/pageMeta";
 export const metadata = pageMeta("/machines/mfam");
 
 const designedToDo = [
-  "Identity: the identity and signing key live on the MFAM chip and are designed never to leave the hardware, so the machine's identity can't be copied. There is no software-only key option.",
-  "Authority: MFAM is designed to check each payment request against rules the owner signed (limits, payees, categories) and sign only what fits.",
+  "MFAM is designed to keep the identity and signing key on a chip, so they never leave the hardware.",
+  "MFAM is designed to initiate and sign only the payments that fit the owner's signed rules.",
   "Record: each payment is designed to be kept in one tamper-evident record.",
-  "Money: MFAM pays from the owner's own account. MPE never holds funds.",
+  "Money: MFAM is designed to pay from the owner's own account. MPE never holds funds.",
 ] as const;
 
 const nameParts = [
   "Machine: built for machines such as ships, satellites, vehicles, robots and drones.",
   "Financial Authority: the right to pay, within limits the owner sets.",
-  "Module: a hardware module (chip) that holds the machine's identity and signing key.",
+  "Module: a hardware module (chip) that is designed to hold the machine's identity and signing key.",
 ] as const;
 
 export default function MfamPage() {

@@ -330,6 +330,10 @@ function copyViolations(html) {
     ["X-MPE-Signature", /X-MPE-Signature/],
     ["HMAC-SHA256", /HMAC-SHA256/],
     ["arrive signed", /arrive signed/i],
+    // blocked until the certified chip ships.
+    ["can't be copied", /can(?:'|&#0*39;|&#x0*27;|&apos;|\u2019)t be copied/i],
+    ["cannot be copied", /cannot be copied/i],
+    ["no software-only", /no software-only/i],
   ];
   for (const [name, pattern] of checks) {
     const match = pattern.exec(html);

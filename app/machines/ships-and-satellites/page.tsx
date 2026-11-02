@@ -16,7 +16,7 @@ const sections = [
   },
   {
     title: "How a payment works",
-    body: "The machine's systems request the payment. MFAM is designed to initiate that payment within rules the owner signed, including limits, payees and categories. Payment is designed to be made from the owner's own funded account, and the result is designed to be kept in one tamper-evident record.",
+    body: "The machine's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Payment is designed to be made from the owner's own funded account, and the result is designed to be kept in one tamper-evident record.",
   },
   {
     title: "Ships first",
