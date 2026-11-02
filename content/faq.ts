@@ -19,12 +19,12 @@ export const homeFaq = [
   {
     question: "Does MPE hold funds?",
     answer:
-      "No. MPE provides orchestration and control software and never holds funds. Money movement within MPE programs is provided by licensed partner institutions.",
+      "No. MPE provides orchestration and control software and never holds funds.",
   },
   {
     question: "Is MPE a bank?",
     answer:
-      "No. MPE is a software company, not a bank. Accounts, cards and transfers within MPE programs are provided by licensed partner institutions.",
+      "No. MPE is a software company, not a bank.",
   },
   {
     question: "Can payroll land in our own branded wallet and card?",
@@ -51,7 +51,7 @@ export const shipsFaq = [
   {
     question: "How can a ship pay for port services on its own?",
     answer:
-      "With MFAM, the ship's systems request the payment, MFAM is designed to check it against rules the owner signed and sign it, and payment is designed to be made from the owner's own account through licensed partner institutions. Patent pending, prototype working.",
+      "With MFAM, the ship's systems request the payment. MFAM is designed to initiate that payment within rules the owner signed, and the payment is designed to be made from the owner's own funded account. Patent pending, prototype working.",
   },
   {
     question: "Can a satellite pay for services?",
@@ -61,7 +61,7 @@ export const shipsFaq = [
   {
     question: "Does MPE hold the money?",
     answer:
-      "No. MPE never holds funds. Payments are made from the owner's own account through licensed partner institutions.",
+      "No. MPE never holds funds. Payments are designed to be made from the owner's own funded account.",
   },
 ] as const satisfies readonly FaqEntry[];
 
