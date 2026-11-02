@@ -55,6 +55,18 @@ const VERBATIM = [
     "Cliff Beek is Co-Founder and CEO of Modern Pay Engine, the company behind MFAM, the Machine Financial Authority Module. He has spent years leading space and satellite communications companies, including SpaceChain and Cloud Constellation.",
   ],
   [
+    "/company",
+    "Josh Klein is Co-Founder and COO of Modern Pay Engine. He leads MPE's operations, partnerships and business development, and has spent his career building and leading revenue teams and advising early-stage companies across technology, space and manufacturing.",
+  ],
+  [
+    "/company",
+    "Kok Rie Ooi is Managing Director, APAC at Modern Pay Engine, based in Singapore. A board advisor and managing partner across deep tech companies, Kok Rie brings expertise in cybersecurity, AI governance, space technology and sustainability, and holds an MBA from Imperial College London.",
+  ],
+  [
+    "/company",
+    "Cole Mahoney leads Business Development and Strategic Partnerships at Modern Pay Engine. Cole builds MPE's relationships with banking partners, regional financial institutions and enterprise platforms, drawing on a background in client-focused roles centered on relationships and retention.",
+  ],
+  [
     "/machines",
     "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
   ],
@@ -333,6 +345,7 @@ function copyViolations(html) {
     ["GomSpace", /GomSpace/i],
     ["Velas", /\bVelas\b/i],
     ["ISS", /\bISS\b/],
+    ["Slava", /\bSlava\b/i],
   ];
   for (const [name, pattern] of bannedNames) {
     const match = pattern.exec(html);
