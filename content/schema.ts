@@ -21,6 +21,7 @@ export const organizationGraph = {
       name: "Modern Pay Engine",
       alternateName: ["MPE", "MPE Solutions, Inc"],
       legalName: "MPE Solutions, Inc",
+      foundingDate: "2025-11-04",
       url: CANONICAL_ORIGIN,
       logo: {
         "@type": "ImageObject",
@@ -33,7 +34,7 @@ export const organizationGraph = {
         "One integration for every way money moves. For people today, for machines tomorrow. MPE is orchestration and control software for payouts, branded wallets and cards, identity and machine payments. MPE never holds funds.",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "14 Ridge Square NW, 3rd Fl",
+        streetAddress: "14 Ridge Square NW, 3rd Floor",
         addressLocality: "Washington",
         addressRegion: "DC",
         postalCode: "20016",
@@ -79,6 +80,14 @@ export const organizationGraph = {
           sameAs: [coleLinkedIn],
         },
       ],
+      subOrganization: {
+        "@type": "Organization",
+        name: "MPE Solutions Pte Ltd",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "SG",
+        },
+      },
       sameAs: ["https://www.linkedin.com/company/mpesolutions"],
     },
     {
@@ -107,7 +116,7 @@ export const payoutService = {
     audienceType: "Platforms, fintechs and businesses that pay people",
   },
   description:
-    "One API to pay your people, put payroll into your branded wallet and card, and give each worker wallet its own account and routing number. Money movement is provided by licensed partner institutions. MPE never holds funds.",
+    "One API to pay your people, put payroll into your branded wallet and card. MPE never holds funds.",
 } as const;
 
 /** Product block on /machines. No offers, aggregateRating, or review. */
@@ -122,5 +131,5 @@ export const mfamProduct = {
   manufacturer: { "@id": organizationId },
   url: `${CANONICAL_ORIGIN}/machines`,
   description:
-    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. It is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. Patent pending, prototype working.",
+    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, prototype working.",
 } as const;

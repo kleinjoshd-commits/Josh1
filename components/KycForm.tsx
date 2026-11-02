@@ -178,8 +178,7 @@ export default function KycForm({
               </button>
               <p className="kycFine">
                 No obligation. A person replies, and nothing is shared beyond
-                MPE. Money transfer and payment services within MPE programs
-                are provided by licensed partner institutions.
+                MPE. MPE never holds funds.
               </p>
             </div>
           </form>

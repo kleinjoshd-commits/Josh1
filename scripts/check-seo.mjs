@@ -29,6 +29,8 @@ const PATHS = [
   "/machines",
   "/machines/ships-and-satellites",
   "/machines/hardware-identity",
+  "/machines/charging",
+  "/machines/mfam",
   "/solutions",
   "/solutions/platforms",
   "/solutions/fintechs",
@@ -43,6 +45,8 @@ const FAQ_PATHS = new Set([
   "/machines",
   "/machines/ships-and-satellites",
   "/machines/hardware-identity",
+  "/machines/charging",
+  "/machines/mfam",
 ]);
 // Approved spec descriptions are longer than the usual snippet cap.
 const LONG_META_OK = new Set([
@@ -73,6 +77,18 @@ const VERBATIM = [
   [
     "/machines/ships-and-satellites",
     "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+  ],
+  [
+    "/machines/charging",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+  ],
+  [
+    "/machines/mfam",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+  ],
+  [
+    "/machines/mfam",
+    "Cliff Beek is Co-Founder and CEO of Modern Pay Engine, the company behind MFAM, the Machine Financial Authority Module. He has spent years leading space and satellite communications companies, including SpaceChain and Cloud Constellation.",
   ],
 ];
 const INDEXNOW_KEY = "f6172fe5482ee6b83488836f445c9d94";
@@ -314,17 +330,18 @@ function copyViolations(html) {
     ["X-MPE-Signature", /X-MPE-Signature/],
     ["HMAC-SHA256", /HMAC-SHA256/],
     ["arrive signed", /arrive signed/i],
+    // blocked until the certified chip ships.
+    ["can't be copied", /can(?:'|&#0*39;|&#x0*27;|&apos;|\u2019)t be copied/i],
+    ["cannot be copied", /cannot be copied/i],
+    ["no software-only", /no software-only/i],
   ];
   for (const [name, pattern] of checks) {
     const match = pattern.exec(html);
     if (match) hits.push(`${name}: ${snippet(html, match.index)}`);
   }
 
-  const withoutAllowed = html
-    .replace(/licensed partner institutions/gi, "")
-    .replace(/licensed partners/gi, "");
-  const licensed = /licensed/i.exec(withoutAllowed);
-  if (licensed) hits.push(`licensed outside the allowed phrases: ${snippet(withoutAllowed, licensed.index)}`);
+  const licensed = /licensed/i.exec(html);
+  if (licensed) hits.push(`licensed: ${snippet(html, licensed.index)}`);
 
   const emails = html.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi) ?? [];
   for (const email of emails) {
@@ -414,10 +431,10 @@ function checkPage(urlPath, html) {
   } else if (types.includes("Service")) {
     fail(`${urlPath} JSON-LD has Service outside /platform and /solutions/platforms`);
   }
-  if (urlPath === "/machines") {
+  if (urlPath === "/machines" || urlPath === "/machines/mfam") {
     if (!types.includes("Product")) fail(`${urlPath} JSON-LD missing Product`);
   } else if (types.includes("Product")) {
-    fail(`${urlPath} JSON-LD has Product outside /machines`);
+    fail(`${urlPath} JSON-LD has Product outside /machines and /machines/mfam`);
   }
   if (FAQ_PATHS.has(urlPath)) {
     if (!types.includes("FAQPage")) fail(`${urlPath} JSON-LD missing FAQPage`);

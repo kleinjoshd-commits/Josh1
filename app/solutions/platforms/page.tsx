@@ -35,7 +35,7 @@ export default function PlatformsPage() {
               Your people get paid from the app they already use.
             </p>
             <p className="p">
-              Your branded wallet and card for the people you pay. You can earn a share of their card spend. Launch without building your own payments stack. Money movement is provided by licensed partner institutions. MPE never holds funds.
+              Your branded wallet and card for the people you pay. You can earn a share of their card spend. Launch without building your own payments stack. MPE never holds funds.
             </p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Embed the screens and keep your app.</p>

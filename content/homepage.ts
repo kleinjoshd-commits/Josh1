@@ -10,7 +10,7 @@ export const homepageCopy = {
   filmHeading: "Watch the film",
   playCta: "Play film",
   closeCta: "Close",
-  heroFine: "MPE never holds funds. Licensed partners do.",
+  heroFine: "MPE never holds funds.",
 
   capabilities: {
     heading: "What MPE does",
@@ -28,7 +28,7 @@ export const homepageCopy = {
       {
         icon: "wallet",
         title: "Wallets",
-        body: "Your branded wallet and card for the people you pay. Balances are held by licensed partner institutions, never by MPE.",
+        body: "Your branded wallet and card for the people you pay. MPE never holds the balances.",
       },
       {
         icon: "card",
@@ -55,7 +55,7 @@ export const homepageCopy = {
   mfam: {
     eyebrow: "Machines",
     heading: "When the payer is a machine.",
-    lede: `${mfamByMpe} is designed to give each machine an identity that can't be copied and the authority to check and sign payments within rules the owner signs. MPE then pays from the owner's own account.`,
+    lede: `${mfamByMpe} is designed to give each machine a hardware identity. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Payment is designed to be made from the owner's own account.`,
     points: [
       "The operator sets the rules, the limits, and who the machine may pay.",
       "Each payment is designed to be signed by the machine's chip and kept in one tamper-evident record.",
