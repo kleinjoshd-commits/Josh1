@@ -37,7 +37,7 @@ export const pageSeo = {
   "/machines/mfam": {
     title: "What is MFAM? Machine Financial Authority Module by Modern Pay Engine",
     description:
-      "MFAM is identity and authority for machines, made by Modern Pay Engine (MPE). It pays from the owner's own account. Patent pending, prototype working.",
+      "MFAM is identity and authority for machines made by Modern Pay Engine (MPE). Payments come from the owner's own account. Patent pending, prototype working.",
   },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",
