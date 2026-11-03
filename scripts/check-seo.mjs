@@ -31,6 +31,7 @@ const PATHS = [
   "/machines/hardware-identity",
   "/machines/charging",
   "/machines/mfam",
+  "/machines/mfam/status",
   "/solutions",
   "/solutions/platforms",
   "/solutions/fintechs",

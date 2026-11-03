@@ -117,6 +117,10 @@ export default function MfamPage() {
               How can an EV, robot or drone pay for charging?
             </Link>
             {" · "}
+            <Link className="quietLink" href="/machines/mfam/status">
+              MFAM status
+            </Link>
+            {" · "}
             <Link className="quietLink" href="/company">
               Company
             </Link>
