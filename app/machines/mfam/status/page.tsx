@@ -13,6 +13,7 @@ const statusPage = {
   "@type": "WebPage",
   url: pageUrl,
   name: "MFAM status",
+  description: "Patent pending, prototype working.",
   dateModified: "2026-11-03",
 } as const;
 
@@ -24,12 +25,15 @@ const workingToday = [
   "Keeps working offline, then replays queued payments in order when the connection returns.",
   "Records every step in a signed, tamper-evident log.",
   "Has flown on a drone in prototype testing.",
+  "Pays a charging pad when a drone lands, and the pad powers on only after a valid signed payment.",
   "Runs on a small computer, with a phone as the screen.",
 ] as const;
 
 const whatsNext = [
-  "A drone that pays a charging pad when it lands, and a pad that powers on only after a valid signed payment.",
   "Real settlement through our payment partners, from the owner's own funded account. MPE never holds the funds.",
+  "Satellites: designed to let a satellite pay for ground station passes and data relay, within its owner's limits.",
+  "Ships: designed to bind the vessel's IMO identity to a secure chip on board, so the ship can sign for what it used and pay within the owner's limits.",
+  "Trucks: designed to let a truck pay for charging, fuel and tolls on its own, within its owner's limits.",
 ] as const;
 
 export default function MfamStatusPage() {
