@@ -73,19 +73,19 @@ const VERBATIM = [
   ],
   [
     "/machines",
-    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, working today.",
   ],
   [
     "/machines/ships-and-satellites",
-    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, working today.",
   ],
   [
     "/machines/charging",
-    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, working today.",
   ],
   [
     "/machines/mfam",
-    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.",
+    "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, working today.",
   ],
   [
     "/machines/mfam",

@@ -28,7 +28,7 @@ const sections = [
   },
   {
     title: "Status",
-    body: "Patent pending, prototype working.",
+    body: "Patent pending, working today.",
   },
 ] as const;
 

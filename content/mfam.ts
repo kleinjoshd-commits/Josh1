@@ -5,7 +5,7 @@ export const mfamByMpe =
 
 /** Verbatim line for /machines and /machines/ships-and-satellites. */
 export const mfamVisibleLine =
-  "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, prototype working.";
+  "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, working today.";
 
 /** Verbatim bio for /company. The company is behind MFAM. */
 export const cliffBio =

@@ -88,7 +88,7 @@ export default function HardwareIdentityPage() {
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Status</h2>
-            <p className="p">Patent pending, prototype working.</p>
+            <p className="p">Patent pending, working today.</p>
           </div>
 
           <p className="p machineBack">

@@ -127,5 +127,5 @@ export const mfamEntity = {
   name: "MFAM (Machine Financial Authority Module) by Modern Pay Engine",
   url: `${CANONICAL_ORIGIN}/machines`,
   description:
-    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, prototype working.",
+    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
 } as const;

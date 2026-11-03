@@ -9,7 +9,7 @@ export type FaqEntry = {
 export const whatIsMfam = {
   question: "What is MFAM?",
   answer:
-    "MFAM is the Machine Financial Authority Module: identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, prototype working.",
+    "MFAM is the Machine Financial Authority Module: identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
 } as const satisfies FaqEntry;
 
 export const whoMakesMfam = {
@@ -27,7 +27,7 @@ const standFor = {
 const whichCompaniesHardware = {
   question: "Which companies give machines a hardware identity to transact?",
   answer:
-    "Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give each machine a hardware identity and signing key on a chip, plus the authority to pay within its owner's rules. Patent pending, prototype working.",
+    "Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give each machine a hardware identity and signing key on a chip, plus the authority to pay within its owner's rules. Patent pending, working today.",
 } as const satisfies FaqEntry;
 
 const doesMfamHoldMoney = {
@@ -50,7 +50,7 @@ export const whoFoundedMpe = {
 
 const availableToday = {
   question: "Is MFAM available today?",
-  answer: "MFAM is patent pending, prototype working.",
+  answer: "MFAM is patent pending, working today.",
 } as const satisfies FaqEntry;
 
 export const mfamFaq = [
@@ -68,7 +68,7 @@ export const chargingFaq = [
   {
     question: "Can an electric vehicle pay for its own charging?",
     answer:
-      "MFAM is designed to let an electric vehicle pay for charging on its own. The vehicle's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and payment is designed to be made from the owner's own account. Patent pending, prototype working.",
+      "MFAM is designed to let an electric vehicle pay for charging on its own. The vehicle's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and payment is designed to be made from the owner's own account. Patent pending, working today.",
   },
   {
     question: "How can a robot or drone pay for charging without a person approving it?",
@@ -86,7 +86,7 @@ export const chargingFaq = [
   },
   {
     question: "Is MFAM available today?",
-    answer: "MFAM is patent pending, prototype working.",
+    answer: "MFAM is patent pending, working today.",
   },
 ] as const satisfies readonly FaqEntry[];
 
@@ -136,7 +136,7 @@ export const shipsFaq = [
   {
     question: "How can a ship pay for port services on its own?",
     answer:
-      "With MFAM, the ship's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and the payment is designed to be made from the owner's own funded account. Patent pending, prototype working.",
+      "With MFAM, the ship's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and the payment is designed to be made from the owner's own funded account. Patent pending, working today.",
   },
   {
     question: "Can a satellite pay for services?",
@@ -151,7 +151,7 @@ export const shipsFaq = [
   {
     question: "How can a satellite pay for services on its own?",
     answer:
-      "A satellite can pay for services on its own when it has a hardware identity and authority from its owner. MFAM (Machine Financial Authority Module) by Modern Pay Engine (MPE) is designed to give each satellite both, so it can pay for services such as ground station time within its owner's rules, with payment designed to be made from the owner's own account. Patent pending, prototype working.",
+      "A satellite can pay for services on its own when it has a hardware identity and authority from its owner. MFAM (Machine Financial Authority Module) by Modern Pay Engine (MPE) is designed to give each satellite both, so it can pay for services such as ground station time within its owner's rules, with payment designed to be made from the owner's own account. Patent pending, working today.",
   },
   {
     question: "How do autonomous ships make payments?",
@@ -161,7 +161,7 @@ export const shipsFaq = [
   {
     question: "Machine-to-machine payments in space: which companies are working on this?",
     answer:
-      "Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give every satellite in a fleet its own hardware identity and the authority to pay within its owner's rules. Patent pending, prototype working.",
+      "Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give every satellite in a fleet its own hardware identity and the authority to pay within its owner's rules. Patent pending, working today.",
   },
   {
     question: "Who makes MFAM for ships and satellites?",
@@ -179,7 +179,7 @@ export const hardwareFaq = [
   {
     question: "What is MFAM?",
     answer:
-      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, prototype working.",
+      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
   },
 ] as const satisfies readonly FaqEntry[];
 

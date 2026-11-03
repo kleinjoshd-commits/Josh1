@@ -67,7 +67,7 @@ export default function MachinesPage() {
             <div className="hpMfamFilm">
               <FilmPlayer source={homepageMedia.mfam} preload="metadata" repeat={false} />
             </div>
-            <p className="hpDisclaimer">Patent pending, prototype working.</p>
+            <p className="hpDisclaimer">Patent pending, working today.</p>
             <p className="p" style={{ marginTop: 18 }}>{product.machines}</p>
           </div>
 

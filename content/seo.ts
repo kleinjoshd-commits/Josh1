@@ -17,7 +17,7 @@ export const pageSeo = {
   "/machines": {
     title: "MFAM (Machine Financial Authority Module) by Modern Pay Engine",
     description:
-      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed for identity and owner-set payment authority. Patent pending, prototype working.",
+      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is designed for identity and owner-set payment authority. Patent pending, working today.",
   },
   "/machines/ships-and-satellites": {
     title: "How can a ship or satellite pay for services? | MFAM by Modern Pay Engine",
@@ -37,12 +37,12 @@ export const pageSeo = {
   "/machines/mfam": {
     title: "What is MFAM? Machine Financial Authority Module by Modern Pay Engine",
     description:
-      "MFAM is identity and authority for machines by MPE. Payments are designed to come from the owner's own account. Patent pending, prototype working.",
+      "MFAM is identity and authority for machines by MPE. Payments are designed to come from the owner's own account. Patent pending, working today.",
   },
   "/machines/mfam/status": {
     title: "MFAM status | Modern Pay Engine",
     description:
-      "MFAM status. Patent pending, prototype working. What MFAM does today, including drone charging pad payments. What's next for satellites, ships and trucks.",
+      "MFAM status. Patent pending, working today. What MFAM does today, including drone charging pad payments. What's next for satellites, ships and trucks.",
   },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",
