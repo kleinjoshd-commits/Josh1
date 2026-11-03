@@ -13,7 +13,7 @@ const statusPage = {
   "@type": "WebPage",
   url: pageUrl,
   name: "MFAM status",
-  dateModified: "2026-11-02",
+  dateModified: "2026-11-03",
 } as const;
 
 const workingToday = [
@@ -43,7 +43,7 @@ export default function MfamStatusPage() {
           <div className="ebTag">MFAM</div>
           <h1>MFAM status</h1>
           <p className="ebSub">Patent pending, prototype working.</p>
-          <p className="ebSub">Last updated: November 2, 2026</p>
+          <p className="ebSub">Last updated: November 3, 2026</p>
           <p className="ebSub"><strong>MFAM gives a machine its own identity and the authority to pay, within rules its owner controls.</strong></p>
         </div>
       </section>
