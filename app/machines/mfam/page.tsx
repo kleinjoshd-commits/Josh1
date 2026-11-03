@@ -43,7 +43,7 @@ export default function MfamPage() {
         <div className="container deckInner">
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">MFAM in one line</h2>
-            <p className="p">MFAM is identity and authority for machines. Patent pending, prototype working.</p>
+            <p className="p">MFAM is identity and authority for machines. Patent pending, working today.</p>
           </div>
 
           <div className="sectionBlock">
@@ -95,7 +95,7 @@ export default function MfamPage() {
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Status</h2>
-            <p className="p">Patent pending, prototype working.</p>
+            <p className="p">Patent pending, working today.</p>
           </div>
 
           <p className="hpDisclaimer">{entityLine}</p>

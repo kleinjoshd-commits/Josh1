@@ -81,7 +81,7 @@ export default function ChargingPage() {
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Status</h2>
-            <p className="p">Patent pending, prototype working.</p>
+            <p className="p">Patent pending, working today.</p>
           </div>
 
           <p className="hpDisclaimer">{entityLine}</p>

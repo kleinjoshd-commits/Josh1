@@ -14,7 +14,7 @@ const statusPage = {
   url: pageUrl,
   name: "MFAM status",
   description:
-    "Patent pending, prototype working. U.S. Patent Application No. 64/096,334, assigned to MPE Solutions, Inc.",
+    "Patent pending, working today. U.S. Patent Application No. 64/096,334, assigned to MPE Solutions, Inc.",
   dateModified: "2026-11-03",
 } as const;
 
@@ -47,7 +47,7 @@ export default function MfamStatusPage() {
         <div className="ebWrap">
           <div className="ebTag">MFAM</div>
           <h1>MFAM status</h1>
-          <p className="ebSub">Patent pending, prototype working.</p>
+          <p className="ebSub">Patent pending, working today.</p>
           <p className="small">U.S. Patent Application No. 64/096,334, assigned to MPE Solutions, Inc.</p>
           <p className="ebSub">Last updated: November 3, 2026</p>
           <p className="ebSub"><strong>MFAM gives a machine its own identity and the authority to pay, within rules its owner controls.</strong></p>
