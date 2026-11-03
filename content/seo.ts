@@ -42,7 +42,7 @@ export const pageSeo = {
   "/machines/mfam/status": {
     title: "MFAM status | Modern Pay Engine",
     description:
-      "MFAM status. Patent pending, prototype working. What MFAM does today, including a locked secure chip and a drone flight, and what's next.",
+      "MFAM status. Patent pending, prototype working. What MFAM does today, including drone charging pad payments. What's next for satellites, ships and trucks.",
   },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",
