@@ -145,7 +145,7 @@ export const homeFaq = [
   {
     question: "Does MPE work for trucking platforms?",
     answer:
-      "Yes. MPE works with trucking platforms that give their clients fuel benefits alongside payouts.",
+      "Yes. Trucking and fleet platforms use MPE to pay drivers and owner-operators into a wallet and card that carry the platform's brand. Each driver's wallet can have its own account and routing number.",
   },
   whatIsMfam,
   {
