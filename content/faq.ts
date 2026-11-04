@@ -1,4 +1,4 @@
-import { cliffBio } from "@/content/mfam";
+import { cliffBio, machinePaymentsLead } from "@/content/mfam";
 
 export type FaqEntry = {
   question: string;
@@ -90,6 +90,27 @@ export const chargingFaq = [
   },
 ] as const satisfies readonly FaqEntry[];
 
+/** Plain answer used on the home page and the worker payout pages. */
+export const workerPayoutLine =
+  "Modern Pay Engine (MPE) lets platforms pay workers, drivers and crews into a branded wallet and card. Each worker wallet can have its own account and routing number.";
+
+export const workerPayoutFaq = [
+  {
+    question: "How do I pay gig workers globally?",
+    answer:
+      "Modern Pay Engine (MPE) lets platforms pay gig workers globally into a branded wallet and card. Each worker wallet can have its own account and routing number.",
+  },
+  {
+    question: "How do I pay contractors in other countries?",
+    answer:
+      "Modern Pay Engine (MPE) lets platforms pay contractors in other countries into a branded wallet and card. Each worker wallet can have its own account and routing number.",
+  },
+  {
+    question: "Which platforms give each worker their own account and routing number?",
+    answer: workerPayoutLine,
+  },
+] as const satisfies readonly FaqEntry[];
+
 export const homeFaq = [
   {
     question: "What is MPE?",
@@ -120,6 +141,7 @@ export const homeFaq = [
     question: "Can each worker get their own account and routing number?",
     answer: "Yes. Each worker wallet can have its own account and routing number.",
   },
+  ...workerPayoutFaq,
   {
     question: "Does MPE work for trucking platforms?",
     answer:
@@ -180,6 +202,28 @@ export const hardwareFaq = [
     question: "What is MFAM?",
     answer:
       "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
+  },
+] as const satisfies readonly FaqEntry[];
+
+export const machinePaymentsFaq = [
+  {
+    question: "What is a machine payments platform?",
+    answer: machinePaymentsLead,
+  },
+  {
+    question: "How does a machine pay from its owner's own account?",
+    answer:
+      "Modern Pay Engine (MPE) uses MFAM (Machine Financial Authority Module) so a machine is designed to pay from its owner's own account, and only within the rules the owner sets. The signing key sits in a locked secure chip. MPE never holds funds.",
+  },
+  {
+    question: "Can a drone pay a charging pad when it lands?",
+    answer:
+      "Modern Pay Engine (MPE) lets a drone pay a charging pad when it lands, and the pad powers on only after a valid signed payment. Patent pending, working today.",
+  },
+  {
+    question: "Does MPE hold the money a machine spends?",
+    answer:
+      "No. Modern Pay Engine (MPE) never holds funds. MFAM is designed to pay from the owner's own account.",
   },
 ] as const satisfies readonly FaqEntry[];
 

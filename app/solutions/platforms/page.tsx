@@ -2,7 +2,9 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import RequestAccess from "@/components/RequestAccess";
 import { HostApp, SplitStory } from "@/components/ProductVisuals";
+import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
+import { faqPageSchema, workerPayoutFaq, workerPayoutLine } from "@/content/faq";
 import { payoutService } from "@/content/schema";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -12,6 +14,7 @@ export default function PlatformsPage() {
   return (
     <main className="sitePage">
       <JsonLd data={payoutService} />
+      <JsonLd data={faqPageSchema(workerPayoutFaq)} />
       <Nav />
 
       <section className="emeraldBand">
@@ -37,6 +40,8 @@ export default function PlatformsPage() {
             <p className="p">
               Your branded wallet and card for the people you pay. You can earn a share of their card spend. Launch without building your own payments stack. MPE never holds funds.
             </p>
+            <h2 className="homeSectionTitle">Paying workers, drivers and crews</h2>
+            <p className="p">{workerPayoutLine}</p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Embed the screens and keep your app.</p>
             <h2 className="homeSectionTitle">What you get</h2>
@@ -48,6 +53,8 @@ export default function PlatformsPage() {
           </SplitStory>
         </div>
       </section>
+
+      <HomeFaq items={workerPayoutFaq} />
 
       <RequestAccess />
     </main>

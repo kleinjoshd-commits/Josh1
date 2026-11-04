@@ -44,6 +44,11 @@ export const pageSeo = {
     description:
       "MFAM status. Patent pending, working today. What MFAM does today, including drone charging pad payments. What's next for satellites, ships and trucks.",
   },
+  "/machines/payments": {
+    title: "What is a machine payments platform? | Modern Pay Engine (MPE)",
+    description:
+      "A machine payments platform lets a machine pay within its owner's rules. Modern Pay Engine (MPE) builds one with MFAM. Patent pending, working today.",
+  },
   "/solutions": {
     title: "Solutions for platforms, fintechs, businesses and machines",
     description:

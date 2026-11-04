@@ -5324,6 +5324,9 @@ main.sitePage .quietLink { color: #16a86c; font-weight: 650; }
   font-size: 17px;
   line-height: 1.55;
 }
+.hpFaq .hpFaqLead {
+  margin-top: 18px;
+}
 .hpFaq .hpWrap {
   padding-top: 64px;
   padding-bottom: 72px;

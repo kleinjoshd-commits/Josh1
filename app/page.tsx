@@ -10,7 +10,7 @@ import CapabilitySwitch from "../components/CapabilitySwitch";
 import HomeDev from "../components/HomeDev";
 import HomeFaq from "../components/HomeFaq";
 import JsonLd from "../components/JsonLd";
-import { faqPageSchema } from "@/content/faq";
+import { faqPageSchema, workerPayoutLine } from "@/content/faq";
 import { homepageCopy } from "@/content/homepage";
 import { homepageMedia } from "@/content/media";
 import { product, segments } from "@/content/product";
@@ -112,6 +112,11 @@ export default function Home() {
               {mfam.cta}
             </Link>
           </div>
+          <p className="devMore">
+            <Link className="textLink" href="/machines/payments">
+              What is a machine payments platform?
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -135,7 +140,7 @@ export default function Home() {
         submitLabel={homepageCopy.closing.cta}
       />
       <JsonLd data={faqPageSchema()} />
-      <HomeFaq />
+      <HomeFaq lead={workerPayoutLine} />
     </main>
   );
 }
