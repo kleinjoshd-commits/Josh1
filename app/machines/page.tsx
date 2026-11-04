@@ -15,6 +15,11 @@ export const metadata = pageMeta("/machines");
 
 const machineGuides = [
   {
+    href: "/machines/payments",
+    title: "What is a machine payments platform?",
+    body: "Modern Pay Engine (MPE) builds this with MFAM so a machine can pay from its owner's own account within the owner's rules.",
+  },
+  {
     href: "/machines/ships-and-satellites",
     title: "How can a ship or satellite pay for services?",
     body: "A ship or satellite needs a hardware identity and authority its owner sets.",

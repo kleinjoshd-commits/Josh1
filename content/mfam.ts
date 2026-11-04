@@ -48,5 +48,9 @@ export const chargingLead =
 export const mfamLead =
   "MFAM is the Machine Financial Authority Module, made by Modern Pay Engine (MPE): identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Payment is designed to be made from the owner's own account.";
 
+/** Opening answer on /machines/payments. Two sentences. */
+export const machinePaymentsLead =
+  "A machine payments platform is software designed to let a machine pay from its owner's own account within the owner's rules. Modern Pay Engine (MPE) builds that platform with MFAM (Machine Financial Authority Module), which is designed to sign only the payments that fit the rules the owner sets.";
+
 export const entityLine =
   "Modern Pay Engine (MPE) is MPE Solutions, Inc, at modernpayengine.com. On this site, MFAM always means MPE's Machine Financial Authority Module.";

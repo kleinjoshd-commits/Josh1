@@ -121,6 +121,10 @@ export default function MfamPage() {
               MFAM status
             </Link>
             {" · "}
+            <Link className="quietLink" href="/machines/payments">
+              What is a machine payments platform?
+            </Link>
+            {" · "}
             <Link className="quietLink" href="/company">
               Company
             </Link>

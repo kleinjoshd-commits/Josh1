@@ -1,5 +1,5 @@
 import { cliffLinkedIn, coleLinkedIn, joshLinkedIn, kokRieLinkedIn } from "@/content/mfam";
-import { CANONICAL_ORIGIN } from "@/content/seo";
+import { CANONICAL_ORIGIN, pageSeo } from "@/content/seo";
 
 const organizationId = `${CANONICAL_ORIGIN}/#org`;
 
@@ -128,4 +128,20 @@ export const mfamEntity = {
   url: `${CANONICAL_ORIGIN}/machines`,
   description:
     "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
+} as const;
+
+/** Answer page at /machines/payments. Same fields as the other static schema objects. */
+export const machinePaymentsArticle = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${CANONICAL_ORIGIN}/machines/payments#article`,
+  headline: "What is a machine payments platform?",
+  description: pageSeo["/machines/payments"].description,
+  url: `${CANONICAL_ORIGIN}/machines/payments`,
+  mainEntityOfPage: `${CANONICAL_ORIGIN}/machines/payments`,
+  inLanguage: "en",
+  author: { "@id": organizationId },
+  publisher: { "@id": organizationId },
+  datePublished: "2026-11-04",
+  dateModified: "2026-11-04",
 } as const;

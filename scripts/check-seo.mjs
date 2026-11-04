@@ -32,6 +32,7 @@ const PATHS = [
   "/machines/charging",
   "/machines/mfam",
   "/machines/mfam/status",
+  "/machines/payments",
   "/solutions",
   "/solutions/platforms",
   "/solutions/fintechs",
@@ -43,11 +44,15 @@ const PATHS = [
 const SERVICE_PATHS = new Set(["/platform", "/solutions/platforms"]);
 const FAQ_PATHS = new Set([
   "/",
+  "/platform",
   "/machines",
   "/machines/ships-and-satellites",
   "/machines/hardware-identity",
   "/machines/charging",
   "/machines/mfam",
+  "/machines/payments",
+  "/solutions/platforms",
+  "/solutions/businesses",
 ]);
 // Approved spec descriptions are longer than the usual snippet cap.
 const LONG_META_OK = new Set([
@@ -445,7 +450,7 @@ function checkPage(urlPath, html) {
       );
     }
   } else if (types.includes("FAQPage")) {
-    fail(`${urlPath} JSON-LD has FAQPage outside the home page and machine pages`);
+    fail(`${urlPath} JSON-LD has FAQPage outside pages that publish an FAQ`);
   }
   if (urlPath === "/" && !html.includes("Does MPE hold funds")) {
     fail(`${urlPath} FAQ text is missing from raw HTML`);

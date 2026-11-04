@@ -6,7 +6,9 @@ import RequestAccess from "@/components/RequestAccess";
 import { OpsConsole, SplitStory } from "@/components/ProductVisuals";
 import { payoutService } from "@/content/schema";
 import { product } from "@/content/product";
+import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
+import { faqPageSchema, workerPayoutFaq, workerPayoutLine } from "@/content/faq";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta("/platform");
@@ -15,6 +17,7 @@ export default function PlatformPage() {
   return (
     <main className="sitePage">
       <JsonLd data={payoutService} />
+      <JsonLd data={faqPageSchema(workerPayoutFaq)} />
       <Nav />
 
       <section className="emeraldBand">
@@ -81,6 +84,11 @@ export default function PlatformPage() {
           </div>
 
           <div className="sectionBlock">
+            <h2 className="homeSectionTitle">Paying workers, drivers and crews</h2>
+            <p className="p">{workerPayoutLine}</p>
+          </div>
+
+          <div className="sectionBlock">
             <h2 className="homeSectionTitle">Trust</h2>
             <ul className="trustList">
               {product.trust.map((item) => (
@@ -93,6 +101,8 @@ export default function PlatformPage() {
           </div>
         </div>
       </section>
+
+      <HomeFaq items={workerPayoutFaq} />
 
       <RequestAccess />
     </main>
