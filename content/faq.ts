@@ -96,14 +96,14 @@ export const workerPayoutLine =
 
 export const workerPayoutFaq = [
   {
-    question: "How do I pay gig workers globally?",
+    question: "How do I pay gig workers?",
     answer:
-      "Modern Pay Engine (MPE) lets platforms pay gig workers globally into a branded wallet and card. Each worker wallet can have its own account and routing number.",
+      "Modern Pay Engine (MPE) lets platforms pay gig workers into a branded wallet and card. Each worker wallet can have its own account and routing number.",
   },
   {
-    question: "How do I pay contractors in other countries?",
+    question: "How do I pay contractors?",
     answer:
-      "Modern Pay Engine (MPE) lets platforms pay contractors in other countries into a branded wallet and card. Each worker wallet can have its own account and routing number.",
+      "Modern Pay Engine (MPE) lets platforms pay contractors into a branded wallet and card. Each worker wallet can have its own account and routing number.",
   },
   {
     question: "Which platforms give each worker their own account and routing number?",
@@ -218,7 +218,7 @@ export const machinePaymentsFaq = [
   {
     question: "Can a drone pay a charging pad when it lands?",
     answer:
-      "Modern Pay Engine (MPE) lets a drone pay a charging pad when it lands, and the pad powers on only after a valid signed payment. Patent pending, working today.",
+      "Modern Pay Engine (MPE) builds MFAM (Machine Financial Authority Module), which is designed to let a drone pay a charging pad when it lands. The pad is designed to power on only after a valid signed payment.",
   },
   {
     question: "Does MPE hold the money a machine spends?",

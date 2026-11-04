@@ -20,8 +20,8 @@ const howItPays = [
 
 const workingToday = [
   "The signing key sits in a locked secure chip.",
-  "A drone pays a charging pad when it lands.",
-  "The pad powers on only after a valid signed payment.",
+  "MFAM checks each payment against the owner's signed rules, then signs it for the machine.",
+  "Payments over the limit are refused and never signed.",
 ] as const;
 
 const designedFor = [
@@ -29,6 +29,7 @@ const designedFor = [
   "MFAM is designed to let a satellite pay for ground station passes and data relay, within its owner's limits.",
   "MFAM is designed to let a ship pay for port services within its owner's limits.",
   "MFAM is designed to let a truck pay for charging, fuel and tolls on its own, within its owner's limits.",
+  "MFAM is designed to let a drone pay a charging pad when it lands, and the pad is designed to power on only after a valid signed payment.",
 ] as const;
 
 export default function MachinePaymentsPage() {
