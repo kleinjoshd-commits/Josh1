@@ -5,12 +5,13 @@ const organizationId = `${CANONICAL_ORIGIN}/#org`;
 
 /**
  * Sitewide Organization + WebSite graph. Static constants only.
- * sameAs is the LinkedIn company page already on the site.
+ * sameAs is the LinkedIn company page already on the site, plus the Crunchbase profile.
  * The D&B directory URL stays off until that profile can be confirmed.
- * Crunchbase stays off sameAs until a profile exists.
  * Person sameAs values are the LinkedIn URLs already published on /company.
  * No public email. No claim that a person originated MFAM.
  * publisher, provider, brand, manufacturer, and worksFor all use organizationId.
+ * disambiguatingDescription names other companies. Those names stay in this JSON-LD only.
+ * MPE Solutions Pte Ltd is a separate Singapore company. It does not reuse the parent's sameAs or disambiguatingDescription.
  */
 export const organizationGraph = {
   "@context": "https://schema.org",
@@ -21,6 +22,8 @@ export const organizationGraph = {
       name: "Modern Pay Engine",
       alternateName: ["MPE", "MPE Solutions, Inc"],
       legalName: "MPE Solutions, Inc",
+      disambiguatingDescription:
+        "MPE (Modern Pay Engine), by MPE Solutions, Inc, a Delaware corporation, is not affiliated with PayEngine, ModernPay, MPE Inc (medical devices) or MPE Services (HVAC).",
       foundingDate: "2025-11-04",
       url: CANONICAL_ORIGIN,
       logo: {
@@ -88,7 +91,10 @@ export const organizationGraph = {
           addressCountry: "SG",
         },
       },
-      sameAs: ["https://www.linkedin.com/company/mpesolutions"],
+      sameAs: [
+        "https://www.linkedin.com/company/mpesolutions",
+        "https://www.crunchbase.com/organization/mpe-4ff4",
+      ],
     },
     {
       "@type": "WebSite",

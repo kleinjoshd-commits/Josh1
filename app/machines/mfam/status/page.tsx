@@ -25,7 +25,7 @@ const workingToday = [
   "Stops bad payments cold: anything over the limit, from a fake charging pad, or sent to the wrong account is refused and never signed.",
   "Keeps working offline, then replays queued payments in order when the connection returns.",
   "Records every step in a signed, tamper-evident log.",
-  "Has flown on a drone in prototype testing.",
+  "Has flown on a drone in flight testing.",
   "Pays a charging pad when a drone lands, and the pad powers on only after a valid signed payment.",
   "Runs on a small computer, with a phone as the screen.",
 ] as const;
@@ -74,7 +74,7 @@ export default function MfamStatusPage() {
             </ul>
           </div>
 
-          <p className="small">Prototype payments use example amounts on a test ledger.</p>
+          <p className="small">Test payments use example amounts on a test ledger.</p>
 
           <p className="p machineBack">
             <Link className="quietLink" href="/machines/mfam">

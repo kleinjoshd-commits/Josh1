@@ -356,11 +356,28 @@ function copyViolations(html) {
     }
   }
 
-  const withoutOwnDomain = html.replace(/modernpayengine\.com/gi, "");
+  const prototype = /\bprototype\b/i.exec(html);
+  if (prototype) hits.push(`prototype: ${snippet(html, prototype.index)}`);
+
+  // Other company names are allowed only inside JSON-LD. Next also copies that
+  // JSON into the RSC payload, so drop the disambiguation sentence itself.
+  const withoutJsonLd = html
+    .replace(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, "")
+    .split(ORG_DISAMBIGUATION)
+    .join("");
+  const withoutOwnDomain = withoutJsonLd.replace(/modernpayengine\.com/gi, "");
   const payEngine = /payengine/i.exec(withoutOwnDomain);
   if (payEngine) hits.push(`PayEngine: ${snippet(withoutOwnDomain, payEngine.index)}`);
   const modernPay = /modernpay/i.exec(withoutOwnDomain);
   if (modernPay) hits.push(`ModernPay: ${snippet(withoutOwnDomain, modernPay.index)}`);
+  const visibleOnlyNames = [
+    ["MPE Inc", /\bMPE Inc\b/i],
+    ["MPE Services", /\bMPE Services\b/i],
+  ];
+  for (const [name, pattern] of visibleOnlyNames) {
+    const match = pattern.exec(withoutJsonLd);
+    if (match) hits.push(`${name}: ${snippet(withoutJsonLd, match.index)}`);
+  }
   const bannedNames = [
     ["J.P. Morgan", /J\.?\s*P\.?\s*Morgan|JPMorgan|JP Morgan/i],
     ["Kinexys", /Kinexys/i],
@@ -378,6 +395,63 @@ function copyViolations(html) {
     hits.push("SpaceChain alongside formerly or currently");
   }
   return hits;
+}
+
+const ORG_DISAMBIGUATION =
+  "MPE (Modern Pay Engine), by MPE Solutions, Inc, a Delaware corporation, is not affiliated with PayEngine, ModernPay, MPE Inc (medical devices) or MPE Services (HVAC).";
+const ORG_SAME_AS = [
+  "https://www.linkedin.com/company/mpesolutions",
+  "https://www.crunchbase.com/organization/mpe-4ff4",
+];
+
+function collectOrganizations(node, found = []) {
+  if (!node || typeof node !== "object") return found;
+  if (Array.isArray(node)) {
+    for (const item of node) collectOrganizations(item, found);
+    return found;
+  }
+  if (node["@type"] === "Organization") found.push(node);
+  for (const value of Object.values(node)) collectOrganizations(value, found);
+  return found;
+}
+
+function assertPrimaryOrganization(urlPath, blocks) {
+  const orgs = [];
+  for (const block of blocks) {
+    try {
+      collectOrganizations(JSON.parse(block), orgs);
+    } catch {
+      return;
+    }
+  }
+  const primary = orgs.filter((org) => org["@id"] === `${ORIGIN}/#org`);
+  if (primary.length !== 1) {
+    fail(`${urlPath} has ${primary.length} primary Organization nodes`);
+    return;
+  }
+  const org = primary[0];
+  if (org.disambiguatingDescription !== ORG_DISAMBIGUATION) {
+    fail(`${urlPath} Organization disambiguatingDescription mismatch`);
+  }
+  const sameAs = Array.isArray(org.sameAs) ? org.sameAs : [];
+  for (const required of ORG_SAME_AS) {
+    if (!sameAs.includes(required)) fail(`${urlPath} Organization sameAs missing ${required}`);
+  }
+  if (org.alternateName?.join("|") !== "MPE|MPE Solutions, Inc") {
+    fail(`${urlPath} Organization alternateName mismatch`);
+  }
+  if (org.duns !== "150001614") fail(`${urlPath} Organization duns mismatch`);
+  if (org.identifier?.value !== "150001614" || org.identifier?.name !== "D-U-N-S Number") {
+    fail(`${urlPath} Organization D-U-N-S identifier mismatch`);
+  }
+  if (org.url !== ORIGIN) fail(`${urlPath} Organization url ${org.url}`);
+  const subsidiary = orgs.filter((item) => item.name === "MPE Solutions Pte Ltd");
+  if (subsidiary.length !== 1) fail(`${urlPath} missing MPE Solutions Pte Ltd organization`);
+  for (const item of subsidiary) {
+    if (item.disambiguatingDescription || item.sameAs || item.alternateName) {
+      fail(`${urlPath} Singapore organization reuses the parent identity fields`);
+    }
+  }
 }
 
 function expectedUrl(urlPath) {
@@ -410,6 +484,14 @@ function checkPage(urlPath, html) {
   if (ogUrls.length !== 1 || ogUrls[0] !== expected) {
     fail(`${urlPath} og:url ${ogUrls.join(" | ")} != ${expected}`);
   }
+  const socialImages = [
+    ...metaBy(html, "property", "og:image").map((tag) => attr(tag, "content")),
+    ...metaBy(html, "name", "twitter:image").map((tag) => attr(tag, "content")),
+  ].filter((value) => value != null);
+  if (socialImages.length < 1) fail(`${urlPath} has no social image`);
+  for (const image of socialImages) {
+    if (!image.startsWith(`${ORIGIN}/`)) fail(`${urlPath} social image is not on the canonical origin: ${image}`);
+  }
 
   const ogTitles = metaBy(html, "property", "og:title").map((tag) => attr(tag, "content"));
   const twitterTitles = metaBy(html, "name", "twitter:title").map((tag) => attr(tag, "content"));
@@ -432,6 +514,7 @@ function checkPage(urlPath, html) {
   for (const required of ["Organization", "WebSite"]) {
     if (!types.includes(required)) fail(`${urlPath} JSON-LD missing ${required}`);
   }
+  assertPrimaryOrganization(urlPath, blocks);
   if (SERVICE_PATHS.has(urlPath)) {
     if (!types.includes("Service")) fail(`${urlPath} JSON-LD missing Service`);
   } else if (types.includes("Service")) {
@@ -593,6 +676,33 @@ try {
   if (!robotsTxt.body.includes(`Sitemap: ${ORIGIN}/sitemap.xml`)) {
     fail("robots.txt Sitemap line is not the apex");
   }
+
+  const llms = await get("/llms.txt");
+  if (llms.status !== 200) fail(`llms.txt status ${llms.status}`);
+  const llmsType = headerValue(llms.headers, "content-type");
+  if (!llmsType.includes("text/plain")) fail(`llms.txt content-type ${llmsType}`);
+  if (!llms.body.includes("https://modernpayengine.com")) fail("llms.txt missing canonical origin");
+  if (!llms.body.includes("Patent pending, working today.")) fail("llms.txt missing MFAM status line");
+  if (!llms.body.includes("MPE never holds funds")) fail("llms.txt missing the funds line");
+  if (!llms.body.includes("MPE is not a bank.")) fail("llms.txt missing the bank line");
+  const llmsVisible = llms.body.replace(/modernpayengine\.com/gi, "");
+  const llmsBanned = [
+    [/\bprototype\b/i, "prototype"],
+    [/payengine/i, "PayEngine"],
+    [/modernpay/i, "ModernPay"],
+    [/\bMPE Inc\b/i, "MPE Inc"],
+    [/\bMPE Services\b/i, "MPE Services"],
+    [/\u2014/, "em dash"],
+    [/\u2013/, "en dash"],
+    [/highnote/i, "Highnote"],
+    [/licensed/i, "licensed"],
+    [/certified/i, "certified"],
+    [/mpesolutions\.ai/i, "alias host"],
+  ];
+  for (const [pattern, name] of llmsBanned) {
+    if (pattern.test(llmsVisible)) fail(`llms.txt contains ${name}`);
+  }
+  checkHeaders("llms.txt", llms);
 
   const key = await get(`/${INDEXNOW_KEY}.txt`);
   if (key.status !== 200) fail(`IndexNow key status ${key.status}`);
