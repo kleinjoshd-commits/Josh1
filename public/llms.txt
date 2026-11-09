@@ -1,0 +1,12 @@
+Modern Pay Engine (MPE)
+https://modernpayengine.com
+
+One integration for every way money moves. For people today, for machines tomorrow.
+
+MPE provides orchestration and control software. MPE never holds funds, and does not store customer identity documents.
+
+MPE is not a bank.
+
+Modern Pay Engine (MPE) is MPE Solutions, Inc, at modernpayengine.com. On this site, MFAM always means MPE's Machine Financial Authority Module.
+
+MFAM is identity and authority for machines. Patent pending, working today.
