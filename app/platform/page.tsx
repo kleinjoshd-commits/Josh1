@@ -86,6 +86,9 @@ export default function PlatformPage() {
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Paying workers, drivers and crews</h2>
             <p className="p">{workerPayoutLine}</p>
+            <p className="p">
+              <Link className="quietLink" href="/answers">Worker payout answers</Link>
+            </p>
           </div>
 
           <div className="sectionBlock">

@@ -4,7 +4,7 @@ import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
 import RequestAccess from "@/components/RequestAccess";
 import { faqPageSchema, machinePaymentsFaq } from "@/content/faq";
-import { machinePaymentsLead } from "@/content/mfam";
+import { machinePaymentsLead, mfamDroneLine, mfamStatusLine, patentCitation } from "@/content/mfam";
 import { machinePaymentsArticle } from "@/content/schema";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -22,14 +22,14 @@ const workingToday = [
   "The signing key sits in a locked secure chip.",
   "MFAM checks each payment against the owner's signed rules, then signs it for the machine.",
   "Payments over the limit are refused and never signed.",
+  `${mfamDroneLine} The pad powers on only after a valid signed payment.`,
 ] as const;
 
 const designedFor = [
   "Real money settlement is designed to run through our payment partners, from the owner's own account.",
-  "MFAM is designed to let a satellite pay for ground station passes and data relay, within its owner's limits.",
-  "MFAM is designed to let a ship pay for port services within its owner's limits.",
-  "MFAM is designed to let a truck pay for charging, fuel and tolls on its own, within its owner's limits.",
-  "MFAM is designed to let a drone pay a charging pad when it lands, and the pad is designed to power on only after a valid signed payment.",
+  "Satellites are next. MFAM is designed to let a satellite pay for ground station passes and data relay, within its owner's limits.",
+  "Ships are next. MFAM is designed to let a ship pay for port services within its owner's limits.",
+  "Trucks are next. MFAM is designed to let a truck pay for charging and tolls on its own, within its owner's limits.",
 ] as const;
 
 export default function MachinePaymentsPage() {
@@ -65,8 +65,8 @@ export default function MachinePaymentsPage() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="p">Patent pending, working today.</p>
-            <p className="small">U.S. Patent Application No. 64/096,334, assigned to MPE Solutions, Inc.</p>
+            <p className="p">{mfamStatusLine}</p>
+            <p className="small">{patentCitation}</p>
           </div>
 
           <div className="sectionBlock">

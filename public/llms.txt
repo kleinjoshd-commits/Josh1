@@ -10,3 +10,9 @@ MPE is not a bank.
 Modern Pay Engine (MPE) is MPE Solutions, Inc, at modernpayengine.com. On this site, MFAM always means MPE's Machine Financial Authority Module.
 
 MFAM is identity and authority for machines. Patent pending, working today.
+
+MFAM has flown on a drone in prototype testing, and the drone pays a charging pad. Ships, satellites and trucks are next. MFAM is designed to let them pay within the owner's rules.
+
+MPE Solutions, Inc (Delaware, modernpayengine.com) is not affiliated with other companies named MPE Solutions, and MPE Solutions Pte Ltd (Singapore) is its affiliate.
+
+Worker payout answers: https://modernpayengine.com/answers

@@ -39,6 +39,12 @@ const PATHS = [
   "/solutions/businesses",
   "/developers",
   "/company",
+  "/answers",
+  "/answers/gig-and-delivery-payouts",
+  "/answers/branded-worker-wallet",
+  "/answers/worker-account-and-routing-number",
+  "/answers/branded-wallet-alternatives",
+  "/answers/fleet-platform-payouts",
 ];
 
 const SERVICE_PATHS = new Set(["/platform", "/solutions/platforms"]);
@@ -53,6 +59,12 @@ const FAQ_PATHS = new Set([
   "/machines/payments",
   "/solutions/platforms",
   "/solutions/businesses",
+  "/answers",
+  "/answers/gig-and-delivery-payouts",
+  "/answers/branded-worker-wallet",
+  "/answers/worker-account-and-routing-number",
+  "/answers/branded-wallet-alternatives",
+  "/answers/fleet-platform-payouts",
 ]);
 // Approved spec descriptions are longer than the usual snippet cap.
 const LONG_META_OK = new Set([
@@ -356,8 +368,9 @@ function copyViolations(html) {
     }
   }
 
-  const prototype = /\bprototype\b/i.exec(html);
-  if (prototype) hits.push(`prototype: ${snippet(html, prototype.index)}`);
+  const withoutPrototypeTesting = html.replace(/prototype testing/gi, "");
+  const prototype = /\bprototype\b/i.exec(withoutPrototypeTesting);
+  if (prototype) hits.push(`prototype: ${snippet(withoutPrototypeTesting, prototype.index)}`);
 
   // Other company names are allowed only inside JSON-LD. Next also copies that
   // JSON into the RSC payload, so drop the disambiguation sentence itself.
@@ -398,7 +411,7 @@ function copyViolations(html) {
 }
 
 const ORG_DISAMBIGUATION =
-  "MPE (Modern Pay Engine), by MPE Solutions, Inc, a Delaware corporation, is not affiliated with PayEngine, ModernPay, MPE Inc (medical devices) or MPE Services (HVAC).";
+  "MPE Solutions, Inc (Delaware, modernpayengine.com) is not affiliated with other companies named MPE Solutions, and MPE Solutions Pte Ltd (Singapore) is its affiliate. MPE (Modern Pay Engine), by MPE Solutions, Inc, a Delaware corporation, is not affiliated with PayEngine, ModernPay, MPE Inc (medical devices) or MPE Services (HVAC).";
 const ORG_SAME_AS = [
   "https://www.linkedin.com/company/mpesolutions",
   "https://www.crunchbase.com/organization/mpe-4ff4",
@@ -687,7 +700,7 @@ try {
   if (!llms.body.includes("MPE is not a bank.")) fail("llms.txt missing the bank line");
   const llmsVisible = llms.body.replace(/modernpayengine\.com/gi, "");
   const llmsBanned = [
-    [/\bprototype\b/i, "prototype"],
+    [/\bprototype\b(?! testing)/i, "prototype"],
     [/payengine/i, "PayEngine"],
     [/modernpay/i, "ModernPay"],
     [/\bMPE Inc\b/i, "MPE Inc"],

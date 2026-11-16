@@ -4,7 +4,7 @@ import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
 import RequestAccess from "@/components/RequestAccess";
 import { chargingFaq, faqPageSchema } from "@/content/faq";
-import { chargingLead, entityLine, mfamVisibleLine } from "@/content/mfam";
+import { chargingLead, entityLine, mfamDroneLine, mfamStatusLine, mfamVisibleLine } from "@/content/mfam";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta("/machines/charging");
@@ -81,7 +81,8 @@ export default function ChargingPage() {
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Status</h2>
-            <p className="p">Patent pending, working today.</p>
+            <p className="p">{mfamStatusLine}</p>
+            <p className="p">{mfamDroneLine}</p>
           </div>
 
           <p className="hpDisclaimer">{entityLine}</p>

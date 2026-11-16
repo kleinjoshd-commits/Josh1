@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import JsonLd from "@/components/JsonLd";
+import { mfamDroneLine, mfamStatusLine, patentCitation } from "@/content/mfam";
 import { CANONICAL_ORIGIN } from "@/content/seo";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -13,8 +14,7 @@ const statusPage = {
   "@type": "WebPage",
   url: pageUrl,
   name: "MFAM status",
-  description:
-    "Patent pending, working today. U.S. Patent Application No. 64/096,334, assigned to MPE Solutions, Inc.",
+  description: `${mfamStatusLine} ${patentCitation}`,
   dateModified: "2026-11-03",
 } as const;
 
@@ -25,8 +25,7 @@ const workingToday = [
   "Stops bad payments cold: anything over the limit, from a fake charging pad, or sent to the wrong account is refused and never signed.",
   "Keeps working offline, then replays queued payments in order when the connection returns.",
   "Records every step in a signed, tamper-evident log.",
-  "Has flown on a drone in flight testing.",
-  "Pays a charging pad when a drone lands, and the pad powers on only after a valid signed payment.",
+  `${mfamDroneLine} The pad powers on only after a valid signed payment.`,
   "Runs on a small computer, with a phone as the screen.",
 ] as const;
 
@@ -34,7 +33,7 @@ const whatsNext = [
   "Real settlement through our payment partners, from the owner's own funded account. MPE never holds the funds.",
   "Satellites: designed to let a satellite pay for ground station passes and data relay, within its owner's limits.",
   "Ships: designed to bind the vessel's IMO identity to a secure chip on board, so the ship can sign for what it used and pay within the owner's limits.",
-  "Trucks: designed to let a truck pay for charging, fuel and tolls on its own, within its owner's limits.",
+  "Trucks: designed to let a truck pay for charging and tolls on its own, within its owner's limits.",
 ] as const;
 
 export default function MfamStatusPage() {
@@ -47,8 +46,8 @@ export default function MfamStatusPage() {
         <div className="ebWrap">
           <div className="ebTag">MFAM</div>
           <h1>MFAM status</h1>
-          <p className="ebSub">Patent pending, working today.</p>
-          <p className="small">U.S. Patent Application No. 64/096,334, assigned to MPE Solutions, Inc.</p>
+          <p className="ebSub">{mfamStatusLine}</p>
+          <p className="small">{patentCitation}</p>
           <p className="ebSub">Last updated: November 3, 2026</p>
           <p className="ebSub"><strong>MFAM gives a machine its own identity and the authority to pay, within rules its owner controls.</strong></p>
         </div>

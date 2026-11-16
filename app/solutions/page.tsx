@@ -46,6 +46,11 @@ export default function SolutionsPage() {
               </Link>
             ))}
           </div>
+          <p className="p machineBack">
+            <Link className="quietLink" href="/answers">
+              Worker payout answers
+            </Link>
+          </p>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import FilmPlayer from "@/components/FilmPlayer";
 import HomeFaq from "@/components/HomeFaq";
 import RequestAccess from "@/components/RequestAccess";
 import { faqPageSchema, whatIsMfam, whoMakesMfam } from "@/content/faq";
-import { mfamVisibleLine } from "@/content/mfam";
+import { mfamDroneLine, mfamStatusLine, mfamVisibleLine } from "@/content/mfam";
 import { homepageMedia } from "@/content/media";
 import { operators, product } from "@/content/product";
 import { mfamEntity } from "@/content/schema";
@@ -72,7 +72,8 @@ export default function MachinesPage() {
             <div className="hpMfamFilm">
               <FilmPlayer source={homepageMedia.mfam} preload="metadata" repeat={false} />
             </div>
-            <p className="hpDisclaimer">Patent pending, working today.</p>
+            <p className="hpDisclaimer">{mfamStatusLine}</p>
+            <p className="p" style={{ marginTop: 18 }}>{mfamDroneLine}</p>
             <p className="p" style={{ marginTop: 18 }}>{product.machines}</p>
           </div>
 
