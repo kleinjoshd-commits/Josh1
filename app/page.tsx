@@ -94,6 +94,8 @@ export default function Home() {
           <p className="hpEyebrow">{mfam.eyebrow}</p>
           <h2 id="mfam-title">{mfam.heading}</h2>
           <p className="hpLede">{mfam.lede}</p>
+          <p className="hpLede">{mfam.status}</p>
+          <p className="hpLede">{mfam.drone}</p>
 
           <div className="hpMfamFilm">
             <FilmPlayer source={homepageMedia.mfam} lazy preload="metadata" repeat={false} />
@@ -140,7 +142,10 @@ export default function Home() {
         submitLabel={homepageCopy.closing.cta}
       />
       <JsonLd data={faqPageSchema()} />
-      <HomeFaq lead={workerPayoutLine} />
+      <HomeFaq
+        lead={workerPayoutLine}
+        more={{ href: "/answers", label: "Worker payout answers" }}
+      />
     </main>
   );
 }

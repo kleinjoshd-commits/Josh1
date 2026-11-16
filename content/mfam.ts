@@ -3,6 +3,17 @@
 export const mfamByMpe =
   "MFAM (Machine Financial Authority Module) by Modern Pay Engine";
 
+/** Status line for MFAM. Use this wording wherever status is stated. */
+export const mfamStatusLine = "Patent pending, working today.";
+
+/** The only machine described as running today. */
+export const mfamDroneLine =
+  "MFAM has flown on a drone in prototype testing, and the drone pays a charging pad.";
+
+/** Patent citation, where the application is cited. */
+export const patentCitation =
+  "U.S. Patent Application No. 64/096,334, assigned to MPE Solutions, Inc.";
+
 /** Verbatim line for /machines and /machines/ships-and-satellites. */
 export const mfamVisibleLine =
   "Once machines can move value, two questions matter: who are they, and who sets their limits? MFAM, the Machine Financial Authority Module by Modern Pay Engine, is designed to give each satellite, ship or robot its own hardware identity and the authority to pay within its owner's rules, from the owner's own account. Patent pending, working today.";

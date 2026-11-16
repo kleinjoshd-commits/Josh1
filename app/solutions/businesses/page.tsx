@@ -47,6 +47,9 @@ export default function BusinessesPage() {
             </p>
             <h2 className="homeSectionTitle">Paying workers, drivers and crews</h2>
             <p className="p">{workerPayoutLine}</p>
+            <p className="p">
+              <Link className="quietLink" href="/answers">Worker payout answers</Link>
+            </p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Take the ready-made app. It carries your brand. You do not build one.</p>
             <h2 className="homeSectionTitle">What you get</h2>

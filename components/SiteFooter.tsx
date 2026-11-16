@@ -18,6 +18,7 @@ const COLUMNS = [
       { label: "Platforms", href: "/solutions/platforms" },
       { label: "Fintechs", href: "/solutions/fintechs" },
       { label: "Businesses without an app", href: "/solutions/businesses" },
+      { label: "Worker payout answers", href: "/answers" },
     ],
   },
   {

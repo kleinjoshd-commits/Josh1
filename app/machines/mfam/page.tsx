@@ -4,7 +4,7 @@ import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
 import RequestAccess from "@/components/RequestAccess";
 import { faqPageSchema, mfamFaq } from "@/content/faq";
-import { entityLine, mfamLead, mfamVisibleLine } from "@/content/mfam";
+import { entityLine, mfamDroneLine, mfamLead, mfamStatusLine, mfamVisibleLine } from "@/content/mfam";
 import { mfamEntity } from "@/content/schema";
 import { pageMeta } from "@/lib/pageMeta";
 
@@ -77,12 +77,12 @@ export default function MfamPage() {
             <ul className="trustList">
               <li>
                 <Link className="quietLink" href="/machines/ships-and-satellites">
-                  Ships: port fees, fuel and services.
+                  Ships, next: port fees and services.
                 </Link>
               </li>
               <li>
                 <Link className="quietLink" href="/machines/ships-and-satellites">
-                  Satellites: services such as ground station time.
+                  Satellites, next: services such as ground station time.
                 </Link>
               </li>
               <li>
@@ -95,7 +95,8 @@ export default function MfamPage() {
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Status</h2>
-            <p className="p">Patent pending, working today.</p>
+            <p className="p">{mfamStatusLine}</p>
+            <p className="p">{mfamDroneLine}</p>
           </div>
 
           <p className="hpDisclaimer">{entityLine}</p>

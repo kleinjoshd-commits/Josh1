@@ -11,8 +11,12 @@ const organizationId = `${CANONICAL_ORIGIN}/#org`;
  * No public email. No claim that a person originated MFAM.
  * publisher, provider, brand, manufacturer, and worksFor all use organizationId.
  * disambiguatingDescription names other companies. Those names stay in this JSON-LD only.
- * MPE Solutions Pte Ltd is a separate Singapore company. It does not reuse the parent's sameAs or disambiguatingDescription.
+ * MPE Solutions Pte Ltd (Singapore) is the affiliate. It does not reuse the parent's sameAs or disambiguatingDescription.
+ * foundingLocation is Delaware incorporation only. It has no street address.
  */
+export const organizationDisambiguation =
+  "MPE Solutions, Inc (Delaware, modernpayengine.com) is not affiliated with other companies named MPE Solutions, and MPE Solutions Pte Ltd (Singapore) is its affiliate. MPE (Modern Pay Engine), by MPE Solutions, Inc, a Delaware corporation, is not affiliated with PayEngine, ModernPay, MPE Inc (medical devices) or MPE Services (HVAC).";
+
 export const organizationGraph = {
   "@context": "https://schema.org",
   "@graph": [
@@ -22,9 +26,17 @@ export const organizationGraph = {
       name: "Modern Pay Engine",
       alternateName: ["MPE", "MPE Solutions, Inc"],
       legalName: "MPE Solutions, Inc",
-      disambiguatingDescription:
-        "MPE (Modern Pay Engine), by MPE Solutions, Inc, a Delaware corporation, is not affiliated with PayEngine, ModernPay, MPE Inc (medical devices) or MPE Services (HVAC).",
+      disambiguatingDescription: organizationDisambiguation,
       foundingDate: "2025-11-04",
+      foundingLocation: {
+        "@type": "Place",
+        name: "Delaware",
+        address: {
+          "@type": "PostalAddress",
+          addressRegion: "DE",
+          addressCountry: "US",
+        },
+      },
       url: CANONICAL_ORIGIN,
       logo: {
         "@type": "ImageObject",
@@ -133,7 +145,7 @@ export const mfamEntity = {
   name: "MFAM (Machine Financial Authority Module) by Modern Pay Engine",
   url: `${CANONICAL_ORIGIN}/machines`,
   description:
-    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
+    "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today. MFAM has flown on a drone in prototype testing, and the drone pays a charging pad.",
 } as const;
 
 /** Answer page at /machines/payments. Same fields as the other static schema objects. */

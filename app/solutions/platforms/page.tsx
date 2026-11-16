@@ -42,6 +42,9 @@ export default function PlatformsPage() {
             </p>
             <h2 className="homeSectionTitle">Paying workers, drivers and crews</h2>
             <p className="p">{workerPayoutLine}</p>
+            <p className="p">
+              <Link className="quietLink" href="/answers">Worker payout answers</Link>
+            </p>
             <h2 className="homeSectionTitle">How you integrate</h2>
             <p className="p">Embed the screens and keep your app.</p>
             <h2 className="homeSectionTitle">What you get</h2>

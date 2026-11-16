@@ -4,7 +4,7 @@ import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
 import RequestAccess from "@/components/RequestAccess";
 import { faqPageSchema, hardwareFaq } from "@/content/faq";
-import { hardwareLead } from "@/content/mfam";
+import { hardwareLead, mfamDroneLine, mfamStatusLine } from "@/content/mfam";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta("/machines/hardware-identity");
@@ -88,7 +88,8 @@ export default function HardwareIdentityPage() {
 
           <div className="sectionBlock">
             <h2 className="homeSectionTitle">Status</h2>
-            <p className="p">Patent pending, working today.</p>
+            <p className="p">{mfamStatusLine}</p>
+            <p className="p">{mfamDroneLine}</p>
           </div>
 
           <p className="p machineBack">

@@ -1,3 +1,4 @@
+import { answerPageSeo } from "@/content/answers";
 import { siteConfig } from "@/lib/siteConfig";
 
 /** Chosen canonical host. www and mpesolutions.ai stay aliases. See docs/host-cutover.md. */
@@ -42,7 +43,7 @@ export const pageSeo = {
   "/machines/mfam/status": {
     title: "MFAM status | Modern Pay Engine",
     description:
-      "MFAM status. Patent pending, working today. What MFAM does today, including drone charging pad payments. What's next for satellites, ships and trucks.",
+      "MFAM status. Patent pending, working today. The drone has flown in prototype testing and pays a charging pad. Ships, satellites and trucks are next.",
   },
   "/machines/payments": {
     title: "What is a machine payments platform? | Modern Pay Engine (MPE)",
@@ -82,6 +83,7 @@ export const pageSeo = {
     description:
       "MPE | MPE builds orchestration and control software. Based in Washington, DC. MPE never holds funds and is not a bank.",
   },
+  ...answerPageSeo,
 } as const;
 
 export type SeoPath = keyof typeof pageSeo;

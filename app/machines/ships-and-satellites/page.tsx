@@ -4,7 +4,7 @@ import HomeFaq from "@/components/HomeFaq";
 import JsonLd from "@/components/JsonLd";
 import RequestAccess from "@/components/RequestAccess";
 import { faqPageSchema, shipsFaq } from "@/content/faq";
-import { mfamVisibleLine, shipsLead } from "@/content/mfam";
+import { mfamDroneLine, mfamStatusLine, mfamVisibleLine, shipsLead } from "@/content/mfam";
 import { pageMeta } from "@/lib/pageMeta";
 
 export const metadata = pageMeta("/machines/ships-and-satellites");
@@ -19,8 +19,8 @@ const sections = [
     body: "The machine's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Payment is designed to be made from the owner's own funded account, and the result is designed to be kept in one tamper-evident record.",
   },
   {
-    title: "Ships first",
-    body: "MFAM is designed for autonomous ships, with today's crewed ships as the starting point for port fees, fuel and services.",
+    title: "Ships, next",
+    body: "Ships are next. MFAM is designed for autonomous ships, with crewed ships as the starting point for port fees and services.",
   },
   {
     title: "Satellites and fleets next",
@@ -28,7 +28,7 @@ const sections = [
   },
   {
     title: "Status",
-    body: "Patent pending, working today.",
+    body: `${mfamStatusLine} ${mfamDroneLine} Ships and satellites are next.`,
   },
 ] as const;
 

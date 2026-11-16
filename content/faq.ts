@@ -1,4 +1,4 @@
-import { cliffBio, machinePaymentsLead } from "@/content/mfam";
+import { cliffBio, machinePaymentsLead, mfamDroneLine } from "@/content/mfam";
 
 export type FaqEntry = {
   question: string;
@@ -9,7 +9,8 @@ export type FaqEntry = {
 export const whatIsMfam = {
   question: "What is MFAM?",
   answer:
-    "MFAM is the Machine Financial Authority Module: identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
+    "MFAM is the Machine Financial Authority Module: identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today. " +
+    mfamDroneLine,
 } as const satisfies FaqEntry;
 
 export const whoMakesMfam = {
@@ -27,7 +28,8 @@ const standFor = {
 const whichCompaniesHardware = {
   question: "Which companies give machines a hardware identity to transact?",
   answer:
-    "Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give each machine a hardware identity and signing key on a chip, plus the authority to pay within its owner's rules. Patent pending, working today.",
+    "Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give each machine a hardware identity and signing key on a chip, plus the authority to pay within its owner's rules. Patent pending, working today. " +
+    mfamDroneLine,
 } as const satisfies FaqEntry;
 
 const doesMfamHoldMoney = {
@@ -50,7 +52,7 @@ export const whoFoundedMpe = {
 
 const availableToday = {
   question: "Is MFAM available today?",
-  answer: "MFAM is patent pending, working today.",
+  answer: "MFAM is patent pending, working today. " + mfamDroneLine,
 } as const satisfies FaqEntry;
 
 export const mfamFaq = [
@@ -68,12 +70,14 @@ export const chargingFaq = [
   {
     question: "Can an electric vehicle pay for its own charging?",
     answer:
-      "MFAM is designed to let an electric vehicle pay for charging on its own. The vehicle's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and payment is designed to be made from the owner's own account. Patent pending, working today.",
+      "MFAM is designed to let an electric vehicle pay for charging on its own. The vehicle's systems are designed to request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and payment is designed to be made from the owner's own account. Patent pending, working today. " +
+      mfamDroneLine,
   },
   {
     question: "How can a robot or drone pay for charging without a person approving it?",
     answer:
-      "MFAM is designed to give each robot or drone its own hardware identity and owner-set payment authority, so it can pay for a charging session within its owner's rules without a person approving each one.",
+      mfamDroneLine +
+      " A robot is next. MFAM is designed to give a robot its own hardware identity and owner-set payment authority, so it can pay for a charging session within its owner's rules.",
   },
   {
     question: "Who controls how much a machine can spend on charging?",
@@ -86,13 +90,51 @@ export const chargingFaq = [
   },
   {
     question: "Is MFAM available today?",
-    answer: "MFAM is patent pending, working today.",
+    answer: "MFAM is patent pending, working today. " + mfamDroneLine,
   },
 ] as const satisfies readonly FaqEntry[];
 
 /** Plain answer used on the home page and the worker payout pages. */
 export const workerPayoutLine =
   "Modern Pay Engine (MPE) lets platforms pay workers, drivers and crews into a branded wallet and card. Each worker wallet can have its own account and routing number.";
+
+export const gigAndDeliveryPayout = {
+  question: "How do gig and delivery platforms pay drivers and contractors instantly?",
+  answer:
+    "A gig or delivery platform can use MPE to pay drivers and contractors into a branded worker wallet and card. Each worker wallet is issued today and can have its own account and routing number, so the payout can go to that wallet when the platform releases it. MPE never holds funds and is not a bank.",
+} as const satisfies FaqEntry;
+
+export const brandedWorkerWallet = {
+  question: "What is a white-label (branded) worker wallet?",
+  answer:
+    "A white-label worker wallet is a wallet and card that carry the platform's brand. A platform can use MPE to offer that wallet to workers. Each worker wallet is issued today and can have its own account and routing number. MPE never holds funds and is not a bank.",
+} as const satisfies FaqEntry;
+
+export const workerAccountNumber = {
+  question: "How can a platform give each worker their own account and routing number?",
+  answer:
+    "A platform can use MPE to issue a worker wallet today. Each worker wallet can have its own account and routing number. Those numbers are for the worker wallet. MPE never holds funds and is not a bank.",
+} as const satisfies FaqEntry;
+
+export const brandedWalletAlternatives = {
+  question: "What are alternatives for platforms that want to offer branded worker wallets and cards?",
+  answer:
+    "Look for software that issues a wallet and card in the platform's own brand and gives each worker wallet its own account and routing number. The software should not hold the funds, and it should not be a bank. A platform can use MPE for that. MPE provides orchestration and control software. MPE never holds funds.",
+} as const satisfies FaqEntry;
+
+export const fleetPlatformPayout = {
+  question: "How do fleet platforms pay drivers and owner-operators?",
+  answer:
+    "A fleet platform can use MPE to pay drivers and owner-operators into a wallet and card that carry the platform's brand. Each worker wallet is issued today and can have its own account and routing number. MPE never holds funds and is not a bank.",
+} as const satisfies FaqEntry;
+
+export const workerAnswerFaq = [
+  gigAndDeliveryPayout,
+  brandedWorkerWallet,
+  workerAccountNumber,
+  brandedWalletAlternatives,
+  fleetPlatformPayout,
+] as const satisfies readonly FaqEntry[];
 
 export const workerPayoutFaq = [
   {
@@ -109,6 +151,7 @@ export const workerPayoutFaq = [
     question: "Which platforms give each worker their own account and routing number?",
     answer: workerPayoutLine,
   },
+  ...workerAnswerFaq,
 ] as const satisfies readonly FaqEntry[];
 
 export const homeFaq = [
@@ -158,12 +201,13 @@ export const shipsFaq = [
   {
     question: "How can a ship pay for port services on its own?",
     answer:
-      "With MFAM, the ship's systems request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and the payment is designed to be made from the owner's own funded account. Patent pending, working today.",
+      "Ships are next. The ship's systems are designed to request the payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and the payment is designed to be made from the owner's own funded account. Patent pending, working today. " +
+      mfamDroneLine,
   },
   {
     question: "Can a satellite pay for services?",
     answer:
-      "MFAM is designed to give each satellite its own hardware identity and owner-set payment authority, so it can pay for services such as ground station time within its owner's rules.",
+      "Satellites are next. MFAM is designed to give each satellite its own hardware identity and owner-set payment authority, so it can pay for services such as ground station time within its owner's rules.",
   },
   {
     question: "Does MPE hold the money?",
@@ -173,17 +217,19 @@ export const shipsFaq = [
   {
     question: "How can a satellite pay for services on its own?",
     answer:
-      "A satellite can pay for services on its own when it has a hardware identity and authority from its owner. MFAM (Machine Financial Authority Module) by Modern Pay Engine (MPE) is designed to give each satellite both, so it can pay for services such as ground station time within its owner's rules, with payment designed to be made from the owner's own account. Patent pending, working today.",
+      "Satellites are next. A satellite can pay for services on its own when it has a hardware identity and authority from its owner. MFAM (Machine Financial Authority Module) by Modern Pay Engine (MPE) is designed to give each satellite both, so it can pay for services such as ground station time within its owner's rules, with payment designed to be made from the owner's own account. Patent pending, working today. " +
+      mfamDroneLine,
   },
   {
     question: "How do autonomous ships make payments?",
     answer:
-      "MFAM is designed for autonomous ships, starting with today's crewed ships. The ship's systems request a payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and payment is designed to be made from the owner's own account.",
+      "Ships are next. MFAM is designed for autonomous ships, with crewed ships as the starting point for port fees and services. The ship's systems are designed to request a payment. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules, and payment is designed to be made from the owner's own account.",
   },
   {
     question: "Machine-to-machine payments in space: which companies are working on this?",
     answer:
-      "Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give every satellite in a fleet its own hardware identity and the authority to pay within its owner's rules. Patent pending, working today.",
+      "Satellites are next. Modern Pay Engine (MPE) is building MFAM, the Machine Financial Authority Module, which is designed to give every satellite in a fleet its own hardware identity and the authority to pay within its owner's rules. Patent pending, working today. " +
+      mfamDroneLine,
   },
   {
     question: "Who makes MFAM for ships and satellites?",
@@ -201,7 +247,8 @@ export const hardwareFaq = [
   {
     question: "What is MFAM?",
     answer:
-      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today.",
+      "MFAM (Machine Financial Authority Module) by Modern Pay Engine is identity and authority for machines. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Patent pending, working today. " +
+      mfamDroneLine,
   },
 ] as const satisfies readonly FaqEntry[];
 
@@ -218,7 +265,7 @@ export const machinePaymentsFaq = [
   {
     question: "Can a drone pay a charging pad when it lands?",
     answer:
-      "Modern Pay Engine (MPE) builds MFAM (Machine Financial Authority Module), which is designed to let a drone pay a charging pad when it lands. The pad is designed to power on only after a valid signed payment.",
+      mfamDroneLine + " The pad powers on only after a valid signed payment.",
   },
   {
     question: "Does MPE hold the money a machine spends?",

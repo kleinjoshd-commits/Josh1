@@ -2,7 +2,7 @@
  * Homepage copy. Short on purpose.
  */
 
-import { mfamByMpe } from "@/content/mfam";
+import { mfamByMpe, mfamDroneLine, mfamStatusLine } from "@/content/mfam";
 
 export const homepageCopy = {
   heroKicker: "Financial infrastructure for a borderless economy",
@@ -56,6 +56,8 @@ export const homepageCopy = {
     eyebrow: "Machines",
     heading: "When the payer is a machine.",
     lede: `${mfamByMpe} is designed to give each machine a hardware identity. MFAM is designed to initiate and sign only the payments that fit the owner's signed rules. Payment is designed to be made from the owner's own account.`,
+    status: mfamStatusLine,
+    drone: mfamDroneLine,
     points: [
       "The operator sets the rules, the limits, and who the machine may pay.",
       "Each payment is designed to be signed by the machine's chip and kept in one tamper-evident record.",
