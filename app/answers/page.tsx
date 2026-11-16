@@ -20,7 +20,7 @@ export default function AnswersPage() {
           <div className="ebTag">ANSWERS</div>
           <h1>Worker payout answers</h1>
           <p className="ebSub">
-            A platform can use MPE to pay workers into a branded wallet and card. Each worker wallet is issued today and can have its own account and routing number. MPE never holds funds and is not a bank.
+            A platform can use MPE to pay workers into a branded wallet and card. MPE deploys branded worker wallets today, each with its own account and routing number. MPE never holds funds and is not a bank.
           </p>
         </div>
       </section>

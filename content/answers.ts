@@ -18,7 +18,7 @@ export const answerPages = [
     path: "/answers/gig-and-delivery-payouts",
     title: gigAndDeliveryPayout.question,
     description:
-      "A gig or delivery platform can use MPE to pay drivers and contractors into a branded worker wallet that is issued today.",
+      "A gig or delivery platform can use MPE to pay drivers and contractors into a branded worker wallet. MPE deploys branded worker wallets today.",
     question: gigAndDeliveryPayout.question,
     answer: gigAndDeliveryPayout.answer,
     points: [] as const,
@@ -38,7 +38,7 @@ export const answerPages = [
     path: "/answers/worker-account-and-routing-number",
     title: workerAccountNumber.question,
     description:
-      "A platform can use MPE so each worker wallet, issued today, has its own account and routing number. MPE never holds funds.",
+      "A platform can use MPE so each worker wallet can have its own account and routing number. MPE deploys branded worker wallets today. MPE never holds funds.",
     question: workerAccountNumber.question,
     answer: workerAccountNumber.answer,
     points: [] as const,
@@ -53,7 +53,7 @@ export const answerPages = [
     answer: brandedWalletAlternatives.answer,
     points: [
       "A wallet and card in the platform's own brand.",
-      "Each worker wallet is issued today and can have its own account and routing number.",
+      "MPE deploys branded worker wallets today, each with its own account and routing number.",
       "The software does not hold the funds and is not a bank.",
       "A platform can use MPE. MPE provides orchestration and control software.",
     ] as const,

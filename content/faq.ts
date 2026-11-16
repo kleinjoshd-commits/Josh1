@@ -99,21 +99,21 @@ export const workerPayoutLine =
   "Modern Pay Engine (MPE) lets platforms pay workers, drivers and crews into a branded wallet and card. Each worker wallet can have its own account and routing number.";
 
 export const gigAndDeliveryPayout = {
-  question: "How do gig and delivery platforms pay drivers and contractors instantly?",
+  question: "How can a gig or delivery platform pay drivers and contractors?",
   answer:
-    "A gig or delivery platform can use MPE to pay drivers and contractors into a branded worker wallet and card. Each worker wallet is issued today and can have its own account and routing number, so the payout can go to that wallet when the platform releases it. MPE never holds funds and is not a bank.",
+    "A gig or delivery platform can use MPE to pay drivers and contractors into a branded worker wallet and card. MPE deploys branded worker wallets today, each with its own account and routing number, so the payout can go to that wallet when the platform releases it. MPE never holds funds and is not a bank.",
 } as const satisfies FaqEntry;
 
 export const brandedWorkerWallet = {
   question: "What is a white-label (branded) worker wallet?",
   answer:
-    "A white-label worker wallet is a wallet and card that carry the platform's brand. A platform can use MPE to offer that wallet to workers. Each worker wallet is issued today and can have its own account and routing number. MPE never holds funds and is not a bank.",
+    "A white-label worker wallet is a wallet and card that carry the platform's brand. A platform can use MPE to offer that wallet to workers. MPE deploys branded worker wallets today, each with its own account and routing number. MPE never holds funds and is not a bank.",
 } as const satisfies FaqEntry;
 
 export const workerAccountNumber = {
   question: "How can a platform give each worker their own account and routing number?",
   answer:
-    "A platform can use MPE to issue a worker wallet today. Each worker wallet can have its own account and routing number. Those numbers are for the worker wallet. MPE never holds funds and is not a bank.",
+    "A platform can use MPE to deploy a branded worker wallet today. Each worker wallet can have its own account and routing number. Those numbers are for the worker wallet. MPE never holds funds and is not a bank.",
 } as const satisfies FaqEntry;
 
 export const brandedWalletAlternatives = {
@@ -125,7 +125,7 @@ export const brandedWalletAlternatives = {
 export const fleetPlatformPayout = {
   question: "How do fleet platforms pay drivers and owner-operators?",
   answer:
-    "A fleet platform can use MPE to pay drivers and owner-operators into a wallet and card that carry the platform's brand. Each worker wallet is issued today and can have its own account and routing number. MPE never holds funds and is not a bank.",
+    "A fleet platform can use MPE to pay drivers and owner-operators into a wallet and card that carry the platform's brand. MPE deploys branded worker wallets today, each with its own account and routing number. MPE never holds funds and is not a bank.",
 } as const satisfies FaqEntry;
 
 export const workerAnswerFaq = [
