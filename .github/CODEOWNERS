@@ -1,0 +1,10 @@
+# SOC 2 change management. The last matching pattern wins, so the
+# explicit lines below stay the owners of those paths.
+# @kleinjoshd-commits must have write access for review requests to work.
+
+* @kleinjoshd-commits
+
+next.config.* @kleinjoshd-commits
+middleware.* @kleinjoshd-commits
+vercel.json @kleinjoshd-commits
+.github/ @kleinjoshd-commits
